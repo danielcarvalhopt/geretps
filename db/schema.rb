@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131123012238) do
+ActiveRecord::Schema.define(version: 20131123141157) do
 
   create_table "assigned_notifications", force: true do |t|
     t.integer "group_id"
@@ -44,11 +44,40 @@ ActiveRecord::Schema.define(version: 20131123012238) do
 
   add_index "courses", ["institution_id"], name: "index_courses_on_institution_id"
 
+  create_table "deliveries", force: true do |t|
+    t.text    "description"
+    t.integer "phase_id"
+    t.integer "group_id"
+    t.integer "statement_id"
+  end
+
+  add_index "deliveries", ["group_id"], name: "index_deliveries_on_group_id"
+  add_index "deliveries", ["phase_id"], name: "index_deliveries_on_phase_id"
+  add_index "deliveries", ["statement_id"], name: "index_deliveries_on_statement_id"
+
+  create_table "delivery_files", force: true do |t|
+    t.integer "delivery_id"
+    t.integer "file_id"
+  end
+
+  add_index "delivery_files", ["delivery_id"], name: "index_delivery_files_on_delivery_id"
+  add_index "delivery_files", ["file_id"], name: "index_delivery_files_on_file_id"
+
   create_table "files", force: true do |t|
     t.string "name"
     t.string "description"
     t.text   "notes"
   end
+
+  create_table "grades", force: true do |t|
+    t.float   "value"
+    t.text    "comments"
+    t.integer "delivery_id"
+    t.integer "student_id"
+  end
+
+  add_index "grades", ["delivery_id"], name: "index_grades_on_delivery_id"
+  add_index "grades", ["student_id"], name: "index_grades_on_student_id"
 
   create_table "groups", force: true do |t|
     t.string  "identifier"
@@ -147,6 +176,16 @@ ActiveRecord::Schema.define(version: 20131123012238) do
   end
 
   add_index "teachers", ["user_id"], name: "index_teachers_on_user_id"
+
+  create_table "tests", force: true do |t|
+    t.integer "phase_id"
+    t.integer "input_id"
+    t.integer "output_id"
+  end
+
+  add_index "tests", ["input_id"], name: "index_tests_on_input_id"
+  add_index "tests", ["output_id"], name: "index_tests_on_output_id"
+  add_index "tests", ["phase_id"], name: "index_tests_on_phase_id"
 
   create_table "users", force: true do |t|
     t.string "name"

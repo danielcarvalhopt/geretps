@@ -4,4 +4,5 @@ class Group < ActiveRecord::Base
   has_many :students, through: :members
   has_many :assigned_notifications
   has_many :notifications, through: :assigned_notifications
+  has_many :deliveries
 end

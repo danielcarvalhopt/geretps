@@ -4,4 +4,6 @@ class Phase < ActiveRecord::Base
   has_many :required_files
   has_many :phase_files
   has_many :files, through: :phase_files
+  has_many :tests
+  has_many :deliveries
 end
