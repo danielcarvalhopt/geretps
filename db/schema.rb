@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131122210123) do
+ActiveRecord::Schema.define(version: 20131123012238) do
+
+  create_table "assigned_notifications", force: true do |t|
+    t.integer "group_id"
+    t.integer "notification_id"
+  end
+
+  add_index "assigned_notifications", ["group_id"], name: "index_assigned_notifications_on_group_id"
+  add_index "assigned_notifications", ["notification_id"], name: "index_assigned_notifications_on_notification_id"
 
   create_table "assigned_students", force: true do |t|
     t.integer "student_id"
@@ -31,8 +39,15 @@ ActiveRecord::Schema.define(version: 20131122210123) do
 
   create_table "courses", force: true do |t|
     t.string  "name"
-    t.integer "academic_year"
     t.integer "institution_id"
+  end
+
+  add_index "courses", ["institution_id"], name: "index_courses_on_institution_id"
+
+  create_table "files", force: true do |t|
+    t.string "name"
+    t.string "description"
+    t.text   "notes"
   end
 
   create_table "groups", force: true do |t|
@@ -54,15 +69,62 @@ ActiveRecord::Schema.define(version: 20131122210123) do
   add_index "members", ["group_id"], name: "index_members_on_group_id"
   add_index "members", ["student_id"], name: "index_members_on_student_id"
 
+  create_table "notifications", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "date"
+    t.integer  "project_id"
+  end
+
+  add_index "notifications", ["project_id"], name: "index_notifications_on_project_id"
+
+  create_table "phase_files", force: true do |t|
+    t.integer "file_id"
+    t.integer "phase_id"
+  end
+
+  add_index "phase_files", ["file_id"], name: "index_phase_files_on_file_id"
+  add_index "phase_files", ["phase_id"], name: "index_phase_files_on_phase_id"
+
+  create_table "phases", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "begin_date"
+    t.datetime "end_date"
+    t.integer  "statement_id"
+    t.integer  "project_id"
+  end
+
+  add_index "phases", ["project_id"], name: "index_phases_on_project_id"
+  add_index "phases", ["statement_id"], name: "index_phases_on_statement_id"
+
+  create_table "project_files", force: true do |t|
+    t.integer "file_id"
+    t.integer "project_id"
+  end
+
+  add_index "project_files", ["file_id"], name: "index_project_files_on_file_id"
+  add_index "project_files", ["project_id"], name: "index_project_files_on_project_id"
+
   create_table "projects", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "begin_date"
     t.datetime "end_date"
     t.integer  "subject_id"
+    t.integer  "statement_id"
   end
 
+  add_index "projects", ["statement_id"], name: "index_projects_on_statement_id"
   add_index "projects", ["subject_id"], name: "index_projects_on_subject_id"
+
+  create_table "required_files", force: true do |t|
+    t.string  "name"
+    t.text    "description"
+    t.integer "phase_id"
+  end
+
+  add_index "required_files", ["phase_id"], name: "index_required_files_on_phase_id"
 
   create_table "students", force: true do |t|
     t.integer "user_id"
@@ -72,6 +134,7 @@ ActiveRecord::Schema.define(version: 20131122210123) do
 
   create_table "subjects", force: true do |t|
     t.string  "name"
+    t.string  "academic_year"
     t.integer "course_id"
     t.integer "responsible_id"
   end
