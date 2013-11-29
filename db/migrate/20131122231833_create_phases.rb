@@ -5,6 +5,8 @@ class CreatePhases < ActiveRecord::Migration
       t.text :description
       t.datetime :begin_date
       t.datetime :end_date
+      t.boolean :open
+      t.boolean :grades
       t.references :statement, index: true
       t.references :project, index: true
     end
