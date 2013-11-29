@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131123141157) do
+ActiveRecord::Schema.define(version: 20131129020450) do
 
   create_table "assigned_notifications", force: true do |t|
     t.integer "group_id"
@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(version: 20131123141157) do
   create_table "assigned_students", force: true do |t|
     t.integer "student_id"
     t.integer "subject_id"
+    t.integer "shift_id"
   end
 
+  add_index "assigned_students", ["shift_id"], name: "index_assigned_students_on_shift_id"
   add_index "assigned_students", ["student_id"], name: "index_assigned_students_on_student_id"
   add_index "assigned_students", ["subject_id"], name: "index_assigned_students_on_subject_id"
 
@@ -46,6 +48,8 @@ ActiveRecord::Schema.define(version: 20131123141157) do
 
   create_table "deliveries", force: true do |t|
     t.text    "description"
+    t.boolean "public"
+    t.boolean "grades"
     t.integer "phase_id"
     t.integer "group_id"
     t.integer "statement_id"
@@ -120,6 +124,8 @@ ActiveRecord::Schema.define(version: 20131123141157) do
     t.text     "description"
     t.datetime "begin_date"
     t.datetime "end_date"
+    t.boolean  "open"
+    t.boolean  "grades"
     t.integer  "statement_id"
     t.integer  "project_id"
   end
@@ -140,6 +146,11 @@ ActiveRecord::Schema.define(version: 20131123141157) do
     t.text     "description"
     t.datetime "begin_date"
     t.datetime "end_date"
+    t.boolean  "public"
+    t.boolean  "grades"
+    t.boolean  "open"
+    t.integer  "max_elems"
+    t.integer  "min_elems"
     t.integer  "subject_id"
     t.integer  "statement_id"
   end
@@ -155,7 +166,15 @@ ActiveRecord::Schema.define(version: 20131123141157) do
 
   add_index "required_files", ["phase_id"], name: "index_required_files_on_phase_id"
 
+  create_table "shifts", force: true do |t|
+    t.string  "name"
+    t.integer "subject_id"
+  end
+
+  add_index "shifts", ["subject_id"], name: "index_shifts_on_subject_id"
+
   create_table "students", force: true do |t|
+    t.string  "identifier"
     t.integer "user_id"
   end
 
@@ -178,6 +197,7 @@ ActiveRecord::Schema.define(version: 20131123141157) do
   add_index "teachers", ["user_id"], name: "index_teachers_on_user_id"
 
   create_table "tests", force: true do |t|
+    t.text    "diff"
     t.integer "phase_id"
     t.integer "input_id"
     t.integer "output_id"
