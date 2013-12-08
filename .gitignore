@@ -1,6 +1,7 @@
 Makefile
+
 # Latex files
- 
+
 *.aux
 *.glo
 *.idx
@@ -32,7 +33,7 @@ Makefile
 *.fdb_latexmk
 *.texnicle
 
- 
+
 # Mac IDE files
 *.swp
 *~
@@ -40,6 +41,6 @@ Makefile
 Backup[  ]of[  ]*.pages/
 Backup[  ]of[  ]*.key/
 Backup[  ]of[  ]*.numbers/
- 
+
 # Mac finder files and hidden folders
 .DS_Store
