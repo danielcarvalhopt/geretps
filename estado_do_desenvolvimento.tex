@@ -1,1 +1,20 @@
 \section{Estado do desenvolvimento}
+
+Depois de toda a fase de planeamento, iniciou-se o desenvolvimento do projeto.
+
+Pretende-se que o desenvolvimento seja um processo incremental, começando por definir as funcionalidades principais primeiro e só depois evoluir para as restantes.
+
+Relativamente à base de dados, optou-se por definir a base de dados completa logo à partida, isto porque as nossas funcionalidades principais exigem alterações num grande número de tabelas com um elevado número de dependências.
+
+Para efetuarem-se alterações na base de dados, em \textbf{Ruby on Rails}, existem as \textbf{Migrações}. Migrações são \textit{scripts} escritas em \textbf{Ruby} que utilizam API disponibilizada pelo Rails para criação, alteração e remoção de tabelas da base de dados. À semelhança de outras ações do \textbf{ActiveRecord}, as migrações também são independentes do motor de base de dados utilizado. 
+
+Nesta fase, já foram definidas todas as migrações para criação das tabelas enunciadas na secção do \textbf{Repositório de Informação}.
+
+Outra fase já ultrapassada do desenvolvimento foi a definição dos \textbf{Modelos}.
+O componente de Modelo do Rails é um conjunto de classes que usam o ActiveRecord, uma classe ORM que mapeia objetos em tabelas da base de dados. O ActiveRecord usa convenções de nome para determinar os mapeamentos, utilizando uma série de regras convencionadas que devem ser seguidas para que a configuração seja a mínima possível.
+
+Os Modelos do nosso sistema são os enunciados na subsecção \textbf{Diagrama de Classes}, da secção \textbf{Modelo de Dados}.
+
+Dentro dos modelos já estão definidas todas as relações entre as diferentes entidades do sistema, assim como algumas restrições dos dados.
+
+Para além da definição das Migrações e dos Modelos avançamos na construção em HTML das páginas principais.
