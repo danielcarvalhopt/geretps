@@ -29,7 +29,7 @@ Makefile
 *.out
 *.synctex.gz
 *.pdf
-.fdb_latexmk
+*.fdb_latexmk
 *.texnicle
  
 # Mac IDE files
