@@ -1,1 +1,43 @@
 \section{Introdução}
+Em termos gerais, este projeto baseia-se num sistema de informação que permita a gestão de trabalhos 
+práticos de unidades curriculares de alunos do ensino superior.
+
+A ideia central é permitir receber os trabalhos (programa e relatório) entregues por cada grupo e 
+permitir associar a cada submissão os comentários e a classificação atribuída pelo docente, 
+permitindo gerar a pauta da turma. No entanto de forma a garantir um maior 
+espetro de usabilidade, olhar para o sistema de forma a poder suportar 
+trabalhos práticos num formato mais genérico que permita não só receber 
+trabalhos de programação mas todo o tipo de trabalhos práticos produzidos.
+
+Para este sistema ser completo e funcional deve também garantir funcionalidades como
+a gestão de unidades curriculares e a sua equipa docente,  gestão de turnos e dos alunos inscritos, e a
+criação de trabalhos práticos dentro da unidade curricular.
+
+No que diz respeito à implementação, este sistema é suportado por uma aplicação \textit{web}, acessível
+nos vários tipos de dispositivos (computador, \textit{tablet}, \textit{smartphone}), deverá garantir a persistência de 
+dados numa base de dados relacional, deverá garantir a interoperabilidade com outros sistemas para
+importação ou exportação de dados, bem como permitir a publicação de pautas em vários formatos.
+
+Noutra perspetiva é necessário tratar os trabalhos práticos disponibilizados na aplicação
+e criar um sistema que sirva de repositório digital dos mesmos. Na sua implementação é necessário
+garantir um \textit{backoffice} que permita aos professores fazer a gestão das unidades curriculares
+de que são responsáveis, assim como dos turnos e projetos da mesma. É também requerido garantir
+aos alunos a gestão dos seus grupos dentro dos projetos, assim como garantir a funcionalidade
+de entrega de trabalhos práticos.
+ 
+ Por fim, torna-se imperativo garantir a todos os utilizadores do sistema, a possibilidade de procura
+ e consulta de todos os projetos disponíveis para o público.
+ 
+ Posto isto, o sistema deve ter como a estrutura do modelo de referência internacional OAIS 
+ (\textit{Open Archive Information System}).
+ Nesta estrutura existem três organismos que fazem funcionar o sistema. Os produtores, que 
+ alimentam o sistema com os trabalhos práticos, os administradores que fazem a gestão e administração
+ dos trabalhos práticos e os consumidores que irão usufruir dos trabalhos práticos. 
+ 
+No que concerne à validação dos projectos submetidos há a necessidade de verificações e 
+criação de um modelo genérico a que todas as submissões terão de obedecer. Neste processo
+é necessário tratar-se do SIP (\textit{Submission Information Package}) na ingestão do sistema dos
+trabalhos práticos, que após tratamento da informação se transforma num AIP (\textit{Archival 
+Information Package}) e então arquivado, e por fim a aplicação disponibiliza o trabalho no formato
+de um DIP (\textit{Dissemination Information Package}) pronto a ser disseminado e consumido pelos
+utilizadores do sistema.
