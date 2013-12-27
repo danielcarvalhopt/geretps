@@ -9,6 +9,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'paperclip'
+gem 'sass-rails', '~> 4.0.0'
+gem 'compass-rails', '~> 2.0.alpha.0'
+gem 'slim'
 
 group :doc do
   gem 'sdoc', require: false
