@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131129020450) do
+ActiveRecord::Schema.define(version: 20131227003554) do
 
   create_table "assigned_notifications", force: true do |t|
     t.integer "group_id"
@@ -68,9 +68,13 @@ ActiveRecord::Schema.define(version: 20131129020450) do
   add_index "delivery_files", ["file_id"], name: "index_delivery_files_on_file_id"
 
   create_table "files", force: true do |t|
-    t.string "name"
-    t.string "description"
-    t.text   "notes"
+    t.string   "name"
+    t.string   "description"
+    t.text     "notes"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   create_table "grades", force: true do |t|
@@ -126,6 +130,7 @@ ActiveRecord::Schema.define(version: 20131129020450) do
     t.datetime "end_date"
     t.boolean  "open"
     t.boolean  "grades"
+    t.integer  "value"
     t.integer  "statement_id"
     t.integer  "project_id"
   end
@@ -208,10 +213,26 @@ ActiveRecord::Schema.define(version: 20131129020450) do
   add_index "tests", ["phase_id"], name: "index_tests_on_phase_id"
 
   create_table "users", force: true do |t|
-    t.string "name"
-    t.string "email"
-    t.text   "about"
-    t.string "phone"
+    t.string   "name"
+    t.text     "about"
+    t.string   "phone"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
