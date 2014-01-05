@@ -5,4 +5,7 @@ class Group < ActiveRecord::Base
   has_many :assigned_notifications
   has_many :notifications, through: :assigned_notifications
   has_many :deliveries
+
+  validates :identifier, presence: true
+
 end
