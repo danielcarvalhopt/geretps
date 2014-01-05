@@ -6,4 +6,8 @@ class Delivery < ActiveRecord::Base
   has_many :files, through: :delivery_files
   has_many :grades
   has_many :test_results
+
+  validates :description, :grades, :public, presence: true
+  validates :description , length: { maximum: 500 }
+  validates :grades ,:public , inclusion: { in: [true, false] }
 end

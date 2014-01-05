@@ -41,6 +41,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+<<<<<<< HEAD
     compass (0.12.2)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
@@ -52,6 +53,15 @@ GEM
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
       warden (~> 1.2.3)
+=======
+    date_validator (0.7.0)
+      activemodel (>= 3)
+<<<<<<< HEAD
+>>>>>>> 417a0a8... Add: Validations
+=======
+    email_validator (1.4.0)
+      activemodel
+>>>>>>> f3421ec... Change: Validations
     erubis (2.7.0)
     execjs (2.0.2)
     fssm (0.2.10)
@@ -139,8 +149,16 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+<<<<<<< HEAD
   compass-rails
   devise (= 3.0.3)
+=======
+  date_validator
+<<<<<<< HEAD
+>>>>>>> 417a0a8... Add: Validations
+=======
+  email_validator
+>>>>>>> f3421ec... Change: Validations
   jbuilder (~> 1.2)
   jquery-rails
   paperclip
