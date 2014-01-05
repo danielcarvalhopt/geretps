@@ -5,4 +5,6 @@ class Student < ActiveRecord::Base
   has_many :members
   has_many :groups, through: :members
   has_many :grades
+
+  validates :identifier,:user, presence: true
 end

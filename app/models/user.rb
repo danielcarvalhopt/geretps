@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+	validates :email, presence: true, email: true, uniqueness: true
+	validates :phone ,phone: true, uniqueness: true
+  validates :nome, presence: true
 end
