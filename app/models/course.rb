@@ -3,6 +3,5 @@ class Course < ActiveRecord::Base
   has_many :subjects
 
   validates :name, presence: true
-
-
+  validates :institution, presence: true
 end

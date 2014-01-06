@@ -33,6 +33,8 @@ group :doc do
 end
 
 gem 'date_validator'
+gem 'email_validator'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

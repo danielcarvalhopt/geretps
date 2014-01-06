@@ -7,5 +7,4 @@ class Group < ActiveRecord::Base
   has_many :deliveries
 
   validates :identifier, presence: true
-
 end
