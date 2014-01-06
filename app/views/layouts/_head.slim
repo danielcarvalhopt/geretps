@@ -1,0 +1,12 @@
+head
+  meta charset="utf-8"
+  = render 'layouts/meta'
+
+  = favicon_link_tag 'favicon.png'
+  meta name="viewport" content="width=device-width, initial-scale=1.0"
+
+  title= content_for?(:title) ? yield(:title) : t('title.simple')
+
+  = stylesheet_link_tag "application"
+  = javascript_include_tag "application"
+  = csrf_meta_tag
