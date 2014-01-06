@@ -6,4 +6,8 @@ class Phase < ActiveRecord::Base
   has_many :files, through: :phase_files
   has_many :tests
   has_many :deliveries
+
+  validates :name, :begin_date, presence: true
+  validates :begin_date, date: true
+  validates :end_date, date: {after: :begin_date}
 end

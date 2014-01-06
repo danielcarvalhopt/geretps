@@ -6,4 +6,8 @@ class Project < ActiveRecord::Base
   has_many :phases
   has_many :project_files
   has_many :files, through: :project_files
+
+  validates :begin_date, :name, :min_elems, presence: true
+  validates :begin_date, date: true
+  validates :end_date, date:{after: :begin_date}
 end
