@@ -1,32 +1,40 @@
-.single-widget-container
-  section.widget.login-widget
-    header.text-align-center
-      h4 Entre na sua conta 
-    .body
-      = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-        fieldset
-          .form-group.no-margin
-            label for="email"
-            .input-group.input-group-lg
-              span.input-group-addon
-                i.eicon-user
-              = f.email_field :email, autofocus: true, id: "email", class: "form-control input-lg", placeholder: "Email"
-          .form-group
-            label for="password"
-            .input-group.input-group-lg
-              span.input-group-addon
-                i.fa.fa-lock
-              = f.password_field :password, id: "password", class: "form-control input-lg", placeholder: "Password"
-        .form-actions
-          button.btn.btn-block.btn-lg.btn-danger type="submit"
-            span.small-circle
-              i.fa.fa-caret-right
-            small  Entrar
-          .forgot
-            a.forgot href="#"
-    footer
-      .facebook-login
-        a href="index.html"
-          span
-            i.fa.fa-facebook-square.fa-lg
-            |  Entrar com o facebook
+= render "shared/main_header"
+._login-page
+  .single-widget-container
+    section.widget.login-widget
+      header.text-align-center
+        h4 Entre na sua conta
+      .body
+        = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+          .alert.alert-danger.alert-dismissable
+            button.close aria-hidden="true" data-dismiss="alert" type="button"
+            strong Warning!
+            |  Email ou password errada! Tente novamente. /! Adicionar funcionalidade
+          fieldset
+            .form-group.no-margin
+              label for="email"
+              .input-group.input-group-lg
+                span.input-group-addon
+                  i.eicon-user
+                = f.email_field :email, autofocus: true, id: "email", class: "form-control input-lg", placeholder: "Email"
+            .form-group
+              label for="password"
+              .input-group.input-group-lg
+                span.input-group-addon
+                  i.fa.fa-lock
+                = f.password_field :password, id: "password", class: "form-control input-lg", placeholder: "Password"
+          .form-actions
+            button.btn.btn-block.btn-lg.btn-success type="submit"
+              span.small-circle
+                i.fa.fa-caret-right
+              small  Entrar
+            .forgot
+              a.forgot href="#"
+                | Lembrar palavra-passe?
+      footer
+        .facebook-login
+          a href="#"
+            span
+              i.fa.fa-facebook-square.fa-lg
+              |  Entrar com o facebook
+  = render "shared/main_footer"
