@@ -1,0 +1,45 @@
+.sourrounding_all.on_frontpage
+  = render "shared/main_header"
+  .joobstrab_area.header_area
+    #header_slider.joobstrap_section.sourrounding_wrapper
+      .inner_wrapper
+        .row
+          .col-md-7
+          .col-md-5
+            section.widget._signup
+              header
+                h4
+                  i.fa.fa-pencil style="color: #333"  Informações pessoais
+                fieldset
+                  hr
+                  .control-group
+                    label.control-label for="name"
+                      | Nome
+                    .controls.form-group
+                      input#name.col-xs-12 name="name" type="text"
+                  .control-group
+                    label.control-label for="email"
+                      | Email
+                    .controls.form-group
+                      input#email.col-xs-12 name="email" type="text"
+                  .control-group
+                    label.control-label for="phone"
+                      | Telemóvel
+                    .controls.form-group
+                      input#phone.col-xs-12 name="phone" type="text"
+                  .control-group
+                    label.control-label for="password"
+                      | Palavra-passe
+                    .controls.form-group
+                      input#password.col-xs-12 name="password" type="password"
+                  .control-group
+                    label.control-label for="password2"
+                      | Confirmar palavra-passe
+                    .controls.form-group
+                      input#password2.col-xs-12 name="password2" type="password"
+                  button.btn.btn-success.btn-lg.pull-right data-original-title=".btn .btn-success .btn-lg" data-placement="top" type="button"
+                    | Registar
+
+
+
+= render "shared/main_footer"

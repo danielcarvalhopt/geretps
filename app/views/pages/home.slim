@@ -1,0 +1,122 @@
+.sourrounding_all.on_frontpage
+  = render "shared/main_header"
+  .joobstrab_area.header_area
+    #header_slider.joobstrap_section.sourrounding_wrapper
+      .inner_wrapper
+        .container
+          .row
+            .col-md-12.slider_controls
+              .flexslider
+                ul.slides
+                  li.slider_item.text-align-center
+                    div style="padding:140px 0 40px 0"
+                      h2.hero
+                        | Gestão de projectos like a boss!
+                        span.colored .
+                      p.lead Com o GereTPs é possível fazer a gestão das suas disciplinas e dos seus projectos!
+                    = image_tag("sample_screen.jpg",  :alt => "screen")
+                  li.slider_item.text-align-center
+                    div style="padding:140px 0 40px 0"
+                      h2.hero
+                        | Gestão de projectos like a boss!
+                        span.colored .
+                      p.lead Com o GereTPs é possível fazer a gestão das suas disciplinas e dos seus projectos!
+                    = image_tag("sample_screen.jpg", :alt => "screen")
+              .clear
+  .joobstrab_area.top_area
+    #top_center.joobstrap_section.sourrounding_wrapper
+      .inner_wrapper
+        .container
+          .row.text-center
+            h2.module-title style="margin-bottom: 80px"
+              span Para quem?
+            .col-md-4
+              i.fa.fa-user.fa-4x
+              h5 Estudantes
+              p Gere os teus projectos índividuais e de grupo com a maior comodidade e apoio possível! Publica os teus projectos e faz com que o teu trabalho seja reconhecido!
+            .col-md-4
+              i.fa.fa-user-md.fa-4x
+              h5 Docentes
+              p Faça a gestão dos projectos e unidades curriculares que lecciona, assim como dos seus alunos e turnos! Deixe a nossa plataforma tornar-lhe a vida mais fácil!
+            .col-md-4
+              i.fa.fa-users.fa-4x
+              h5 Toda a gente!
+              p Todos os projectos publicados poderão ser acedidos por qualquer utilizador da plataforma, permitindo assim a difusão e livre acesso a informação de todas as áreas!
+        .clear
+  .joobstrab_area.main_area
+    .joobstrap_section.sourrounding_wrapper.text-center
+      .inner_wrapper
+        .container
+          .row
+            .col-md-12
+              .row
+                .col-xs-9
+                  h4 Começa já a fazer a gestão dos teus projectos!
+                .col-xs-3
+                  button.btn.btn-info.btn-xl data-original-title=".btn .btn-success .btn-lg" data-placement="top" type="button"
+                    | Registar
+  .joobstrab_area.main_area
+    #main_top.joobstrap_section.sourrounding_wrapper
+      .inner_wrapper
+        .container
+          .row
+            .col-md-12
+              h2.module-title
+                span> A melhor escolha para
+                | estudantes!
+              p.lead.text-center Gere os teus projectos índividuais e de grupo com a maior comodidade e apoio possível! Publica os teus projectos e faz com que o teu trabalho seja reconhecido!
+              hr
+          .row
+            .col-md-3
+              h5 Integração em UCs
+              p Consulta as tuas unidades curriculares e os projectos associados
+              hr
+                h5 Gestão de projectos
+                p Gere os projectos das unidades curriculares em que estás inscrito
+            .col-md-3
+              h5 Gestão de grupos
+              p Cria os teus grupos de trabalho de forma fácil e intuitiva
+              hr
+                h5 Submissão de fases
+                p Entrega facilmente os teus trabalhos e espera pelas avaliações!
+            .col-md-6
+              = image_tag("student.png", :alt => "screen")
+          .clear
+    #main_center.joobstrap_section.sourrounding_wrapper
+      .inner_wrapper
+        .container
+          .row
+            .col-md-12
+              h2.module-title
+                span> E para
+                | professores
+                span>  também!
+              p.lead.text-center Gere os teus projectos índividuais e de grupo com a maior comodidade e apoio possível! Publica os teus projectos e faz com que o teu trabalho seja reconhecido!
+              hr
+          .row
+            .col-md-6
+              = image_tag("teacher.png", :alt => "screen")
+            .col-md-3
+              h5 Gestão de UCs
+              p Crie turnos e projectos dentro de cada unidade curricular
+              hr
+                h5 Gestão de turnos
+                p Crie os turnos e faça a gestão e distribuição dos alunos
+            .col-md-3
+              h5 Gestão de projectos
+              p Crie projectos dentro das UCs e avalie os alunos
+              hr
+                h5 Gestão de pautas
+                p Faça a gestão das pautas através das avaliações dos projectos
+                      .clear
+    #main_bottom.joobstrap_section.sourrounding_wrapper.text-center
+      .inner_wrapper
+        .container
+          .row
+            .col-md-12
+              h2.module-title
+                span Conheça
+                |  A Equipa :v
+              p.lead Meter a foto dos 3 mosqueteiros de EL :v
+              .clear
+= render "shared/main_footer"
