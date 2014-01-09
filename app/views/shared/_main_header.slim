@@ -1,12 +1,35 @@
-._main-header
-  .container
-    .logo
-    .navbar
-      ul.nav.navbar-nav.navbar-right.pull-right
-        li.hidden-xs
-          a href="/"
-            i.fa.fa-home  Home
-        li.hidden-xs
-          a href="/registar"
-            i.fa.fa-pencil  Registar
-/! Depois muda-se para link_to com paths
+.joobstrab_area.navbar_area
+  #navbar_center.joobstrap_section.sourrounding_wrapper
+    .inner_wrapper
+      nav.navbar.navbar-default role="navigation"
+        .container
+          .row
+            .col-md-12
+              .navbar-header
+                button.navbar-toggle data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button"
+                  span.sr-only Toggle navigation
+                  span.icon-bar
+                  span.icon-bar
+                  span.icon-bar
+                a.navbar-brand.logo_text href="index.html"
+                  ._logo
+                  h1 style="float:left"
+                    | GereTPs
+                    span.colored .
+              .main_nav.navbar-collapse.navbar-ex1-collapse.collapse style="height: 1px;"
+                ul.navigation.menu
+                  li
+                    a href="#"
+                      | Home
+                  li
+                    a href="#"
+                      | Sitemap
+                  li
+                    a href="#"
+                      | Sobre
+                  li
+                    a href="#"
+                      button.btn.btn-success.btn Entrar
+                  li
+                    a href="#"
+                      button.btn.btn-info.btn Registar

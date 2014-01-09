@@ -1,1 +1,37 @@
-._footer
+#credits.joobstrap_section.sourrounding_wrapper
+  .inner_wrapper
+    .container
+      .row
+        .col-md-6.credits_left
+          p
+        .col-md-6.credits_right
+
+javascript:
+  jQuery.noConflict();
+    jQuery(window).load(function() {
+      jQuery('.flexslider').flexslider({
+          animation: "slide",
+          slideDirection: "horizontal",
+          slideshow: true,
+          slideshowSpeed: 10000,
+          animationDuration: 1000,
+          directionNav: true,
+          controlNav: true,
+          animationLoop: true,
+          pauseOnAction: true,
+          smoothHeight: true,
+          pauseOnHover: true,
+
+
+      });
+    });
+javascript:
+  jQuery.backstretch([
+         "/assets/sample_background3.png"
+        ], {
+            fade: 750
+        });
+javascript:
+  jQuery(window).load(function(){
+    jQuery("#navbar_center").sticky({ topSpacing: 0, className:"sticked", wrapperClassName: "sticked_wrapper" });
+  });

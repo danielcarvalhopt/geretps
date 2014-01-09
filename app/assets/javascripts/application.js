@@ -38,3 +38,7 @@
 //= require lib/bootstrap/dropdown.js
 //= require app.js
 //= require chat.js
+//= require flexslider-min.js
+//= require backstretch.min.js
+//= require sticky.js
+//= require smoothscroll.min.js
