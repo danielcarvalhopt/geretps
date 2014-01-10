@@ -1,0 +1,51 @@
+.sourrounding_all.on_frontpage
+  = render "shared/main_header"
+  .joobstrab_area.header_area
+    #header_slider.joobstrap_section.sourrounding_wrapper
+      .inner_wrapper
+        .row
+          .col-md-8
+          .col-md-4._login
+            section.widget.login-widget
+              header.text-align-center
+                h4 style="color: #333"
+                  | Entre na sua conta
+              - if flash.first
+                .alert.alert-danger
+                  = flash.first[1]
+              .body
+                = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+                  fieldset
+                    .form-group.no-margin
+                      label for="email"
+                      .input-group.input-group-lg
+                        span.input-group-addon
+                          i.eicon-user
+                        = f.email_field :email, autofocus: true, id: "email", class: "form-control input-lg", placeholder: "Email"
+                    .form-group
+                      label for="password"
+                      .input-group.input-group-lg
+                        span.input-group-addon
+                          i.fa.fa-lock
+                        = f.password_field :password, id: "password", class: "form-control input-lg", placeholder: "Password"
+                    .form-group
+                      - if devise_mapping.rememberable?
+                        div.text-center
+                          = f.check_box :remember_me
+                          = f.label :remember_me
+                  .form-actions
+                    button.btn.btn-block.btn-lg.btn-success type="submit"
+                      span.small-circle
+                        i.fa.fa-caret-right
+                      small  Entrar
+                    .forgot
+                      - if devise_mapping.recoverable? && controller_name != 'passwords'
+                        = link_to "Lembrar palavra-passe?", new_password_path(resource_name)
+                        br/
+              footer
+                .facebook-login
+                  a href="#"
+                    span
+                      i.fa.fa-facebook-square.fa-lg
+                      |  Entrar com o facebook
+= render "shared/main_footer"
