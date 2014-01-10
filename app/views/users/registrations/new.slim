@@ -7,39 +7,29 @@
           .col-md-7
           .col-md-5
             section.widget._signup
-              header
-                h4
-                  i.fa.fa-pencil style="color: #333"  Informações pessoais
-                fieldset
-                  hr
+              header.text-align-center
+                h4 style="color: #333" Informações pessoais
+                = render "users/shared/errors"
+              .body
+                = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
                   .control-group
-                    label.control-label for="name"
-                      | Nome
-                    .controls.form-group
-                      input#name.col-xs-12 name="name" type="text"
+                    = f.label :name, "Nome", :class => "control-label"
+                    = f.text_field :name, :autofocus => true, :class => "col-xs-12"
                   .control-group
-                    label.control-label for="email"
-                      | Email
-                    .controls.form-group
-                      input#email.col-xs-12 name="email" type="text"
+                    = f.label :email, "Email", :class => "control-label"
+                    = f.email_field :email, :class => "col-xs-12"
                   .control-group
-                    label.control-label for="phone"
-                      | Telemóvel
-                    .controls.form-group
-                      input#phone.col-xs-12 name="phone" type="text"
+                    = f.label :phone, "Telemóvel", :class => "control-label"
+                    = f.text_field :phone, :class => "col-xs-12"
                   .control-group
-                    label.control-label for="password"
-                      | Palavra-passe
-                    .controls.form-group
-                      input#password.col-xs-12 name="password" type="password"
+                    = f.label :password, "Password", :class => "control-label"
+                    = f.password_field :password, :class => "col-xs-12"
                   .control-group
-                    label.control-label for="password2"
-                      | Confirmar palavra-passe
-                    .controls.form-group
-                      input#password2.col-xs-12 name="password2" type="password"
-                  button.btn.btn-success.btn-lg.pull-right data-original-title=".btn .btn-success .btn-lg" data-placement="top" type="button"
-                    | Registar
-
-
-
+                    = f.label :password_confirmation, "Confirmação da Password", :class => "control-label"
+                    = f.password_field :password_confirmation, :class => "col-xs-12"
+                  br/
+                  .control-group
+                    = f.submit "Registar", :class =>  "btn btn-success btn-lg pull-right"
+                  br/
+                  br/
 = render "shared/main_footer"

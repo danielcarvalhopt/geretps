@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131227003554) do
+ActiveRecord::Schema.define(version: 20140111173549) do
 
   create_table "assigned_notifications", force: true do |t|
     t.integer "group_id"
@@ -200,6 +200,15 @@ ActiveRecord::Schema.define(version: 20131227003554) do
   end
 
   add_index "teachers", ["user_id"], name: "index_teachers_on_user_id"
+
+  create_table "test_results", force: true do |t|
+    t.integer "test_id"
+    t.integer "delivery_id"
+    t.text    "diff"
+  end
+
+  add_index "test_results", ["delivery_id"], name: "index_test_results_on_delivery_id"
+  add_index "test_results", ["test_id"], name: "index_test_results_on_test_id"
 
   create_table "tests", force: true do |t|
     t.text    "diff"
