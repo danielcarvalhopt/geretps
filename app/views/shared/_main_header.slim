@@ -11,7 +11,7 @@
                   span.icon-bar
                   span.icon-bar
                   span.icon-bar
-                a.navbar-brand.logo_text href="index.html"
+                = link_to root_path, :class => "navbar-b logo_text"
                   ._logo
                   h1 style="float:left"
                     | GereTPs
@@ -19,8 +19,7 @@
               .main_nav.navbar-collapse.navbar-ex1-collapse.collapse style="height: 1px;"
                 ul.navigation.menu
                   li
-                    a href="#"
-                      | Home
+                    = link_to "Início", root_path
                   li
                     a href="#"
                       | Sitemap
@@ -28,8 +27,6 @@
                     a href="#"
                       | Sobre
                   li
-                    a href="#"
-                      button.btn.btn-success.btn Entrar
+                    = link_to "Entrar", new_user_session_path, :class => "btn btn-success btn"
                   li
-                    a href="#"
-                      button.btn.btn-info.btn Registar
+                    = link_to "Registar", new_user_registration_path, :class => "btn btn-info btn"

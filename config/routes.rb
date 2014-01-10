@@ -1,5 +1,6 @@
 Geretps::Application.routes.draw do
-  devise_for :users
 
-  get "/home" => "pages#home"
+  root to: "pages#home"
+
+  devise_for :users
 end
