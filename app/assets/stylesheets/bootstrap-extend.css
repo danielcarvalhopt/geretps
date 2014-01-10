@@ -1,0 +1,137 @@
+/* Default HTML changes */
+body {-webkit-font-smoothing: subpixel-antialiased;word-wrap: break-word ;}
+
+/* Nice Fade Effect for Links */
+a,.separator  { -webkit-transition: .5s ease-in-out; -moz-transition: .5s ease-in-out;-o-transition: .5s ease-in-out; transition: .5s ease-in-out;}
+
+/************* Bootstrap extensions and customizations *************/
+.col-xs-1,
+.col-xs-2,
+.col-xs-3,
+.col-xs-4,
+.col-xs-5,
+.col-xs-6,
+.col-xs-7,
+.col-xs-8,
+.col-xs-9,
+.col-xs-10,
+.col-xs-11,
+.col-xs-12,
+.col-sm-1,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-md-1,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-lg-1,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12 {
+position:inherit;
+}
+
+/* The navbar */
+.navbar.navbar-default {background:none; border:none;}
+#navbar_center {z-index:1;}
+.navbar  {min-height: inherit;margin-bottom:0;border: none;}
+ul.navigation {margin:0px;padding:0px;}
+
+/* Navbar Toggle*/
+.navbar-default .navbar-toggle {border:3px solid #000;border-radius:0px;}
+.navbar-default .navbar-toggle .icon-bar {border:none; background-color:#000;height:3px;}
+.navbar-default .navbar-toggle:hover {background-color:#000;}
+.navbar-default .navbar-toggle:hover .icon-bar {background-color:#fff;}
+/*The logo reset */
+.navbar-brand {float: left;padding: 0px;font-size: inherit;line-height: 1em;}
+
+/* Dropdown function */
+/************* Joomla extensions and customizations *************/
+.main_nav ul.navigation li a {text-decoration:none;}
+.main_nav ul.navigation li.parent ul.nav-child {display:none;padding:0; margin:0;width:20rem;}
+.main_nav ul.navigation li.parent:hover ul.nav-child {display:block;position:absolute;}
+.main_nav ul.navigation li.parent:hover ul.nav-child li {padding:10px; margin:0px;height:auto; line-height:1em;}
+/* Hides Joomla Module title if turned off */
+.no-title .module-header {display:none;}
+
+/************* General extensions and customizations *************/
+.sourrounding_wrapper {width:100%;float:left;}
+.show_navbar_top {position:absolute;border-radius:0;top:0;right:50%;margin-right:-15px;z-index:100000;width:30px; height:30px;padding:0; line-height:30px;font-size:bold;}
+
+/************* Navbar and Dropdown *************/
+.main_nav .navigation {float:right;}
+.main_nav .navigation li{float:left;list-style:none;}
+
+/* Breadcrumb Module default styling*/
+.breadcrumb {background:none; padding:0; margin:0;}
+
+/* Hides Module title if turned off. Title is still in the source code. Good for search engines...*/
+.no-title .module-header {display:none;}
+
+/************* Helper classes *************/
+.text-align-right {text-align:right;}
+.text-align-center {text-align:center;}
+.text-align-left {text-align:left;}
+.float-left {float:left;}
+.float-right {float:right;}
+.border_right {border-right:1px solid #e4e4e4;padding-right:20px;}
+.border_left {border-left:1px solid #e4e4e4;padding-left:20px;}
+.rounded-background {border-radius:999px;}
+.small_text {font-size:.8em; line-height:1.4em;}
+.big_text {font-size:1.2em}
+.white_text, p.white_text, .white_text p {color:#fff; text-shadow: 1px 1px 1px rgba(0,0,0,.5);}
+.black_text, .black_text p, p.black_text {color:#000; text-shadow: 1px 1px 1px rgba(255,255,255,.5);}
+.dark_transparent_background {background:rgba(0,0,0,.75);}
+
+/* Joomla UI customizations */
+.img-fulltext-left, .img-fulltext-right, .img-fulltext-left img, .img-fulltext-right img {width:100%;}
+.img-intro-left, .img-intro-right, .img-intro-left img, .img-intro-right img{width:100%;}
+.item-separator {height:1px;border-bottom:1px solid #eee;margin:40px 0;}
+.btn-group.actions .btn{background:none;background-color:#eee; border-radius:0px;}
+ul.pagenav li a, .hits{background:none;background-color:#eee; border-radius:0px;}
+.hits {padding:4px 8px;color:#999;}
+
+/*Embed responsive Videos */
+.responsive-video iframe {position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
+
+/* Embed a 16:9 Vimeo or YouTube video responsive */
+.responsive-video {position: relative;padding-bottom: 56.25%; /* Default for 1600x900 videos 16:9 ratio*/padding-top: 0px;height: 0;overflow: hidden;}
+
+.responsiveiframe {position: relative;padding-bottom: 56%;height: 0;overflow: hidden;}
+.responsiveiframe iframe {position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
+
+/*Text selector styling */
+::-moz-selection{ background: #c9e7de; color:#000; text-shadow: none; }
+::selection { background:#c9e7de; color: #000; text-shadow: none; }
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+.main_nav {float:left;width:100%;}
+.main_nav ul.navigation {margin-bottom:1rem;float:none;float:left;display:block;border:1px solid #e3e3e3;border-top:0px;border-bottom:0px;width:100%; }
+.main_nav ul.navigation li {text-align:center;display:block;float:left;width:100%;border-bottom:1px solid #e3e3e3;}
+}
