@@ -1,0 +1,75 @@
+# European Portuguese translations for devise
+
+pt: 
+  title:
+    simple: GereTps
+    with_page: '%{page} - GereTps'
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password_confirmation:
+              blank: "Confirmação da Password em branco."
+            password:
+              confirmation: "Confirmação da Password."
+              blank:  "Password em branco."
+              too_short: "Password demasiado curta (mínimo de 8 caracteres)"
+            current_password: 
+              blank: "Password atual em branco."
+
+  errors:
+    messages:
+      expired: "expirou, por favor solicite um novo"
+      not_found: "não foi encontrado"
+      already_confirmed: "já foi confirmado, por favor tente efectuar a autenticação"
+      not_locked: "não foi bloqueado"
+      not_saved:
+        one: "Foi impossível completar a acção devido ao seguinte facto:"
+        other: "Foi impossível completar a acção devido aos seguintes factos:"
+
+  devise:
+    failure:
+      already_authenticated: 'Já se encontra autenticado.'
+      unauthenticated: 'Antes de continuar tem de se autenticar ou efectuar um registo.'
+      unconfirmed: 'Tem de confirmar a sua conta antes de continuar.'
+      locked: 'A sua conta está bloqueada.'
+      invalid: 'O endereço de correio electrónico ou a palavra-passe são inválidos.'
+      not_found_in_database: "O endereço de correio electrónico ou a palavra-passe são inválidos."
+      invalid_token: 'O "token" de autenticação é inválido.'
+      timeout: 'A sua sessão expirou, por favor autentique-se novamente para continuar.'
+      inactive: 'A sua conta ainda não foi activada.'
+    sessions:
+      signed_in: 'Autenticação efectuada com sucesso.'
+      signed_out: 'Saíu da sessão com sucesso.'
+    passwords:
+      blank: "BLANK"
+      no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
+      send_instructions: 'Dentro de alguns minutos irá receber um email com instruções de reinicialização da palavra-passe.'
+      updated: 'A sua palavra-passe foi alterada com sucesso. Agora está autenticado.'
+      updated_not_active: "A sua palavra-passe foi alterada com sucesso."      
+      send_paranoid_instructions: 'Se o seu e-mail existir na nossa base de dados, irá receber dentro de alguns minutos um e-mail com instruções para recuperar a sua senha.'
+    confirmations:
+      send_instructions: 'Dentro de alguns minutos irá receber um email com instruções para confirmar  sua conta.'
+      send_paranoid_instructions: 'Se o seu e-mail existir na nossa base de dados, irá receber dentro de alguns minutos um email com instruções para confirmar a sua conta.'
+      confirmed: 'A sua conta foi confirmada com sucesso. Agora está autenticado.'
+    registrations:
+      signed_up: 'Bem-vindo! A autenticação foi efectuada com sucesso.'
+      inactive_signed_up: 'A autenticação foi efectuada com sucesso. No entanto, não foi possível autorizá-lo porque a sua conta está %{reason}.'
+      updated: 'A sua conta foi actualizada com sucesso.'
+      destroyed: 'A sua conta foi cancelada com sucesso.'
+    unlocks:
+      send_instructions: 'Dentro de alguns minutos irá receber um email com as instruções para desbloquear a sua conta.'
+      unlocked: 'A sua conta foi desbloqueada com sucesso. Agora está autenticado.'
+      send_paranoid_instructions: 'Se a sua conta existir, irá receber dentro de alguns minutos um email com instruções para a desbloquear.'
+    omniauth_callbacks:
+      success: 'Successfully authorized from %{kind} account.'
+      failure: 'Could not authorize you from %{kind} because "%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: 'Instruções de confirmação'
+      reset_password_instructions:
+        subject: 'Instruções de recuperação de palavra-passe'
+      unlock_instructions:
+        subject: 'Instruções de desbloqueio'

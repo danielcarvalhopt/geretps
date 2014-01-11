@@ -1,0 +1,134 @@
+.sourrounding_all.on_frontpage
+  = render "shared/main_header"
+  .joobstrab_area.header_area
+    #header_slider.joobstrap_section.sourrounding_wrapper
+      .inner_wrapper
+        .container
+          .row
+            .col-md-12.slider_controls
+              .flexslider
+                ul.slides
+                  li.slider_item.text-align-center
+                    div style="padding:140px 0 40px 0"
+                      h2.hero
+                        | Gestão de Trabalhos Práticos
+                        span.colored .
+                      p.lead 
+                    = image_tag("sample_screen.jpg",  :alt => "screen")
+                  li.slider_item.text-align-center
+                    div style="padding:140px 0 40px 0"
+                      h2.hero
+                        | Gestão de Unidades Curriculares
+                        span.colored .
+                      p.lead 
+                    = image_tag("sample_screen.jpg", :alt => "screen")
+                  li.slider_item.text-align-center
+                    div style="padding:140px 0 40px 0"
+                      h2.hero
+                        | Publicação de Trabalhos Práticos 
+                        span.colored .
+                      p.lead 
+                    = image_tag("sample_screen.jpg", :alt => "screen")
+              .clear
+  .joobstrab_area.top_area
+    #top_center.joobstrap_section.sourrounding_wrapper
+      .inner_wrapper
+        .container
+          .row.text-center
+            h2.module-title style="margin-bottom: 80px"
+              span Para quem?
+            .col-md-4
+              i.fa.fa-user.fa-4x
+              h5 Estudantes
+              p Simplifique a submissão dos seus projetos, organize as suas entregas e mantenha-se atento às próximas fases dos seus projetos. 
+              p Publique os seus trabalhos práticos e veja o seu trabalho reconhecido!
+            .col-md-4
+              i.fa.fa-user-md.fa-4x
+              h5 Docentes
+              p Faça a gestão dos projetos e unidades curriculares que leciona, assim como dos seus alunos e turnos. 
+              p Simplifique os processos de criação, divulgação, correção e avaliação de um projeto!
+            .col-md-4
+              i.fa.fa-users.fa-4x
+              h5 Comunidade
+              p Consulte facilmente projetos de todas as áreas de uma forma cómoda e organizada sem precisar de qualquer registo.
+              p Mantenha-se atento aos melhores projetos desenvolvidos por alunos.
+        .clear
+  .joobstrab_area.main_area
+    .joobstrap_section.sourrounding_wrapper.text-center
+      .inner_wrapper
+        .container
+          .row
+            .col-md-12
+              .row
+                .col-xs-9
+                  h4 Comece já a fazer a gestão dos seus projetos!
+                .col-xs-3
+                  button.btn.btn-info.btn-xl data-original-title=".btn .btn-success .btn-lg" data-placement="top" type="button"
+                    | Registe-se
+  .joobstrab_area.main_area
+    #main_top.joobstrap_section.sourrounding_wrapper
+      .inner_wrapper
+        .container
+          .row
+            .col-md-12
+              h2.module-title
+                span A melhor escolha para os 
+                | estudantes!
+              p.lead.text-center 
+              br
+              hr
+          .row
+            .col-md-3
+              h5 Projetos
+              p Consulte todas as informações dos seus projetos e a calendarização das próximas fases.
+              hr
+              h5 Entregas
+              p Submeta facilmente os seus trabalhos práticos e receba uma confirmação da sua validade.
+            .col-md-3
+              h5 Grupos
+              p Crie os seus grupos de trabalho de forma fácil e intuitiva para que o trabalho comece da melhor forma.
+              hr
+              h5 Avaliações
+              p Mantenha-se atento ao lançamento das avaliações em consulte-as em diferentes formatos.
+            .col-md-6
+              = image_tag("student.png", :alt => "screen")
+          .clear
+    #main_center.joobstrap_section.sourrounding_wrapper
+      .inner_wrapper
+        .container
+          .row
+            .col-md-12
+              h2.module-title
+                span E para os 
+                | docentes
+                span  também!
+              p.lead.text-center 
+              br
+              hr
+          .row
+            .col-md-6
+              = image_tag("teacher.png", :alt => "screen")
+            .col-md-3
+              h5 U. Curriculares
+              p Adicione alunos, organize-os em turnos e adicione docentes responsáveis.
+              hr
+              h5 Projetos
+              p Crie as fases dos projetos, adicione restrições às entregas e adicione testes para facilitar a avaliação.
+            .col-md-3
+              h5 Entregas
+              p Consulte, organize e faça download de todas as entregas. Consulte os resultados dos testes.
+              hr
+              h5 Avaliações
+              p Avalie facilmente os as entregas, individualmente ou em grupo, e gere instantaneamente as pautas.
+            .clear
+    #main_bottom.joobstrap_section.sourrounding_wrapper.text-center
+      .inner_wrapper
+        .container
+          .row
+            .col-md-12
+              h2.module-title
+                span Conheça a 
+                | equipa
+              p.lead 
+              .clear
+= render "shared/main_footer"
