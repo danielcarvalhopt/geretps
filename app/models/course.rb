@@ -4,4 +4,5 @@ class Course < ActiveRecord::Base
 
   validates :name, presence: true
   validates :institution, presence: true
+
 end
