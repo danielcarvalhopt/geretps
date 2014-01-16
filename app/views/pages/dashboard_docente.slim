@@ -1,0 +1,232 @@
+= render "sidebar"
+.wrap
+  = render "navbar"
+  .content.container
+    .row
+      .col-md-12
+        h2.page-title Painel do docente
+    .row
+      .col-md-2.col-sm-4.col-xs-6
+        .box
+          .icon
+            i.fa.fa-clipboard
+          .description
+            strong 3
+            |  projectos em desenvolvimento
+      .col-md-2.col-sm-4.col-xs-6
+        .box
+          .icon
+            i.fa.fa-book
+          .description
+            strong 3
+            |  UCs leccionadas
+      .col-md-2.col-sm-4.col-xs-6
+        .box
+          .icon
+            i.fa.fa-user
+          .description
+            strong 643
+            |  alunos
+      .col-md-2.col-sm-4.col-xs-6
+        .box
+          .icon
+            i.fa.fa-paperclip
+          .description
+            strong 1000
+            |  submissões de projectos
+      .col-md-2.col-sm-4.col-xs-6
+        .box
+          .big-text
+            | 96.5%
+          .description
+            i.fa.fa-check
+            |  taxa de aprovações
+      .col-md-2.col-sm-4.col-xs-6
+        .box
+          .big-text
+            | 3.5%
+          .description
+            i.fa.fa-exclamation-triangle
+            |  taxa de reprovações
+
+    .row
+      .col-md-8
+        section.widget
+          header
+            h5
+              i.fa.fa-tasks
+              |  Unidades Curriculares
+          .body
+            #accordion2.panel-group
+              .panel
+                .panel-heading
+                  a.accordion-toggle data-parent="#accordion3" data-toggle="collapse" href="#collapseOne"
+                    span.label.label-inverse 2013/2014
+                    |  Engenharia de Linguagens
+                    span.pull-right
+                      i.fa.fa-user
+                      |  Alunos
+                    span.pull-right style="margin-right: 30px"
+                      i.fa.fa-users
+                      |  Grupos
+
+                #collapseOne.panel-collapse.in style="height: auto;"
+                  .panel-body
+                    .row
+                      .col-md-6
+                        blockquote
+                          i.fa.fa-angle-right
+                          |  Resolutor de Cenas deterministicas
+                          small 43 grupos, 392 alunos, 27 projectos publicados
+                          small.color-blue Data limite: 20 Jun 2014
+                        hr
+                        blockquote
+                          i.fa.fa-angle-right
+                          |  Resolutor de Cenas aleatórias
+                          small 43 grupos, 392 alunos, 27 projectos publicados
+                          small.color-green Terminado Terminado a 12 Dez 2013
+                      .col-md-6
+                        blockquote
+                          i.fa.fa-angle-right
+                          |  Resolutor de Cenas aleatórias
+                          small 43 grupos, 392 alunos, 27 projectos publicados
+                          small.color-green Terminado a 12 Dez 2013
+                        hr
+                        blockquote
+                          i.fa.fa-angle-right
+                          |  Resolutor de Cenas deterministicas
+                          small 43 grupos, 392 alunos, 27 projectos publicados
+                          small.color-blue Data limite: 20 Jun 2014
+              .panel
+                .panel-heading
+                  a.accordion-toggle data-parent="#accordion3" data-toggle="collapse" href="#collapseTwo"
+                    span.label.label-inverse 2013/2014
+                    |  Engenharia de Linguagens
+                    span.pull-right
+                      i.fa.fa-user
+                      |  Alunos
+                    span.pull-right style="margin-right: 30px"
+                      i.fa.fa-users
+                      |  Grupos
+                #collapseTwo.panel-collapse.in
+                  .panel-body
+                    .row
+                      .col-md-6
+                        blockquote
+                          i.fa.fa-angle-right
+                          |  Resolutor de Cenas deterministicas
+                          small 43 grupos, 392 alunos, 27 projectos publicados
+                          small.color-blue Data limite: 20 Jun 2014
+                        hr
+                        blockquote
+                          i.fa.fa-angle-right
+                          |  Resolutor de Cenas aleatórias
+                          small 43 grupos, 392 alunos, 27 projectos publicados
+                          small.color-green Terminado Terminado a 12 Dez 2013
+                      .col-md-6
+                        blockquote
+                          i.fa.fa-angle-right
+                          |  Resolutor de Cenas aleatórias
+                          small 43 grupos, 392 alunos, 27 projectos publicados
+                          small.color-green Terminado a 12 Dez 2013
+                        hr
+                        blockquote
+                          i.fa.fa-angle-right
+                          |  Resolutor de Cenas deterministicas
+                          small 43 grupos, 392 alunos, 27 projectos publicados
+                          small.color-blue Data limite: 20 Jun 2014
+              .panel
+                .panel-heading
+                  a.accordion-toggle data-parent="#accordion3" data-toggle="collapse" href="#collapseThree"
+                    span.label.label-inverse 2013/2014
+                    |  Engenharia de Linguagens
+                    span.pull-right
+                      i.fa.fa-user
+                      |  Alunos
+                    span.pull-right style="margin-right: 30px"
+                      i.fa.fa-users
+                      |  Grupos
+                #collapseThree.panel-collapse.in
+                  .panel-body
+                    |
+      .col-md-4
+        section.widget.large
+          header
+            h4
+              i.fa.fa-comment
+              |  Notificações
+            .actions
+              button.btn.btn-transparent.btn-xs
+                | Show All
+                i.fa.fa-arrow-down
+          .body
+            .slimScrollDiv style="position: relative; overflow: hidden; width: auto; height: 280px;"
+              #feed.feed style="overflow: hidden; width: auto; height: 280px;"
+                .wrapper
+                  .vertical-line
+                  section.feed-item
+                    .icon.pull-left
+                      i.fa.fa-check.color-green
+                    .feed-item-body
+                      .text
+                        a href="#" Grupo 4
+                        |  fez uma submissão no projecto
+                        a href="#"  Resolutor de questões
+                      .time.pull-left
+                        | 35 min
+                  section.feed-item
+                    .icon.pull-left
+                      i.fa.fa-comment
+                    .feed-item-body
+                      .text
+                        a href="#" Grupo 4
+                        |  fez uma submissão no projecto
+                        a href="#"  Resolutor de questões
+                      .time.pull-left
+                        | 35 min
+                  section.feed-item
+                    .icon.pull-left
+                      i.fa.fa-check.color-red
+                    .feed-item-body
+                      .text
+                        a href="#" Grupo 4
+                        |  fez uma submissão no projecto
+                        a href="#"  Resolutor de questões
+                      .time.pull-left
+                        | 35 min
+                  section.feed-item
+                    .icon.pull-left
+                      i.fa.fa-check.color-orange
+                    .feed-item-body
+                      .text
+                        a href="#" Grupo 4
+                        |  fez uma submissão no projecto
+                        a href="#"  Resolutor de questões
+                      .time.pull-left
+                        | 35 min
+        section.widget
+          header
+            h4
+              i.fa.fa-copy
+              |  Projectos activos
+          .body
+            ul.news-list
+              li
+                img.pull-left.img-circle alt="" src="http://www3.di.uminho.pt/~jcr/PROJS/misericordia4/di.png"
+                  .news-item-info
+                    .name
+                      a href="#"
+                    .position Resolutor de questões em Perl
+                    .time Engenharia de Linguagens
+                    .time Próxima entrega: 20 Mar 2013
+              li
+                img.pull-left.img-circle alt="" src="http://www.lousatextil.pt/images/emblema-universidade-do-minho-preto-def.jpg"
+                  .news-item-info
+                    .name
+                      a href="#"
+                    .position Resolutor de questões em XML
+                    .time Engenharia de Linguagens
+                    .time Próxima entrega: 20 Mar 2013
+
+
+
