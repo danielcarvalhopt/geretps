@@ -1,0 +1,295 @@
+@import url("http://fonts.googleapis.com/css?family=Merienda+One")
+@import url("http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic")
+
+
+
+.hometheme
+  padding: 0px !important
+  background: #3a3c42 !important
+  font: 16px / 1.75em "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif !important
+  color: #505050 !important
+  -webkit-text-size-adjust: none !important
+  background: url('sample_background3.png') #333 !important
+  background-attachment: fixed !important
+  background-size: cover !important
+
+  .sourrounding_wrapper
+    border-bottom: 1px solid #e3e3e3
+    background-color: #fff
+    &#credits
+      border: none
+      background: none
+
+  .joobstrab_area
+    float: left
+    width: 100%
+
+  .inner_wrapper
+    margin: 0px auto
+    width: 100%
+    max-width: 1240px
+    min-width: 320px
+    padding: 80px 5%
+
+  #bottom_center .inner_wrapper
+    width: 100%
+    max-width: 100%
+    min-width: 100%
+    padding: 80px 0%
+    .container
+      width: 100%
+      min-width: 100%
+
+  #navbar_center .inner_wrapper, #header_slider .inner_wrapper
+    padding: 0px 5%
+
+  .navbar_area
+    position: relative
+    z-index: 2
+
+
+  h1, h2, h3, h4, h5, h6
+    color: #202020
+    font-weight: 600
+
+  h1
+    font-size: 5em
+    &.hero
+      font-size: 8em
+      margin: 0 0 .1em 0
+      padding: 0px
+      line-height: 1em
+
+  h2
+    font-size: 3.75em
+
+  h3
+    font-size: 2.75em
+
+  h4
+    font-size: 2em
+
+  h5
+    font-size: 1.5em
+
+  h6
+    font-size: 1.25em
+
+  blockquote
+    font-family: 'Playfair Display', serif
+    color: #fff
+    padding: 40px
+    border: none
+    p
+      font-size: 14px
+      line-height: 1.5em
+
+  .navbar-brand h1
+    font-family: 'Merienda One', cursive
+    padding: 0px
+    margin: 0 0 0 10px
+    font-size: 28px
+    line-height: 1em
+    height: 80px
+    line-height: 80px
+
+  .sticked .navbar-brand h1
+    color: #fff
+
+
+  .boxed #navbar_center
+    background: none
+
+  #navbar_center!, .boxed! #navbar_center .inner_wrapper
+
+  #navbar_center
+    margin-bottom: -11px
+
+
+  .main_nav
+    .navigation li
+      padding: 20px
+      margin: 5px 0
+      a
+        display: block
+    ul.navigation li.parent ul.nav-child
+      margin-left: -20px
+    .navigation li
+      color: #fff
+      a
+        color: #fff
+
+  .sticked .main_nav .navigation li
+    color: #fff
+    a
+      color: #fff
+
+  .main_nav .navigation li.active
+    font-weight: bold
+    a
+      font-weight: bold
+
+
+
+  .header_area .sourrounding_wrapper, .navbar_area .sourrounding_wrapper, .footer_area .sourrounding_wrapper, .bottom_area .sourrounding_wrapper
+    background: none
+    border: none
+    color: #fff
+
+  .header_area h1, .navbar_area h1, .header_area h2, .navbar_area h2, .header_area h3, .navbar_area h3, .header_area h4, .navbar_area h4, .header_area h5, .navbar_area h5, .header_area h6, .navbar_area h6
+    color: #fff
+
+  #top_center
+    h1, h2, h3, h4, h5, h6
+      color: #fff
+
+  .footer_area
+    h1, h2, h3, h4, h5, h6
+      color: #fff
+    .sourrounding_wrapper
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1)
+
+  .bottom_area .sourrounding_wrapper
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1)
+
+  /*Primary contrast color
+
+  a, .colored
+    color: #4fc680
+
+  #footer_center a
+    color: #000
+
+  .main_nav ul.navigation li.parent:hover ul.nav-child, .navbar-brand h1:hover, .btn-primary, .footer_area .sourrounding_wrapper, blockquote
+    background: none
+    background-color: #4fc680
+
+  .sticked .sourrounding_wrapper#navbar_center, .sourrounding_wrapper#navbar_center:hover, #credits .container
+    background-color: #3a3c42
+
+  #main_top, #main_bottom
+    background-color: #f1f4f5
+
+  .module-title span
+    font-weight: 300
+
+  .main_nav .navigation li
+    &:hover a, &.active a
+      border-bottom: 3px solid #4fc680
+    a
+      border-bottom: 3px solid transparent
+
+  .sticked .main_nav .navigation li.active a
+    border-bottom: 3px solid #fff
+
+  .sourrounding_wrapper
+    &#navbar_center
+      -webkit-transition: .5s ease-in-out
+      -moz-transition: .5s ease-in-out
+      -o-transition: .5s ease-in-out
+      transition: .5s ease-in-out
+    &#top_center
+      background-color: #4fc680
+      color: #fff
+      background-image: image-url("icons_bck.png")
+      background-attachment: fixed
+
+  #credits .container
+    padding: 20px 20px
+    font-size: 12px
+    color: #777
+
+
+  ul.gallery
+    padding: 0
+    margin: 0
+    text-align: center
+    margin-left: -15px
+    margin-right: -15px
+    li
+      list-style: none
+      margin: 0
+      padding: 0
+      float: left
+      width: 12.5%
+      margin: 20px 0
+      img
+        width: 100%
+        opacity: .7
+      p, h5
+        position: absolute
+        width: 12.5%
+        display: none
+        color: #fff
+      &:hover
+        img
+          opacity: 1
+        p, h5
+          display: block
+
+  .hidden_element
+    display: none
+
+
+  .google-map-canvas
+    width: 100%
+    border: 0px
+    iframe
+      width: 100%
+      border: 0px
+
+  iframe.google-map-canvas
+    width: 100%
+    border: 0px
+
+  .color_selector
+    position: absolute
+    background: rgba(0, 0, 0, 0.5)
+    padding: 20px
+    top: 40%
+    border-radius: 4px
+    ul
+      margin: 0
+      padding: 0
+      list-style: none
+    li
+      margin: 0
+      padding: 0
+      list-style: none
+      padding-left: 10px
+      margin-bottom: 1px
+      a
+        color: #777
+      &.default_style
+        border-left: 20px solid #4fc680
+      &.red_style
+        border-left: 20px solid #f76361
+      &.blue_style
+        border-left: 20px solid #1fb4da
+      &.orange_style
+        border-left: 20px solid #f88356
+
+  .btn
+    border: none
+    text-shadow: none
+
+  .btn-xl
+    padding: 16px 80px
+    font-size: 2rem
+
+  @media (max-width: 767px)
+    body
+      font-size: 18px
+      text-align: center
+    h1
+      font-size: 7.25rem
+    h2
+      font-size: 6rem
+    h3
+      font-size: 4.5rem
+    h4
+      font-size: 3.25rem
+    h5
+      font-size: 2.25rem
+    h6
+      font-size: 1.5rem

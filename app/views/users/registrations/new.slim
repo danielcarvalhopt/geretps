@@ -9,9 +9,15 @@
             section.widget._signup
               header.text-align-center
                 h4 style="color: #333" Informações pessoais
+                hr
                 = render "users/shared/errors"
               .body
                 = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+                  .control-group.text-center
+                    = radio_button_tag(:type, "teacher")
+                    = label_tag(:type_teacher, "Professor")
+                    = radio_button_tag(:type, "student")
+                    = label_tag(:type_student, "Aluno")
                   .control-group
                     = f.label :name, "Nome", :class => "control-label"
                     = f.text_field :name, :autofocus => true, :class => "col-xs-12"

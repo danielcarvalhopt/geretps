@@ -1,0 +1,37 @@
+header.page-header
+  .navbar
+    ul.nav.navbar-nav.navbar-right.pull-right
+      li.visible-phone-landscape
+        a#search-toggle href="#"
+          i.fa.fa-search
+      li.divider
+      li.hidden-xs
+        a#settings data-placement="bottom" data-toggle="popover" href="#" title="Settings"
+          i.fa.fa-cog
+      li.hidden-xs.dropdown
+        a#account.dropdown-toggle data-toggle="dropdown" href="#" title="Account"
+          i.fa.fa-user
+        ul#account-menu.dropdown-menu.account role="menu"
+          li.account-picture role="presentation"
+            img alt="" src=""
+              | Philip Daineka
+          li role="presentation"
+            a.link href="form_account.html"
+              i.fa.fa-user
+              | Profile
+          li role="presentation"
+            a.link href="component_calendar.html"
+              i.fa.fa-calendar
+              | Calendar
+          li role="presentation"
+            a.link href="#"
+              i.fa.fa-inbox
+              | Inbox
+      li.visible-xs
+        a.btn-navbar data-target=".sidebar" data-toggle="collapse" href="#" title=""
+          i.fa.fa-bars
+      li.hidden-xs
+        a href="login.html"
+          i.fa.fa-sign-out
+    form#search-form.navbar-form.pull-right role="search"
+      input.search-query placeholder="Search..." type="search"

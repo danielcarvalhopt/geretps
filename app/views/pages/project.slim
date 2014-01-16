@@ -1,0 +1,195 @@
+= render "sidebar"
+.wrap
+  = render "navbar"
+  .content.container
+    .row
+      .col-md-12
+        h2.page-title Projecto de Engenharia de Linguagens: Desunificação da agregação do indissociável
+    .row
+      .col-md-2.col-sm-4.col-xs-6
+        .box
+          .big-text
+            | 21 Jan 2014
+          .description
+            |  Data de ínicio
+      .col-md-2.col-sm-4.col-xs-6
+        .box
+          .big-text
+            | 21 Jan 2014
+          .description
+            |  Data limite
+      .col-md-2.col-sm-4.col-xs-6
+        .box
+          .icon
+            i.fa.fa-calendar-o
+          .description
+            strong 3
+            |   fases
+      .col-md-2.col-sm-4.col-xs-6
+        .box
+          .icon
+            i.fa.fa-paperclip
+          .description
+            strong 3
+            |  entregas
+      .col-md-2.col-sm-4.col-xs-6
+        .box
+          .big-text
+            | 13
+          .description
+            |  Média
+      .col-md-2.col-sm-4.col-xs-6
+        .box
+          .big-text
+            | 15
+          .description
+            |  Média geral
+
+    .row
+      .col-md-9
+        section.widget
+          header
+            h5
+              i.fa.fa-tasks
+              |  Detalhes do projecto
+            .body style="padding: 10px"
+              h5 Descrição:
+              p
+                | AIP é a designação que se dá ao objecto intelectual depois deste ter ficado devidamente arquivado.
+                  Neste projecto, o AIP irá corresponder a uma solução híbrida, com uma parte da informação a ser guardada numa base de dados relacional, outra no file system e outra num ficheiro XML.
+
+                  A metainformação relativa ao projecto, ou seja, a informação contida no pr.xml, poderá ser guardada numa base de dados relacional. Os alunos deverão especificar o modelo de entidades e relacionamentos e o esquema da base de dados relacional.
+
+                  Os ficheiros resultantes de cada projecto deverão ser guardados numa zona "especial" do file system. Foi pedido aos alunos que pensassem numa maneira de fazer isto e que pensassem numa forma de manter a ligação entre estes ficheiros e a respectiva informação guardada na base de dados.
+
+                  A componente de registo de logs no sistema será guardada num ficheiro XML cuja estrutura e processamento serão abordados durante as aulas.
+
+                  Os modelos desenvolvidos nas aulas e publicados juntamente com este enunciado são apenas para orientação. Em muitas situações o aluno terá de estender os modelos apresentados. Ou seja, não se limitem ao que foi discutido nas aulas, aproveitem essa informação e tentem ir mais além!
+              hr
+              .row
+                .col-xs-4
+                  .well
+                      p
+                        h4
+                          i.fa.fa-paperclip
+                            a href="#"  Cenas.zip
+                .col-xs-4
+                  .well
+                      p
+                        h4
+                          i.fa.fa-paperclip
+                            a href="#"  Cenas.zip
+              hr
+              #accordion2.panel-group
+              .panel
+                .panel-heading
+                  a.accordion-toggle data-parent="#accordion3" data-toggle="collapse" href="#collapseOne"
+                    |  Fase 1: Fazer cenas fixes
+                    span.pull-right
+                      i.fa.fa-paperclip
+                      |  Fazer submissão
+
+
+                #collapseOne.panel-collapse.in style="height: auto;"
+                  .panel-body
+                    p AIP é a designação que se dá ao objecto intelectual depois deste ter ficado devidamente arquivado. Neste projecto, o AIP irá corresponder a uma solução híbrida, com uma parte da informação a ser guardada numa base de dados relacional, outra no file system e outra num ficheiro XML. A metainformação relativa ao projecto, ou seja, a informação contida no pr.xml, poderá ser guardada numa base de dados relacional.
+                    .row
+                      .col-md-12
+                        blockquote style="float:left"
+                          i.fa.fa-angle-right
+                          |  Datas
+                          small Data de ínicio: 12 Mar 2014
+                          small Data limite: 20 Jun 2014
+                          small.color-blue Enviado a: 20 Jun 2014
+                        blockquote style="float:left; margin-left:60px"
+                          i.fa.fa-angle-right
+                          |  Avaliações individuais
+                          small Ricardo Branco: 17
+                          small Daniel Carvalho: 17
+                          small André Santos: 17
+                    hr
+                    .row
+                      .col-xs-4
+                        .well style="padding: 0px 10px 0px 10px"
+                            p
+                              h4
+                                i.fa.fa-paperclip
+                                  a href="#"  Cenas.zip
+              #accordion2.panel-group
+              .panel
+                .panel-heading
+                  a.accordion-toggle data-parent="#accordion3" data-toggle="collapse" href="#collapseOne"
+                    |  Fase 1: Fazer cenas fixes
+                    span.pull-right
+                      i.fa.fa-paperclip
+                      |  Fazer submissão
+                    span.pull-right style="margin-right: 30px"
+                      i.fa.fa-paste
+                      |  Avaliação: -
+
+                #collapseOne.panel-collapse.in style="height: auto;"
+                  .panel-body
+                    p AIP é a designação que se dá ao objecto intelectual depois deste ter ficado devidamente arquivado. Neste projecto, o AIP irá corresponder a uma solução híbrida, com uma parte da informação a ser guardada numa base de dados relacional, outra no file system e outra num ficheiro XML. A metainformação relativa ao projecto, ou seja, a informação contida no pr.xml, poderá ser guardada numa base de dados relacional.
+                    .row
+                      .col-md-12
+                        blockquote style="float:left"
+                          i.fa.fa-angle-right
+                          |  Datas
+                          small Data de ínicio: 12 Mar 2014
+                          small Data limite: 20 Jun 2014
+                          small.color-blue Enviado a: 20 Jun 2014
+                        blockquote style="float:left; margin-left:60px"
+                          i.fa.fa-angle-right
+                          |  Avaliações individuais
+                          small Ricardo Branco: 17
+                          small Daniel Carvalho: 17
+                          small André Santos: 17
+                    hr
+                    .row
+                      .col-xs-4
+                        .well style="padding: 0px 10px 0px 10px"
+                            p
+                              h4
+                                i.fa.fa-paperclip
+                                  a href="#"  Cenas.zip
+
+
+
+      .col-md-3
+        section.widget.large
+          header
+            h4
+              i.fa.fa-cogs
+              |  Menu
+            .actions
+              button.btn.btn-transparent.btn-xs
+                | Show All
+                i.fa.fa-arrow-down
+          .body
+            ul.news-list
+                li
+                  h4 Criar grupo
+                li
+                  h4 Marcar como terminado
+                li
+                  h4 Publicar projecto
+                li
+                  h4 Publicar projecto
+        section.widget
+          header
+            h4
+              i.fa.fa-user
+              |  Responsáveis pelo projecto
+          .body
+            ul.news-list
+              li
+                img.pull-left.img-circle alt="" src="http://www3.di.uminho.pt/~jcr/PROJS/misericordia4/di.png"
+                  .news-item-info
+                    .name
+                      a href="#"
+                    .position Prof. José José José
+                    .time joseesoj@gmail.com
+
+
+
+
