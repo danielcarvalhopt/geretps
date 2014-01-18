@@ -211,7 +211,6 @@ ActiveRecord::Schema.define(version: 20140111173549) do
   add_index "test_results", ["test_id"], name: "index_test_results_on_test_id"
 
   create_table "tests", force: true do |t|
-    t.text    "diff"
     t.integer "phase_id"
     t.integer "input_id"
     t.integer "output_id"
