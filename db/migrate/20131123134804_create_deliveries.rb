@@ -2,11 +2,11 @@ class CreateDeliveries < ActiveRecord::Migration
   def change
     create_table :deliveries do |t|
       t.text :description
-      t.boolean :public
-      t.boolean :grades
-      t.references :phase, index: true
-      t.references :group, index: true
-      t.references :statement, index: true
+      t.boolean :public, default: false
+      t.boolean :grades, default: false
+      t.references :phase, index: true, null: false
+      t.references :group, index: true, null: false
+      t.references :statement, index: true, null: false
     end
   end
 end
