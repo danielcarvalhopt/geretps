@@ -1,10 +1,10 @@
 class CreateSubjects < ActiveRecord::Migration
   def change
     create_table :subjects do |t|
-      t.string :name
-      t.string :academic_year
-      t.references :course, index: true
-      t.references :responsible, index: true
+      t.string :name, null: false
+      t.string :academic_year, null: false
+      t.references :course, index: true, null: false
+      t.references :responsible, index: true, null: false
     end
   end
 end
