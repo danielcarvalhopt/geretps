@@ -7,7 +7,7 @@ class Phase < ActiveRecord::Base
   has_many :tests
   has_many :deliveries
 
-  validates :name, :begin_date, presence: true
+  validates :name, :begin_date, :project, presence: true
   validates :begin_date, date: true
   validates :end_date, date: {after: :begin_date}
 end
