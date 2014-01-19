@@ -9,7 +9,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'devise', '3.0.3'
 gem 'paperclip'
-gem 'compass-rails'
+gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'slim'
 
 group :doc do
