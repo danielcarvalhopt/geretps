@@ -1,0 +1,2 @@
+module InstituitionsHelper
+end

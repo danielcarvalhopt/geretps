@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @required_file.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @required_file.description %>
+</p>
+
+<p>
+  <strong>Phase:</strong>
+  <%= @required_file.phase %>
+</p>
+
+<%= link_to 'Edit', edit_required_file_path(@required_file) %> |
+<%= link_to 'Back', required_files_path %>
