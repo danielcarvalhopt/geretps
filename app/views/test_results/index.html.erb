@@ -1,0 +1,31 @@
+<h1>Listing test_results</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Test</th>
+      <th>Delivery</th>
+      <th>Diff</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @test_results.each do |test_result| %>
+      <tr>
+        <td><%= test_result.test %></td>
+        <td><%= test_result.delivery %></td>
+        <td><%= test_result.diff %></td>
+        <td><%= link_to 'Show', test_result %></td>
+        <td><%= link_to 'Edit', edit_test_result_path(test_result) %></td>
+        <td><%= link_to 'Destroy', test_result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Test result', new_test_result_path %>

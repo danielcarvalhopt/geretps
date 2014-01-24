@@ -1,0 +1,45 @@
+<h1>Listing phases</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Begin date</th>
+      <th>End date</th>
+      <th>Open</th>
+      <th>Grades</th>
+      <th>Grades</th>
+      <th>Value</th>
+      <th>Statement</th>
+      <th>Project</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @phases.each do |phase| %>
+      <tr>
+        <td><%= phase.name %></td>
+        <td><%= phase.description %></td>
+        <td><%= phase.begin_date %></td>
+        <td><%= phase.end_date %></td>
+        <td><%= phase.open %></td>
+        <td><%= phase.grades %></td>
+        <td><%= phase.grades %></td>
+        <td><%= phase.value %></td>
+        <td><%= phase.statement %></td>
+        <td><%= phase.project %></td>
+        <td><%= link_to 'Show', phase %></td>
+        <td><%= link_to 'Edit', edit_phase_path(phase) %></td>
+        <td><%= link_to 'Destroy', phase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Phase', new_phase_path %>

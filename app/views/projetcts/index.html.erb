@@ -1,0 +1,47 @@
+<h1>Listing projetcts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Begin date</th>
+      <th>End date</th>
+      <th>Public</th>
+      <th>Grades</th>
+      <th>Open</th>
+      <th>Max elems</th>
+      <th>Min elems</th>
+      <th>Subject</th>
+      <th>Projects</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projetcts.each do |projetct| %>
+      <tr>
+        <td><%= projetct.name %></td>
+        <td><%= projetct.description %></td>
+        <td><%= projetct.begin_date %></td>
+        <td><%= projetct.end_date %></td>
+        <td><%= projetct.public %></td>
+        <td><%= projetct.grades %></td>
+        <td><%= projetct.open %></td>
+        <td><%= projetct.max_elems %></td>
+        <td><%= projetct.min_elems %></td>
+        <td><%= projetct.subject %></td>
+        <td><%= projetct.projects %></td>
+        <td><%= link_to 'Show', projetct %></td>
+        <td><%= link_to 'Edit', edit_projetct_path(projetct) %></td>
+        <td><%= link_to 'Destroy', projetct, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Projetct', new_projetct_path %>

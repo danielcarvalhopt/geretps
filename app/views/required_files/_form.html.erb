@@ -1,0 +1,29 @@
+<%= form_for(@required_file) do |f| %>
+  <% if @required_file.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@required_file.errors.count, "error") %> prohibited this required_file from being saved:</h2>
+
+      <ul>
+      <% @required_file.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :phase %><br>
+    <%= f.text_field :phase %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

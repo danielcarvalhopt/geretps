@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Phase:</strong>
+  <%= @test.phase %>
+</p>
+
+<p>
+  <strong>Input:</strong>
+  <%= @test.input %>
+</p>
+
+<p>
+  <strong>Output:</strong>
+  <%= @test.output %>
+</p>
+
+<%= link_to 'Edit', edit_test_path(@test) %> |
+<%= link_to 'Back', tests_path %>
