@@ -1,0 +1,31 @@
+<h1>Listing required_files</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Phase</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @required_files.each do |required_file| %>
+      <tr>
+        <td><%= required_file.name %></td>
+        <td><%= required_file.description %></td>
+        <td><%= required_file.phase %></td>
+        <td><%= link_to 'Show', required_file %></td>
+        <td><%= link_to 'Edit', edit_required_file_path(required_file) %></td>
+        <td><%= link_to 'Destroy', required_file, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Required file', new_required_file_path %>

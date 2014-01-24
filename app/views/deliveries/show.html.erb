@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @delivery.description %>
+</p>
+
+<p>
+  <strong>Public:</strong>
+  <%= @delivery.public %>
+</p>
+
+<p>
+  <strong>Grades:</strong>
+  <%= @delivery.grades %>
+</p>
+
+<p>
+  <strong>Phase:</strong>
+  <%= @delivery.phase %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @delivery.group %>
+</p>
+
+<p>
+  <strong>Statement:</strong>
+  <%= @delivery.statement %>
+</p>
+
+<%= link_to 'Edit', edit_delivery_path(@delivery) %> |
+<%= link_to 'Back', deliveries_path %>

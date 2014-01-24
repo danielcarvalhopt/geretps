@@ -1,0 +1,37 @@
+<h1>Listing deliveries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Public</th>
+      <th>Grades</th>
+      <th>Phase</th>
+      <th>Group</th>
+      <th>Statement</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @deliveries.each do |delivery| %>
+      <tr>
+        <td><%= delivery.description %></td>
+        <td><%= delivery.public %></td>
+        <td><%= delivery.grades %></td>
+        <td><%= delivery.phase %></td>
+        <td><%= delivery.group %></td>
+        <td><%= delivery.statement %></td>
+        <td><%= link_to 'Show', delivery %></td>
+        <td><%= link_to 'Edit', edit_delivery_path(delivery) %></td>
+        <td><%= link_to 'Destroy', delivery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Delivery', new_delivery_path %>

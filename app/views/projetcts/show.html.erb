@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @projetct.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @projetct.description %>
+</p>
+
+<p>
+  <strong>Begin date:</strong>
+  <%= @projetct.begin_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @projetct.end_date %>
+</p>
+
+<p>
+  <strong>Public:</strong>
+  <%= @projetct.public %>
+</p>
+
+<p>
+  <strong>Grades:</strong>
+  <%= @projetct.grades %>
+</p>
+
+<p>
+  <strong>Open:</strong>
+  <%= @projetct.open %>
+</p>
+
+<p>
+  <strong>Max elems:</strong>
+  <%= @projetct.max_elems %>
+</p>
+
+<p>
+  <strong>Min elems:</strong>
+  <%= @projetct.min_elems %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @projetct.subject %>
+</p>
+
+<p>
+  <strong>Projects:</strong>
+  <%= @projetct.projects %>
+</p>
+
+<%= link_to 'Edit', edit_projetct_path(@projetct) %> |
+<%= link_to 'Back', projetcts_path %>

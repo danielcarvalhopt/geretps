@@ -1,0 +1,2 @@
+module RequiredFilesHelper
+end
