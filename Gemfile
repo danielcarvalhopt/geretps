@@ -7,10 +7,9 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
-gem 'devise'
+gem 'devise', '3.0.3'
 gem 'paperclip'
-gem 'sass-rails', '~> 4.0.0'
-gem 'compass-rails', '~> 2.0.alpha.0'
+gem 'compass-rails'
 gem 'slim'
 
 group :doc do
