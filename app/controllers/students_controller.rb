@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   # GET /students
@@ -19,6 +20,10 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
+  end
+
+  def dashboard
+    @student = Student.find_by user_id: current_user.id
   end
 
   # POST /students

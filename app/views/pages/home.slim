@@ -1,135 +1,233 @@
-body.hometheme
-  .sourrounding_all.on_frontpage
-    = render "shared/main_header"
-    .joobstrab_area.header_area
-      #header_slider.joobstrap_section.sourrounding_wrapper
-        .inner_wrapper
-          .container
-            .row
-              .col-md-12.slider_controls
-                .flexslider
-                  ul.slides
-                    li.slider_item.text-align-center
-                      div style="padding:140px 0 40px 0"
-                        h2.hero
-                          | Gestão de Trabalhos Práticos
-                          span.colored .
-                        p.lead
-                      = image_tag("sample_screen.jpg",  :alt => "screen")
-                    li.slider_item.text-align-center
-                      div style="padding:140px 0 40px 0"
-                        h2.hero
-                          | Gestão de Unidades Curriculares
-                          span.colored .
-                        p.lead
-                      = image_tag("sample_screen.jpg", :alt => "screen")
-                    li.slider_item.text-align-center
-                      div style="padding:140px 0 40px 0"
-                        h2.hero
-                          | Publicação de Trabalhos Práticos
-                          span.colored .
-                        p.lead
-                      = image_tag("sample_screen.jpg", :alt => "screen")
-                .clear
-    .joobstrab_area.top_area
-      #top_center.joobstrap_section.sourrounding_wrapper
-        .inner_wrapper
-          .container
-            .row.text-center
-              h2.module-title style="margin-bottom: 80px"
-                span Para quem?
-              .col-md-4
+- content_for :stylesheets do
+  = stylesheet_link_tag 'endless-landing.min'
+
+
+body.overflow-hidden
+  #overlay.transparent
+  #wrapper.preload
+    header.navbar.navbar-fixed-top.bg-white
+      .container
+        .navbar-header
+          button.navbar-toggle data-target=".bs-navbar-collapse" data-toggle="collapse" type="button"
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand href="#"
+            span.text-danger Gere
+            | TPs
+        nav.collapse.navbar-collapse.bs-navbar-collapse role="navigation"
+          ul.nav.navbar-nav.navbar-right
+            li
+              a.top-link href="#" Inicio
+            li
+              a.top-link href="#" Sitemap
+            li
+              a.top-link href="#" Sobre
+            li 
+              = link_to "Entrar",login_path, class: "top-link"
+            li
+              = link_to "Registar",signup_path, class: "top-link"
+    #landing-content
+      #main-slider.carousel.slide.bg-dark data-ride="carousel"
+        ol.carousel-indicators
+          li.active data-slide-to="0" data-target="#main-slider"
+        .carousel-inner
+          .item.active
+            img.img-background alt="" src="assets/login-bg.jpg"
+              .row
+                .col-md-6.text-right
+                  h2.m-top-lg.m-right-md.text-white.fadeInDownLarge.animation-delay3 Gestão de Trabalhos Práticos
+                  p.text-white.fadeInUpLarge.animation-delay6.m-right-md.hidden-xs
+                    | like a boss.
+                    br/
+                    | Cenas maradas manz!
+                  a.btn.btn-default.btn-lg.fadeInLeftLarge.animation-delay8.m-bottom-lg.m-right-md href="#" Ir para um sítio
+        a.left.carousel-control data-slide="prev" href="#main-slider"
+          span.fa.fa-chevron-left
+        a.right.carousel-control data-slide="next" href="#main-slider"
+          span.fa.fa-chevron-right
+      .padding-md
+        .container
+          .row
+            .col-sm-4.content-padding
+              .feature-icon.text-center
                 i.fa.fa-user.fa-4x
-                h5 Estudantes
-                p Simplifique a submissão dos seus projetos, organize as suas entregas e mantenha-se atento às próximas fases dos seus projetos.
-                p Publique os seus trabalhos práticos e veja o seu trabalho reconhecido!
-              .col-md-4
-                i.fa.fa-user-md.fa-4x
-                h5 Docentes
-                p Faça a gestão dos projetos e unidades curriculares que leciona, assim como dos seus alunos e turnos.
-                p Simplifique os processos de criação, divulgação, correção e avaliação de um projeto!
-              .col-md-4
-                i.fa.fa-users.fa-4x
-                h5 Comunidade
-                p Consulte facilmente projetos de todas as áreas de uma forma cómoda e organizada sem precisar de qualquer registo.
-                p Mantenha-se atento aos melhores projetos desenvolvidos por alunos.
-          .clear
-    .joobstrab_area.main_area
-      .joobstrap_section.sourrounding_wrapper.text-center
-        .inner_wrapper
+              .text-center.font-lg
+                h3 Estudantes
+              p Simplifique a submissão dos seus projetos, organize as suas entregas e mantenha-se atento às próximas fases dos seus projetos. 
+              p Publique os seus trabalhos práticos e veja o seu trabalho reconhecido!
+            .col-sm-4.content-padding
+              .feature-icon.text-center
+                i.fa.fa-user.fa-4x
+              .text-center.font-lg
+                h3 Docentes
+              p Faça a gestão dos projetos e unidades curriculares que leciona, assim como dos seus alunos e turnos. 
+              p Simplifique os processos de criação, divulgação, correção e avaliação de um projeto!
+            .col-sm-4.content-padding
+              .feature-icon.text-center
+                i.fa.fa-user.fa-4x
+              .text-center.font-lg
+                h3 Comunidade
+              p Consulte facilmente projetos de todas as áreas de uma forma cómoda e organizada sem precisar de qualquer registo.
+              p Mantenha-se atento aos melhores projetos desenvolvidos por alunos.
+      .bg-white.content-padding.text-center.font-lg
+        .container
+          span.m-right-sm Comece já a fazer a gestão dos seus projetos!
+          .inline-block.m-top-sm
+            = link_to login_path, class: "btn btn-success btn-lg m-bottom-sm", style: "margin: 0 15px 0 15px"
+              i.fa.fa-sign-in
+              |  Entrar
+            = link_to signup_path, class: "btn btn-danger btn-lg m-bottom-sm fadeInRightLarge animation-delay2", style: "margin: 0 15px 0 15px"
+              | Registar 
+              i.fa.fa-edit    
+      #portfolio
+        .section-header
+          hr.left.visible-lg
+            span.text-danger A melhor escolha para os estudantes!
+            hr.right.visible-lg
+        .container
+          .row.recent-work
+            .col-sm-3
+              .detail.fadeInUp.animated-element.no-animation
+                a.hoverBorder href="#"
+                  span.hoverBorderWrapper
+                    img alt="portfolio" src="assets/teste/gallery2.jpg"
+                      span.hoverBorderInner
+                      span.readMore + Read more
+                .seperator
+                p
+                  h4 Projectos
+                  small Consulte todas as informações dos seus projetos e a calendarização das próximas fases.
+                  p
+            .col-sm-3
+              .detail.fadeInUp.animated-element.no-animation.animation-delay2
+                a.hoverBorder href="#"
+                  span.hoverBorderWrapper
+                    img alt="portfolio" src="assets/teste/gallery8.jpg"
+                      span.hoverBorderInner
+                      span.readMore + Read more
+                .seperator
+                p
+                  h4 Entregas
+                  small Submeta facilmente os seus trabalhos práticos e receba uma confirmação da sua validade.
+                  p
+            .col-sm-3
+              .detail.fadeInUp.animated-element.no-animation.animation-delay4
+                a.hoverBorder href="#"
+                  span.hoverBorderWrapper
+                    img alt="portfolio" src="assets/teste/gallery12.jpg"
+                      span.hoverBorderInner
+                      span.readMore + Read more
+                .seperator
+                p
+                  h4 Grupos
+                  small Crie os seus grupos de trabalho de forma fácil e intuitiva para que o trabalho comece da melhor forma.
+                  p
+            .col-sm-3
+              .detail.fadeInUp.animated-element.no-animation.animation-delay6
+                a.hoverBorder href="#"
+                  span.hoverBorderWrapper
+                    img alt="portfolio" src="assets/teste/gallery14.jpg"
+                      span.hoverBorderInner
+                      span.readMore + Read more
+                .seperator
+                p
+                  h4 Avaliações
+                  small Mantenha-se atento ao lançamento das avaliações em consulte-as em diferentes formatos.
+                  p          
+      .bg-white.text-center.content-padding
+        .container
+          h3 The Perfect Canvas For Your Design
+          h5.text-muted Super Powerful & Easy to Use Theme
+          .seperator
+          .seperator
+          p
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi...
+          a.btn.btn-lg.btn-success.animated-element.fadeInUp.no-animation href="https://wrapbootstrap.com/theme/endless-responsive-admin-template-WB00J6977"
+          hr/
+          img.fadeInRightLarge.no-animation.animated-element.m-top-md.animation-delay1 alt="" src="assets/teste/screenshot.jpg"
+      .bg-white
+        #contact.text-center.content-padding
           .container
-            .row
-              .col-md-12
-                .row
-                  .col-xs-9
-                    h4 Comece já a fazer a gestão dos seus projetos!
-                  .col-xs-3
-                    button.btn.btn-info.btn-xl data-original-title=".btn .btn-success .btn-lg" data-placement="top" type="button"
-                      | Registe-se
-    .joobstrab_area.main_area
-      #main_top.joobstrap_section.sourrounding_wrapper
-        .inner_wrapper
-          .container
-            .row
-              .col-md-12
-                h2.module-title
-                  span A melhor escolha para os
-                  | estudantes!
-                p.lead.text-center
-                br
-                hr
-            .row
-              .col-md-3
-                h5 Projetos
-                p Consulte todas as informações dos seus projetos e a calendarização das próximas fases.
-                hr
-                h5 Entregas
-                p Submeta facilmente os seus trabalhos práticos e receba uma confirmação da sua validade.
-              .col-md-3
-                h5 Grupos
-                p Crie os seus grupos de trabalho de forma fácil e intuitiva para que o trabalho comece da melhor forma.
-                hr
-                h5 Avaliações
-                p Mantenha-se atento ao lançamento das avaliações em consulte-as em diferentes formatos.
-              .col-md-6
-                = image_tag("student.png", :alt => "screen")
-            .clear
-      #main_center.joobstrap_section.sourrounding_wrapper
-        .inner_wrapper
-          .container
-            .row
-              .col-md-12
-                h2.module-title
-                  span E para os
-                  | docentes
-                  span  também!
-                p.lead.text-center
-                br
-                hr
-            .row
-              .col-md-6
-                = image_tag("teacher.png", :alt => "screen")
-              .col-md-3
-                h5 U. Curriculares
-                p Adicione alunos, organize-os em turnos e adicione docentes responsáveis.
-                hr
-                h5 Projetos
-                p Crie as fases dos projetos, adicione restrições às entregas e adicione testes para facilitar a avaliação.
-              .col-md-3
-                h5 Entregas
-                p Consulte, organize e faça download de todas as entregas. Consulte os resultados dos testes.
-                hr
-                h5 Avaliações
-                p Avalie facilmente os as entregas, individualmente ou em grupo, e gere instantaneamente as pautas.
-              .clear
-      #main_bottom.joobstrap_section.sourrounding_wrapper.text-center
-        .inner_wrapper
-          .container
-            .row
-              .col-md-12
-                h2.module-title
-                  span Conheça a
-                  | equipa
-                p.lead
-                .clear
-  = render "shared/main_footer"
+            h3 NEWSLETTER SIGNUP
+            p.m-bottom-md Subscribing to our newsletter you will always be update with the latest news from us.
+            form.form-inline.content-padding
+              .form-group
+                label.sr-only Email address
+                input#newsletter.form-control.input-lg placeholder="Email Address" type="text"
+              a.btn.btn-lg.btn-info href="#"
+    footer
+      .container
+        .row
+          .col-sm-3.padding-md
+            p.font-lg About Our Company
+            p
+              small Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum auctor suscipit lobortis.
+          .col-sm-3.padding-md
+            p.font-lg Useful Links
+            ul.list-unstyled.useful-link
+              li
+                a href="#"
+                  small
+                    i.fa.fa-chevron-right
+                    | Our Profile
+              li
+                a href="#"
+                  small
+                    i.fa.fa-chevron-right
+                    | New Products
+              li
+                a href="#"
+                  small
+                    i.fa.fa-chevron-right
+                    | Support Portal
+          .col-sm-3.padding-md
+            p.font-lg Stay Connect
+            a.social-connect.tooltip-test.facebook-hover data-original-title="Facebook" data-toggle="tooltip" href="#"
+              i.fa.fa-facebook
+            a.social-connect.tooltip-test.twitter-hover data-original-title="Twitter" data-toggle="tooltip" href="#"
+              i.fa.fa-twitter
+            a.social-connect.tooltip-test.google-plus-hover data-original-title="Google Plus" data-toggle="tooltip" href="#"
+              i.fa.fa-google-plus
+            a.social-connect.tooltip-test.rss-hover data-original-title="Rss feed" data-toggle="tooltip" href="#"
+              i.fa.fa-rss
+            a.social-connect.tooltip-test.tumblr-hover data-original-title="Tumblr" data-toggle="tooltip" href="#"
+              i.fa.fa-tumblr
+            a.social-connect.tooltip-test.dribbble-hover data-original-title="Dribbble" data-toggle="tooltip" href="#"
+              i.fa.fa-dribbble
+            a.social-connect.tooltip-test.linkedin-hover data-original-title="Linkedin" data-toggle="tooltip" href="#"
+              i.fa.fa-linkedin
+            a.social-connect.tooltip-test.pinterest-hover data-original-title="Pinterest" data-toggle="tooltip" href="#"
+              i.fa.fa-pinterest
+          .col-sm-3.padding-md
+            p.font-lg Contact Us
+            | Email : endless.themes@gmail.com
+            .seperator
+            a.btn.btn-info
+              i.fa.fa-envelope
+              | Contact support
+
+  a#scroll-to-top.hidden-print href=""
+    i.fa.fa-chevron-up
+  script src="assets/jquery-1.10.2.min.js"
+  script src="assets/bootstrap.min.js"
+  script src="assets/waypoints.min.js"
+  script src="assets/jquery.localscroll.min.js"
+  script src="assets/jquery.scrollTo.min.js"
+  script src="assets/modernizr.min.js"
+  script src="assets/pace.min.js"
+  script src="assets/jquery.popupoverlay.min.js"
+  script src="assets/jquery.slimscroll.min.js"
+  script src="assets/jquery.cookie.min.js"
+  script src="assets/endless.js"
+  javascript:
+    $(function()  {
+      $('.animated-element').waypoint(function() {
+        
+        $(this).removeClass('no-animation');
+        
+      }, { offset: '70%' });
+      
+      $('.nav').localScroll({duration:800});
+    });

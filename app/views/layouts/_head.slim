@@ -8,5 +8,6 @@ head
   title= content_for?(:title) ? yield(:title) : t('title.simple')
 
   = stylesheet_link_tag "application"
+  = yield(:stylesheets) if content_for?(:stylesheets)
   = javascript_include_tag "application"
   = csrf_meta_tag

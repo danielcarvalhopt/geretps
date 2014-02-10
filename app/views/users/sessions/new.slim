@@ -1,37 +1,36 @@
-body.hometheme
-  .sourrounding_all.on_frontpage
-    = render "shared/main_header"
-    .joobstrab_area.header_area
-      #header_slider.joobstrap_section.sourrounding_wrapper
-        .inner_wrapper
-          .row
-            .col-md-8
-            .col-md-4._login
-              section.widget.login-widget
-                header.text-align-center
-                  h4 style="color: #333" Entre na sua conta
-                = render "users/shared/errors"
-                .body
-                  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-                    fieldset
-                      .form-group.no-margin
-                        label for="email"
-                        .input-group.input-group-lg
-                          span.input-group-addon
-                            i.eicon-user
-                          = f.email_field :email, autofocus: true, id: "email", class: "form-control input-lg", placeholder: "Email"
-                      .form-group
-                        label for="password"
-                        .input-group.input-group-lg
-                          span.input-group-addon
-                            i.fa.fa-lock
-                          = f.password_field :password, id: "password", class: "form-control input-lg", placeholder: "Password"
-                    .form-actions
-                      button.btn.btn-block.btn-lg.btn-success type="submit"
-                        span.small-circle
-                          i.fa.fa-caret-right
-                        small  Entrar
-                      .forgot
-                        - if devise_mapping.recoverable? && controller_name != 'passwords'
-                          = link_to "Lembrar palavra-passe?", new_password_path(resource_name)
-  = render "shared/main_footer"
+body.login-bg
+  .login-wrapper
+    .logo-login.bounceIn.animation-delay8
+    .login-widget.animation-delay1
+      .panel.panel-default
+        .panel-heading.clearfix
+          .pull-left
+            i.fa.fa-lock.fa-lg
+            |  Login
+          .pull-right
+            span style="font-size:11px;" Ainda não tem conta? 
+            = link_to signup_path, class: "btn btn-default btn-xs login-link", style: "margin-top:-2px;"
+              i.fa.fa-plus-circle
+              |  Registar
+        .panel-body
+          = render "users/shared/errors"
+          = form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-login") do |f|
+            .form-group
+              = f.label :email, "Email"
+              = f.email_field :email, autofocus: true, id: "email", class: "form-control input-sm bounceIn animation-delay2"
+            .form-group
+              = f.label :password, "Palavra-passe"
+              = f.password_field :password, id: "password", class: "form-control input-sm bounceIn animation-delay3"
+            - if devise_mapping.rememberable?
+              .form-group
+                label.label-checkbox.inline
+                  = f.check_box :remember_me, class: "regular-checkbox chk-delete"
+                  span.custom-checkbox.info.bounceIn.animation-delay4
+                | Manter sessão activa
+            .seperator
+            hr/
+            .form-group
+              - if devise_mapping.recoverable? && controller_name != 'passwords'
+                = link_to "Lembrar palavra-passe?", pwreset_path, class: "pull-left"
+            = f.submit "Entrar" , class: "btn btn-success btn-sm bounceIn animation-delay4 login-link pull-right"
+  script src="assets/jquery-1.10.2.min.js"
