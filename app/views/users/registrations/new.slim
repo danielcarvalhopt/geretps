@@ -1,41 +1,38 @@
-.sourrounding_all.on_frontpage
-  = render "shared/main_header"
-  .joobstrab_area.header_area
-    #header_slider.joobstrap_section.sourrounding_wrapper
-      .inner_wrapper
-        .row
-          .col-md-7
-          .col-md-5
-            section.widget._signup
-              header.text-align-center
-                h4 style="color: #333" Informações pessoais
-                hr
-                = render "users/shared/errors"
-              .body
-                = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-                  .control-group.text-center
-                    = radio_button_tag(:type, "teacher")
-                    = label_tag(:type_teacher, "Professor")
-                    = radio_button_tag(:type, "student")
-                    = label_tag(:type_student, "Aluno")
-                  .control-group
-                    = f.label :name, "Nome", :class => "control-label"
-                    = f.text_field :name, :autofocus => true, :class => "col-xs-12"
-                  .control-group
-                    = f.label :email, "Email", :class => "control-label"
-                    = f.email_field :email, :class => "col-xs-12"
-                  .control-group
-                    = f.label :phone, "Telemóvel", :class => "control-label"
-                    = f.text_field :phone, :class => "col-xs-12"
-                  .control-group
-                    = f.label :password, "Password", :class => "control-label"
-                    = f.password_field :password, :class => "col-xs-12"
-                  .control-group
-                    = f.label :password_confirmation, "Confirmação da Password", :class => "control-label"
-                    = f.password_field :password_confirmation, :class => "col-xs-12"
-                  br/
-                  .control-group
-                    = f.submit "Registar", :class =>  "btn btn-success btn-lg pull-right"
-                  br/
-                  br/
-= render "shared/main_footer"
+body.login-bg
+  .login-wrapper
+    .logo-login.bounceIn.animation-delay8
+    .login-widget.animation-delay1
+      .panel.panel-default
+        .panel-heading
+          i.fa.fa-plus-circle.fa-lg
+          |  Criar nova conta de utilizador
+        .panel-body
+          = form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-login") do |f|
+            .control-group.text-center
+              = f.label "Tipo de conta", style: "margin-right: 10px"  
+
+              = select(nil, :type, options_for_select([["Student", "student"], ['Teacher', "teacher"]], 2) )
+            .form-group
+              = f.label :name, "Nome"
+              = f.text_field :name, autofocus: true, class: "form-control input-sm bounceIn animation-delay2"
+            .form-group
+              = f.label :email, "Email"
+              = f.email_field :email, class: "form-control input-sm bounceIn animation-delay3 "
+            .form-group#identifier style="display:none"
+              = label :identifier, "Número de aluno"
+              = text_field_tag :identifier, nil, class: "form-control input-sm bounceIn animation-delay3 "
+            .form-group
+              = f.label :phone, "Telemóvel"
+              = f.text_field :phone, class: "form-control input-sm bounceIn animation-delay4"
+            .form-group
+              = f.label :password, "Palavra-passe" 
+              = f.password_field :password, :class => "form-control input-sm bounceIn animation-delay5"
+            .form-group
+              = f.label :password_confirmation, "Confirmar palavra-passe"
+              = f.password_field :password_confirmation, class: "form-control input-sm bounceIn animation-delay6"
+            .seperator
+            hr/
+            .form-group
+              = link_to "Já criou conta? Faça login", login_path, class: "pull-left"
+              .controls.text-right
+                = f.submit "Registar" , class: "btn btn-success btn-sm bounceIn animation-delay7 login-link pull-right"

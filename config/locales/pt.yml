@@ -1,6 +1,11 @@
 # European Portuguese translations for devise
-
 pt: 
+  date:
+    order:
+      - :day
+      - :month
+      - :year
+
   title:
     simple: GereTps
     with_page: '%{page} - GereTps'
