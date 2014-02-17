@@ -1,12 +1,14 @@
 body.login-bg
   .login-wrapper
-    .logo-login.bounceIn
+    = link_to root_path  
+      .logo-login.bounceIn
     .login-widget.animation-delay1
       .panel.panel-default
         .panel-heading
           i.fa.fa-plus-circle.fa-lg
           |  Criar nova conta de utilizador
         .panel-body
+          = devise_error_messages! 
           = form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-login") do |f|
             .control-group.text-center
               = f.label "Tipo de conta", style: "margin-right: 10px"  
