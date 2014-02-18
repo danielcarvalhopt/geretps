@@ -18,7 +18,7 @@ users = [
     phone: "919985936", 
     email: "mail@danielcarvalho.pt",
     password: "qweqweqwe",
-    avatar: "https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-prn2/t1/1280469_550892881647502_1015882677_n.jpg",
+    avatar: "https://iflychat.com/sites/default/files/images/default-avatar%20(1).png",
     type: 1,
     identifier: "61008"
   },
@@ -28,7 +28,7 @@ users = [
     phone: "919985938", 
     email: "mail@andre-santos.pt",
     password: "qweqweqwe",
-    avatar: "https://scontent-a-lhr.xx.fbcdn.net/hphotos-frc1/t31/336549_324689527577668_243594700_o.jpg",
+    avatar: "https://iflychat.com/sites/default/files/images/default-avatar%20(1).png",
     type: 1,
     identifier: "61009"
   },
@@ -38,7 +38,7 @@ users = [
     phone: "919985937", 
     email: "mail@ricardo.pt",
     password: "qweqweqwe",
-    avatar: "https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-frc3/t31/456105_3778460575590_970623904_o.jpg",
+    avatar: "https://iflychat.com/sites/default/files/images/default-avatar%20(1).png",
     type: 1,
     identifier: "61010"
   }
@@ -54,6 +54,7 @@ users.each do |user|
     u.avatar = open(user[:avatar])
     u.save!
   end
+
   if user[:type] == 0
     Teacher.where(user_id: @user.id).first_or_initialize.tap do |t|
       t.user_id = @user.id

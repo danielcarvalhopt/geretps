@@ -2,19 +2,19 @@ puts 'seeding subjects...'
 
 subjects = [
     {
-      name: "Web Engineering",
+      name: "Engenharia Web",
       academic_year: "2013/2014", 
       course_id: 2,
       responsible_id: 1
     },
     {
-      name: "Imperative Programming",
+      name: "Programação Imperativa",
       academic_year: "2013/2014", 
       course_id: 1,
       responsible_id: 1
     },
     {
-      name: "Formal Language Processing",
+      name: "Scripting para Processamento de Linguagens Naturais",
       academic_year: "2013/2014", 
       course_id: 1,
       responsible_id: 1

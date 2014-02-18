@@ -2,11 +2,11 @@ puts 'seeding courses...'
 
 courses = [
     {
-      name: "Computer Engineering",
+      name: "Licenciatura em Engenharia Informática",
       institution_id: 5
     },
     {
-      name: "Formal Language Engineering",
+      name: "Mestrado em Engenharia Informática",
       institution_id: 5
     }
 ]

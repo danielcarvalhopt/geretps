@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
   belongs_to :subject
-  belongs_to :statement, class_name: "File"
+  belongs_to :statement, class_name: "Document"
   has_many :groups
   has_many :notifications
   has_many :phases
