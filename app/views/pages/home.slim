@@ -1,10 +1,8 @@
 - content_for :stylesheets do
   = stylesheet_link_tag 'endless-landing.min'
 
-
-body.overflow-hidden
-  #overlay.transparent
-  #wrapper.preload
+body
+  #wrapper
     header.navbar.navbar-fixed-top.bg-white
       .container
         .navbar-header
@@ -216,11 +214,9 @@ body.overflow-hidden
   script src="assets/jquery.localscroll.min.js"
   script src="assets/jquery.scrollTo.min.js"
   script src="assets/modernizr.min.js"
-  script src="assets/pace.min.js"
   script src="assets/jquery.popupoverlay.min.js"
   script src="assets/jquery.slimscroll.min.js"
   script src="assets/jquery.cookie.min.js"
-  script src="assets/endless.js"
   javascript:
     $(function()  {
       $('.animated-element').waypoint(function() {
