@@ -1,6 +1,6 @@
-class CreateFiles < ActiveRecord::Migration
+class CreateDocuments < ActiveRecord::Migration
   def change
-    create_table :files do |t|
+    create_table :documents do |t|
       t.string :name, null: false
       t.string :description
       t.text :notes

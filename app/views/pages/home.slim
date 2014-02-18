@@ -1,10 +1,9 @@
 - content_for :stylesheets do
   = stylesheet_link_tag 'endless-landing.min'
 
-
-body.overflow-hidden
-  #overlay.transparent
-  #wrapper.preload
+body
+  #wrapper
+    
     header.navbar.navbar-fixed-top.bg-white
       .container
         .navbar-header
@@ -13,13 +12,13 @@ body.overflow-hidden
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand href="#"
+          a.navbar-brand href="#{root_path}"
             span.text-danger Gere
             | TPs
         nav.collapse.navbar-collapse.bs-navbar-collapse role="navigation"
           ul.nav.navbar-nav.navbar-right
             li
-              a.top-link href="#" Inicio
+              a.top-link href="#{root_path}" Início
             li
               a.top-link href="#" Sitemap
             li
@@ -28,6 +27,7 @@ body.overflow-hidden
               = link_to "Entrar",login_path, class: "top-link"
             li
               = link_to "Registar",signup_path, class: "top-link"
+    
     #landing-content
       #main-slider.carousel.slide.bg-dark data-ride="carousel"
         ol.carousel-indicators
@@ -40,13 +40,14 @@ body.overflow-hidden
                   h2.m-top-lg.m-right-md.text-white.fadeInDownLarge.animation-delay3 Gestão de Trabalhos Práticos
                   p.text-white.fadeInUpLarge.animation-delay6.m-right-md.hidden-xs
                     | like a boss.
-                    br/
+                    br
                     | Cenas maradas manz!
                   a.btn.btn-default.btn-lg.fadeInLeftLarge.animation-delay8.m-bottom-lg.m-right-md href="#" Ir para um sítio
         a.left.carousel-control data-slide="prev" href="#main-slider"
           span.fa.fa-chevron-left
         a.right.carousel-control data-slide="next" href="#main-slider"
           span.fa.fa-chevron-right
+      
       .padding-md
         .container
           .row
@@ -71,6 +72,7 @@ body.overflow-hidden
                 h3 Comunidade
               p Consulte facilmente projetos de todas as áreas de uma forma cómoda e organizada sem precisar de qualquer registo.
               p Mantenha-se atento aos melhores projetos desenvolvidos por alunos.
+      
       .bg-white.content-padding.text-center.font-lg
         .container
           span.m-right-sm Comece já a fazer a gestão dos seus projetos!
@@ -81,6 +83,7 @@ body.overflow-hidden
             = link_to signup_path, class: "btn btn-danger btn-lg m-bottom-sm fadeInRightLarge animation-delay2", style: "margin: 0 15px 0 15px"
               | Registar 
               i.fa.fa-edit    
+      
       #portfolio
         .section-header
           hr.left.visible-lg
@@ -99,7 +102,6 @@ body.overflow-hidden
                 p
                   h4 Projectos
                   small Consulte todas as informações dos seus projetos e a calendarização das próximas fases.
-                  p
             .col-sm-3
               .detail.fadeInUp.animated-element.no-animation.animation-delay2
                 a.hoverBorder href="#"
@@ -111,7 +113,6 @@ body.overflow-hidden
                 p
                   h4 Entregas
                   small Submeta facilmente os seus trabalhos práticos e receba uma confirmação da sua validade.
-                  p
             .col-sm-3
               .detail.fadeInUp.animated-element.no-animation.animation-delay4
                 a.hoverBorder href="#"
@@ -123,7 +124,6 @@ body.overflow-hidden
                 p
                   h4 Grupos
                   small Crie os seus grupos de trabalho de forma fácil e intuitiva para que o trabalho comece da melhor forma.
-                  p
             .col-sm-3
               .detail.fadeInUp.animated-element.no-animation.animation-delay6
                 a.hoverBorder href="#"
@@ -134,18 +134,17 @@ body.overflow-hidden
                 .seperator
                 p
                   h4 Avaliações
-                  small Mantenha-se atento ao lançamento das avaliações em consulte-as em diferentes formatos.
-                  p          
+                  small Mantenha-se atento ao lançamento das avaliações em consulte-as em diferentes formatos.        
+      
       .bg-white.text-center.content-padding
         .container
           h3 The Perfect Canvas For Your Design
           h5.text-muted Super Powerful & Easy to Use Theme
           .seperator
           .seperator
-          p
-            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi...
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi...
           a.btn.btn-lg.btn-success.animated-element.fadeInUp.no-animation href="https://wrapbootstrap.com/theme/endless-responsive-admin-template-WB00J6977"
-          hr/
+          hr
           img.fadeInRightLarge.no-animation.animated-element.m-top-md.animation-delay1 alt="" src="assets/teste/screenshot.jpg"
       .bg-white
         #contact.text-center.content-padding
@@ -157,6 +156,7 @@ body.overflow-hidden
                 label.sr-only Email address
                 input#newsletter.form-control.input-lg placeholder="Email Address" type="text"
               a.btn.btn-lg.btn-info href="#"
+    
     footer
       .container
         .row
@@ -170,18 +170,15 @@ body.overflow-hidden
               li
                 a href="#"
                   small
-                    i.fa.fa-chevron-right
-                    | Our Profile
+                    i.fa.fa-chevron-right Our Profile
               li
                 a href="#"
                   small
-                    i.fa.fa-chevron-right
-                    | New Products
+                    i.fa.fa-chevron-right New Products
               li
                 a href="#"
                   small
-                    i.fa.fa-chevron-right
-                    | Support Portal
+                    i.fa.fa-chevron-right Support Portal
           .col-sm-3.padding-md
             p.font-lg Stay Connect
             a.social-connect.tooltip-test.facebook-hover data-original-title="Facebook" data-toggle="tooltip" href="#"
@@ -205,22 +202,9 @@ body.overflow-hidden
             | Email : endless.themes@gmail.com
             .seperator
             a.btn.btn-info
-              i.fa.fa-envelope
-              | Contact support
+              i.fa.fa-envelope Contact support
 
-  a#scroll-to-top.hidden-print href=""
-    i.fa.fa-chevron-up
-  script src="assets/jquery-1.10.2.min.js"
-  script src="assets/bootstrap.min.js"
   script src="assets/waypoints.min.js"
-  script src="assets/jquery.localscroll.min.js"
-  script src="assets/jquery.scrollTo.min.js"
-  script src="assets/modernizr.min.js"
-  script src="assets/pace.min.js"
-  script src="assets/jquery.popupoverlay.min.js"
-  script src="assets/jquery.slimscroll.min.js"
-  script src="assets/jquery.cookie.min.js"
-  script src="assets/endless.js"
   javascript:
     $(function()  {
       $('.animated-element').waypoint(function() {

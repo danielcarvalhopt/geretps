@@ -9,9 +9,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'devise', '3.0.3'
 gem 'paperclip', '3.4.2'
-gem 'compass-rails', '~> 2.0.alpha.0'
+gem 'compass-rails'
 gem 'slim'
-
+gem "coffee-script"
 
 group :doc do
   gem 'sdoc', require: false

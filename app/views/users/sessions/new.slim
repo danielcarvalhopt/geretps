@@ -1,6 +1,7 @@
 body.login-bg
   .login-wrapper
-    .logo-login.bounceIn.animation-delay8
+    = link_to root_path  
+      .logo-login.bounceIn
     .login-widget.animation-delay1
       .panel.panel-default
         .panel-heading.clearfix
@@ -28,9 +29,8 @@ body.login-bg
                   span.custom-checkbox.info.bounceIn.animation-delay4
                 | Manter sessão activa
             .seperator
-            hr/
+            hr
             .form-group
               - if devise_mapping.recoverable? && controller_name != 'passwords'
                 = link_to "Lembrar palavra-passe?", pwreset_path, class: "pull-left"
             = f.submit "Entrar" , class: "btn btn-success btn-sm bounceIn animation-delay4 login-link pull-right"
-  script src="assets/jquery-1.10.2.min.js"
