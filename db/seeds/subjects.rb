@@ -2,20 +2,38 @@ puts 'seeding subjects...'
 
 subjects = [
     {
-      name: "Engenharia Web",
-      academic_year: "2013/2014", 
+      name: "Análise e Transformação de Software",
+      academic_year_id: 4,
       course_id: 2,
       responsible_id: 1
     },
     {
-      name: "Programação Imperativa",
-      academic_year: "2013/2014", 
+      name: "Engenharia Gramatical",
+      academic_year_id: 4, 
+      course_id: 2,
+      responsible_id: 1
+    },
+    {
+      name: "Processamento Estruturado de Documentos",
+      academic_year_id: 4, 
+      course_id: 2,
+      responsible_id: 1
+    },
+    {
+      name: "Scripting no Processamento de Linguagem Natural",
+      academic_year_id: 4, 
+      course_id: 2,
+      responsible_id: 1
+    },
+    {
+      name: "Processamento Estruturado de Documentos",
+      academic_year_id: 4, 
       course_id: 1,
       responsible_id: 1
     },
     {
-      name: "Scripting para Processamento de Linguagens Naturais",
-      academic_year: "2013/2014", 
+      name: "Processamento Estruturado de Documentos",
+      academic_year_id: 4, 
       course_id: 1,
       responsible_id: 1
     }
