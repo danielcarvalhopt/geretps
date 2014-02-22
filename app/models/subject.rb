@@ -9,5 +9,5 @@ class Subject < ActiveRecord::Base
   has_many :projects
   has_many :shifts
 
-  validates :name, :academic_year_id, :responsible_id, presence: true
+  validates :name, :academic_year, :responsible, presence: true
 end

@@ -6,5 +6,5 @@ teachers = [
 ]
 
 teachers.each do |teacher|
-  Teacher.where(user_id: user.id).first_or_create!  
+  Teacher.where(user_id: teacher[:user_id]).first_or_create!  
 end
