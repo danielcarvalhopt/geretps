@@ -6,5 +6,5 @@ class Group < ActiveRecord::Base
   has_many :notifications, through: :assigned_notifications
   has_many :deliveries
 
-  validates :identifier,:project, presence: true
+  validates :identifier, :project, presence: true
 end

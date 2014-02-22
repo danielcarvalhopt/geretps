@@ -8,63 +8,41 @@ users = [
     phone: "253604479", 
     email: "jcr@di.uminho.pt",
     password: "jcrjcrjcr",
-    avatar: "http://www3.di.uminho.pt/~jcr/jcr@keep.jpg",
-    type: 0,
-    identifier: nil
+    avatar: "http://4vector.com/i/free-vector-male-user-icon-clip-art_125620_male-user-icon-clip-art/Male_User_Icon_clip_art_hight.png"
   },
   {
     name: "Daniel Carvalho",
-    about: "Sou o Daniel" ,
+    about: "Estudante do Mestrado em Engenharia Informática e developer em Ruby on Rails." ,
     phone: "919985936", 
     email: "mail@danielcarvalho.pt",
     password: "qweqweqwe",
-    avatar: "https://iflychat.com/sites/default/files/images/default-avatar%20(1).png",
-    type: 1,
-    identifier: "61008"
+    avatar: "http://4vector.com/i/free-vector-male-user-icon-clip-art_125620_male-user-icon-clip-art/Male_User_Icon_clip_art_hight.png"
   },
   {
     name: "André Santos",
-    about: "Sou o André",
+    about: "Estudante do Mestrado em Engenharia Informática e developer em Ruby on Rails.",
     phone: "919985938", 
     email: "mail@andre-santos.pt",
     password: "qweqweqwe",
-    avatar: "https://iflychat.com/sites/default/files/images/default-avatar%20(1).png",
-    type: 1,
-    identifier: "61009"
+    avatar: "http://4vector.com/i/free-vector-male-user-icon-clip-art_125620_male-user-icon-clip-art/Male_User_Icon_clip_art_hight.png"
   },
   {
     name: "Ricardo Branco",
-    about: "Sou o Ricardo",
+    about: "Estudante do Mestrado em Engenharia Informática e developer em Ruby on Rails.",
     phone: "919985937", 
     email: "mail@ricardo.pt",
     password: "qweqweqwe",
-    avatar: "https://iflychat.com/sites/default/files/images/default-avatar%20(1).png",
-    type: 1,
-    identifier: "61010"
+    avatar: "http://4vector.com/i/free-vector-male-user-icon-clip-art_125620_male-user-icon-clip-art/Male_User_Icon_clip_art_hight.png"
   }
 ]
 
 users.each do |user|
-  @user = User.where(email: user[:email]).first_or_initialize.tap do |u|
+  User.where(email: user[:email]).first_or_initialize.tap do |u|
     u.name = user[:name]
     u.about = user[:about]
     u.phone = user[:phone]
-    u.email = user[:email]
     u.password = user[:password]
     u.avatar = open(user[:avatar])
     u.save!
   end
-
-  if user[:type] == 0
-    Teacher.where(user_id: @user.id).first_or_initialize.tap do |t|
-      t.user_id = @user.id
-      t.save
-    end
-  else 
-    Student.where(user_id: @user.id).first_or_initialize.tap do |s|
-      s.user_id = @user.id
-      s.identifier = user[:identifier]
-      s.save
-    end
-  end   
 end

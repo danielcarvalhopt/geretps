@@ -1,6 +1,1 @@
-require_relative 'seeds/users.rb'
-require_relative 'seeds/institutions.rb'
-require_relative 'seeds/courses.rb'
-require_relative 'seeds/subjects.rb'
-#require_relative 'seeds/statements.rb'
-#require_relative 'seeds/projects.rb'
+Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each { |seed| load seed }
