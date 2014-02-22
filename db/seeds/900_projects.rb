@@ -63,7 +63,8 @@ projects = [
       min_elems: 1,
       max_elems: 3,
       subject_id: 9,
-      statement_id: 9
+      statement_id: 9,
+      shift_group: true
     },
     {
       name: "Projecto",
@@ -76,7 +77,8 @@ projects = [
       min_elems: 1,
       max_elems: 3,
       subject_id: 8,
-      statement_id: 8
+      statement_id: 8,
+      shift_group: true
     },
     {
       name: "Projecto C - TransitáriosLEI",
@@ -102,7 +104,8 @@ projects = [
       min_elems: 3,
       max_elems: 5,
       subject_id: 6,
-      statement_id: 6
+      statement_id: 6,
+      shift_group: true
     },
     {
       name: "Ficha de avaliação nº1",
