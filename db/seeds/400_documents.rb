@@ -42,7 +42,7 @@ documents = [
       file: "http://www3.di.uminho.pt/~jcr/XML/publicacoes/artigos/2002/JLRH02-CLEI.pdf"
     },
     {
-      name: "Enunciado LI I 09/10",
+      name: "Enunciado LI I 10/11",
       description: "Enunciado de Laboratórios de Informática I 2009/2010",
       file: "http://www3.di.uminho.pt/~jcr/XML/publicacoes/artigos/2002/JLRH02-CLEI.pdf"
     },
