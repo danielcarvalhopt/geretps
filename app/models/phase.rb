@@ -9,5 +9,5 @@ class Phase < ActiveRecord::Base
 
   validates :name, :begin_date, :project, presence: true
   validates :begin_date, date: true
-  validates :end_date, date: {after: :begin_date}
+  validates :end_date, date: {after: :begin_date}, if: :end_date
 end
