@@ -3,19 +3,6 @@ puts 'seeding projects...'
 
 projects = [
     {
-      name: "AAA - Arquivo Aberto de trabalhos de Alunos",
-      description: "Neste projecto pretende-se que os alunos desenvolvam uma aplicação Web que implemente um repositório digital de trabalhos de alunos. Além de permitir o livre acesso e pesquisa a todos os trabalhos depositados o sistema deverá assistir na execução dos workflows de realização e implementação de cada trabalho tornando necessária a criação de um backoffice que permita a gestão de disciplinas, alunos, grupos de trabalho, etc." ,
-      begin_date: Date.new(2013,11,18),
-      end_date: Date.new(2014,5,5),
-      public: true,
-      grades: false,
-      open: true,
-      max_elems: 3,
-      min_elems: 1,
-      subject_id: 1,
-      statement_id: 1
-    },
-    {
       name: "Projecto Integrado - GereTPs",
       description: "Neste projecto pretende-se que os alunos desenvolvam um Gestor de Trabalhos Práticos (GereTPs), que premita fazer a gestão de todos os trabalhos de uma disciplina. O GereTPs deverá ser responsável pela gestão da equipa docente, turnos e avaliação de uma disciplina",
       begin_date: Date.new(2013,10,13),
@@ -53,7 +40,7 @@ projects = [
       statement_id: 3
     },
     {
-      name: "Projeto",
+      name: "Projeto Laboratórios de Informática II",
       description: "Pretende-se criar uma pequena aplicação em Haskell que faça parsing de um ficheiro CSV que contém as inscrições das JOIN(Jornadas de Informática da Universidade do Minho) e que gere crachas para os diferentes tipos de participantes. A aplicação criada deverá também geras estatísticas sobre as inscrições.",
       begin_date: Date.new(2010,11,19),
       end_date: Date.new(2011,1,8),
@@ -67,7 +54,7 @@ projects = [
       shift_group: true
     },
     {
-      name: "Projecto",
+      name: "Projecto Laboratórios de Informática II",
       description: "O objectivo do projecto é criar uma ferramenta de disposição de peças rectangulares sujeitas a várias restrições que permita ao utilizador colocar as peças na área de trabalho e verificar se todas as restrições são cumpridas. Adicionalmente, deveria ser possível pedir ao sistema para gerar soluções válidas ou mesmo encontrar a melhor solução possível.",
       begin_date: Date.new(2011,3,6),
       end_date: Date.new(2011,6,1),
@@ -94,7 +81,7 @@ projects = [
       statement_id: 7
     },
     {
-      name: "Projecto",
+      name: "Projecto ASP.NET",
       description: "Pretende-se criar uma aplicação web, com recurso a ferramentas Microsoft",
       begin_date: Date.new(2013,2,25),
       end_date: Date.new(2013,6,5),
