@@ -9,5 +9,5 @@ class Project < ActiveRecord::Base
 
   validates :begin_date, :name, :subject, :statement, :min_elems, presence: true
   validates :begin_date, date: true
-  validates :end_date, date:{after: :begin_date}, if: :end_date
+  validates :end_date, date: {after: :begin_date}, if: :end_date
 end
