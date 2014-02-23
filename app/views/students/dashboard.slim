@@ -1,130 +1,19 @@
-body
-  #wrapper
-    #top-nav.fixed.skin-6
-      a.brand href="#{s_dashboard_path}"
-        span Gere
-        span.text-toggle TPs
-      button#sidebarToggle.navbar-toggle.pull-left type="button"
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      a.btn.btn-xs.btn-logout.btn-danger.pull-right
-        i.fa.fa-power-off   
-        |  Logout
-      ul.nav-notification.clearfix
-        li.dropdown
-          a.dropdown-toggle data-toggle="dropdown" href="index.html#"
-            i.fa.fa-bell.fa-lg
-            span.notification-label.bounceIn.animation-delay6 5
-          ul.dropdown-menu.notification.dropdown-4
-            li
-              a href="index.html#"
-            li
-              a href="index.html#"
-                span.notification-icon.bg-warning
-                  i.fa.fa-warning
-                span.m-left-xs Server #2 not responding.
-                span.time.text-muted Just now
-            li
-              a href="index.html#"
-                span.notification-icon.bg-success
-                  i.fa.fa-plus
-                span.m-left-xs New user registration.
-                span.time.text-muted 2m ago
-            li
-              a href="index.html#"
-                span.notification-icon.bg-danger
-                  i.fa.fa-bolt
-                span.m-left-xs Application error.
-                span.time.text-muted 5m ago
-            li
-              a href="index.html#"
-                span.notification-icon.bg-success
-                  i.fa.fa-usd
-                span.m-left-xs 2 items sold.
-                span.time.text-muted 1hr ago
-            li
-              a href="index.html#"
-                span.notification-icon.bg-success
-                  i.fa.fa-plus
-                span.m-left-xs New user registration.
-                span.time.text-muted 1hr ago
-            li
-              a href="index.html#"
-        li.profile.dropdown
-          a.dropdown-toggle data-toggle="dropdown" href="index.html#"
-            i.fa.fa-cogs.fa-lg 
-          ul.dropdown-menu
-            li
-              = link_to "#"
-                i.fa.fa-home.fa-lg
-                |  Home page
-            li.divider
-            li
-              = link_to logout_path
-                i.fa.fa-power-off.fa-lg
-                |  Log out
-    aside.fixed.skin-6
-      .sidebar-inner
-        .size-toggle
-          a#sizeToggle.btn.btn-sm
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.btn.btn-sm.pull-right href="login.html"
-            i.fa.fa-power-off
-        .user-block.clearfix
-          = image_tag @student.user.avatar.url, alt: "Student Avatar"
-          .detail
-            strong #{@student.user.name}
-            ul.list-inline
-              li
-                a href="profile.html" Profile
-              li
-                a.no-margin href="inbox.html" Inbox
-        .search-block
-            .input-group
-              input.form-control.input-sm placeholder="search here..." type="text"
-                span.input-group-btn
-                  button.btn.btn-default.btn-sm type="button"
-                    i.fa.fa-search
-        .main-menu
-          ul
-            li.active
-              a href="index.html"
-                span.menu-icon
-                  i.fa.fa-desktop.fa-lg
-                span.text
-                  | Dashboard
-                span.menu-hover
-            li
-              a href="/groups"
-                span.menu-icon
-                  i.fa.fa-file-text.fa-lg
-                span.text
-                  | Grupos
-                span.menu-hover
-            li
-              a href="/deliveries"
-                span.menu-icon
-                  i.fa.fa-envelope.fa-lg
-                span.text
-                  | Submissões
-                span.menu-hover
-            li
-              a href="/grades"
-                span.menu-icon
-                  i.fa.fa-phone.fa-lg
-                span.text
-                  | Pautas
-                span.menu-hover
-    #main-container
-      #breadcrumb
-        ul.breadcrumb
-          li
-            i.fa.fa-home
-            a href="index.html"
-          li.active Dashboard
-      .main-header.clearfix
-        .page-title
-          h3.no-margin Dashboard
+= render "shared/navbar"
+= render "shared/sidebar", user: @user
+
+#main-container
+  = render "shared/dashboard/breadcrumb", user: @user
+  = render "shared/dashboard/header", user: @user
+  
+  .padding-md    
+    .row
+      .col-md-8 
+        = render "projects/simple_widget", title: "Projetos a decorrer", projects: @projects.active_projects, type: "warning"
+        = render "projects/simple_widget", title: "Próximos projetos", projects: @projects.upcoming_projects, type: "default"
+        = render "projects/simple_widget", title: "Últimos projetos", projects: @projects.latest_projects                               
+
+      .col-md-4
+        = render "notifications/simple_widget", title: "Últimas notificações", notifications: @notifications
+
+      .col-md-4 
+        = render "academic_years/accordion_widget", academic_years: @academic_years, subjects: @subjects

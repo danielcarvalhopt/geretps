@@ -1,0 +1,8 @@
+.panel.panel-default.fadeInDown.animation-delay2
+  .panel-heading #{title}
+  .panel-body.no-padding
+    ul#feedList.list-group.collapse.in
+      - if notifications.empty?
+        = render "notifications/simple_widget/empty"
+      - else
+        = render "notifications/simple_widget/index", notifications: notifications
