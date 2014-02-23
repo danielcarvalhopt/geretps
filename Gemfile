@@ -12,6 +12,7 @@ gem 'paperclip', '3.4.2'
 gem 'compass-rails'
 gem 'slim'
 gem "coffee-script"
+gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
 
 group :doc do
   gem 'sdoc', require: false

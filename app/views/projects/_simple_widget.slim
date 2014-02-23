@@ -1,0 +1,9 @@
+.panel.panel-default.fadeInDown.animation-delay2
+  .panel-heading #{title}
+  .panel-body.no-padding
+    ul#feedList.list-group
+      - if projects.empty?
+        = render "projects/simple_widget/empty"
+      - else
+        - type ||= "success"
+        = render "projects/simple_widget/index", projects: projects, type: type

@@ -23,7 +23,11 @@ class StudentsController < ApplicationController
   end
 
   def dashboard
-    @student = Student.find_by user_id: current_user.id
+    @user = current_user.student
+    @projects = @user.projects
+    @notifications = @user.notifications
+    @academic_years = @user.academic_years
+    @subjects = @user.subjects
   end
 
   # POST /students

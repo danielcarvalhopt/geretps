@@ -1,0 +1,7 @@
+#breadcrumb
+  ul.breadcrumb
+    li
+      = link_to dashboard_path
+        i.fa.fa-home
+    li.active 
+      = link_to "Painel do #{user.type.capitalize}", dashboard_path

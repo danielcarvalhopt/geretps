@@ -1,217 +1,215 @@
 - content_for :stylesheets do
   = stylesheet_link_tag 'endless-landing.min'
 
-body
-  #wrapper
+#wrapper    
+  header.navbar.navbar-fixed-top.bg-white
+    .container
+      .navbar-header
+        button.navbar-toggle data-target=".bs-navbar-collapse" data-toggle="collapse" type="button"
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand href="#{root_path}"
+          span.text-danger Gere
+          | TPs
+      nav.collapse.navbar-collapse.bs-navbar-collapse role="navigation"
+        ul.nav.navbar-nav.navbar-right
+          li
+            a.top-link href="#{root_path}" Início
+          li
+            a.top-link href="#" Sitemap
+          li
+            a.top-link href="#" Sobre
+          li 
+            = link_to "Entrar",login_path, class: "top-link"
+          li
+            = link_to "Registar",signup_path, class: "top-link"
+  
+  #landing-content
+    #main-slider.carousel.slide.bg-dark data-ride="carousel"
+      ol.carousel-indicators
+        li.active data-slide-to="0" data-target="#main-slider"
+      .carousel-inner
+        .item.active
+          img.img-background alt="" src="assets/login-bg.jpg"
+            .row
+              .col-md-6.text-right
+                h2.m-top-lg.m-right-md.text-white.fadeInDownLarge.animation-delay3 Gestão de Trabalhos Práticos
+                p.text-white.fadeInUpLarge.animation-delay6.m-right-md.hidden-xs
+                  | like a boss.
+                  br
+                  | Cenas maradas manz!
+                a.btn.btn-default.btn-lg.fadeInLeftLarge.animation-delay8.m-bottom-lg.m-right-md href="#" Ir para um sítio
+      a.left.carousel-control data-slide="prev" href="#main-slider"
+        span.fa.fa-chevron-left
+      a.right.carousel-control data-slide="next" href="#main-slider"
+        span.fa.fa-chevron-right
     
-    header.navbar.navbar-fixed-top.bg-white
-      .container
-        .navbar-header
-          button.navbar-toggle data-target=".bs-navbar-collapse" data-toggle="collapse" type="button"
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand href="#{root_path}"
-            span.text-danger Gere
-            | TPs
-        nav.collapse.navbar-collapse.bs-navbar-collapse role="navigation"
-          ul.nav.navbar-nav.navbar-right
-            li
-              a.top-link href="#{root_path}" Início
-            li
-              a.top-link href="#" Sitemap
-            li
-              a.top-link href="#" Sobre
-            li 
-              = link_to "Entrar",login_path, class: "top-link"
-            li
-              = link_to "Registar",signup_path, class: "top-link"
-    
-    #landing-content
-      #main-slider.carousel.slide.bg-dark data-ride="carousel"
-        ol.carousel-indicators
-          li.active data-slide-to="0" data-target="#main-slider"
-        .carousel-inner
-          .item.active
-            img.img-background alt="" src="assets/login-bg.jpg"
-              .row
-                .col-md-6.text-right
-                  h2.m-top-lg.m-right-md.text-white.fadeInDownLarge.animation-delay3 Gestão de Trabalhos Práticos
-                  p.text-white.fadeInUpLarge.animation-delay6.m-right-md.hidden-xs
-                    | like a boss.
-                    br
-                    | Cenas maradas manz!
-                  a.btn.btn-default.btn-lg.fadeInLeftLarge.animation-delay8.m-bottom-lg.m-right-md href="#" Ir para um sítio
-        a.left.carousel-control data-slide="prev" href="#main-slider"
-          span.fa.fa-chevron-left
-        a.right.carousel-control data-slide="next" href="#main-slider"
-          span.fa.fa-chevron-right
-      
-      .padding-md
-        .container
-          .row
-            .col-sm-4.content-padding
-              .feature-icon.text-center
-                i.fa.fa-user.fa-4x
-              .text-center.font-lg
-                h3 Estudantes
-              p Simplifique a submissão dos seus projetos, organize as suas entregas e mantenha-se atento às próximas fases dos seus projetos. 
-              p Publique os seus trabalhos práticos e veja o seu trabalho reconhecido!
-            .col-sm-4.content-padding
-              .feature-icon.text-center
-                i.fa.fa-user.fa-4x
-              .text-center.font-lg
-                h3 Docentes
-              p Faça a gestão dos projetos e unidades curriculares que leciona, assim como dos seus alunos e turnos. 
-              p Simplifique os processos de criação, divulgação, correção e avaliação de um projeto!
-            .col-sm-4.content-padding
-              .feature-icon.text-center
-                i.fa.fa-user.fa-4x
-              .text-center.font-lg
-                h3 Comunidade
-              p Consulte facilmente projetos de todas as áreas de uma forma cómoda e organizada sem precisar de qualquer registo.
-              p Mantenha-se atento aos melhores projetos desenvolvidos por alunos.
-      
-      .bg-white.content-padding.text-center.font-lg
-        .container
-          span.m-right-sm Comece já a fazer a gestão dos seus projetos!
-          .inline-block.m-top-sm
-            = link_to login_path, class: "btn btn-success btn-lg m-bottom-sm", style: "margin: 0 15px 0 15px"
-              i.fa.fa-sign-in
-              |  Entrar
-            = link_to signup_path, class: "btn btn-danger btn-lg m-bottom-sm fadeInRightLarge animation-delay2", style: "margin: 0 15px 0 15px"
-              | Registar 
-              i.fa.fa-edit    
-      
-      #portfolio
-        .section-header
-          hr.left.visible-lg
-            span.text-danger A melhor escolha para os estudantes!
-            hr.right.visible-lg
-        .container
-          .row.recent-work
-            .col-sm-3
-              .detail.fadeInUp.animated-element.no-animation
-                a.hoverBorder href="#"
-                  span.hoverBorderWrapper
-                    img alt="portfolio" src="assets/teste/gallery2.jpg"
-                      span.hoverBorderInner
-                      span.readMore + Read more
-                .seperator
-                p
-                  h4 Projectos
-                  small Consulte todas as informações dos seus projetos e a calendarização das próximas fases.
-            .col-sm-3
-              .detail.fadeInUp.animated-element.no-animation.animation-delay2
-                a.hoverBorder href="#"
-                  span.hoverBorderWrapper
-                    img alt="portfolio" src="assets/teste/gallery8.jpg"
-                      span.hoverBorderInner
-                      span.readMore + Read more
-                .seperator
-                p
-                  h4 Entregas
-                  small Submeta facilmente os seus trabalhos práticos e receba uma confirmação da sua validade.
-            .col-sm-3
-              .detail.fadeInUp.animated-element.no-animation.animation-delay4
-                a.hoverBorder href="#"
-                  span.hoverBorderWrapper
-                    img alt="portfolio" src="assets/teste/gallery12.jpg"
-                      span.hoverBorderInner
-                      span.readMore + Read more
-                .seperator
-                p
-                  h4 Grupos
-                  small Crie os seus grupos de trabalho de forma fácil e intuitiva para que o trabalho comece da melhor forma.
-            .col-sm-3
-              .detail.fadeInUp.animated-element.no-animation.animation-delay6
-                a.hoverBorder href="#"
-                  span.hoverBorderWrapper
-                    img alt="portfolio" src="assets/teste/gallery14.jpg"
-                      span.hoverBorderInner
-                      span.readMore + Read more
-                .seperator
-                p
-                  h4 Avaliações
-                  small Mantenha-se atento ao lançamento das avaliações em consulte-as em diferentes formatos.        
-      
-      .bg-white.text-center.content-padding
-        .container
-          h3 The Perfect Canvas For Your Design
-          h5.text-muted Super Powerful & Easy to Use Theme
-          .seperator
-          .seperator
-          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi...
-          a.btn.btn-lg.btn-success.animated-element.fadeInUp.no-animation href="https://wrapbootstrap.com/theme/endless-responsive-admin-template-WB00J6977"
-          hr
-          img.fadeInRightLarge.no-animation.animated-element.m-top-md.animation-delay1 alt="" src="assets/teste/screenshot.jpg"
-      .bg-white
-        #contact.text-center.content-padding
-          .container
-            h3 NEWSLETTER SIGNUP
-            p.m-bottom-md Subscribing to our newsletter you will always be update with the latest news from us.
-            form.form-inline.content-padding
-              .form-group
-                label.sr-only Email address
-                input#newsletter.form-control.input-lg placeholder="Email Address" type="text"
-              a.btn.btn-lg.btn-info href="#"
-    
-    footer
+    .padding-md
       .container
         .row
-          .col-sm-3.padding-md
-            p.font-lg About Our Company
-            p
-              small Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum auctor suscipit lobortis.
-          .col-sm-3.padding-md
-            p.font-lg Useful Links
-            ul.list-unstyled.useful-link
-              li
-                a href="#"
-                  small
-                    i.fa.fa-chevron-right Our Profile
-              li
-                a href="#"
-                  small
-                    i.fa.fa-chevron-right New Products
-              li
-                a href="#"
-                  small
-                    i.fa.fa-chevron-right Support Portal
-          .col-sm-3.padding-md
-            p.font-lg Stay Connect
-            a.social-connect.tooltip-test.facebook-hover data-original-title="Facebook" data-toggle="tooltip" href="#"
-              i.fa.fa-facebook
-            a.social-connect.tooltip-test.twitter-hover data-original-title="Twitter" data-toggle="tooltip" href="#"
-              i.fa.fa-twitter
-            a.social-connect.tooltip-test.google-plus-hover data-original-title="Google Plus" data-toggle="tooltip" href="#"
-              i.fa.fa-google-plus
-            a.social-connect.tooltip-test.rss-hover data-original-title="Rss feed" data-toggle="tooltip" href="#"
-              i.fa.fa-rss
-            a.social-connect.tooltip-test.tumblr-hover data-original-title="Tumblr" data-toggle="tooltip" href="#"
-              i.fa.fa-tumblr
-            a.social-connect.tooltip-test.dribbble-hover data-original-title="Dribbble" data-toggle="tooltip" href="#"
-              i.fa.fa-dribbble
-            a.social-connect.tooltip-test.linkedin-hover data-original-title="Linkedin" data-toggle="tooltip" href="#"
-              i.fa.fa-linkedin
-            a.social-connect.tooltip-test.pinterest-hover data-original-title="Pinterest" data-toggle="tooltip" href="#"
-              i.fa.fa-pinterest
-          .col-sm-3.padding-md
-            p.font-lg Contact Us
-            | Email : endless.themes@gmail.com
-            .seperator
-            a.btn.btn-info
-              i.fa.fa-envelope Contact support
+          .col-sm-4.content-padding
+            .feature-icon.text-center
+              i.fa.fa-user.fa-4x
+            .text-center.font-lg
+              h3 Estudantes
+            p Simplifique a submissão dos seus projetos, organize as suas entregas e mantenha-se atento às próximas fases dos seus projetos. 
+            p Publique os seus trabalhos práticos e veja o seu trabalho reconhecido!
+          .col-sm-4.content-padding
+            .feature-icon.text-center
+              i.fa.fa-user.fa-4x
+            .text-center.font-lg
+              h3 Docentes
+            p Faça a gestão dos projetos e unidades curriculares que leciona, assim como dos seus alunos e turnos. 
+            p Simplifique os processos de criação, divulgação, correção e avaliação de um projeto!
+          .col-sm-4.content-padding
+            .feature-icon.text-center
+              i.fa.fa-user.fa-4x
+            .text-center.font-lg
+              h3 Comunidade
+            p Consulte facilmente projetos de todas as áreas de uma forma cómoda e organizada sem precisar de qualquer registo.
+            p Mantenha-se atento aos melhores projetos desenvolvidos por alunos.
+    
+    .bg-white.content-padding.text-center.font-lg
+      .container
+        span.m-right-sm Comece já a fazer a gestão dos seus projetos!
+        .inline-block.m-top-sm
+          = link_to login_path, class: "btn btn-success btn-lg m-bottom-sm", style: "margin: 0 15px 0 15px"
+            i.fa.fa-sign-in
+            |  Entrar
+          = link_to signup_path, class: "btn btn-danger btn-lg m-bottom-sm fadeInRightLarge animation-delay2", style: "margin: 0 15px 0 15px"
+            | Registar 
+            i.fa.fa-edit    
+    
+    #portfolio
+      .section-header
+        hr.left.visible-lg
+          span.text-danger A melhor escolha para os estudantes!
+          hr.right.visible-lg
+      .container
+        .row.recent-work
+          .col-sm-3
+            .detail.fadeInUp.animated-element.no-animation
+              a.hoverBorder href="#"
+                span.hoverBorderWrapper
+                  img alt="portfolio" src="assets/teste/gallery2.jpg"
+                    span.hoverBorderInner
+                    span.readMore + Read more
+              .seperator
+              p
+                h4 Projectos
+                small Consulte todas as informações dos seus projetos e a calendarização das próximas fases.
+          .col-sm-3
+            .detail.fadeInUp.animated-element.no-animation.animation-delay2
+              a.hoverBorder href="#"
+                span.hoverBorderWrapper
+                  img alt="portfolio" src="assets/teste/gallery8.jpg"
+                    span.hoverBorderInner
+                    span.readMore + Read more
+              .seperator
+              p
+                h4 Entregas
+                small Submeta facilmente os seus trabalhos práticos e receba uma confirmação da sua validade.
+          .col-sm-3
+            .detail.fadeInUp.animated-element.no-animation.animation-delay4
+              a.hoverBorder href="#"
+                span.hoverBorderWrapper
+                  img alt="portfolio" src="assets/teste/gallery12.jpg"
+                    span.hoverBorderInner
+                    span.readMore + Read more
+              .seperator
+              p
+                h4 Grupos
+                small Crie os seus grupos de trabalho de forma fácil e intuitiva para que o trabalho comece da melhor forma.
+          .col-sm-3
+            .detail.fadeInUp.animated-element.no-animation.animation-delay6
+              a.hoverBorder href="#"
+                span.hoverBorderWrapper
+                  img alt="portfolio" src="assets/teste/gallery14.jpg"
+                    span.hoverBorderInner
+                    span.readMore + Read more
+              .seperator
+              p
+                h4 Avaliações
+                small Mantenha-se atento ao lançamento das avaliações em consulte-as em diferentes formatos.        
+    
+    .bg-white.text-center.content-padding
+      .container
+        h3 The Perfect Canvas For Your Design
+        h5.text-muted Super Powerful & Easy to Use Theme
+        .seperator
+        .seperator
+        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi...
+        a.btn.btn-lg.btn-success.animated-element.fadeInUp.no-animation href="https://wrapbootstrap.com/theme/endless-responsive-admin-template-WB00J6977"
+        hr
+        img.fadeInRightLarge.no-animation.animated-element.m-top-md.animation-delay1 alt="" src="assets/teste/screenshot.jpg"
+    .bg-white
+      #contact.text-center.content-padding
+        .container
+          h3 NEWSLETTER SIGNUP
+          p.m-bottom-md Subscribing to our newsletter you will always be update with the latest news from us.
+          form.form-inline.content-padding
+            .form-group
+              label.sr-only Email address
+              input#newsletter.form-control.input-lg placeholder="Email Address" type="text"
+            a.btn.btn-lg.btn-info href="#"
+  
+  footer
+    .container
+      .row
+        .col-sm-3.padding-md
+          p.font-lg About Our Company
+          p
+            small Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum auctor suscipit lobortis.
+        .col-sm-3.padding-md
+          p.font-lg Useful Links
+          ul.list-unstyled.useful-link
+            li
+              a href="#"
+                small
+                  i.fa.fa-chevron-right Our Profile
+            li
+              a href="#"
+                small
+                  i.fa.fa-chevron-right New Products
+            li
+              a href="#"
+                small
+                  i.fa.fa-chevron-right Support Portal
+        .col-sm-3.padding-md
+          p.font-lg Stay Connect
+          a.social-connect.tooltip-test.facebook-hover data-original-title="Facebook" data-toggle="tooltip" href="#"
+            i.fa.fa-facebook
+          a.social-connect.tooltip-test.twitter-hover data-original-title="Twitter" data-toggle="tooltip" href="#"
+            i.fa.fa-twitter
+          a.social-connect.tooltip-test.google-plus-hover data-original-title="Google Plus" data-toggle="tooltip" href="#"
+            i.fa.fa-google-plus
+          a.social-connect.tooltip-test.rss-hover data-original-title="Rss feed" data-toggle="tooltip" href="#"
+            i.fa.fa-rss
+          a.social-connect.tooltip-test.tumblr-hover data-original-title="Tumblr" data-toggle="tooltip" href="#"
+            i.fa.fa-tumblr
+          a.social-connect.tooltip-test.dribbble-hover data-original-title="Dribbble" data-toggle="tooltip" href="#"
+            i.fa.fa-dribbble
+          a.social-connect.tooltip-test.linkedin-hover data-original-title="Linkedin" data-toggle="tooltip" href="#"
+            i.fa.fa-linkedin
+          a.social-connect.tooltip-test.pinterest-hover data-original-title="Pinterest" data-toggle="tooltip" href="#"
+            i.fa.fa-pinterest
+        .col-sm-3.padding-md
+          p.font-lg Contact Us
+          | Email : endless.themes@gmail.com
+          .seperator
+          a.btn.btn-info
+            i.fa.fa-envelope Contact support
 
-  script src="assets/waypoints.min.js"
-  javascript:
-    $(function()  {
-      $('.animated-element').waypoint(function() {
-        
-        $(this).removeClass('no-animation');
-        
-      }, { offset: '70%' });
+script src="assets/waypoints.min.js"
+javascript:
+  $(function()  {
+    $('.animated-element').waypoint(function() {
       
-      $('.nav').localScroll({duration:800});
-    });
+      $(this).removeClass('no-animation');
+      
+    }, { offset: '70%' });
+    
+    $('.nav').localScroll({duration:800});
+  });

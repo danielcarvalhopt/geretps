@@ -1,0 +1,27 @@
+<h1>Listing academic_years</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Academic year</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @academic_years.each do |academic_year| %>
+      <tr>
+        <td><%= academic_year.academic_year %></td>
+        <td><%= link_to 'Show', academic_year %></td>
+        <td><%= link_to 'Edit', edit_academic_year_path(academic_year) %></td>
+        <td><%= link_to 'Destroy', academic_year, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Academic year', new_academic_year_path %>

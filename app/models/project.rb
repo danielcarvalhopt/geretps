@@ -10,4 +10,8 @@ class Project < ActiveRecord::Base
   validates :begin_date, :name, :subject, :statement, :min_elems, presence: true
   validates :begin_date, date: true
   validates :end_date, date:{after: :begin_date}
+
+  scope :active_projects, -> { where("begin_date < ? AND end_date > ?", DateTime.now, DateTime.now) }
+  scope :upcoming_projects, -> { where("begin_date > ?", DateTime.now) }
+  scope :latest_projects, -> { where("end_date < ?", DateTime.now) }
 end

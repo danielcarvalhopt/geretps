@@ -9,4 +9,24 @@ class User < ActiveRecord::Base
   validates :email, presence: true, email: true, uniqueness: true
 	validates :phone, phone: true, uniqueness: true
   validates :name, presence: true
+
+  def student
+    Student.where(user: self).first
+  end
+
+  def student?
+    !student.nil?
+  end
+
+  def teacher
+    Teacher.where(user: self).first
+  end
+
+  def teacher?
+    !Teacher.nil?
+  end
+
+  def type
+    student? ? "aluno" : "docente"
+  end
 end
