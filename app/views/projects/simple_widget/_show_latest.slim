@@ -19,8 +19,10 @@ li.list-group-item.clearfix
               | 15/11/2014
         .col-md-4
           small.text-muted
-            i.fa.fa-tasks  
+            i.fa.fa-check  
               b  Avaliação: 
-              b.text-success 15
+              - if project.grades
+                b.text-success 14
+              - else
+                b.text-warning ?
               | /20 Valores
-                
