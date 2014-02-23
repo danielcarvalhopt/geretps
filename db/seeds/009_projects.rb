@@ -29,8 +29,8 @@ projects = [
       statement_id: 5
     },
     {
-      name: "Ficha de avaliação nº2",
-      begin_date: Date.today,
+      name: "Ficha de avaliação Nº2",
+      begin_date: Date.today + 15.days,
       public: false,
       open: false,
       grades: false,
@@ -40,7 +40,7 @@ projects = [
       statement_id: 3
     },
     {
-      name: "Projeto Laboratórios de Informática II",
+      name: "Projeto HASKELL - Parser JOIN",
       description: "Pretende-se criar uma pequena aplicação em Haskell que faça parsing de um ficheiro CSV que contém as inscrições das JOIN(Jornadas de Informática da Universidade do Minho) e que gere crachas para os diferentes tipos de participantes. A aplicação criada deverá também geras estatísticas sobre as inscrições.",
       begin_date: Date.new(2010,11,19),
       end_date: Date.new(2011,1,8),
@@ -54,7 +54,7 @@ projects = [
       shift_group: true
     },
     {
-      name: "Projecto Laboratórios de Informática II",
+      name: "Projecto C - Arranjo peças retangulares",
       description: "O objectivo do projecto é criar uma ferramenta de disposição de peças rectangulares sujeitas a várias restrições que permita ao utilizador colocar as peças na área de trabalho e verificar se todas as restrições são cumpridas. Adicionalmente, deveria ser possível pedir ao sistema para gerar soluções válidas ou mesmo encontrar a melhor solução possível.",
       begin_date: Date.new(2011,3,6),
       end_date: Date.new(2011,6,1),
@@ -68,7 +68,7 @@ projects = [
       shift_group: true
     },
     {
-      name: "Projecto C - TransitáriosLEI",
+      name: "Projecto C + JAVA - Transitários LEI",
       description: "Pretende-se criar uma aplicação informática para a empresa Transitários LEI, que faça a gestão de camiões, localidades e clientes.",
       begin_date: Date.new(2012,3,5),
       end_date: Date.new(2012,4,15),
@@ -95,7 +95,7 @@ projects = [
       shift_group: true
     },
     {
-      name: "Ficha de avaliação nº1",
+      name: "Ficha de avaliação Nº1",
       begin_date: Date.new(2013,12,17),
       end_date: Date.new(2014,1,12),
       public: false,

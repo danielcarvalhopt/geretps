@@ -26,7 +26,7 @@ class StudentsController < ApplicationController
     @user = current_user.student
     @projects = @user.projects
     @notifications = @user.notifications
-    @academic_years = @user.academic_years
+    @academic_years = @user.academic_years.uniq
     @subjects = @user.subjects
   end
 
