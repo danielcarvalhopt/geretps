@@ -5,5 +5,4 @@
       - if projects.empty?
         = render "projects/simple_widget/empty"
       - else
-        - type ||= "success"
         = render "projects/simple_widget/index", projects: projects, type: type
