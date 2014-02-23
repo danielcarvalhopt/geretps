@@ -27,6 +27,20 @@ phases = [
 		begin_date: Date.new(2014,5,6),
       	end_date: Date.new(2014,7,14),
       	project_id: 2
+	},
+	{
+		name: "Fase 1",
+		begin_date: Date.new(2013,11,29),
+		end_date: Date.new(2014,2,3),
+		project_id: 3,
+		open: true
+	},
+	{
+		name: "Fase 2",
+		begin_date: Date.new(2014,2,3),
+		end_date: Date.new(2014,7,14),
+		project_id: 3,
+		open: true
 	}
 ]
 
