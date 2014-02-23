@@ -48,6 +48,14 @@ phases = [
 		grades: false,
 		open: true,
 		project_id: 2
+	},
+	{
+		name: "Fase 1",
+		begin_date: Date.new(2010,11,19),
+		end_date: Date.new(2011,1,8),
+		grades: true,
+		open: true,
+		project_id: 4
 	}
 ]
 
