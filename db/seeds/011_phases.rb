@@ -4,29 +4,29 @@ phases = [
 	{
 		name: "Fase 1",
 		begin_date: Date.new(2013,10,13),
-      	end_date: Date.new(2013,12,9),
-      	grades: true,
-      	open: true,
-      	project_id: 1
+		end_date: Date.new(2013,12,9),
+		grades: true,
+		open: true,
+		project_id: 1
 	},
 	{
 		name: "Fase 2",
 		begin_date: Date.new(2013,12,10),
-      	end_date: Date.new(2014,3,10),
-      	open: true,
-      	project_id: 1
+		end_date: Date.new(2014,3,10),
+		open: true,
+		project_id: 1
 	},
 	{
 		name: "Fase 3",
 		begin_date: Date.new(2014,3,11),
-      	end_date: Date.new(2014,5,4),
-      	project_id: 1
+		end_date: Date.new(2014,5,4),
+		project_id: 1
 	},
 	{
 		name: "Fase 4",
 		begin_date: Date.new(2014,5,6),
-      	end_date: Date.new(2014,7,14),
-      	project_id: 1
+		end_date: Date.new(2014,7,14),
+		project_id: 1
 	},
 	{
 		name: "Fase 1",
