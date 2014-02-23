@@ -1,0 +1,51 @@
+aside.fixed.skin-6
+  .sidebar-inner
+    .size-toggle
+      a#sizeToggle.btn.btn-sm
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.btn.btn-sm.pull-right href="#{logout_path}"
+        i.fa.fa-power-off
+
+    .user-block.clearfix
+      = image_tag user.avatar.url
+      .detail
+        strong #{user.name}
+        ul.list-inline
+          li
+            a href="#" Definições
+
+    .search-block
+        .input-group
+          input.form-control.input-sm placeholder="procurar..." type="text"
+            span.input-group-btn
+              button.btn.btn-default.btn-sm type="button"
+                i.fa.fa-search
+
+    .main-menu
+      ul
+        li.active
+          a href="#{dashboard_path}"
+            span.menu-icon
+              i.fa.fa-desktop.fa-lg
+            span.text Painel do #{user.type.capitalize}
+            span.menu-hover
+        li
+          a href="#"
+            span.menu-icon
+              i.fa.fa-calendar.fa-lg
+            span.text Calendário
+            span.menu-hover
+        li
+          a href="#"
+            span.menu-icon
+              i.fa.fa-folder.fa-lg
+            span.text Unidades Curriculares
+            span.menu-hover
+        li
+          a href="#"
+            span.menu-icon
+              i.fa.fa-check.fa-lg
+            span.text Avaliações
+            span.menu-hover

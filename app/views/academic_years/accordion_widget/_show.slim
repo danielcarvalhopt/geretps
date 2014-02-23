@@ -1,0 +1,12 @@
+.panel.panel-default
+  .panel-heading
+    .panel-title
+      a.accordion-toggle data-parent="#accordion" data-toggle="collapse" href="##{academic_year.academic_year.tr('/','_')}" class="#{"collapsed" if number != 0}"
+        | Unidades curriculares #{academic_year.academic_year}
+  .panel-collapse.collapsed id="#{academic_year.academic_year.tr('/','_')}" class="#{number != 0 ? "collapse" : "in"}"
+    .panel-body.no-padding
+      ul#feedList.list-group.collapse.in.no-margin
+        - if subjects.where(academic_year: academic_year).empty?
+          = render "subjects/accordion_widget/empty"
+        - else
+          = render "subjects/accordion_widget/index", subjects: subjects.where(academic_year: academic_year)

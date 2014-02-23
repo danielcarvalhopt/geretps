@@ -1,0 +1,5 @@
+#accordion.panel-group.fadeInDown.animation-delay2
+  - if academic_years.empty?
+    = render "academic_years/accordion_widget/empty"
+  - else
+    = render "academic_years/accordion_widget/index", academic_years: academic_years, subjects: subjects

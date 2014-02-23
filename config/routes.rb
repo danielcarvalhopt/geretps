@@ -1,8 +1,9 @@
 Geretps::Application.routes.draw do
   root to: "pages#home"
-  get "/project" => "pages#project"
-  get "t_dashboard" => "teachers#dashboard"
-  get "s_dashboard" => "students#dashboard"
+
+  get "/dashboard" => "pages#dashboard", as: :dashboard
+  get "/students/dashboard" => "students#dashboard", as: :student_dashboard
+  get "/teachers/dashboard" => "teachers#dashboard", as: :teacher_dashboard
 
 
   devise_for :users, :controllers => {:registrations => "registrations"}
