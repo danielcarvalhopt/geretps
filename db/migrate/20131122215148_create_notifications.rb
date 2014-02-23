@@ -3,7 +3,7 @@ class CreateNotifications < ActiveRecord::Migration
     create_table :notifications do |t|
       t.string :title, null: false
       t.text :body, null: false
-      t.datetime :date, null: false, default: Time.now
+      t.datetime :date, null: false, default: Date.today
       t.references :project, index: true, null: false
     end
   end
