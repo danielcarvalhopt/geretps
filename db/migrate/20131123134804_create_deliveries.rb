@@ -6,7 +6,7 @@ class CreateDeliveries < ActiveRecord::Migration
       t.boolean :evaluated, default: false
       t.references :phase, index: true, null: false
       t.references :group, index: true, null: false
-      t.references :statement, index: true#, null: false
+      t.references :statement, index: true, null: false
     end
   end
 end
