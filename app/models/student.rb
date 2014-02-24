@@ -6,7 +6,7 @@ class Student < ActiveRecord::Base
   has_many :groups, through: :members
   has_many :grades
   has_many :projects, through: :subjects
-  has_many :notifications, through: :projects
+  has_many :notifications, through: :projects, order: 'date desc'
   has_many :academic_years, through: :subjects
 
   validates :identifier, :user, presence: true
