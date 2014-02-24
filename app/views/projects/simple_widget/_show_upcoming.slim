@@ -1,24 +1,24 @@
 li.list-group-item.clearfix
-  .row
-    .col-lg-1.col-md-1.col-xs-2
+  .row-widget
+    .icon-widget
       .activity-icon.small class="bg-default"
         i.fa.fa-file
-    .col-lg-11.col-md-11.col-xs-10
+    .info-widget
       .row
         .col-md-12
           span #{project.name}
-        .col-md-5
+        .col-md-4
           small.text-muted
             i.fa.fa-folder-open-o   
               b  UC:  
               = project.subject.name
-        .col-md-3
+        .col-md-4
           small.text-muted
             i.fa.fa-clock-o  
               b  Data início: 
-              | 15/11/2014
+              = date_or_undef project.begin_date
         .col-md-4
           small.text-muted
             i.fa.fa-clock-o 
               b  Primeira entrega: 
-              | 15/11/2014
+              = date_or_undef project.next_delivery

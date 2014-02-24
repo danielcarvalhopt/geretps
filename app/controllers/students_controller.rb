@@ -25,7 +25,7 @@ class StudentsController < ApplicationController
   def dashboard
     @user = current_user.student
     @projects = @user.projects
-    @notifications = @user.notifications
+    @notifications = @user.notifications.take 3
     @academic_years = @user.academic_years.uniq
     @subjects = @user.subjects
   end
