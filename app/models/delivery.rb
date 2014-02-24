@@ -7,7 +7,6 @@ class Delivery < ActiveRecord::Base
   has_many :grades
   has_many :test_results
 
-  validates :description, :grades, :public, presence: true
-  validates :description , length: { maximum: 500 }
-  validates :grades ,:public , inclusion: { in: [true, false] }
+  validates :description, presence: true
+
 end
