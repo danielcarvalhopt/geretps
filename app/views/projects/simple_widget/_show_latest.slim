@@ -22,7 +22,7 @@ li.list-group-item.clearfix
             i.fa.fa-check  
               b  Avaliação: 
               - if project.grades
-                b.text-success 14
+                b.text-success #{project.final_grade current_user.student.id} 
               - else
-                b.text-warning ?
-              | /20 Valores
+                b.text-warning ? 
+              | / 20.0 Valores

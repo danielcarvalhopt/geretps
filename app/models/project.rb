@@ -19,6 +19,10 @@ class Project < ActiveRecord::Base
     self.phases.first
   end
 
+  def last_phase
+    self.phases.last
+  end
+
   def next_delivery
     next_delivery = self.phases.find{|phase| phase.end_date > DateTime.now}.try(:end_date)
     next_delivery ||= self.end_date
@@ -37,10 +41,18 @@ class Project < ActiveRecord::Base
     self.completed_phases.count+1
   end
 
-
   def phases_nr
     count = self.phases.count
     count == 0 ? 1 : count
   end
 
+  def final_grade student_id
+    final_grade = 0
+
+    self.phases.each do |phase|
+      final_grade += (phase.last_evaluated_delivery(student_id).grade(student_id).value * phase.value)/100
+    end
+
+    (final_grade * 20) / 100
+  end
 end
