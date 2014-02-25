@@ -7,4 +7,9 @@ class Group < ActiveRecord::Base
   has_many :deliveries
 
   validates :identifier, :project, presence: true
+
+  def has_student student_id
+    student = self.students.find{|student| student.id == student_id}
+    !student.nil?
+  end
 end

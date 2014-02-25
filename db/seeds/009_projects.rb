@@ -46,7 +46,7 @@ projects = [
       end_date: Date.new(2011,1,8),
       public: true,
       open: true,
-      grades: false,
+      grades: true,
       min_elems: 1,
       max_elems: 3,
       subject_id: 9,
