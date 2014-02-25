@@ -7,6 +7,7 @@ phases = [
 		end_date: Date.new(2013,12,9),
 		grades: false,
 		open: true,
+		value: 10,
 		project_id: 1
 	},
 	{
@@ -15,6 +16,7 @@ phases = [
 		end_date: Date.new(2014,3,10),
 		grades: false,
 		open: true,
+		value: 10,
 		project_id: 1
 	},
 	{
@@ -23,6 +25,7 @@ phases = [
 		end_date: Date.new(2014,5,4),
 		grades: false,
 		open: true,
+		value: 10,
 		project_id: 1
 	},
 	{
@@ -31,6 +34,7 @@ phases = [
 		end_date: Date.new(2014,7,14),
 		grades: false,
 		open: false,
+		value: 70,
 		project_id: 1
 	},
 	{
@@ -39,6 +43,7 @@ phases = [
 		end_date: Date.new(2014,2,3),
 		grades: false,
 		open: true,
+		value: 20,
 		project_id: 2
 	},
 	{
@@ -47,6 +52,7 @@ phases = [
 		end_date: Date.new(2014,7,14),
 		grades: false,
 		open: true,
+		value: 80,
 		project_id: 2
 	},
 	{
@@ -55,6 +61,7 @@ phases = [
 		end_date: Date.new(2011,1,8),
 		grades: true,
 		open: true,
+		value: 100,
 		project_id: 4
 	}
 ]

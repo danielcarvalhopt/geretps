@@ -7,6 +7,8 @@ class CreateDeliveries < ActiveRecord::Migration
       t.references :phase, index: true, null: false
       t.references :group, index: true, null: false
       t.references :statement, index: true
+
+      t.timestamps
     end
   end
 end

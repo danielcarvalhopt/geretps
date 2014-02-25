@@ -5,9 +5,13 @@ class Phase < ActiveRecord::Base
   has_many :phase_files
   has_many :documents, through: :phase_files
   has_many :tests
-  has_many :deliveries
+  has_many :deliveries, order: "updated_at desc"
 
   validates :name, :begin_date, :project, presence: true
   validates :begin_date, date: true
   validates :end_date, date: {after: :begin_date}, if: :end_date
+
+  def last_evaluated_delivery student_id
+    self.deliveries.find{|delivery| delivery.group.has_student(student_id) && delivery.evaluated}
+  end
 end
