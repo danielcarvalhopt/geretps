@@ -22,14 +22,6 @@ class StudentsController < ApplicationController
   def edit
   end
 
-  def dashboard
-    @user = current_user.student
-    @projects = @user.projects
-    @notifications = @user.notifications.take 3
-    @academic_years = @user.academic_years.uniq
-    @subjects = @user.subjects
-  end
-
   # POST /students
   # POST /students.json
   def create

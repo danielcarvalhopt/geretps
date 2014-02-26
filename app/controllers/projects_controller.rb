@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_user
 
   # GET /projects
   # GET /projects.json
@@ -10,6 +11,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @notifications = @project.notifications.take 3
   end
 
   # GET /projects/new
@@ -62,6 +64,10 @@ class ProjectsController < ApplicationController
   end
 
   private
+    def set_user
+      @user = current_user.student? ? current_user.student : current_user.teacher
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = Project.find(params[:id])
