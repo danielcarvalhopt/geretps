@@ -2,7 +2,7 @@ class Project < ActiveRecord::Base
   belongs_to :subject
   belongs_to :statement, class_name: "Document"
   has_many :groups
-  has_many :notifications
+  has_many :notifications, order: 'date desc'
   has_many :phases, order: 'begin_date asc'
   has_many :project_files
   has_many :files, through: :project_files

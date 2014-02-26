@@ -5,6 +5,7 @@ Geretps::Application.routes.draw do
   get "/students/dashboard" => "students#dashboard", as: :student_dashboard
   get "/teachers/dashboard" => "teachers#dashboard", as: :teacher_dashboard
 
+  get "/documents/file/:id" => "documents#show_file", as: :show_file 
 
   devise_for :users, :controllers => {:registrations => "registrations"}
   

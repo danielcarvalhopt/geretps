@@ -1,12 +1,18 @@
 class PagesController < ApplicationController
+  before_action :set_user, only: [:dashboard]
+
   def home
   end
 
   def dashboard
-    if current_user.student?
-      redirect_to student_dashboard_path
-    else
-      redirect_to teacher_dashboard_path
-    end
+    @projects = @user.projects
+    @notifications = @user.notifications.take 3
+    @academic_years = @user.academic_years.uniq
+    @subjects = @user.subjects
   end
+
+  private
+    def set_user
+      @user = current_user.student? ? current_user.student : current_user.teacher
+    end
 end
