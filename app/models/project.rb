@@ -50,9 +50,9 @@ class Project < ActiveRecord::Base
     final_grade = 0
 
     self.phases.each do |phase|
-      final_grade += (phase.last_evaluated_delivery(student_id).grade(student_id).value * phase.value)/100
+      final_grade += phase.final_grade student_id
     end
 
-    (final_grade * 20) / 100
+    final_grade
   end
 end

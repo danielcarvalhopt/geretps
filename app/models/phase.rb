@@ -14,4 +14,10 @@ class Phase < ActiveRecord::Base
   def last_evaluated_delivery student_id
     self.deliveries.find{|delivery| delivery.group.has_student(student_id) && delivery.evaluated}
   end
+
+  def final_grade student_id
+    final_grade = (last_evaluated_delivery(student_id).grade(student_id).value * self.value)/100
+
+    (final_grade * 20) / 100
+  end
 end
