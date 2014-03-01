@@ -1,5 +1,11 @@
 .panel.panel-default.fadeInDown.animation-delay2
-  .panel-heading #{title}
+  .panel-heading 
+    = title
+    .pull-right 
+        .btn.btn-warning.btn-xs Gerir grupos
   .panel-body.no-padding
     ul#feedList.list-group.collapse.in
-
+      - if group.nil?
+        = render "groups/simple_widget/empty"
+      - else
+        = render "groups/simple_widget/show", group: group

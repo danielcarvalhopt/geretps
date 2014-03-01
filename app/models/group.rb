@@ -4,12 +4,11 @@ class Group < ActiveRecord::Base
   has_many :students, through: :members
   has_many :assigned_notifications
   has_many :notifications, through: :assigned_notifications
-  has_many :deliveries
+  has_many :deliveries, order: 'created_at desc'
 
   validates :identifier, :project, presence: true
 
-  def has_student student_id
-    student = self.students.find{|student| student.id == student_id}
-    !student.nil?
+  def have_student student_id
+    !self.students.find{|student| student.id == student_id}.nil?
   end
 end

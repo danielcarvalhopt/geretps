@@ -11,6 +11,6 @@ class Student < ActiveRecord::Base
 
   validates :identifier, :user, presence: true
 
-  delegate :name, :about, :phone, :avatar, :teacher, :student?, :teacher?, :student, :teacher, :type, to: :user
+  delegate :name, :about, :phone, :avatar, :teacher, :student?, :teacher?, :student, :teacher, :type, :email, to: :user
 
 end

@@ -23,7 +23,7 @@
               i.fa.fa-check  
                 b  Avaliação: 
                 - if project.grades
-                  b.text-success #{project.final_grade current_user.student.id} 
+                  b.text-success #{project.grade current_user.student.id} 
                 - else
                   b.text-warning ? 
                 | / 20.0 Valores

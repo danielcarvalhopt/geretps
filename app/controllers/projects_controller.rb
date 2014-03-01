@@ -11,7 +11,10 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @notifications = @project.notifications.take 3
+    @notifications = @project.notifications.take 5
+    @phases = @project.phases
+    @group = @project.group_of current_user.student.id
+    @deliveries = @project.deliveries_of(@group.try(:id)).take 4
   end
 
   # GET /projects/new

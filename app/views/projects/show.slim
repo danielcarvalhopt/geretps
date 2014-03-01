@@ -8,11 +8,11 @@
   .padding-md    
     .row
       .col-md-8 
-        = render "projects/show/utilities", project: @project
         = render "projects/show/description", project: @project
-        = render "projects/show/phases", phases: @project.phases
+        = render "projects/show/phases", project: @project, phases: @phases
 
       .col-md-4
+        = render "projects/show/utilities", project: @project
         = render "notifications/simple_widget", title: "Últimas notificações", notifications: @notifications
-        = render "groups/simple_widget", title: "Grupo de trabalho"
-        = render "deliveries/simple_widget", title: "Últimas entregas"
+        = render "groups/simple_widget", title: "Grupo de trabalho", group: @group
+        = render "deliveries/simple_widget", title: "Últimas entregas", deliveries: @deliveries
