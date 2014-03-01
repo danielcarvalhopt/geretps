@@ -12,6 +12,11 @@ class Phase < ActiveRecord::Base
   validates :end_date, date: {after: :begin_date}, if: :end_date
 
   def last_evaluated_delivery student_id
-    self.deliveries.find{|delivery| delivery.group.has_student(student_id) && delivery.evaluated}
+    self.deliveries.find{|delivery| delivery.group.have_student(student_id) && delivery.evaluated}
+  end
+
+  def grade student_id
+    grade = (last_evaluated_delivery(student_id).grade(student_id).value * self.value)/100
+    (grade * 20) / 100
   end
 end

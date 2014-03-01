@@ -2,8 +2,8 @@
 = render "shared/sidebar", user: @user
 
 #main-container
-  = render "shared/dashboard/breadcrumb", user: @user
-  = render "shared/dashboard/header", user: @user
+  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type.capitalize}",link: "#"}]
+  = render "shared/dashboard/header", header: "Painel do #{@user.type.capitalize}"
   
   .padding-md    
     .row
