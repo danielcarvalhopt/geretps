@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
   has_many :groups
   has_many :notifications, order: 'date desc'
   has_many :phases, order: 'begin_date asc'
+  has_many :deliveries, through: :phases
   has_many :project_files
   has_many :files, through: :project_files
 
@@ -24,9 +25,7 @@ class Project < ActiveRecord::Base
   end
 
   def next_delivery
-    next_delivery = self.phases.find{|phase| phase.end_date > DateTime.now}.try(:end_date)
-    next_delivery ||= self.end_date
-    next_delivery
+    self.phases.find{|phase| phase.end_date > DateTime.now}.try(:end_date) || self.end_date
   end
 
   def completed_phases
@@ -46,13 +45,19 @@ class Project < ActiveRecord::Base
     count == 0 ? 1 : count
   end
 
-  def final_grade student_id
-    final_grade = 0
-
+  def grade student_id
+    grade = 0
     self.phases.each do |phase|
-      final_grade += phase.final_grade student_id
+      grade += phase.grade student_id
     end
+    grade
+  end
 
-    final_grade
+  def group_of student_id
+    self.groups.find{|group| group.have_student student_id}
+  end
+
+  def deliveries_of group_id
+    self.deliveries.where(group_id: group_id)
   end
 end

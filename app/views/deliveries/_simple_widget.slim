@@ -1,4 +1,11 @@
 .panel.panel-default.fadeInDown.animation-delay2
-  .panel-heading #{title}
+  .panel-heading
+    = title
+    .pull-right 
+        .btn.btn-info.btn-xs Gerir entregas
   .panel-body.no-padding
     ul#feedList.list-group.collapse.in
+      - if deliveries.empty?
+        = render "deliveries/simple_widget/empty"
+      - else
+        = render "deliveries/simple_widget/index", deliveries: deliveries

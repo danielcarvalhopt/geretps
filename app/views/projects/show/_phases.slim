@@ -1,54 +1,10 @@
 .panel.panel-default.fadeInDown.animation-delay2
   .panel-heading Fases do Projeto
-  .panel-body
-    .timeline-wrapper
-      .timeline-item.timeline-start
-        .panel.bg-success
-          .panel-body.text-center
-            strong.font-14
-              | Início do Projeto
-            br
-            = date_or_undef phases.first.begin_date
-      - phases.each do |phase|
-        .timeline-item
-          .timeline-info
-            - if phase.end_date < DateTime.now
-              .timeline-icon.bg-success
-                  i.fa.fa-archive
-            - else
-              .timeline-icon.bg-warning
-                i.fa.fa-calendar-o
-            .time #{short_date_or_undef phase.begin_date}
-          .panel.panel-default.timeline-panel
-            .panel-heading
-              strong.font-14 #{phase.name}
-              
-              .pull-right 
-                b Avaliação: 
-                
-                - if phase.grades
-                  span.text-success #{phase.final_grade current_user.student.id} 
-                - else
-                  span.text-warning ?
-                |  / #{(phase.value*20)/100} Valores
-
-            .panel-body
-              p #{raw phase.description.html_safe}
-              .separator.pull-right
-                - if phase.grades
-                  .btn.btn-xs.btn-success style="margin:2px" 
-                    i.fa.fa-check  Pauta
-                - if phase.statement
-                  .btn.btn-xs.btn-primary style="margin:2px" 
-                    i.fa.fa-file-text-o  Enunciado
-                - if phase.deliveries.count > 0
-                  .btn.btn-xs.btn-info style="margin:2px" 
-                    i.fa.fa-archive  Entregas
-      
-      .timeline-item.timeline-start
-        .panel.bg-danger style="margin-bottom:0px;margin-top:10px;"
-          .panel-body.text-center
-            strong.font-14
-              | Fim do Projeto
-            br
-            = date_or_undef phases.last.end_date
+  - if phases.empty?
+    = render "projects/show/phases/empty"        
+  - else
+    .panel-body
+      .timeline-wrapper
+        = render "projects/show/phases/begin", project: project
+        = render "projects/show/phases/index", phases: phases
+        = render "projects/show/phases/end", project: project

@@ -1,0 +1,35 @@
+- phases.each do |phase|
+  .timeline-item
+    .timeline-info
+      - if phase.end_date < DateTime.now
+        .timeline-icon.bg-success
+            i.fa.fa-archive
+      - else
+        .timeline-icon.bg-warning
+          i.fa.fa-calendar-o
+      .time #{short_date_or_undef phase.begin_date}
+    .panel.panel-default.timeline-panel
+      .panel-heading
+        strong.font-14 #{phase.name}
+        
+        .pull-right 
+          b Avaliação: 
+          
+          - if phase.grades
+            span.text-success #{phase.grade current_user.student.id} 
+          - else
+            span.text-warning ?
+          |  / #{(phase.value*20)/100} Valores
+
+      .panel-body
+        p #{raw phase.description.try(:html_safe)}
+        .separator.pull-right
+          - if phase.grades
+            .btn.btn-xs.btn-success style="margin:2px" 
+              i.fa.fa-check  Consultar pauta
+          - if phase.statement
+            .btn.btn-xs.btn-primary style="margin:2px" 
+              i.fa.fa-file-text-o  Consultar enunciado
+          - if phase.deliveries.count > 0
+            .btn.btn-xs.btn-info style="margin:2px" 
+              i.fa.fa-archive  Consultar entregas
