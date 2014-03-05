@@ -1,0 +1,25 @@
+header.navbar.navbar-fixed-top.bg-white
+  .container
+    .navbar-header
+      button.navbar-toggle data-target=".bs-navbar-collapse" data-toggle="collapse" type="button"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand href="#{root_path}"
+        span.text-danger Gere
+        | TPs
+    nav.collapse.navbar-collapse.bs-navbar-collapse role="navigation"
+      ul.nav.navbar-nav.navbar-right
+        li
+          a.top-link href="#{root_path}" Início
+        li
+          a.top-link href="#" Mapa do site
+        li
+          a.top-link href="#" Sobre
+        li
+          a.top-link href="#" Pesquisar projectos
+        li 
+          = link_to "Painel do #{@user.type.capitalize}", dashboard_path, class: "top-link"
+        li
+          = link_to "Sair", logout_path, class: "top-link"
