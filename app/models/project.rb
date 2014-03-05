@@ -60,4 +60,13 @@ class Project < ActiveRecord::Base
   def deliveries_of group_id
     self.deliveries.where(group_id: group_id)
   end
+
+  def current_phase
+    self.phases.find{|phase| phase.active?}
+  end
+
+  def current_or_nearest_phase
+    phase = self.current_phase
+    phase ||= self.begin_date >= DateTime.now ? self.first_phase : self.last_phase
+  end
 end

@@ -1,0 +1,9 @@
+.panel.panel-default.fadeInDown.animation-delay2
+  .panel-heading 
+    = title
+  .panel-body.no-padding
+    ul#feedList.list-group.collapse.in
+      - if phase_files.empty?
+        = render "phase_files/simple_widget/empty"
+      - else
+        = render "phase_files/simple_widget/index", phase_files: phase_files

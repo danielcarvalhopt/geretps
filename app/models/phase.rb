@@ -19,4 +19,22 @@ class Phase < ActiveRecord::Base
     grade = (last_evaluated_delivery(student_id).grade(student_id).value * self.value)/100
     (grade * 20) / 100
   end
+
+  def completed?
+    self.end_date < DateTime.now
+  end
+
+  def active?
+    self.end_date >= DateTime.now && self.begin_date <= DateTime.now
+  end
+
+  def status_color
+    if self.completed?
+      "text-success"
+    elsif self.active?
+      "text-warning"
+    else
+      "text-primary"
+    end
+  end
 end

@@ -1,0 +1,5 @@
+#accordion.panel-group.fadeInDown.animation-delay2
+  - if phases.empty?
+    = render "phases/accordion_widget/empty"
+  - else
+    = render "phases/accordion_widget/index", phases: phases, current_phase: current_phase

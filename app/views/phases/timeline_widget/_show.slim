@@ -1,0 +1,34 @@
+.timeline-item
+  .timeline-info
+    - if phase.completed?
+      .timeline-icon.bg-success
+          i.fa.fa-archive
+    - elsif phase.active?
+      .timeline-icon.bg-warning
+        i.fa.fa-calendar-o
+    - else
+      .timeline-icon.bg-primary
+        i.fa.fa-calendar-o  
+    .time #{short_date_or_undef phase.begin_date}
+    
+  = link_to phase_path phase
+    .panel.panel-default.timeline-panel
+      .panel-heading
+        strong.font-14 #{phase.name}
+        
+        .pull-right 
+          b Avaliação: 
+          
+          - if phase.grades
+            span.text-success #{phase.grade current_user.student.id} 
+          - else
+            span.text-warning ?
+          |  / #{(phase.value*20)/100} Valores
+
+      .panel-body
+        p #{raw phase.description.try(:html_safe)}
+        .separator.pull-right
+          a.shortcut-link href="#{phase_path phase}"
+            span.shortcut-icon
+              i.fa.fa-info.fa-sm
+            span.text Mais informações

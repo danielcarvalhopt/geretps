@@ -46,7 +46,11 @@ documents = [
       description: "Enunciado de Laboratórios de Informática I 2009/2010",
       file: "https://dl.dropboxusercontent.com/u/13351850/e_pi.pdf"
     },
-
+    {
+      name: "Modelo OAIS",
+      description: "An Open Archival Information System (or OAIS) is an archive, consisting of an organization of people and systems, that has accepted the responsibility to preserve information and make it available for a Designated Community.",
+      file: "https://dl.dropboxusercontent.com/u/13351850/e_pi.pdf"
+    },
 ]
 
 documents.each do |document|

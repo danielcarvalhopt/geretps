@@ -1,0 +1,23 @@
+.panel.panel-default
+  .panel-heading
+    .panel-title
+      a.accordion-toggle data-parent="#accordion" data-toggle="collapse" href="#Phase#{phase.id}" class="#{"collapsed" if current_phase.id != phase.id}"
+        i.fa.fa-calendar class="#{phase.status_color}"
+        b  #{phase.name}
+
+        .pull-right 
+          b Avaliação: 
+          
+          - if phase.grades
+            span.text-success #{phase.grade current_user.student.id} 
+          - else
+            span.text-warning ?
+          |  / #{(phase.value*20)/100} Valores
+
+.collapsed id="Phase#{phase.id}" class="#{current_phase.id != phase.id ? "collapse" : "in"}" style="margin-left:20px"
+
+  = render "phases/accordion_widget/show/utilities", phase: phase
+  = render "phases/accordion_widget/show/description", phase: phase
+  = render "required_files/line_widget", required_files: phase.required_files, title: "Ficheiros obrigatórios"
+  = render "phase_files/simple_widget", phase_files: phase.phase_files, title: "Ficheiros auxiliares"
+  = render "deliveries/simple_widget", deliveries: phase.deliveries, title: "Entregas", project: phase.project, mode: "phase"

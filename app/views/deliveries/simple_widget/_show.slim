@@ -7,6 +7,10 @@ li.list-group-item.clearfix
       .pull-left.m-left-sm
         p #{delivery.description}
         small.text-muted
-          i.fa.fa-calendar  #{delivery.phase.name}
-          br 
+          - if mode != "phase"
+            i.fa.fa-calendar  #{delivery.phase.name}
+            br 
           i.fa.fa-clock-o  #{delivery.created_at}
+          .pull-right    
+            .btn.btn-xs
+              i.fa.fa-download  Download ZIP

@@ -1,5 +1,6 @@
 class PhasesController < ApplicationController
   before_action :set_phase, only: [:show, :edit, :update, :destroy]
+  before_action :set_user
 
   # GET /phases
   # GET /phases.json
@@ -10,6 +11,8 @@ class PhasesController < ApplicationController
   # GET /phases/1
   # GET /phases/1.json
   def show
+    @project = @phase.project
+    @phases = @project.phases
   end
 
   # GET /phases/new
@@ -62,6 +65,10 @@ class PhasesController < ApplicationController
   end
 
   private
+    def set_user
+      @user = current_user.student? ? current_user.student : current_user.teacher
+    end
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_phase
       @phase = Phase.find(params[:id])

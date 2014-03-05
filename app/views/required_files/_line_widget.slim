@@ -1,0 +1,10 @@
+.panel.panel-default.fadeInDown.animation-delay2
+  .panel-heading 
+    = title
+  .panel-body.no-padding
+    ul#feedList.list-group.collapse.in
+      li.list-group-item.clearfix
+        - if required_files.empty?
+          = render "required_files/line_widget/empty"
+        - else
+          = render "required_files/line_widget/index", required_files: required_files

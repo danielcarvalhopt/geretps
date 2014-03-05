@@ -1,0 +1,14 @@
+li.list-group-item.clearfix
+  .row-widget
+    .icon-widget
+      .activity-icon.bg-primary.small
+        i.fa.fa-file-o
+    .info-widget
+      .pull-left.m-left-sm
+        span #{phase_file.document.name}
+        br
+          small.text-muted
+            = phase_file.document.description
+            .pull-right    
+              .btn.btn-xs
+                i.fa.fa-download  Download
