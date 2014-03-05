@@ -13,6 +13,9 @@ class PhasesController < ApplicationController
   def show
     @project = @phase.project
     @phases = @project.phases
+    Rails.cache.write("phase_documents", [])
+    @delivery = Delivery.new
+    @group = @project.group_of current_user.student.id
   end
 
   # GET /phases/new

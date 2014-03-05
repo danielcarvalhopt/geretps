@@ -4,6 +4,8 @@ Geretps::Application.routes.draw do
   get "/dashboard" => "pages#dashboard", as: :dashboard
   get "/documents/file/:id" => "documents#show_file", as: :show_file 
 
+  post "deliveries/add_document" => "deliveries#add_document"
+
   devise_for :users, :controllers => {:registrations => "registrations"}
   devise_scope :user do
     get "/logout" => "devise/sessions#destroy", as: :logout
