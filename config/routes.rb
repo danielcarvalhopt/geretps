@@ -18,6 +18,7 @@ Geretps::Application.routes.draw do
   get "/phases/:id/grades" => "phases#grades", as: :phase_grades
   get "/subjects/:id/shifts" => "subjects#shifts", as: :subject_shifts
   get "/subjects/:id/students" => "subjects#students", as: :subject_students
+  get "/grades" => "grades#show", as: :student_grades
 
   post "/groups/:id/add_members" => "groups#add_members", as: :add_members
   post "/subjects/:id/add_teachers" => "subjects#add_teachers", as: :add_teachers
@@ -40,7 +41,6 @@ Geretps::Application.routes.draw do
   resources :students
   resources :groups
   resources :deliveries
-  resources :grades
   resources :courses
   resources :phases
   resources :phase_files
@@ -60,7 +60,7 @@ Geretps::Application.routes.draw do
         match '/sessions' => 'sessions#destroy', :via => :delete
       end
 
-      get "/projects" => "projects#index"  
+      get "/projects" => "projects#index"
       get "/projects/:id" => "projects#show"
 
       get "/phases" => "phases#index"
@@ -81,7 +81,7 @@ Geretps::Application.routes.draw do
       get "/documents/:id" => "documents#show"
       get "/deliveries/:delivery_id/documents" => "documents#index"
 
-      get "/documents/:id/download" => "documents#download"  
+      get "/documents/:id/download" => "documents#download"
     end
   end
 end
