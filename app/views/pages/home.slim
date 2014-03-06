@@ -20,14 +20,13 @@
                   | Smartphones, Tablets, portáteis
                   br
                   | acede em qualquer lado com qualquer dispositivo!
-                a.btn.btn-default.btn-lg.fadeInLeftLarge.animation-delay8.m-bottom-lg.m-right-md href="#" Ir para um sítio
+                = link_to "Entrar", login_path, class: "btn btn-success btn-lg fadeInLeftLarge animation-delay8 m-bottom-lg m-right-md"
               .col-md-6
                 = image_tag("dashboard-responsive.png", class: "fadeInLeftLarge animation-delay6 m-bottom-lg")
       a.left.carousel-control data-slide="prev" href="#main-slider"
         span.fa.fa-chevron-left
       a.right.carousel-control data-slide="next" href="#main-slider"
         span.fa.fa-chevron-right
-    
     .padding-md
       .container
         .row
@@ -111,14 +110,14 @@
     
     .bg-white.text-center.content-padding
       .container
-        h3 O painel de administração das tuas UCs e Projectos mais fácil e intuitivo
-        h5.text-muted Ser estudante torna-se mais fácil...
+        h3 A forma de gerir as suas UCs e projectos mais fácil e intuitiva
+        h5.text-muted Ser professor e estudante torna-se mais fácil!
         .seperator
         .seperator
         hr
-        img.fadeInRightLarge.no-animation.animated-element.m-top-md.animation-delay1 alt="" src="assets/teste/screenshot.jpg"
-
-
+        = image_tag("screenshot.jpg", class: "fadeInRightLarge no-animation animated-element m-top-md animation-delay1")
+        .seperator
+        .seperator
     #portfolio
       .section-header
         hr.left.visible-lg
@@ -166,13 +165,10 @@
               p
                 h4 Gestão de pautas
                 small Faça a gestão de pautas e avaliações dos seus projectos e dos seus alunos        
-    
-  
   footer
-    .container
-      .row
-      .row
-      .row
+    .container style="padding: 20px"
+      .row.text-right Engenharia de Linguagens &bull; Projecto Integrador 2013/2014
+      .row.text-right André Santos &bull; Daniel Carvalho &bull; Ricardo Branco
 
 script src="assets/waypoints.min.js"
 javascript:
