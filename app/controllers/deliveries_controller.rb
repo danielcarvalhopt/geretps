@@ -36,6 +36,7 @@ class DeliveriesController < ApplicationController
     respond_to do |format|
       if @delivery.save and @@new_phase_documents.count > 0 and check_required_files
         add_delivery_files
+        new_delivery_notification
         format.html { redirect_to @phase, notice: 'Entrega submetida com sucesso.' }
         format.json { render action: 'show', status: :created, location: @delivery }
       else
@@ -105,6 +106,12 @@ class DeliveriesController < ApplicationController
   end
 
   private
+    def new_delivery_notification
+      puts "#####################"
+      Notification.create title: "Nova entrega para o #{@delivery.phase.project.name}", body: "Foi efetuada uma nova entrega para a #{@delivery.phase.name} do #{@delivery.phase.project.name}.", date: DateTime.now, project_id: @delivery.phase.project.id
+      puts "#####################"
+    end
+
     def check_required_files
       required_files = @phase.required_files
       required_files.each do |required_file|
