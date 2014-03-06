@@ -9,4 +9,7 @@
         - if subjects.where(academic_year: academic_year).empty?
           = render "subjects/accordion_widget/empty"
         - else
-          = render "subjects/accordion_widget/index", subjects: subjects.where(academic_year: academic_year), mode: mode, student: student
+          - if mode == "grades"
+            = render "subjects/accordion_widget/index_accordion", subjects: subjects.where(academic_year: academic_year)
+          - else
+            = render "subjects/accordion_widget/index", subjects: subjects.where(academic_year: academic_year), student: student, mode: mode

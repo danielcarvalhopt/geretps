@@ -20,6 +20,7 @@ Geretps::Application.routes.draw do
   get "/phases/:id/grades" => "phases#grades", as: :phase_grades
   get "/subjects/:id/shifts" => "subjects#shifts", as: :subject_shifts
   get "/subjects/:id/students" => "subjects#students", as: :subject_students
+  get "/grades" => "grades#show", as: :student_grades
 
   post "/groups/:id/add_members" => "groups#add_members", as: :add_members
   post "/subjects/:id/add_teachers" => "subjects#add_teachers", as: :add_teachers
@@ -47,7 +48,6 @@ Geretps::Application.routes.draw do
   resources :students
   resources :groups
   resources :deliveries
-  resources :grades
   resources :courses
   resources :phases
   resources :phase_files

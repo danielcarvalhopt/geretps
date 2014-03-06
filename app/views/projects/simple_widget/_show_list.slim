@@ -1,0 +1,33 @@
+= link_to project
+  li.list-group-item.clearfix
+    .row-widget
+      .icon-widget
+        .activity-icon.small class="bg-inverse"
+          i.fa.fa-file
+      .info-widget
+        .row
+          .col-md-12
+            span #{project.name}
+          .col-md-4
+            = link_to project.subject
+              small.text-muted
+                i.fa.fa-folder-open-o
+                  b  UC:
+                  = project.subject.name
+          .col-md-3
+            small.text-muted
+              i.fa.fa-clock-o
+                b  Responsável:
+     			a href="mailto:#{project.subject.responsible.email}" #{project.subject.responsible.name}
+          .col-md-5 style="text-align:right;font-size: 1.3em;"
+						- if project.grades
+							- nota = project.grade current_user.student.id
+							- if nota < 9.5
+								.label.label-danger #{"#{nota}/20.0 Valores "}
+							- else
+								.label.label-success #{"#{nota}/20.0 Valores "}
+						- else
+							.label.label-warning
+								i.fa.fa-spinner Aguarda avaliação
+
+

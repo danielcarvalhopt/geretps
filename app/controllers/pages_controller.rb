@@ -20,7 +20,7 @@ class PagesController < ApplicationController
     if @user.teacher
       _dashboard_teacher
     else
-      _dashboard_student
+      #_dashboard_student
     end
   end
 
