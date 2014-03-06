@@ -1,0 +1,13 @@
+= render "shared/navbar"
+= render "shared/sidebar", user: @user
+
+#main-container
+  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type.capitalize}",link: dashboard_path},{name:"#{@project.name}", link:"#{project_path @project}"},{name:"Fases e Entregas", link: "#"}]
+  = render "shared/dashboard/header", header: "Fases e entregas do #{@project.name}"
+  
+  .padding-md    
+    .row
+      .col-md-8
+        = render "phases/accordion_widget", phases: @phases, current_phase: @phase
+      .col-md-4
+        = render "deliveries/new", title: "Submeter nova entrega", project: @project, group: @group

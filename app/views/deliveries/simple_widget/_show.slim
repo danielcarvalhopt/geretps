@@ -4,9 +4,14 @@ li.list-group-item.clearfix
       .activity-icon.bg-success.small
         i.fa.fa-archive
     .info-widget
-      .pull-left.m-left-sm
+      .pull-left.m-left-sm style="width:100%"
         p #{delivery.description}
         small.text-muted
-          i.fa.fa-calendar  #{delivery.phase.name}
-          br 
+          - if mode != "phase"
+            i.fa.fa-calendar  #{delivery.phase.name}
+            br 
           i.fa.fa-clock-o  #{delivery.created_at}
+          .pull-right    
+            = link_to dowload_files_zip_path delivery
+              .btn.btn-xs
+                i.fa.fa-download  Download ZIP

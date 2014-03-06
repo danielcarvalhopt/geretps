@@ -1,0 +1,18 @@
+.panel.panel-default.fadeInDown.animation-delay1
+  .panel-heading Informações da fase
+  .panel-body.project-info
+
+    row.text-center
+      .col-md-6
+        i.fa.fa-clock-o  
+          b  Data de início: 
+          span.text-success #{date_time_or_undef phase.begin_date}
+      .col-md-6
+        i.fa.fa-clock-o  
+          b  Data de fim: 
+          span.text-danger #{date_time_or_undef phase.end_date}
+
+    br
+    br
+
+    = raw phase.description.try(:html_safe)

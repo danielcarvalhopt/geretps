@@ -1,6 +1,13 @@
 .fadeInDown.animation-delay2
   .row.project-utilities
-    = link_to show_file_path project.statement, target: "_blank"
+    - if project.statement
+      = link_to show_file_path project.statement, target: "_blank"
+        .col-sm-6.col-md-6
+          .panel-stat3.bg-primary
+            h5 Enunciado
+            .stat-icon
+              i.fa.fa-file-text-o.fa-2x
+    - else
       .col-sm-6.col-md-6
         .panel-stat3.bg-primary
           h5 Enunciado
@@ -13,11 +20,19 @@
         .stat-icon
           i.fa.fa-users.fa-2x
 
-    .col-sm-6.col-md-6
-      .panel-stat3.bg-info
-        h5 Entregas
-        .stat-icon
-          i.fa.fa-archive.fa-2x  
+    - if !project.phases.empty?
+      = link_to phase_path project.current_or_nearest_phase
+        .col-sm-6.col-md-6
+          .panel-stat3.bg-info
+            h5 Fases e entregas
+            .stat-icon
+              i.fa.fa-archive.fa-2x  
+    - else
+      .col-sm-6.col-md-6
+        .panel-stat3.bg-info style="opacity:0.2"
+          h5 Fases e entregas
+          .stat-icon
+            i.fa.fa-archive.fa-2x  
     
     .col-sm-6.col-md-6
       .panel-stat3.bg-success

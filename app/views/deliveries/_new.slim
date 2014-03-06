@@ -1,0 +1,10 @@
+.panel.panel-default.fadeInDown.animation-delay1
+  .panel-heading 
+    = title
+  .panel-body.no-padding
+    ul#feedList.list-group.collapse.in
+      li.list-group-item.clearfix
+        - if project.current_phase.nil?
+          | De momento não é possível efetuar novas entregas, não está a decorrer nenhuma fase do projeto.
+        - else
+          = render "deliveries/form", project: project, group: group

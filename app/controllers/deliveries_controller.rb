@@ -1,5 +1,11 @@
+require 'rubygems'
+require 'zip/zip'
+require 'securerandom'
+
 class DeliveriesController < ApplicationController
-  before_action :set_delivery, only: [:show, :edit, :update, :destroy]
+  before_action :set_delivery, only: [:show, :edit, :update, :destroy, :dowload_files_zip]
+  before_filter :initialize_phase_documents
+  skip_before_filter :verify_authenticity_token, :only => [:add_document]
 
   # GET /deliveries
   # GET /deliveries.json
@@ -25,13 +31,27 @@ class DeliveriesController < ApplicationController
   # POST /deliveries.json
   def create
     @delivery = Delivery.new(delivery_params)
+    @phase = Phase.find(params[:delivery][:phase_id])
 
     respond_to do |format|
-      if @delivery.save
-        format.html { redirect_to @delivery, notice: 'Delivery was successfully created.' }
+      if @delivery.save and @@new_phase_documents.count > 0 and check_required_files
+        add_delivery_files
+        new_delivery_notification
+        format.html { redirect_to @phase, notice: 'Entrega submetida com sucesso.' }
         format.json { render action: 'show', status: :created, location: @delivery }
       else
-        format.html { render action: 'new' }
+
+        error = if @@new_phase_documents == 0
+          "Porfavor carregue ficheiros para a entrega."
+        elsif @delivery.description.blank?  
+          "Porfavor preencha as informações da entrega."
+        elsif !check_required_files
+          "Porfavor verifique se a entrega contém todos os ficheiros obrigatórios."
+        else
+          "Erro ao criar nova entrega, verifique todos os campos."
+        end
+
+        format.html { redirect_to @phase, flash: { :error => error }  }
         format.json { render json: @delivery.errors, status: :unprocessable_entity }
       end
     end
@@ -61,7 +81,57 @@ class DeliveriesController < ApplicationController
     end
   end
 
+  def add_document
+    files = params[:file]
+    files.each do |file|
+      document = Document.new name:file.original_filename, file:file
+      @@new_phase_documents << document
+    end
+    render nothing:true
+  end
+
+  def dowload_files_zip
+      filename = "entrega#{@delivery.id}-#{SecureRandom.hex}.zip"
+      t = Tempfile.new("temp-#{Time.now}")
+      Zip::ZipOutputStream.open(t.path) do |zip|
+        @delivery.documents.each do |document|
+          zip.put_next_entry(document.name)
+          zip.print IO.read(document.file.path)
+        end
+      end
+      send_file t.path, :type => 'application/zip',
+                             :disposition => 'attachment',
+                             :filename => filename
+      t.close
+  end
+
   private
+    def new_delivery_notification
+      puts "#####################"
+      Notification.create title: "Nova entrega para o #{@delivery.phase.project.name}", body: "Foi efetuada uma nova entrega para a #{@delivery.phase.name} do #{@delivery.phase.project.name}.", date: DateTime.now, project_id: @delivery.phase.project.id
+      puts "#####################"
+    end
+
+    def check_required_files
+      required_files = @phase.required_files
+      required_files.each do |required_file|
+        return false if @@new_phase_documents.find{|document| document.name == required_file.name}.nil?
+      end
+      true
+    end
+
+    def initialize_phase_documents
+      @@new_phase_documents ||= []
+    end
+
+    def add_delivery_files
+      @@new_phase_documents.each do |document|
+        document.active = true
+        document.save! 
+        DeliveryFile.create delivery_id: @delivery.id, document_id: document.id
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_delivery
       @delivery = Delivery.find(params[:id])
@@ -69,6 +139,6 @@ class DeliveriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def delivery_params
-      params.require(:delivery).permit(:description, :public, :evaluated, :phase_id, :group_id, :statement_id)
+      params.require(:delivery).permit(:description, :public, :evaluated, :phase_id, :group_id)
     end
 end

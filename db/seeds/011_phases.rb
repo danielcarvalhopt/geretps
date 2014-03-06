@@ -70,7 +70,6 @@ phases = [
 	}
 ]
 
-
 phases.each do |phase|
 	Phase.where(phase).first_or_create!
 end
