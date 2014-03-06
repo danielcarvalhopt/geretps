@@ -1,5 +1,6 @@
 class GradesController < ApplicationController
-  before_action :set_grade, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show]
+  before_action :set_grade, only: [:edit, :update, :destroy]
 
   def evaluate_group
     delivery = Delivery.find(params[:delivery_id])
@@ -9,10 +10,10 @@ class GradesController < ApplicationController
     students_params = params[:students]
     students_params.keys.each do |student_id|
       if !students_params[student_id]['grade'].blank?
-        Grade.where(student_id: student_id, delivery_id: delivery.id).first_or_initialize.tap do |grade|  
+        Grade.where(student_id: student_id, delivery_id: delivery.id).first_or_initialize.tap do |grade|
           grade.value = students_params[student_id]['grade']
           grade.comments = students_params[student_id]['comment'] if !students_params[student_id]['comment'].blank?
-        
+
           grade.save ? valid+=1 : invalid+=1
         end
       end
@@ -37,6 +38,8 @@ class GradesController < ApplicationController
   # GET /grades/1
   # GET /grades/1.json
   def show
+    @academic_years = @user.academic_years.uniq
+    @subjects = @user.subjects
     respond_json(@grade)
   end
 
@@ -93,6 +96,10 @@ class GradesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_grade
       @grade = Grade.find(params[:id])
+    end
+
+    def set_user
+      @user = current_user.student? ? current_user.student : current_user.teacher
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

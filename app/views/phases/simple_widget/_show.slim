@@ -1,0 +1,17 @@
+.row
+	.col-md-8
+		small.text-muted #{phase.name}
+	.col-md-4
+    - if phase.grades
+      -grade = phase.grade current_user.student.id
+      -phase_grade = (phase.value*20)/100
+      -if grade < phase_grade*0.475
+        .label.label-danger #{"#{grade}/#{phase_grade} Valores "}
+      - else
+        .label.label-success #{"#{grade}/#{phase_grade} Valores "}
+    - else
+      .label.label-warning
+        i.fa.fa-spinner Aguarda avaliação
+
+
+
