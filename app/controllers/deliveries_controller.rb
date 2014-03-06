@@ -1,6 +1,5 @@
-require 'rubygems'
 require 'zip/zip'
-require 'securerandom'
+require 'zip/zipfilesystem'
 
 class DeliveriesController < ApplicationController
   before_action :set_delivery, only: [:show, :edit, :update, :destroy, :dowload_files_zip]
@@ -90,26 +89,21 @@ class DeliveriesController < ApplicationController
     render nothing:true
   end
 
-  def dowload_files_zip
-      filename = "entrega#{@delivery.id}-#{SecureRandom.hex}.zip"
-      t = Tempfile.new("temp-#{Time.now}")
-      Zip::ZipOutputStream.open(t.path) do |zip|
-        @delivery.documents.each do |document|
-          zip.put_next_entry(document.name)
-          zip.print IO.read(document.file.path)
-        end
+  def dowload_files_zip     
+    t = Tempfile.new("tempfile#{SecureRandom.hex}-#{request.remote_ip}")
+    Zip::ZipOutputStream.open(t.path) do |zos|
+      @delivery.documents.each do |document|
+        zos.put_next_entry(document.name)
+        zos.print IO.binread(document.file.path)
       end
-      send_file t.path, :type => 'application/zip',
-                             :disposition => 'attachment',
-                             :filename => filename
-      t.close
+    end
+    send_file t.path, :type => 'application/zip', :disposition => 'attachment', :filename => "delivery#{@delivery.id}.zip"
+    t.close
   end
 
   private
     def new_delivery_notification
-      puts "#####################"
       Notification.create title: "Nova entrega para o #{@delivery.phase.project.name}", body: "Foi efetuada uma nova entrega para a #{@delivery.phase.name} do #{@delivery.phase.project.name}.", date: DateTime.now, project_id: @delivery.phase.project.id
-      puts "#####################"
     end
 
     def check_required_files

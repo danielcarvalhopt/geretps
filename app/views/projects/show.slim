@@ -14,5 +14,5 @@
       .col-md-4
         = render "projects/show/utilities", project: @project
         = render "notifications/simple_widget", title: "Últimas notificações", notifications: @notifications
-        = render "groups/simple_widget", title: "Grupo de trabalho", group: @group
+        = render "groups/simple_widget", title: "Grupo de trabalho", group: @group, project: @project
         = render "deliveries/simple_widget", title: "Últimas entregas", deliveries: @deliveries, project: @project

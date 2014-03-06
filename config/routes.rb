@@ -4,8 +4,10 @@ Geretps::Application.routes.draw do
   get "/dashboard" => "pages#dashboard", as: :dashboard
   get "/documents/file/:id" => "documents#show_file", as: :show_file 
 
-  post "deliveries/add_document" => "deliveries#add_document", as: :add_document
-  get "deliveries/dowload_files_zip/:id" => "deliveries#dowload_files_zip", as: :dowload_files_zip
+  post "/deliveries/add_document" => "deliveries#add_document", as: :add_document
+  get "/deliveries/dowload_files_zip/:id" => "deliveries#dowload_files_zip", as: :dowload_files_zip
+
+  get "/projects/:id/groups" => "projects#groups", as: :project_groups
 
   devise_for :users, :controllers => {:registrations => "registrations"}
   devise_scope :user do
