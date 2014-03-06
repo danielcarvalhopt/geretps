@@ -13,24 +13,9 @@ deliveries = [
 		public: true,
 		evaluated: true,
 		phase_id: 7,
-		group_id: 4
-	},
-	{
-		description: "Código e Relatório final do Projeto HASKELL - Parser JOIN, desenvolvido em Laboratórios de Informática I",
-		public: true,
-		evaluated: true,
-		phase_id: 7,
-		group_id: 5
-	},
-	{
-		description: "Código e Relatório final do Projeto HASKELL - Parser JOIN, desenvolvido em Laboratórios de Informática I",
-		public: true,
-		evaluated: true,
-		phase_id: 7,
-		group_id: 6
+		group_id: 9
 	}
 ]
-
 
 deliveries.each do |delivery|
 	Delivery.where(delivery).first_or_create!
