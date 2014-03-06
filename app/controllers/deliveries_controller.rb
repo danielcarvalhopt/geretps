@@ -1,5 +1,9 @@
+require 'rubygems'
+require 'zip/zip'
+require 'securerandom'
+
 class DeliveriesController < ApplicationController
-  before_action :set_delivery, only: [:show, :edit, :update, :destroy]
+  before_action :set_delivery, only: [:show, :edit, :update, :destroy, :dowload_files_zip]
   before_filter :initialize_phase_documents
   skip_before_filter :verify_authenticity_token, :only => [:add_document]
 
@@ -86,7 +90,18 @@ class DeliveriesController < ApplicationController
   end
 
   def dowload_files_zip
-
+      filename = "entrega#{@delivery.id}-#{SecureRandom.hex}.zip"
+      t = Tempfile.new("temp-#{Time.now}")
+      Zip::ZipOutputStream.open(t.path) do |zip|
+        @delivery.documents.each do |document|
+          zip.put_next_entry(document.name)
+          zip.print IO.read(document.file.path)
+        end
+      end
+      send_file t.path, :type => 'application/zip',
+                             :disposition => 'attachment',
+                             :filename => filename
+      t.close
   end
 
   private

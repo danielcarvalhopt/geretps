@@ -13,7 +13,7 @@ class DocumentsController < ApplicationController
   end
 
   def show_file
-    send_file(@document.file.path, :type =>@document.file_content_type, :disposition => 'inline')
+    send_file(@document.file.path, type: @document.file_content_type, disposition: 'inline')
   end
 
   # GET /documents/new

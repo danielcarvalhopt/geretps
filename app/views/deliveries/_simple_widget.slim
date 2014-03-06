@@ -3,7 +3,7 @@
   .panel-heading
     = title
     .pull-right 
-      - if mode!="phase"
+      - if mode!="phase" and !project.phases.empty?
         = link_to phase_path project.current_or_nearest_phase
           .btn.btn-info.btn-xs Gerir entregas        
   .panel-body.no-padding

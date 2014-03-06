@@ -12,5 +12,6 @@ li.list-group-item.clearfix
             br 
           i.fa.fa-clock-o  #{delivery.created_at}
           .pull-right    
-            .btn.btn-xs
-              i.fa.fa-download  Download ZIP
+            = link_to dowload_files_zip_path delivery
+              .btn.btn-xs
+                i.fa.fa-download  Download ZIP

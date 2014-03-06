@@ -7,7 +7,7 @@ script src="#{ asset_path 'dropzone.min.js' }"
     br
     input.form-control disabled="" placeholder="#{group.identifier}" type="text"
     br
-    form.dropzone.dz-clickable#delivery_files action="/deliveries/add_document" style="min-height: 350px;"
+    form.dropzone.dz-clickable#delivery_files action="#{add_document_path}" style="min-height: 350px;"
       .dz-default.dz-message style="padding: 40px 20px 10px 20px"
         i.fa.fa-cloud-upload.fa-2x
         span style="font-size:17px;"  Carregar ficheiros
@@ -25,6 +25,6 @@ script src="#{ asset_path 'dropzone.min.js' }"
 javascript:
   Dropzone.options.deliveryFiles = {
     paramName: "file", // The name that will be used to transfer the file
-    maxFilesize: 2, // MB
+    maxFilesize: 100, // MB
     uploadMultiple: true
   };
