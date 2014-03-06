@@ -28,13 +28,13 @@ grades = [
 	{
 		value: 85,
 		comments: "Aplicação bem elaborada, código bastante legível.",
-		delivery_id: 3,
+		delivery_id: 2,
 		student_id: 2
 	},
 	{
 		value: 85,
 		comments: "Aplicação bem elaborada, código bastante legível.",
-		delivery_id: 4,
+		delivery_id: 2,
 		student_id: 3
 	}
 ]
