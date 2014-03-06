@@ -1,5 +1,6 @@
 class DeliveriesController < ApplicationController
   before_action :set_delivery, only: [:show, :edit, :update, :destroy]
+  before_filter :initialize_phase_documents
   skip_before_filter :verify_authenticity_token, :only => [:add_document]
 
   # GET /deliveries
@@ -25,23 +26,26 @@ class DeliveriesController < ApplicationController
   # POST /deliveries
   # POST /deliveries.json
   def create
-    @phase_documents =  Rails.cache.read("phase_documents")
     @delivery = Delivery.new(delivery_params)
     @phase = Phase.find(params[:delivery][:phase_id])
 
     respond_to do |format|
-      if @delivery.save and @phase_documents.count > 0
+      if @delivery.save and @@new_phase_documents.count > 0 and check_required_files
         add_delivery_files
         format.html { redirect_to @phase, notice: 'Entrega submetida com sucesso.' }
         format.json { render action: 'show', status: :created, location: @delivery }
       else
-        error = if @phase_documents == 0
+
+        error = if @@new_phase_documents == 0
           "Porfavor carregue ficheiros para a entrega."
         elsif @delivery.description.blank?  
           "Porfavor preencha as informações da entrega."
+        elsif !check_required_files
+          "Porfavor verifique se a entrega contém todos os ficheiros obrigatórios."
         else
           "Erro ao criar nova entrega, verifique todos os campos."
         end
+
         format.html { redirect_to @phase, flash: { :error => error }  }
         format.json { render json: @delivery.errors, status: :unprocessable_entity }
       end
@@ -73,23 +77,36 @@ class DeliveriesController < ApplicationController
   end
 
   def add_document
-    @phase_documents =  Rails.cache.read("phase_documents")
-    
     files = params[:file]
     files.each do |file|
-      document = Document.create name:file.original_filename, file:file
-      @phase_documents << document.id
+      document = Document.new name:file.original_filename, file:file
+      @@new_phase_documents << document
     end
-
-    Rails.cache.write("phase_documents", @phase_documents)
     render nothing:true
   end
 
+  def dowload_files_zip
+
+  end
+
   private
+    def check_required_files
+      required_files = @phase.required_files
+      required_files.each do |required_file|
+        return false if @@new_phase_documents.find{|document| document.name == required_file.name}.nil?
+      end
+      true
+    end
+
+    def initialize_phase_documents
+      @@new_phase_documents ||= []
+    end
+
     def add_delivery_files
-      @phase_documents.each do |document_id|
-        Document.find(document_id).update active:true
-        DeliveryFile.create delivery_id: @delivery.id, document_id: document_id
+      @@new_phase_documents.each do |document|
+        document.active = true
+        document.save! 
+        DeliveryFile.create delivery_id: @delivery.id, document_id: document.id
       end
     end
 

@@ -1,9 +1,12 @@
 .shortcut-wrapper style="margin: 5px 0"
-  a.shortcut-link href="#"
-    span.shortcut-icon
-      i.fa.fa-file-text
-    span.text Consultar enunciado
-  a.shortcut-link href="#"
-    span.shortcut-icon
-      i.fa.fa-check
-    span.text Consultar pauta
+  - if phase.statement
+    = link_to show_file_path phase.statement
+      a.shortcut-link href="#"
+        span.shortcut-icon
+          i.fa.fa-file-text
+        span.text Consultar enunciado
+  -if phase.grades  
+    a.shortcut-link href="#"
+      span.shortcut-icon
+        i.fa.fa-check
+      span.text Consultar pauta

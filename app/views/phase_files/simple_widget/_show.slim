@@ -11,4 +11,5 @@ li.list-group-item.clearfix
             = phase_file.document.description
             .pull-right    
               .btn.btn-xs
-                i.fa.fa-download  Download
+                = link_to show_file_path phase_file.document
+                  i.fa.fa-download  Download
