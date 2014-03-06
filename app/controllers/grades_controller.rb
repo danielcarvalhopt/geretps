@@ -1,6 +1,6 @@
 class GradesController < ApplicationController
-  before_action :set_grade, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_grade, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:show]
   # GET /grades
   # GET /grades.json
   def index
@@ -10,6 +10,8 @@ class GradesController < ApplicationController
   # GET /grades/1
   # GET /grades/1.json
   def show
+    @academic_years = @user.academic_years.uniq
+    @subjects = @user.subjects
   end
 
   # GET /grades/new
@@ -65,6 +67,10 @@ class GradesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_grade
       @grade = Grade.find(params[:id])
+    end
+
+    def set_user
+      @user = current_user.student? ? current_user.student : current_user.teacher
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
