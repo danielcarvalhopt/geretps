@@ -1,0 +1,7 @@
+= "O #{@delivery.group.identifier} submeteu uma entrega na #{@delivery.phase.name} do #{@delivery.phase.project.name} em #{I18n.l DateTime.now}\n"
+
+= "#{@delivery.description}"
+= "Foram enviados os seguintes ficheiros:\n"
+
+- @delivery.delivery_files.each do |file|
+	= "-#{file.document.name}\n"

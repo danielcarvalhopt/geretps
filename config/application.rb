@@ -23,11 +23,21 @@ module Geretps
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    
+
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
     config.i18n.available_locales = :pt
     config.i18n.default_locale = :pt
     config.i18n.locale = :pt
     I18n.enforce_available_locales = false
-  end
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+        :authentication => :plain,
+        :address => "smtp.mailgun.org",
+        :port => 587,
+        :domain => "andbox19136.mailgun.org",
+        :user_name => "postmaster@sandbox19136.mailgun.org",
+        :password => "84azr7l0j3p6"
+        }
+    end
 end

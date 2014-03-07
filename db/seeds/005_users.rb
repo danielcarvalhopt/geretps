@@ -30,7 +30,7 @@ users = [
     name: "Ricardo Branco",
     about: "Estudante do Mestrado em Engenharia Informática e developer em Ruby on Rails.",
     phone: "919985937",
-    email: "mail@ricardo.pt",
+    email: "28.ricardobranco@gmail.com",
     password: "qweqweqwe",
     avatar: "https://2.gravatar.com/avatar/c66a47aa3041e7f3e828c0b66d06c832?d=https%3A%2F%2Fidenticons.github.com%2F459d7b50581426b2af2a650273f0adf8.png&r=x&s=400"
   },

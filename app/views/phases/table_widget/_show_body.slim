@@ -1,5 +1,3 @@
 - if mode == "phase"
-	td
-		= "#{(phase.grade(student.id)||0)*10}"
-td
-	= "#{(phase.grade student.id)||0}"
+	td #{(phase.grade(student.id)||0)*10}
+td #{(phase.grade student.id)||0}

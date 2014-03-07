@@ -9,6 +9,7 @@ tr
 			= "#{project.group_of(student.id).identifier}"
 		-else
 			= "Sem Grupo"
-	= render "phases/table_widget/index_body", student: student, phases: project.phases, mode: mode if mode == "project"
-	= render "projects/table_widget/show", student: student, project: project if mode == "project"
-	= render "phases/table_widget/show_body", student: student, phase: phase, mode: mode if mode == "phase"
+    = render "phases/table_widget/index_body", student: student, phases: project.phases, mode: mode if mode == "project"
+    = render "projects/table_widget/show", student: student, project: project if mode == "project"
+    = render "phases/table_widget/show_body", student: student, phase: phase, mode: mode if mode == "phase"
+

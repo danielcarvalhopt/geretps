@@ -38,6 +38,7 @@ class DeliveriesController < ApplicationController
       if @delivery.save and @@new_phase_documents.count > 0 and check_required_files
         add_delivery_files
         new_delivery_notification
+        new_delivery_mail_notification
         format.html { redirect_to @phase, notice: 'Entrega submetida com sucesso.' }
         format.json { render action: 'show', status: :created, location: @delivery }
       else
@@ -104,6 +105,15 @@ class DeliveriesController < ApplicationController
   end
 
   private
+    def new_delivery_mail_notification
+      subject = "Relatório de Entrega - #{@delivery.phase.name} do #{@delivery.phase.project.name}"
+      @delivery.group.members.each do |member|
+        mail = member.student.email
+        DeliveryMailer.new_record_notification(mail,subject,@delivery).deliver
+      end
+
+    end
+
     def new_delivery_notification
       Notification.create title: "Nova entrega para o #{@delivery.phase.project.name}", body: "Foi efetuada uma nova entrega para a #{@delivery.phase.name} do #{@delivery.phase.project.name}.", date: DateTime.now, project_id: @delivery.phase.project.id
     end

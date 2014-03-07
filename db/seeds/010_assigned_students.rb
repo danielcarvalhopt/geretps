@@ -5,6 +5,7 @@ assigned_students = [
     student_id: 1,
     subject_id: 5,
     accepted: true
+
   },
   {
     student_id: 2,
@@ -173,7 +174,6 @@ assigned_students = [
     student_id: 2,
     subject_id: 9,
     accepted: true
-
   }
 ]
 

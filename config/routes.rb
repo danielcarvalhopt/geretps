@@ -4,7 +4,6 @@ Geretps::Application.routes.draw do
   get "/dashboard" => "pages#dashboard", as: :dashboard
   get "/calendar" => "pages#calendar", as: :calendar
   get "/documents/file/:id" => "documents#show_file", as: :show_file
-
   post "/deliveries/add_document" => "deliveries#add_document", as: :add_document
   get "/deliveries/dowload_files_zip/:id" => "deliveries#dowload_files_zip", as: :dowload_files_zip
 
