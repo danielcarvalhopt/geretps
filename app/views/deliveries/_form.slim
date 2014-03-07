@@ -12,7 +12,7 @@ script src="#{ asset_path 'dropzone.min.js' }"
         i.fa.fa-cloud-upload.fa-2x
         span style="font-size:17px;"  Carregar ficheiros
 
-= form_for @delivery do |f|
+= form_for delivery do |f|
   .form-group
     .col-lg-12
       = f.hidden_field :phase_id, value:"#{project.current_phase.id}"
@@ -24,7 +24,7 @@ script src="#{ asset_path 'dropzone.min.js' }"
 
 javascript:
   Dropzone.options.deliveryFiles = {
-    paramName: "file", // The name that will be used to transfer the file
-    maxFilesize: 100, // MB
+    paramName: "file", 
+    maxFilesize: 100, 
     uploadMultiple: true
   };

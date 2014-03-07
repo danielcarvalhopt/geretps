@@ -68,6 +68,9 @@ class ProjectsController < ApplicationController
 
   def groups
       @groups = @project.groups
+      @group = @project.group_of current_user.student.id
+      @member = Member.new
+      @students_without_group = @project.students_without_group
   end
 
   private
