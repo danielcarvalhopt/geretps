@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_user, only: [:dashboard]
+  before_action :set_user, only: [:dashboard, :home]
 
   def home
   end
@@ -13,6 +13,8 @@ class PagesController < ApplicationController
 
   private
     def set_user
-      @user = current_user.student? ? current_user.student : current_user.teacher
+      if current_user
+        @user = current_user.student? ? current_user.student : current_user.teacher
+      end
     end
 end

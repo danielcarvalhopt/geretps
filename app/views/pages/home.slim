@@ -10,6 +10,8 @@
     #main-slider.carousel.slide.bg-dark data-ride="carousel"
       ol.carousel-indicators
         li.active data-slide-to="0" data-target="#main-slider"
+        li data-slide-to="1" data-target="#main-slider"
+        li data-slide-to="2" data-target="#main-slider"
       .carousel-inner
         .item.active
           = image_tag("slider-bg-1.jpg", class: "img-background", alt: "")
@@ -23,6 +25,25 @@
               = link_to "Entrar", login_path, class: "btn btn-success btn-lg fadeInLeftLarge animation-delay8 m-bottom-lg m-right-md"
             .col-md-6
               = image_tag("dashboard-responsive.png", class: "fadeInLeftLarge animation-delay6 m-bottom-lg")
+        .item
+          = image_tag("slider-bg-2.jpg", class: "img-background", alt: "")
+          .row
+            .col-md-6
+            .col-md-6
+              h2.m-top-lg.m-right-md.text-white.fadeInDownLarge.animation-delay3 Ser estudante agora é mais fácil
+              p.text-white.fadeInUpLarge.animation-delay6.m-right-md.hidden-xs
+                | Projectos, entregas, turnos, avalições
+                br
+                  | tudo no mesmo sítio à distância de um clique.
+        .item
+          = image_tag("slider-bg-3.jpg", class: "img-background", alt: "")
+          .row
+            .col-md-6.text-right
+              h2.m-top-lg.m-right-md.text-white.fadeInDownLarge.animation-delay3 Concentre-se em ensinar
+              p.text-white.fadeInUpLarge.animation-delay6.m-right-md.hidden-xs
+                | Forneça todas as informações aos seus alunos sobre ucs e projectos
+                br
+                  | e foque-se na aprendizagem deles!
       a.left.carousel-control data-slide="prev" href="#main-slider"
         span.fa.fa-chevron-left
       a.right.carousel-control data-slide="next" href="#main-slider"
@@ -63,7 +84,7 @@
     #portfolio
       .section-header
         hr.left.visible-lg
-          span.text-danger A melhor escolha para os estudantes!
+          span A melhor escolha para os estudantes!
           hr.right.visible-lg
       .container
         .row.recent-work
@@ -121,7 +142,7 @@
     #portfolio
       .section-header
         hr.left.visible-lg
-          span.text-danger A melhor escolha também para os Professores!
+          span A melhor escolha também para os Professores!
           hr.right.visible-lg
       .container
         .row.recent-work
