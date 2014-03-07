@@ -1,0 +1,12 @@
+- mode = "project_grades"
+= render "shared/navbar"
+= render "shared/sidebar", user: @user
+
+#main-container
+  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type.capitalize}",link: dashboard_path},{name:"#{@project.name}", link:"#"},{name: "Avaliações", link: project_grades_path(@project)}]
+  = render "shared/dashboard/header", header: "Avaliações"
+
+  .padding-md
+    .row
+    	.col-md-12
+    		= render "students/accordion_widget", mode: mode, students: @students, project: @project

@@ -1,0 +1,5 @@
+#accordion.panel-group.fadeInDown.animation-delay2
+	- if students.empty?
+		= render "students/accordion_widget/empty"
+	- else
+		= render "students/accordion_widget/index", project: project, students: students
