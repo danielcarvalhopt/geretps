@@ -1,0 +1,21 @@
+- mode = "project_grades"
+= render "shared/navbar"
+= render "shared/sidebar", user: @user
+
+#main-container
+  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type.capitalize}",link: dashboard_path},{name:"#{@project.name}", link:"#{project_path @project}"},{name: "Avaliações", link:"#"}]
+  = render "shared/dashboard/header", header: "Avaliações do #{@project.name}"
+
+  .padding-md
+    .row
+    	.col-md-12
+    		table.table.table-striped.table-cm id="dataTable"
+    			thead
+    				tr
+    					th style="width:50px"
+                        th Nº Aluno
+    					th Nome
+    					th Grupo
+                        = render "phases/table_widget/index", phases: @project.phases
+    					th Nota Final
+    			= render "students/table_widget", students: @students, project: @project, mode: "project"

@@ -7,7 +7,10 @@ Geretps::Application.routes.draw do
   post "/deliveries/add_document" => "deliveries#add_document", as: :add_document
   get "/deliveries/dowload_files_zip/:id" => "deliveries#dowload_files_zip", as: :dowload_files_zip
 
+  get "/projects/:id/grades" => "projects#grades", as: :project_grades
   get "/projects/:id/groups" => "projects#groups", as: :project_groups
+  get "/phases/:id/grades" => "phases#grades", as: :phase_grades
+
   post "/groups/:id/add_members" => "groups#add_members", as: :add_members
 
   devise_for :users, :controllers => {:registrations => "registrations"}

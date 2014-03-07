@@ -1,0 +1,14 @@
+tr
+	td
+		.pull-left.m-right-sm
+			img.img-circle alt="User Avatar" src= "#{student.avatar.url}"
+	td #{student.identifier}
+	td #{student.user.name}
+	td
+		-if project.group_of student.id
+			= "#{project.group_of(student.id).identifier}"
+		-else
+			= "Sem Grupo"
+	= render "phases/table_widget/index_body", student: student, phases: project.phases, mode: mode if mode == "project"
+	= render "projects/table_widget/show", student: student, project: project if mode == "project"
+	= render "phases/table_widget/show_body", student: student, phase: phase, mode: mode if mode == "phase"

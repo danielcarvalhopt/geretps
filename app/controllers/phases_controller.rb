@@ -1,5 +1,5 @@
 class PhasesController < ApplicationController
-  before_action :set_phase, only: [:show, :edit, :update, :destroy]
+  before_action :set_phase, only: [:show, :edit, :update, :destroy, :grades]
   before_action :set_user
 
   # GET /phases
@@ -26,6 +26,10 @@ class PhasesController < ApplicationController
 
   # GET /phases/1/edit
   def edit
+  end
+
+  def grades
+    @project = @phase.project
   end
 
   # POST /phases

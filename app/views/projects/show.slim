@@ -4,10 +4,10 @@
 #main-container
   = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type.capitalize}",link: dashboard_path},{name:"#{@project.name}", link:"#"}]
   = render "shared/dashboard/header", header: @project.name
-  
-  .padding-md    
+
+  .padding-md
     .row
-      .col-md-8 
+      .col-md-8
         = render "projects/show/description", project: @project
         = render "phases/timeline_widget", title: "Fases do projeto", project: @project, phases: @phases
 

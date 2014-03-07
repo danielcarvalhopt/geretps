@@ -1,0 +1,7 @@
+- students.each do |student|
+	-case mode
+	- when "project"
+		= render "students/table_widget/show", student: student, project: project, mode: mode
+	- when "phase"
+		= render "students/table_widget/show", student: student, project: phase.project, mode: mode, phase: phase
+

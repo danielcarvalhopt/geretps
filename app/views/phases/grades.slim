@@ -1,0 +1,20 @@
+= render "shared/navbar"
+= render "shared/sidebar", user: @user
+
+#main-container
+  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type.capitalize}",link: dashboard_path},{name:"#{@project.name}", link:"#{project_path @project}"},{name:"Fases e Entregas", link:"#{phase_path @phase}"},{name: "Pauta", link:"#{phase_grades_path @phase}"}]
+  = render "shared/dashboard/header", header: "Pauta da #{@phase.name} do #{@phase.project.name}"
+
+  .padding-md
+    .row
+      .col-md-12
+      	table.table.table-striped.table-cm id="dataTable"
+          thead
+            tr
+              th style="width:50px;"
+              th style="width:75px;" Nº Aluno
+              th Nome
+              th Grupo
+              th Avaliação Fase
+              th Avaliação Final
+          = render "students/table_widget", mode: "phase", students: @project.students.sort_by{|s|s.identifier}, phase: @phase
