@@ -1,19 +1,19 @@
-li.list-group-item.clearfix
-	.row-widget
-		.info-widget
-			.row
-				.col-md-8
-					strong #{project.name}
-				.col-md-4
+.row-widget
+	.info-widget
+		.row
+			.col-md-8
+				i.fa.fa-folder-open-o
+					= project.name
+			.col-md-4
 					b  Avaliação:
 	                - if project.grades
 	                  b.text-success #{project.grade current_user.student.id}
 	                - else
 	                  b.text-warning ?
 	                | / 20.0 Valores
+		= render "phases/simple_widget/index", phases: project.phases.sort
 
 
-			= render "phases/simple_widget/index", phases: project.phases
 
 
 

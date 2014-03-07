@@ -1,12 +1,4 @@
-.panel.panel-default
-  .panel-heading
-    .panel-title
-      a.accordion-toggle data-parent="#accordion" data-toggle="collapse" href="##{subject.id.hash}" class="#{"collapsed" if number != 0}"
-        | #{subject.name}
-  .panel-collapse.collapsed id="#{subject.id.hash}" class="#{number != 0 ? "collapse" : "in"}"
-    .panel-body.no-padding
-      ul#feedList.list-group.collapse.in.no-margin
-        -if subject.projects.empty?
-          = render "projects/simple_widget/empty"
-        - else
-          = render "projects/simple_widget/index_list", projects: subject.projects
+.panel-heading
+  #{subject.name}
+= render "projects/simple_widget/index_list", projects: subject.projects.sort_by{:begin_date}
+

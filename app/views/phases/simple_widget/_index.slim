@@ -1,7 +1,5 @@
 .row-widget
 	.info-widget
-		- if phases.empty?
-			= render "phases/simple_widget/empty"
-		- else
+		- unless phases.empty?
 			- phases.each do |phase|
 				= render "phases/simple_widget/show", phase: phase
