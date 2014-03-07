@@ -8,6 +8,7 @@ Geretps::Application.routes.draw do
   get "/deliveries/dowload_files_zip/:id" => "deliveries#dowload_files_zip", as: :dowload_files_zip
 
   get "/projects/:id/groups" => "projects#groups", as: :project_groups
+  post "/groups/:id/add_members" => "groups#add_members", as: :add_members
 
   devise_for :users, :controllers => {:registrations => "registrations"}
   devise_scope :user do
@@ -18,6 +19,7 @@ Geretps::Application.routes.draw do
   end
 
   resources :teachers
+  resources :members
   resources :students
   resources :groups
   resources :deliveries

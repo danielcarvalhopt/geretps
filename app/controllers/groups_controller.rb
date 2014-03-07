@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :add_members]
 
   # GET /groups
   # GET /groups.json
@@ -57,6 +57,28 @@ class GroupsController < ApplicationController
     @group.destroy
     respond_to do |format|
       format.html { redirect_to groups_url }
+      format.json { head :no_content }
+    end
+  end
+
+  def add_members
+    new_members_ids = params[:group][:members]
+
+    new_members_ids.each do |new_id|
+      if !new_id.blank?
+        member = Member.new student_id: new_id, group_id: @group.id 
+        if !member.save!
+          flash[:error] = 'Erro ao adicionar um elemento.'
+          return redirect_to project_groups_path @group
+        end
+      end
+    end
+
+    respond_to do |format|
+      format.html { 
+        flash[:notice] = 'Elementos adicionados com sucesso.' 
+        redirect_to project_groups_path @group
+      }
       format.json { head :no_content }
     end
   end

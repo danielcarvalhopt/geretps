@@ -8,5 +8,8 @@
   .padding-md    
     .row
       .col-md-8 
-        = render "groups/index", project: @project, groups: @groups
+        = render "groups/widgets_group", project: @project, groups: @groups
+      .col-md-4
+        = render "groups/simple_widget", title: "Grupo de trabalho", mode: "mygroup", group: @group
+        = render "members/new", title: "Adicionar elementos", member: @member, students_without_group: @students_without_group, group: @group
         

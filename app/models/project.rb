@@ -16,6 +16,8 @@ class Project < ActiveRecord::Base
   scope :upcoming_projects, -> { where("begin_date > ?", DateTime.now).sort_by{|project| project.send(:next_delivery) || DateTime.now} }
   scope :latest_projects, -> { where("end_date < ?", DateTime.now).sort_by{|project| project.send(:next_delivery) || DateTime.now}.reverse }
 
+  delegate :students, to: :subject
+
   def first_phase
     self.phases.first
   end
@@ -68,5 +70,15 @@ class Project < ActiveRecord::Base
   def current_or_nearest_phase
     phase = self.current_phase
     phase ||= self.begin_date >= DateTime.now ? self.first_phase : self.last_phase
+  end
+
+  def students_without_group
+    students = []
+    self.students.each do |student|
+      if self.group_of(student.id).nil?
+        students << student
+      end
+    end
+    students
   end
 end
