@@ -1,4 +1,7 @@
-td #{student.identifier}
-td #{student.user.name}
-= render "phases/table_widget/index_body", student: student, phases: project.phases
+tr
+	td #{student.identifier}
+	td #{student.user.name}
+	td #{project.group_of(student.id).identifier}
+	= render "phases/table_widget/index_body", student: student, phases: project.phases
+	= render "projects/table_widget/show", student: student, project: project
 

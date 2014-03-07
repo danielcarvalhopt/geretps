@@ -14,9 +14,11 @@
     				tr
     					th
     						= "Nº Aluno"
-    					th style="width: 30%;"
+    					th
     						= "Nome"
-    					= render "phases/table_widget/index", phases: @project.phases
+    					th
+                            = "Grupo"
+                        = render "phases/table_widget/index", phases: @project.phases
     					th
     						= "Nota Final"
     			= render "students/table_widget", students: @students, project: @project
