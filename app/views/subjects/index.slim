@@ -1,0 +1,64 @@
+= render "shared/navbar"
+= render "shared/sidebar", user: @user
+
+#main-container
+  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type.capitalize}",link: dashboard_path},{name:"Gestão de UCs", link:"#"}]
+  = render "shared/dashboard/header", header: "Gestão de UCs"
+  
+  .padding-md    
+    .row
+      .col-md-8 
+        .input-group.m-bottom-md
+          input.form-control placeholder="Introduza critérios de pesquisa. Ex: Engenharia de Linguagens 2013/2014 Minho" type="text"
+            span.input-group-btn
+              button.btn.btn-danger type="button" Procurar
+        .search-container
+          .panel.panel-default
+            .panel-body
+              .search-header
+                a.h4.inline-block href="#" Matemática Discreta &bull; 2013/2014
+                .text-muted Licenciatura em Engenharia Informática &bull; Universidade do Minho
+              p.m-top-sm
+                | Professor responsável: Ana Júlia
+                br 
+                | Professores auxiliares: António Cascais, Ricardo Jorge
+                br
+                br
+                | Projectos em curso: 
+                br
+                | &bull; Determinação eurística de cenas aleatórias
+                br
+                | &bull; Determinação eurística de cenas determinísticas
+               
+              .text-right
+                a.btn.btn-sm.btn-success
+                  i.fa.fa-check
+                  |  Candidatar 
+          .panel.panel-default
+            .panel-body
+              .search-header
+                a.h4.inline-block href="#" Matemática Discreta &bull; 2013/2014
+                .text-muted Licenciatura em Engenharia Informática &bull; Universidade do Minho
+              p.m-top-sm
+                | Professor responsável: Ana Júlia
+                br 
+                | Professores auxiliares: António Cascais, Ricardo Jorge
+                br
+                br
+                | Projectos em curso: 
+                br
+                | &bull; Determinação eurística de cenas aleatórias
+                br
+                | &bull; Determinação eurística de cenas determinísticas
+               
+              .text-right
+                a.btn.btn-sm.btn-success
+                  i.fa.fa-check
+                  |  Candidatar 
+
+
+
+
+
+      .col-md-4
+        = render "subjects/destroy_widget/index", subjects: @subjects

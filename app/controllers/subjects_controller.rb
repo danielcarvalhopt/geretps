@@ -1,5 +1,6 @@
 class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:index]
 
   # GET /subjects
   # GET /subjects.json
@@ -66,7 +67,9 @@ class SubjectsController < ApplicationController
     def set_subject
       @subject = Subject.find(params[:id])
     end
-
+    def set_user
+      @user = current_user.student? ? current_user.student : current_user.teacher
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def subject_params
       params.require(:subject).permit(:name, :academic_year_id, :course_id, :responsible_id)
