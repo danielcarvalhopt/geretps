@@ -1,3 +1,5 @@
-#accordion.panel-group.fadeInDown.animation-delay2
-	- subjects.each.with_index(0) do |subject,i|
-		= render "subjects/accordion_widget/show_accordion", subject: subject, number: i
+.row-widget
+	.info-widget
+		.panel-group.fadeInDown.animation-delay2
+			- subjects.each.with_index(0) do |subject,i|
+				= render "subjects/accordion_widget/show_accordion", subject: subject, number: i unless subject.projects.empty?
