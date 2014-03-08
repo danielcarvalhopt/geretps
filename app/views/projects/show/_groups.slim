@@ -1,8 +1,5 @@
-.panel.panel-default.fadeInDown.animation-delay2
-  .panel-heading Informações do Projeto
-  .panel-body.project-info
-    = raw project.description.try(:html_safe)
-
+.alert.alert-info
+  i.fa.fa-info  
     - if project.max_elems.nil?
       |  Os grupos devem ser constituídos por pelo menos #{project.min_elems} elementos.
     - else

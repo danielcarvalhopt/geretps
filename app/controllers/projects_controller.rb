@@ -67,7 +67,7 @@ class ProjectsController < ApplicationController
   end
 
   def groups
-      @groups = @project.groups
+      @groups = @project.groups.sort{|a,b| a.identifier <=> b.identifier}
       @group = @project.group_of current_user.student.id
       @member = Member.new
       @students_without_group = @project.students_without_group

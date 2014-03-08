@@ -1,0 +1,7 @@
+= form_for group do |f|
+  .form-group
+    .col-lg-12
+      = f.text_field :identifier, class:"form-control", placeholder:"Identificador do grupo"
+      = f.hidden_field :project_id, value:"#{project.id}"
+      br
+      button.btn.btn-success type="submit" style="width:100%" Criar grupo de trabalho

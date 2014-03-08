@@ -10,8 +10,8 @@ projects = [
       public: false,
       grades: false,
       open: true,
-      max_elems: 3,
-      min_elems: 1,
+      max_elems: 4,
+      min_elems: 2,
       subject_id: 5,
       statement_id: 1
     },

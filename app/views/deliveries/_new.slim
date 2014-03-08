@@ -6,5 +6,7 @@
       li.list-group-item.clearfix
         - if project.current_phase.nil?
           | De momento não é possível efetuar novas entregas, não está a decorrer nenhuma fase do projeto.
+        - elsif group.nil? or !group.valid_nr?
+          | Para submeter uma entrega, é necessário pertencer a um grupo válido.
         - else
-          = render "deliveries/form", project: project, group: group
+          = render "deliveries/form", project: project, group: group, delivery: delivery

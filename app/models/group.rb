@@ -7,8 +7,21 @@ class Group < ActiveRecord::Base
   has_many :deliveries, order: 'created_at desc'
 
   validates :identifier, :project, presence: true
+  validates :identifier, uniqueness: {scope: :project_id}
 
   def have_student student_id
     !self.students.find{|student| student.id == student_id}.nil?
+  end
+
+  def valid_nr?
+    students_nr = self.students.count
+    max_elems = self.project.max_elems
+    min_elems = self.project.min_elems
+
+    if students_nr >= min_elems and (max_elems.nil? or students_nr <= max_elems)
+      true
+    else
+      false
+    end
   end
 end

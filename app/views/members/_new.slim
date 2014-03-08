@@ -1,7 +1,10 @@
-.panel.panel-default.fadeInDown.animation-delay1
+.panel.panel-default.fadeInDown.animation-delay2
   .panel-heading 
     = title
   .panel-body.no-padding
     ul#feedList.list-group.collapse.in
       li.list-group-item.clearfix
-        = render "members/form", member: member, students_without_group: students_without_group, group: group
+        - if group.students.count >= project.max_elems
+          | O seu grupo de trabalho atingiu o número máximo de elementos permitidos.
+        - else  
+          = render "members/form", member: member, students_without_group: students_without_group, group: group

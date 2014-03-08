@@ -1,7 +1,6 @@
-= form_for @group, url: add_members_path(@group), method: @post do |f|
+= form_for group, url: add_members_path(group), method: :post do |f|
   .form-group
     .col-lg-12
-      = render "shared/messages"
       = f.collection_select :members, students_without_group, :id, :name, {multiple: true}, {class:"form-control chzn-select", multiple:""}
       br
       br
