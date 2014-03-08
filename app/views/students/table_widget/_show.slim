@@ -1,7 +1,11 @@
 tr
 	td #{student.identifier}
 	td #{student.user.name}
-	td #{project.group_of(student.id).identifier}
+	td
+		-if project.group_of student.id
+			= "#{project.group_of(student.id).identifier}"
+		-else
+			= "Sem Grupo"
 	= render "phases/table_widget/index_body", student: student, phases: project.phases
 	= render "projects/table_widget/show", student: student, project: project
 

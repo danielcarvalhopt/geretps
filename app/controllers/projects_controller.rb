@@ -75,7 +75,7 @@ class ProjectsController < ApplicationController
   end
 
   def grades
-    @students = @project.subject.students
+    @students = @project.subject.students.sort_by {|s|s.identifier}
   end
 
   private

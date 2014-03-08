@@ -36,6 +36,72 @@ grades = [
 		comments: "Aplicação bem elaborada, código bastante legível.",
 		delivery_id: 2,
 		student_id: 3
+	},
+	{
+		value: 90,
+		comments: "Bom planeamento. Apenas uma falha no modelo de dominio",
+		delivery_id: 3,
+		student_id: 4
+	},
+	{
+		value: 90,
+		comments: "Bom planeamento. Apenas uma falha no modelo de dominio",
+		delivery_id: 3,
+		student_id: 5
+	},
+	{
+		value: 90,
+		comments: "Bom planeamento. Apenas uma falha no modelo de dominio",
+		delivery_id: 3,
+		student_id: 6
+	},
+	{
+		value: 90,
+		comments: "Bom planeamento. Apenas uma falha no modelo de dominio",
+		delivery_id: 4,
+		student_id: 7
+	},
+	{
+		value: 90,
+		comments: "Bom planeamento. Apenas uma falha no modelo de dominio",
+		delivery_id: 4,
+		student_id: 8
+	},
+	{
+		value: 90,
+		comments: "Bom planeamento. Apenas uma falha no modelo de dominio",
+		delivery_id: 5,
+		student_id: 9
+	},
+	{
+		value: 90,
+		comments: "Bom planeamento. Apenas uma falha no modelo de dominio",
+		delivery_id: 5,
+		student_id: 10
+	},
+	{
+		value: 90,
+		comments: "Bom planeamento. Apenas uma falha no modelo de dominio",
+		delivery_id: 6,
+		student_id: 11
+	},
+	{
+		value: 90,
+		comments: "Bom planeamento. Apenas uma falha no modelo de dominio",
+		delivery_id: 6,
+		student_id: 12
+	},
+	{
+		value: 90,
+		comments: "Bom planeamento. Apenas uma falha no modelo de dominio",
+		delivery_id: 7,
+		student_id: 13
+	},
+	{
+		value: 90,
+		comments: "Bom planeamento. Apenas uma falha no modelo de dominio",
+		delivery_id: 7,
+		student_id: 14
 	}
 ]
 
