@@ -1,3 +1,4 @@
+- active ||= "dashboard"
 aside.fixed.skin-6
   .sidebar-inner
     .size-toggle
@@ -25,7 +26,7 @@ aside.fixed.skin-6
 
     .main-menu
       ul
-        li.active
+        li class="#{'active' if active=='dashboard'}"
           a href="#{dashboard_path}"
             span.menu-icon
               i.fa.fa-desktop.fa-lg
@@ -45,8 +46,8 @@ aside.fixed.skin-6
             span.text Projetos
             span.menu-hover
 
-        li
-          a href="#"
+        li class="#{'active' if active=='subjects'}"
+          a href="#{subjects_path}"
             span.menu-icon
               i.fa.fa-folder.fa-lg
             span.text Unidades Curriculares

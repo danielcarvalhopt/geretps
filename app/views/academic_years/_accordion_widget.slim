@@ -1,5 +1,6 @@
+- mode ||= "normal"
 #accordion.panel-group.fadeInDown.animation-delay2
   - if academic_years.empty?
-    = render "academic_years/accordion_widget/empty"
+    = render "academic_years/accordion_widget/empty", mode: mode
   - else
-    = render "academic_years/accordion_widget/index", academic_years: academic_years, subjects: subjects
+    = render "academic_years/accordion_widget/index", academic_years: academic_years, subjects: subjects, mode: mode, student: student

@@ -1,0 +1,26 @@
+.panel.panel-default.fadeInDown.animation-delay2
+  .panel-body
+    h4.inline-block #{subject.name} &bull; #{subject.academic_year.academic_year}
+    .pull-right style="margin-top: 10px;"
+      
+      - assigned_student_found = AssignedStudent.find_by(student_id: student.id, subject_id: subject.id)
+      - if assigned_student_found.nil?
+        = form_for assigned_student do |f|  
+          = f.hidden_field :student_id, value:"#{student.id}"
+          = f.hidden_field :subject_id, value:"#{subject.id}"
+          button.btn.btn-sm.btn-success type="submit"
+            i.fa.fa-check  Inscrever 
+      - elsif !assigned_student_found.accepted
+        .btn.btn-sm.btn-warning type="submit" style="opacity:0.7"
+          i.fa.fa-spinner  Aguardaa aprovação 
+
+    .text-muted #{subject.course.name} &bull; #{subject.course.institution.name}
+    br
+    ul#feedList.list-group.text-left style="margin-bottom: 5px;"
+      li.list-group-item.clearfix style="border: none; padding: 0"
+        .clearfix
+          .pull-left.m-right-sm
+            img.img-circle alt="User Avatar" src="#{subject.responsible.avatar.url}" style="width:40px;height:40px;"
+          strong.block #{subject.responsible.name}
+          small.text-muted 
+            i.fa.fa-envelope-o  #{subject.responsible.email}

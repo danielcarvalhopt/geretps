@@ -4,6 +4,7 @@ class CreateAssignedStudents < ActiveRecord::Migration
       t.references :student, index: true, null: false
       t.references :subject, index: true, null: false
       t.references :shift, index: true
+      t.boolean :accepted, default: false
     end
   end
 end

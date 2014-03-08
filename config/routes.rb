@@ -19,6 +19,7 @@ Geretps::Application.routes.draw do
   end
 
   resources :teachers
+  resources :assigned_students
   resources :members
   resources :students
   resources :groups

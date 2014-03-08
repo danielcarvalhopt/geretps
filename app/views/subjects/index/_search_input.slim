@@ -1,0 +1,6 @@
+.fadeInDown.animation-delay2
+  = form_tag subjects_path, method: :get do
+    .input-group.m-bottom-md
+      = text_field_tag 'search', "", class:"form-control", placeholder:"Pesquise por unidades curriculares disponíveis para se inscrever.", type:"text"
+      span.input-group-btn
+        button.btn.btn-danger type="submit" Procurar

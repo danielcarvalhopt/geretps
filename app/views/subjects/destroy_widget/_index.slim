@@ -1,8 +1,0 @@
-.panel.panel-default.fadeInDown.animation-delay2
-  .panel-heading
-    | Inscrições em unidades curriculares
-  - if subjects.empty?
-    = render "subjects/destroy_widget/empty"
-  - else
-    - subjects.each do |subject|
-      = render "subjects/destroy_widget/show", subject: subject

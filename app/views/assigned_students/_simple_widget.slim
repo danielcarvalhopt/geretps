@@ -1,0 +1,10 @@
+- mode ||= "normal"
+.panel.panel-default.fadeInDown.animation-delay2
+  .panel-heading 
+    = title
+  .panel-body.no-padding
+    ul#feedList.list-group.collapse.in
+      - if subjects.empty?
+        = render "subjects/accordion_widget/empty", mode: mode
+      - else
+        = render "subjects/accordion_widget/index", subjects: subjects, mode: mode, student: student

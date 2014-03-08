@@ -1,0 +1,5 @@
+.search-container
+  - if subjects.empty?
+    = render "subjects/index/search_results/empty"
+  - else 
+    = render "subjects/index/search_results/index", subjects: subjects, student: student, assigned_student: assigned_student
