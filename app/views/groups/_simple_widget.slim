@@ -2,13 +2,20 @@
 .panel.panel-default.fadeInDown.animation-delay2
   .panel-heading 
     = title
+    - if !group.nil? and !group.valid_nr?
+      - if mode == "project" or mode == "mygroup"
+        span.label.label-warning style="margin-left:5px" 
+          i.fa.fa-warning  Incompleto
+      - else
+        span.text-warning
+          i.fa.fa-warning style="margin-left: 5px"
     - if mode == "project"
       .pull-right 
           = link_to project_groups_path project
-            .btn.btn-warning.btn-xs Gerir grupos
+            .btn.btn-info.btn-xs Gerir grupos
   .panel-body.no-padding
     ul#feedList.list-group.collapse.in
       - if group.nil?
         = render "groups/simple_widget/empty"
       - else
-        = render "groups/simple_widget/show", group: group, mode: mode
+        = render "groups/simple_widget/show", group: group, mode: mode, project: project

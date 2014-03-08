@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy, :add_members]
+  before_action :set_user
 
   # GET /groups
   # GET /groups.json
@@ -28,10 +29,25 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
+
+        Member.create student_id: @user.id, group_id: @group.id
+
+        format.html { 
+          flash[:notice] = 'Grupo criado com sucesso.'
+          redirect_to project_groups_path @group.project
+        }
         format.json { render action: 'show', status: :created, location: @group }
       else
-        format.html { render action: 'new' }
+        format.html {
+          error = if @group.identifier.blank?
+            'Porfavor preencha o identificador do grupo.'
+          else
+            'Porfavor escolha um identificador ainda não utilizado.'
+          end
+
+          flash[:error] = error
+          redirect_to project_groups_path @group.project
+        }
         format.json { render json: @group.errors, status: :unprocessable_entity }
       end
     end
@@ -64,12 +80,22 @@ class GroupsController < ApplicationController
   def add_members
     new_members_ids = params[:group][:members]
 
+    if new_members_ids.count <= 1
+      flash[:error] = 'Nenhum elemento selecionado.'
+      return redirect_to project_groups_path @group.project
+    end
+
+    if @group.students.count + new_members_ids.count-1 >  @group.project.max_elems
+      flash[:error] = "Não é possível adicionar os elementos selecionados, os grupos devem ser constituídos por um máximo de #{@group.project.max_elems} elementos."
+      return redirect_to project_groups_path @group.project
+    end
+
     new_members_ids.each do |new_id|
       if !new_id.blank?
         member = Member.new student_id: new_id, group_id: @group.id 
         if !member.save!
           flash[:error] = 'Erro ao adicionar um elemento.'
-          return redirect_to project_groups_path @group
+          return redirect_to project_groups_path @group.project
         end
       end
     end
@@ -77,13 +103,17 @@ class GroupsController < ApplicationController
     respond_to do |format|
       format.html { 
         flash[:notice] = 'Elementos adicionados com sucesso.' 
-        redirect_to project_groups_path @group
+        redirect_to project_groups_path @group.project
       }
       format.json { head :no_content }
     end
   end
 
   private
+    def set_user
+      @user = current_user.student? ? current_user.student : current_user.teacher
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_group
       @group = Group.find(params[:id])

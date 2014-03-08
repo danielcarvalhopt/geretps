@@ -1,18 +1,13 @@
 li.list-group-item.clearfix
   .clearfix
     .pull-left.m-right-sm
-      img.img-circle alt="User Avatar" src="#{student.avatar.url}" style="width:40px;height:40px;"
-    strong.block #{student.name}
+      img.img-circle alt="User Avatar" src="#{member.student.avatar.url}" style="width:40px;height:40px;"
+    strong.block #{member.student.name}
     - if mode=="mygroup"
-      - if student.id == current_user.student.id
+      - if member.student.id == current_user.student.id and project.deliveries.empty?
         .pull-right
-          span.label.label-warning 
-            i.fa.fa-sign-out  Sair
-      / - else
-      /   .pull-right
-      /     span.label.label-warning
-      /       i.fa.fa-sign-out  Sair   
+          = link_to member, method: :delete, data: { confirm: "Tem a certeza que pretende sair do seu grupo de trabalho? \n\nPara voltar a este grupo de trabalho, precisa de ser convidado por um dos elementos que o constituem." }
+            span.label.label-warning 
+              i.fa.fa-sign-out  Sair
     small.text-muted 
-      i.fa.fa-envelope-o  #{student.email}
-      / br
-      / i.fa.fa-star-o  #{student.identifier}
+      i.fa.fa-envelope-o  #{member.student.email}
