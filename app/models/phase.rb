@@ -16,8 +16,11 @@ class Phase < ActiveRecord::Base
   end
 
   def grade student_id
-    grade = (last_evaluated_delivery(student_id).grade(student_id).value * self.value)/100
-    (grade * 20) / 100
+    last_evaluated_delivery = last_evaluated_delivery(student_id)
+    if !last_evaluated_delivery.nil?
+      grade = (last_evaluated_delivery.grade(student_id).value * self.value)/100
+      (grade * 20) / 100
+    end
   end
 
   def completed?
