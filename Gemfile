@@ -15,6 +15,7 @@ gem "coffee-script"
 gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
 gem 'rubyzip', '>= 1.0.0' # will load new rubyzip version
 gem 'zip-zip' # will load compatibility for old rubyzip API.
+gem 'fuzzily'
 
 group :doc do
   gem 'sdoc', require: false
