@@ -7,6 +7,5 @@
 //= require jquery.localscroll.min.js
 //= require jquery.scrollTo.min.js
 //= require jquery.slimscroll.min.js
-//= require endless_form.js
 //= require chosen.jquery.min.js
 //= require isotope.pkgd.min.js
