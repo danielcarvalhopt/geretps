@@ -6,6 +6,7 @@ class PhasesController < ApplicationController
   # GET /phases.json
   def index
     @phases = Phase.all
+    respond_json(@phases)
   end
 
   # GET /phases/1
@@ -15,6 +16,7 @@ class PhasesController < ApplicationController
     @phases = @project.phases
     @delivery = Delivery.new
     @group = @project.group_of current_user.student.id
+    respond_json(@phase)
   end
 
   # GET /phases/new
@@ -70,7 +72,7 @@ class PhasesController < ApplicationController
     def set_user
       @user = current_user.student? ? current_user.student : current_user.teacher
     end
-    
+
     # Use callbacks to share common setup or constraints between actions.
     def set_phase
       @phase = Phase.find(params[:id])

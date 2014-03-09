@@ -5,11 +5,13 @@ class MembersController < ApplicationController
   # GET /members.json
   def index
     @members = Member.all
+    respond_json(@members)
   end
 
   # GET /members/1
   # GET /members/1.json
   def show
+    respond_json(@member)
   end
 
   # GET /members/new

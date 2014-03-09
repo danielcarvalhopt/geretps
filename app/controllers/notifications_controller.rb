@@ -5,11 +5,13 @@ class NotificationsController < ApplicationController
   # GET /notifications.json
   def index
     @notifications = Notification.all
+    respond_json(@notifications)
   end
 
   # GET /notifications/1
   # GET /notifications/1.json
   def show
+    respond_json(@notification)
   end
 
   # GET /notifications/new

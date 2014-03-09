@@ -6,11 +6,13 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    respond_json(@users)
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    respond_json(@user)
   end
 
   # GET /users/new

@@ -6,17 +6,19 @@ class SubjectsController < ApplicationController
   # GET /subjects.json
   def index
     search = params[:search]
-    search ||= "" 
+    search ||= ""
     @academic_years = @user.academic_years.uniq
     @subjects = @user.subjects
     @waiting_subjects = @user.waiting_subjects
     @subjects_filtered = filter_subjects(search)
-    @assigned_student = AssignedStudent.new 
+    @assigned_student = AssignedStudent.new
+    respond_json(@subjects)
   end
 
   # GET /subjects/1
   # GET /subjects/1.json
   def show
+    respond_json(@subject)
   end
 
   # GET /subjects/new
@@ -77,9 +79,9 @@ class SubjectsController < ApplicationController
       end
     end
     if !subjects_filtered.blank?
-      if search == "" 
+      if search == ""
         subjects_filtered = subjects_filtered.take 4
-      else  
+      else
         subjects_filtered = Subject.find_by_fuzzy_name(search) & subjects_filtered
       end
     end

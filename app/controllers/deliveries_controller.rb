@@ -10,11 +10,13 @@ class DeliveriesController < ApplicationController
   # GET /deliveries.json
   def index
     @deliveries = Delivery.all
+    respond_json(@deliveries)
   end
 
   # GET /deliveries/1
   # GET /deliveries/1.json
   def show
+    respond_json(@delivery)
   end
 
   # GET /deliveries/new
@@ -42,7 +44,7 @@ class DeliveriesController < ApplicationController
 
         error = if @@new_phase_documents == 0
           "Porfavor carregue ficheiros para a entrega."
-        elsif @delivery.description.blank?  
+        elsif @delivery.description.blank?
           "Porfavor preencha as informações da entrega."
         elsif !check_required_files
           "Porfavor verifique se a entrega contém todos os ficheiros obrigatórios."
@@ -89,7 +91,7 @@ class DeliveriesController < ApplicationController
     render nothing:true
   end
 
-  def dowload_files_zip     
+  def dowload_files_zip
     t = Tempfile.new("tempfile#{SecureRandom.hex}-#{request.remote_ip}")
     Zip::ZipOutputStream.open(t.path) do |zos|
       @delivery.documents.each do |document|
@@ -121,7 +123,7 @@ class DeliveriesController < ApplicationController
     def add_delivery_files
       @@new_phase_documents.each do |document|
         document.active = true
-        document.save! 
+        document.save!
         DeliveryFile.create delivery_id: @delivery.id, document_id: document.id
       end
     end

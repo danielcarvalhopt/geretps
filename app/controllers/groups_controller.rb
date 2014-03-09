@@ -6,11 +6,13 @@ class GroupsController < ApplicationController
   # GET /groups.json
   def index
     @groups = Group.all
+    respond_json(@groups)
   end
 
   # GET /groups/1
   # GET /groups/1.json
   def show
+    respond_json(@group)
   end
 
   # GET /groups/new
@@ -32,7 +34,7 @@ class GroupsController < ApplicationController
 
         Member.create student_id: @user.id, group_id: @group.id
 
-        format.html { 
+        format.html {
           flash[:notice] = 'Grupo criado com sucesso.'
           redirect_to project_groups_path @group.project
         }
@@ -92,7 +94,7 @@ class GroupsController < ApplicationController
 
     new_members_ids.each do |new_id|
       if !new_id.blank?
-        member = Member.new student_id: new_id, group_id: @group.id 
+        member = Member.new student_id: new_id, group_id: @group.id
         if !member.save!
           flash[:error] = 'Erro ao adicionar um elemento.'
           return redirect_to project_groups_path @group.project
@@ -101,8 +103,8 @@ class GroupsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { 
-        flash[:notice] = 'Elementos adicionados com sucesso.' 
+      format.html {
+        flash[:notice] = 'Elementos adicionados com sucesso.'
         redirect_to project_groups_path @group.project
       }
       format.json { head :no_content }

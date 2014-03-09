@@ -5,11 +5,13 @@ class AcademicYearsController < ApplicationController
   # GET /academic_years.json
   def index
     @academic_years = AcademicYear.all
+    respond_json(@academic_years)
   end
 
   # GET /academic_years/1
   # GET /academic_years/1.json
   def show
+    respond_json(@academic_years)
   end
 
   # GET /academic_years/new

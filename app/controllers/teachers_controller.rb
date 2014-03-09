@@ -6,6 +6,7 @@ class TeachersController < ApplicationController
   # GET /teachers.json
   def index
     @teachers = Teacher.all
+    respond_json(@teachers)
   end
 
   # GET /teachers/1
@@ -16,6 +17,7 @@ class TeachersController < ApplicationController
   # GET /teachers/new
   def new
     @teacher = Teacher.new
+    respond_json(@teacher)
   end
 
   # GET /teachers/1/edit
