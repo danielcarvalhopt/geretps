@@ -14,6 +14,41 @@ deliveries = [
 		evaluated: true,
 		phase_id: 7,
 		group_id: 9
+	},
+	{
+		description: "Relatório da Primeira Fase do Projecto Integrado (GereTPs). Neste relatório é explicado todas as decisões tomadas sobre a o trabalho a faser ao longo do ano.",
+		public: true,
+		evaluated: true,
+		phase_id: 1,
+		group_id: 2
+	},
+	{
+		description: "Relatório da Primeira Fase do Projecto Integrado (GereTPs). Neste relatório é explicado todas as decisões tomadas sobre a o trabalho a faser ao longo do ano.",
+		public: true,
+		evaluated: true,
+		phase_id: 1,
+		group_id: 3
+	},
+	{
+		description: "Relatório da Primeira Fase do Projecto Integrado (GereTPs). Neste relatório é explicado todas as decisões tomadas sobre a o trabalho a faser ao longo do ano.",
+		public: true,
+		evaluated: true,
+		phase_id: 1,
+		group_id: 4,
+	},
+	{
+		description: "Relatório da Primeira Fase do Projecto Integrado (GereTPs). Neste relatório é explicado todas as decisões tomadas sobre a o trabalho a faser ao longo do ano.",
+		public: true,
+		evaluated: true,
+		phase_id: 1,
+		group_id: 5,
+	},
+	{
+		description: "Relatório da Primeira Fase do Projecto Integrado (GereTPs). Neste relatório é explicado todas as decisões tomadas sobre a o trabalho a faser ao longo do ano.",
+		public: true,
+		evaluated: true,
+		phase_id: 1,
+		group_id: 6
 	}
 ]
 

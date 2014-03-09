@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :groups]
+
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :groups, :grades]
   before_action :set_user
 
   # GET /projects
@@ -71,6 +72,10 @@ class ProjectsController < ApplicationController
       @group = @project.group_of current_user.student.id
       @member = Member.new
       @students_without_group = @project.students_without_group
+  end
+
+  def grades
+    @students = @project.subject.students.sort_by {|s|s.identifier}
   end
 
   private

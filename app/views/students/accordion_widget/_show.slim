@@ -1,0 +1,22 @@
+.panel.panel-default
+  .panel-heading
+    .panel-title
+      .row
+        .col-md-10
+          a.accordion-toggle data-parent="#accordion" data-toggle="collapse" href="##{student.id.hash}" class="#{"collapsed" if number != 0}"
+            | #{student.name}
+        .col-md-2
+            .pull-right
+              small.text-muted
+                i.fa.fa-check
+                  = " "
+                  - if project.grades
+                    b.text-success #{project.grade student.id}
+                  - else
+                    b.text-warning ?
+                  | / 20.0 Valores
+  .panel-collapse.collapsed id="#{student.id.hash}" class="#{number != 0 ? "collapse" : "in"}"
+    .panel-body.no-padding
+      - unless project.phases.empty?
+        = render "phases/accordion_widget/index_grades", student: student, phases: project.phases
+
