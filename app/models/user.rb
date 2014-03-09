@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_attached_file :avatar, styles: { thumb: "100x100#" }, default_style: :thumb
+  has_attached_file :avatar, styles: { thumb: "100x100#" }, default_style: :thumb, default_url: :set_default_url
   validates :email, presence: true, email: true, uniqueness: true
 	validates :phone, phone: true, uniqueness: true
   validates :name, presence: true
@@ -28,5 +28,13 @@ class User < ActiveRecord::Base
 
   def type
     student? ? "aluno" : "docente"
+  end
+
+  def set_default_url
+    if student?
+      "/assets/avatars/student.png"
+    else
+      "/assets/avatars/teacher.png"
+    end
   end
 end
