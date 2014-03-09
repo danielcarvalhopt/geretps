@@ -1,13 +1,14 @@
 li.list-group-item.clearfix
-  .row-widget
-    .icon-widget
-      .activity-icon.bg-primary.small
-        i.fa.fa-info
-    .info-widget
-      .pull-left.m-left-sm
-        span #{notification.title}
-        br
-          small.text-muted
-            = notification.body
-            br
-            i.fa.fa-clock-o  À cerca de #{notification.ago}
+  = link_to project_path notification.project
+    .row-widget
+      .icon-widget
+        .activity-icon.bg-primary.small
+          i.fa.fa-info
+      .info-widget
+        .pull-left.m-left-sm
+          span #{notification.title}
+          br
+            small.text-muted
+              = notification.body
+              br
+              i.fa.fa-clock-o  À cerca de #{notification.ago}
