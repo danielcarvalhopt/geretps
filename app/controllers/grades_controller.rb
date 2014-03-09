@@ -5,11 +5,13 @@ class GradesController < ApplicationController
   # GET /grades.json
   def index
     @grades = Grade.all
+    respond_json(@grades)
   end
 
   # GET /grades/1
   # GET /grades/1.json
   def show
+    respond_json(@grade)
   end
 
   # GET /grades/new

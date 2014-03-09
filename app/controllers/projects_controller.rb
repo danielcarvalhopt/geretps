@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
+    respond_json(@projects)
   end
 
   # GET /projects/1
@@ -15,6 +16,7 @@ class ProjectsController < ApplicationController
     @phases = @project.phases
     @group = @project.group_of current_user.student.id
     @deliveries = @project.deliveries_of(@group.try(:id)).take 4
+    respond_json(@project)
   end
 
   # GET /projects/new

@@ -5,11 +5,13 @@ class InstituitionsController < ApplicationController
   # GET /instituitions.json
   def index
     @instituitions = Instituition.all
+    respond_json(@instituitions)
   end
 
   # GET /instituitions/1
   # GET /instituitions/1.json
   def show
+    respond_json(@instituition)
   end
 
   # GET /instituitions/new

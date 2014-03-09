@@ -6,11 +6,13 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     @students = Student.all
+    respond_json(@students)
   end
 
   # GET /students/1
   # GET /students/1.json
   def show
+    respond_json(@student)
   end
 
   # GET /students/new
