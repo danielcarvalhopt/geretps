@@ -20,4 +20,4 @@
   = render "phases/accordion_widget/show/description", phase: phase
   = render "required_files/line_widget", required_files: phase.required_files, title: "Ficheiros obrigatórios"
   = render "phase_files/simple_widget", phase_files: phase.phase_files, title: "Ficheiros auxiliares"
-  = render "deliveries/simple_widget", deliveries: phase.deliveries, title: "Entregas", project: phase.project, mode: "phase"
+  = render "deliveries/simple_widget", deliveries: phase.deliveries.where(group_id: group.id), title: "Entregas", project: phase.project, mode: "phase"

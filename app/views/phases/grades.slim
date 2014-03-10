@@ -15,6 +15,6 @@
               th style="width:75px;" Nº Aluno
               th Nome
               th Grupo
-              th Avaliação Fase
-              th Avaliação Final
+              th Avaliação Fase (20 valores)
+              th Avaliação Final (#{(@phase.value*20)/100} valores)
           = render "students/table_widget", mode: "phase", students: @project.students.sort_by{|s|s.identifier}, phase: @phase
