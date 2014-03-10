@@ -13,7 +13,7 @@ module ApplicationHelper
 
   def phases_deadline_to_hash(phases)
     phases.collect do |p|
-      '{title: "Entrega ' + p.project.name + ': ' + p.name + '" , start: new Date("' + p.begin_date.to_time.strftime('%Y %m %d') + '")}'
+      '{title: "Entrega ' + p.project.name + ': ' + p.name + '" , start: new Date("' + p.end_date.to_time.strftime('%Y %m %d') + '")}'
     end
   end
 end

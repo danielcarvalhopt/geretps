@@ -126,6 +126,7 @@ class DeliveriesController < ApplicationController
         document.save!
         DeliveryFile.create delivery_id: @delivery.id, document_id: document.id
       end
+      @@new_phase_documents = []
     end
 
     # Use callbacks to share common setup or constraints between actions.
