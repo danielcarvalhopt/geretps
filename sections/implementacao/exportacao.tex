@@ -1,1 +1,41 @@
 \subsection{Exportações em JSON}
+
+Uma das funcionalidades implementadas é a capacidade de responder a pedidos \textit{JSON}. Desta forma permite-se que outras aplicações externas possam comunicar com esta aplicação, sem ter conhecimento da implementação da mesma e garantindo interoperabilidade.
+
+Ao receber respostas numa linguagem como o \textit{JSON}, torna-se possível fazer \textit{parsing} de uma linguagem bem estruturada e normalizada e que não esta obstruída com elementos de \textit{layout}.\\
+
+Nos exemplos seguintes, pode-se verificar as respostas a dois pedido \textit{JSON} que pertendem obter a lista de todas as unidades curriculares do sistema, e informações sobre uma única unidade curricular.
+
+\begin{spverbatim}
+	Pedido:
+	domain/subjects.json
+
+	Resposta:
+	[{"id":5,"name":"Projecto Integrado","course_id":2,
+	"responsible_id":1,"academic_year_id":5},
+	{"id":1,"name":"Análise e Transformação de Software","course_id":2,
+	"responsible_id":1,"academic_year_id":5},
+	{"id":2,"name":"Engenharia Gramatical","course_id":2,
+	"responsible_id":1,"academic_year_id":5},
+	{"id":3,"name":"Processamento Estruturado de Documentos","course_id":2,
+	"responsible_id":1,"academic_year_id":5},
+	{"id":4,"name":"Scripting no Processamento de Linguagem Natural","course_id":2,
+	"responsible_id":1,"academic_year_id":5},
+	{"id":6,"name":"Laboratórios de Informática IV","course_id":1,
+	"responsible_id":1,"academic_year_id":4},
+	{"id":7,"name":"Laboratórios de Informática III","course_id":1,
+	"responsible_id":1,"academic_year_id":3},
+	{"id":8,"name":"Laboratórios de Informática II","course_id":1,
+	"responsible_id":1,"academic_year_id":2},
+	{"id":9,"name":"Laboratórios de Informática I","course_id":1,
+	"responsible_id":1,"academic_year_id":1}]
+\end{spverbatim}
+
+\begin{spverbatim}
+	Pedido:
+	domain/subjects/1.json
+
+	Resposta:
+	{"id":1,"name":"Análise e Transformação de Software","course_id":2,
+	"responsible_id":1,"academic_year_id":5}
+\end{spverbatim}
