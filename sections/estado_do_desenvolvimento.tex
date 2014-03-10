@@ -1,3 +1,34 @@
 \section{Estado do desenvolvimento}
+No sentido de colocar em prática todo o planeamento do desenvolvimento da aplicação, seguiu-se de forma minimamente próxima o plano de trabalho já demonstrado na forma de diagramas de Gantt com pequenas alterações de prioridade no que diz respeito à implementação de algumas fases.
+
+Nesse sentido após a construção da base da aplicação nas tecnologias que seriam usadas procedeu-se à prototipagem em HTML de algumas páginas.
+
+Neste momento é possível encontrar já em fase quase final a página principal da aplicação que sofreu algumas iterações até se aproximar do pretendido.
+
+Passado esta primeira fase de prototipagem começou-se por garantir a persistência de dados através da implementação do modelo de dados concebido durante a análise de requisitos bem como proceder à sua população com dados de teste.
+
+No que diz respeito aos diferentes utilizadores das aplicação e à sua autenticação no sistema foram implementadas funcionalidades de registo e entrada  no sistema de forma a garantir uma gestão fiel das funcionalidades que cada tipo de utilizador tem acesso, bem como garantir coerência de dados para cada utilizador individual.
+
+Após garantir a autenticação no sistema aos seus utilizadores,bem como o registo específico para cada um dos tipos de utilizadores (docentes e alunos), iniciou-se aimplementação das funcionalidades básicas do sistema, nomeadamente o \textit{CRUD (create, read, updateand delete)} da aplicação, ou seja, a criação, leitura, actualização e remoção de todas as entidades representadas no sistema (como por exemplo turnos, projetos, grupos, avaliações, etc).
+
+Após uma implementação básica dessas funcionalidades decidiu-se iterar sobre as funcionalidades ligadas ao tipo de utilizador aluno e refazê-las de raiz de forma a ir de encontro ao que realmente são as funcionalidades que pretendemos disponibilizar aos alunos da aplicação.
+
+Nesse sentido iniciou-se o desenvolvimento do painel do aluno que se torna o  centro de utilização da aplicação por parte deste tipo de utilizador.
+Aqui é possível consultar os projetos em desenvolvimento por parte do utilizador, assim como os projetos que se vão iniciar e os que já foram terminados.
+Também é possível consultar as últimas notificações do sistema assim como se tornam acessíveis todas as unidades curriculares em que cada aluno se encontra inscrito.
+
+De seguida prosseguiu-se ao aprofundamento da implementação das funcionalidades sobre projetos do lado do aluno, tendo sido desenvolvida uma página onde é possível consultar as informações disponibilizadas para o projeto, bem como as fases, as suas notificações, o grupo de trabalho e as últimas entregas.
+A partir daqui é também possível consultar páginas de entrega e fases de um projeto onde são disponibilizadas informações como os ficheiros obrigatórios, a pauta de avaliações, as entregas feitas e onde é possível efectuar novas entregas.
+Para além disso também se tornam acessíveis na página de um projeto páginas que permitem a gestão de grupos e consulta de enunciados.
+
+Ainda do lado do aluno e no que diz respeito às unidades curriculares em que estão inscritos é disponibilizada um página que permite a procura de unidades curriculares e a sua inscrição mediante a aceitação por parte do docente do respetivo pedido, bem como a funcionalidade de consulta das unidades curriculares em que está inscrito e as que estão com a inscrição pendente, assim com a opção para anular uma inscrição.
+Assim, é também tornada possível a consulta de todas as avaliações das diferentes unidades curriculares em que um aluno se encontra inscrito.
+
+De referir que todas as funcionalidades que já foram implementadas já se encontram numa fase de maturação considerável e que estão bastante próximas da sua versão final apesar de estarem ainda sujeitas a pequenas alterações, tanto no sentido do seu funcionamento como no sentido da própria interface, que por sua vez já se encontra preparada para o acesso a partir de várioss tipos de dispositivos independentemente da resolução.
+
+Em jeito de resumo já é possível fornecer aos alunos utilizadores do sistema uma aplicação que lhes permite gerir as suas unidades curriculares, ingressar em projetos, fazer entregas, consultar pautas e avalições, criar os seus grupos de trabalho, entre outras funcionalidades, garantido assim grande parte das funcionalidades planeadas para este tipo de utilizador.
+
+De seguida virar-se-ão as atenções para as funcionalidades no plano de utilização do sistema por parte dos docentes onde por agora se encontram implementadas funcionalidades básicas de \textit{CRUD}.
+
 
 \newpage
