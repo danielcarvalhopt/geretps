@@ -1,7 +1,14 @@
 class PagesController < ApplicationController
-  before_action :set_user, only: [:dashboard, :home]
+  before_action :set_user, only: [:dashboard, :home, :calendar]
 
   def home
+  end
+
+  def calendar
+    @phases = []
+    Phase.all.each do |phase|
+      @phases << phase if !phase.project.group_of(@user.id).nil? 
+    end
   end
 
   def dashboard

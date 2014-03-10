@@ -2,6 +2,7 @@ Geretps::Application.routes.draw do
   root to: "pages#home"
 
   get "/dashboard" => "pages#dashboard", as: :dashboard
+  get "/calendar" => "pages#calendar", as: :calendar
   get "/documents/file/:id" => "documents#show_file", as: :show_file
 
   post "/deliveries/add_document" => "deliveries#add_document", as: :add_document

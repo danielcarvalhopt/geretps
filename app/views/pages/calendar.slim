@@ -1,0 +1,49 @@
+- content_for :stylesheets do
+  = stylesheet_link_tag 'fullcalendar.css'
+  = stylesheet_link_tag 'endless.min.css'
+= render "shared/navbar"
+= render "shared/sidebar", user: @user
+
+#main-container
+  .padding-md
+    .panel.panel-default
+      .panel-heading
+        i.fa.fa-calendar.fa-lg
+        |  Calendar
+      .panel-body
+        #calendar
+script src="assets/fullcalendar.min.js" 
+javascript:
+  $(function  ()  {
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+        
+    var calendar = $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      },
+      selectable: false,
+      selectHelper: false,
+      select: function(start, end, allDay) {
+        var title = prompt('Event Title:');
+        if (title) {
+          calendar.fullCalendar('renderEvent',
+            {
+              title: title,
+              start: start,
+              end: end,
+              allDay: allDay
+            },
+            true 
+          );
+        }
+        calendar.fullCalendar('unselect');
+      },
+      editable: false,
+      events: #{raw(raw(phases_deadline_to_hash(@phases)).gsub('"', '').gsub('\\', '"'))}
+    });
+  });
