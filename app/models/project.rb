@@ -31,7 +31,7 @@ class Project < ActiveRecord::Base
   end
 
   def completed_phases
-    self.phases.where("end_date > ?", DateTime.now)
+    self.phases.where("end_date < ?", DateTime.now)
   end
 
   def completed_phases_nr

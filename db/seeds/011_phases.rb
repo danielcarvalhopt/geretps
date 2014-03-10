@@ -53,7 +53,7 @@ phases = [
 	{
 		name: "Fase 2",
 		begin_date: Date.new(2014,2,3),
-		end_date: Date.new(2014,7,14),
+		end_date: Date.new(2014,7,15),
 		grades: false,
 		open: true,
 		value: 80,
