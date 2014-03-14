@@ -9,13 +9,5 @@
   .padding-md
     .row
       .col-md-12
-        table.table.table-striped.table-cm id="dataTable"
-          thead
-            tr
-              th style="width:50px"
-              th Nº Aluno
-              th Nome
-              th Grupo
-              = render "phases/table_widget/index", phases: @project.phases
-              th Nota Final
-          = render "students/table_widget", students: @students, project: @project, mode: "project"
+        = render "grades/projects", project: @project, students: @students
+

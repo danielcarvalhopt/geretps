@@ -1,0 +1,10 @@
+table.table.table-striped.table-cm id="dataTable"
+  thead
+    tr
+      th style="width:50px"
+      th Nº Aluno
+      th Nome
+      th Grupo
+      = render "grades/phases/index", phases: project.phases, mode: "header"
+      th Nota Final
+  = render "grades/project/index_students", students: students, project: project

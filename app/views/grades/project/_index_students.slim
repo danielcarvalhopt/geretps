@@ -1,0 +1,5 @@
+- students.each do |student|
+	tr
+		= render "grades/project/show_student", student: student, project: project, group: (project.group_of student.id)
+		= render "grades/phases/index", student: student, phases: project.phases, mode: "body"
+		= render "grades/project/show_grade", project: project, student: student
