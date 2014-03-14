@@ -1,0 +1,10 @@
+td
+  .pull-left.m-right-sm
+    img.img-circle alt="User Avatar" src= "#{student.avatar.url}"
+td #{student.identifier}
+td #{student.name}
+td
+  - if group
+    = "#{group.identifier}"
+  - else
+    = "Sem Grupo"

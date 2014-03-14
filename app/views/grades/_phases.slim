@@ -1,0 +1,10 @@
+table.table.table-striped.table-cm id="dataTable"
+  thead
+    tr
+      th style="width:50px;"
+      th style="width:75px;" Nº Aluno
+      th Nome
+      th Grupo
+      th Avaliação Fase (20 valores)
+      th Avaliação Final (#{(@phase.value*20)/100} valores)
+  = render "grades/phases/index_students", students: students, phase: phase, project: phase.project

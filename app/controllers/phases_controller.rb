@@ -30,6 +30,7 @@ class PhasesController < ApplicationController
 
   def grades
     @project = @phase.project
+    @students = @project.students
   end
 
   # POST /phases
