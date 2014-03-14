@@ -8,13 +8,5 @@
   .padding-md
     .row
       .col-md-12
-      	table.table.table-striped.table-cm id="dataTable"
-          thead
-            tr
-              th style="width:50px;"
-              th style="width:75px;" Nº Aluno
-              th Nome
-              th Grupo
-              th Avaliação Fase (20 valores)
-              th Avaliação Final (#{(@phase.value*20)/100} valores)
-          = render "students/table_widget", mode: "phase", students: @project.students.sort_by{|s|s.identifier}, phase: @phase
+      	= render "grades/phases", phase: @phase, students: @students
+

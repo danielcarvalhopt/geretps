@@ -1,0 +1,5 @@
+- phases.each do |phase|
+  - if mode == "header"
+    = render "grades/phases/show_header", phase: phase
+  - else
+    = render "grades/phases/show", phase: phase, student: student
