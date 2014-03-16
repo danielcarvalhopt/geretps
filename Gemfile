@@ -17,6 +17,7 @@ gem 'rubyzip', '>= 1.0.0' # will load new rubyzip version
 gem 'zip-zip' # will load compatibility for old rubyzip API.
 gem 'fuzzily'
 gem "responders"
+gem "pg"
 
 group :doc do
   gem 'sdoc', require: false
@@ -24,6 +25,7 @@ end
 
 gem 'date_validator'
 gem 'email_validator'
+gem 'rails_12factor', group: :production
 
 
 # Use ActiveModel has_secure_password

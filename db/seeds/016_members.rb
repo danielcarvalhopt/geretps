@@ -56,34 +56,6 @@ members = [
 	{
 		student_id: 14,
 		group_id: 6
-	},
-	{
-		student_id: 2,
-		group_id: 7
-	},
-	{
-		student_id: 2,
-		group_id: 8
-	},
-	{
-		student_id: 2,
-		group_id: 9
-	},
-	{
-		student_id: 2,
-		group_id: 10
-	},
-	{
-		student_id: 2,
-		group_id: 11
-	},
-	{
-		student_id: 2,
-		group_id: 12
-	},
-	{
-		student_id: 2,
-		group_id: 13
 	}
 ]
 

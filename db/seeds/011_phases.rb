@@ -41,33 +41,6 @@ phases = [
 		value: 70,
 		project_id: 1
 	},
-	{
-		name: "Fase 1",
-		begin_date: Date.new(2013,11,29),
-		end_date: Date.new(2014,2,3),
-		grades: false,
-		open: true,
-		value: 20,
-		project_id: 2
-	},
-	{
-		name: "Fase 2",
-		begin_date: Date.new(2014,2,3),
-		end_date: Date.new(2014,7,14),
-		grades: false,
-		open: true,
-		value: 80,
-		project_id: 2
-	},
-	{
-		name: "Fase 1",
-		begin_date: Date.new(2010,11,19),
-		end_date: Date.new(2011,1,8),
-		grades: true,
-		open: true,
-		value: 100,
-		project_id: 4
-	}
 ]
 
 phases.each do |phase|

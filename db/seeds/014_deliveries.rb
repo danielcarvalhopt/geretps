@@ -9,13 +9,6 @@ deliveries = [
 		group_id: 1
 	},
 	{
-		description: "Código e Relatório final do Projeto HASKELL - Parser JOIN, desenvolvido em Laboratórios de Informática I",
-		public: true,
-		evaluated: true,
-		phase_id: 7,
-		group_id: 9
-	},
-	{
 		description: "Relatório da Primeira Fase do Projecto Integrado (GereTPs). Neste relatório é explicado todas as decisões tomadas sobre a o trabalho a faser ao longo do ano.",
 		public: true,
 		evaluated: true,

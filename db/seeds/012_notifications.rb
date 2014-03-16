@@ -30,12 +30,6 @@ notifications = [
 		body: "Já é possivel fazer submissões da segunda fase",
 		date: Date.new(2014,2,23),
 		project_id: 1
-	},
-	{
-		title: "Enunciado",
-		body: "Já se encontra disponivel o enunciado do projecto prático de PED - myAcademia",
-		date: Date.new(2013,11,29),
-		project_id: 2
 	}
 ]
 

@@ -90,18 +90,6 @@ grades = [
 		comments: "Bom planeamento. Apenas uma falha no modelo de dominio",
 		delivery_id: 6,
 		student_id: 12
-	},
-	{
-		value: 90,
-		comments: "Bom planeamento. Apenas uma falha no modelo de dominio",
-		delivery_id: 7,
-		student_id: 13
-	},
-	{
-		value: 90,
-		comments: "Bom planeamento. Apenas uma falha no modelo de dominio",
-		delivery_id: 7,
-		student_id: 14
 	}
 ]
 
