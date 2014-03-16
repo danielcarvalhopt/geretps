@@ -16,7 +16,6 @@
 /tmp
 /.idea
 
-Gemfile.lock
 /public/system
 
 db/schema.rb
