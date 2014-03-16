@@ -16,10 +16,8 @@ gem 'rubyzip', '>= 1.0.0' # will load new rubyzip version
 gem 'zip-zip' # will load compatibility for old rubyzip API.
 gem 'fuzzily'
 gem "responders"
-gem "pg"
-group :development do
-  gem 'sqlite3'
-end
+gem 'sqlite3', group: [:development, :test]
+gem 'pg', group: [:production]
 
 group :doc do
   gem 'sdoc', require: false
