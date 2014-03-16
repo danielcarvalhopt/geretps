@@ -17,6 +17,9 @@ gem 'zip-zip' # will load compatibility for old rubyzip API.
 gem 'fuzzily'
 gem "responders"
 gem "pg"
+group :development do
+  gem 'sqlite3'
+end
 
 group :doc do
   gem 'sdoc', require: false
