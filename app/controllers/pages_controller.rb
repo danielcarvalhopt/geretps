@@ -13,7 +13,8 @@ class PagesController < ApplicationController
 
   def dashboard
     @projects = @user.projects
-    @notifications = []
+    @notifications = PublicActivity::Activity.order("created_at desc")
+    #@notifications = @user.notifications.take 3
     @academic_years = @user.academic_years.uniq
     @subjects = @user.subjects
     if @user.teacher

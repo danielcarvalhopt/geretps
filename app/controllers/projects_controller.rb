@@ -25,6 +25,9 @@ class ProjectsController < ApplicationController
       @notifications.flatten!
       @notifications.sort_by!(&:created_at)
       @notifications.reverse!
+      @phases = @project.phases
+      @group = @project.group_of current_user.student.id
+      @deliveries = @project.deliveries_of(@group.try(:id)).take 4
     else
       @notifications = []
       notifications = PublicActivity::Activity.order("created_at desc")
