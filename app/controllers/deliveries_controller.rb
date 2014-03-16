@@ -45,6 +45,7 @@ class DeliveriesController < ApplicationController
         add_delivery_files
         new_delivery_notification
         new_delivery_mail_notification
+        @delivery.create_activity :create, owner: @delivery.group
         format.html { redirect_to @phase, notice: 'Entrega submetida com sucesso.' }
         format.json { render action: 'show', status: :created, location: @delivery }
       else

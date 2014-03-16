@@ -16,6 +16,10 @@ class ProjectsController < ApplicationController
   def show
     if current_user.student?
       _show_student
+      @notifications = PublicActivity::Activity.paginate(page: params[:page], per_page: 10).order("created_at desc").where(trackable_id: @project.group_of(current_user.student.id), trackable_type: "Group")
+      @phases = @project.phases
+      @group = @project.group_of current_user.student.id
+      @deliveries = @project.deliveries_of(@group.try(:id)).take 4
     else
       _show_teacher
     end

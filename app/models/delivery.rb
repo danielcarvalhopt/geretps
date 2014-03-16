@@ -1,4 +1,6 @@
 class Delivery < ActiveRecord::Base
+  include PublicActivity::Common
+
   belongs_to :phase
   belongs_to :group
   belongs_to :statement, class_name: "Document"
