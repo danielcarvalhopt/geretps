@@ -1,0 +1,17 @@
+- member_ids = activity.parameters[:member_ids].select{|x|!x.empty?}
+li.list-group-item.clearfix
+    .row-widget
+      .icon-widget
+        span.pull-left
+          img.img-circle src="#{activity.owner.avatar.url}" alt="User avatar"
+      .info-widget
+        .pull-left.m-left-sm
+          span #{"#{activity.owner.name} adicionou "}
+          - if member_ids.size > 1
+            | #{"#{member_ids.size} alunos ao"}
+          - else
+            | #{"#{Student.where(id: member_ids).first.name} ao"}
+          | #{" #{activity.trackable.identifier} do "}
+          = link_to activity.trackable.project.name, activity.trackable.project
+          br
+          i.fa.fa-clock-o  #{I18n.l activity.created_at.to_time}

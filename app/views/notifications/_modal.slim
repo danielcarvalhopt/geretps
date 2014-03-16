@@ -1,0 +1,10 @@
+#all-notifications.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close type="button" data-dismiss="modal" aria-hidden="true" &times;
+        h4 Todas as Notificações
+      .modal-body
+        #notifications-body
+          = render "notifications/simple_widget/index", notifications: notifications
+      .modal-footer

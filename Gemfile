@@ -17,6 +17,10 @@ gem 'rubyzip', '>= 1.0.0' # will load new rubyzip version
 gem 'zip-zip' # will load compatibility for old rubyzip API.
 gem 'fuzzily'
 gem "responders"
+gem 'public_activity'
+gem "will_paginate", "~> 3.0.5"
+gem "squeel"
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'

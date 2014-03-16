@@ -1,0 +1,13 @@
+li.list-group-item.clearfix
+    .row-widget
+      .icon-widget
+        .activity-icon.bg-primary.small
+          i.fa.fa-archive
+      .info-widget
+        .pull-left.m-left-sm
+          span #{"#{activity.owner.identifier} submeteu uma entrega na "}
+          = link_to activity.trackable.phase.name, activity.trackable.phase
+          | #{" do "}
+          = link_to activity.trackable.phase.project.name, activity.trackable.phase.project
+          br
+          i.fa.fa-clock-o  #{I18n.l activity.created_at.to_time}

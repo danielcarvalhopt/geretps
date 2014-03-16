@@ -1,5 +1,15 @@
 # European Portuguese translations for devise
 pt:
+  will_paginate:
+    next_label: Próximo →
+    page_entries_info:
+      multi_page: Mostrando %{model} %{from} - %{to} de %{count} no total
+      multi_page_html: Mostrando %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b>
+        no total
+      single_page:
+      single_page_html:
+    page_gap: '&hellip;'
+    previous_label: ← Anterior
   date:
     abbr_day_names:
     - Dom
@@ -223,7 +233,7 @@ pt:
               confirmation: "Confirmação da Password."
               blank:  "Password não pode ser vazia."
               too_short: "Password demasiado curta (mínimo de 8 caracteres)"
-            current_password: 
+            current_password:
               blank: "Password atual em branco."
             email:
               blank: "Email não pode ser vazio."
@@ -261,7 +271,7 @@ pt:
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
       send_instructions: 'Dentro de alguns minutos irá receber um email com instruções de reinicialização da palavra-passe.'
       updated: 'A sua palavra-passe foi alterada com sucesso. Agora está autenticado.'
-      updated_not_active: "A sua palavra-passe foi alterada com sucesso."      
+      updated_not_active: "A sua palavra-passe foi alterada com sucesso."
       send_paranoid_instructions: 'Se o seu e-mail existir na nossa base de dados, irá receber dentro de alguns minutos um e-mail com instruções para recuperar a sua senha.'
     confirmations:
       send_instructions: 'Dentro de alguns minutos irá receber um email com instruções para confirmar  sua conta.'

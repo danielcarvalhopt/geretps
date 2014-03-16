@@ -1,5 +1,7 @@
 class Group < ActiveRecord::Base
+  include PublicActivity::Common
   belongs_to :project
+  has_many :group_activities
   has_many :members
   has_many :students, through: :members
   has_many :assigned_notifications

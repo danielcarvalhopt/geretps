@@ -33,7 +33,7 @@ class GroupsController < ApplicationController
       if @group.save
 
         Member.create student_id: @user.id, group_id: @group.id
-
+        @group.create_activity :create, owner: current_user
         format.html {
           flash[:notice] = 'Grupo criado com sucesso.'
           redirect_to project_groups_path @group.project
@@ -95,12 +95,17 @@ class GroupsController < ApplicationController
     new_members_ids.each do |new_id|
       if !new_id.blank?
         member = Member.new student_id: new_id, group_id: @group.id
-        if !member.save!
+        unless member.save!
           flash[:error] = 'Erro ao adicionar um elemento.'
           return redirect_to project_groups_path @group.project
         end
       end
     end
+
+    @group.create_activity :update, owner: current_user, params:{member_ids: new_members_ids}
+    #group_activity = GroupActivity.new group_id: @group.id
+    #group_activity.members = Member.where(id: new_members_ids)
+    #group_activity.create_activity :update, owner: current_user if group_activity.save!
 
     respond_to do |format|
       format.html {

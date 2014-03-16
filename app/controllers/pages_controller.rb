@@ -7,13 +7,14 @@ class PagesController < ApplicationController
   def calendar
     @phases = []
     Phase.all.each do |phase|
-      @phases << phase if !phase.project.group_of(@user.id).nil? 
+      @phases << phase if !phase.project.group_of(@user.id).nil?
     end
   end
 
   def dashboard
     @projects = @user.projects
-    @notifications = @user.notifications.take 3
+    @notifications = PublicActivity::Activity.order("created_at desc")
+    #@notifications = @user.notifications.take 3
     @academic_years = @user.academic_years.uniq
     @subjects = @user.subjects
     if @user.teacher

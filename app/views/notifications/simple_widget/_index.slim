@@ -1,2 +1,2 @@
 - notifications.each do |notification|
-  = render "notifications/simple_widget/show", notification: notification
+  = render_activity notification if notification.trackable
