@@ -3,7 +3,16 @@
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
+
 development:
+  adapter: postgresql
+  encoding: unicode
+  database: geretps_production
+  pool: 5
+  username: geretps
+  password: qweasdzxc
+
+production:
   adapter: postgresql
   encoding: unicode
   database: geretps_development
@@ -21,12 +30,3 @@ test:
   pool: 5
   username: geretps
   password: qweasdzxc
-
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: geretps_production
-  pool: 5
-  username: geretps
-  password: qweasdzxc
-
