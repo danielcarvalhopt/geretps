@@ -7,7 +7,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: geretps_production
+  database: geretps
   pool: 5
   username: geretps
   password: qweasdzxc
@@ -15,7 +15,7 @@ development:
 production:
   adapter: postgresql
   encoding: unicode
-  database: geretps_development
+  database: geretps
   pool: 5
   username: geretps
   password: qweasdzxc
