@@ -40,7 +40,7 @@ phases = [
 		open: false,
 		value: 70,
 		project_id: 1
-	},
+	}
 ]
 
 phases.each do |phase|

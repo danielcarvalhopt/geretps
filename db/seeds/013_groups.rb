@@ -8,23 +8,7 @@ groups=[
 	{
 		identifier: "Grupo 2",
 		project_id: 1
-	},
-	{
-		identifier: "Grupo 3",
-		project_id: 1
-	},
-	{
-		identifier: "Grupo 4",
-		project_id: 1
-	},
-	{
-		identifier: "Grupo 5",
-		project_id: 1
-	},
-	{
-		identifier: "Grupo 6",
-		project_id: 1
-	},
+	}
 ]
 
 groups.each do |group|

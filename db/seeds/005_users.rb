@@ -8,7 +8,7 @@ users = [
     phone: "900000000",
     email: "einstein@mail.com",
     password: "qweqweqwe",
-    avatar: "http://media.npr.org/assets/img/2011/09/28/93434191-einstein-tongue_custom-36fb0ce35776dc2d92eda90880022bf48a67e192-s6-c30.jpg"
+    avatar: "public/seeds/einstein.jpg"
   },
   {
     name: "Steve Mobs",
@@ -16,7 +16,7 @@ users = [
     phone: "900000001",
     email: "mail@danielcarvalho.pt",
     password: "qweqweqwe",
-    avatar: "http://blogs.kqed.org/stateofhealth/files/2011/11/Jobs_2003_rev1.jpg"
+    avatar: "public/seeds/jobs.jpg",
   },
   {
     name: "Mark Zoidberg",
@@ -24,7 +24,7 @@ users = [
     phone: "900000002",
     email: "user@mail.com",
     password: "password123",
-    avatar: "http://www.biography.com/imported/images/Biography/Images/Profiles/Z/Mark-Zuckerberg-507402-1-402.jpg"
+    avatar: "public/seeds/zuckerberg.jpg",
   },
   {
     name: "Bill Games",
@@ -32,7 +32,7 @@ users = [
     phone: "900000003",
     email: "bill@mail.com",
     password: "qweqweqwe",
-    avatar: "http://images.cdn.impresa.pt/exameinformatica/2013-10-02-bill-gates.jpg"
+    avatar: "public/seeds/gates.jpg",
   },
   {
     name: "Tim Berners Lee",
@@ -40,7 +40,7 @@ users = [
     phone: "900000004",
     email: "berners-lee@www.com",
     password: "qweqweqwe",
-    avatar: "http://yourlifesolution.com/7/wp-content/uploads/2012/07/tim-berners-lee.jpg"
+    avatar: "public/seeds/timbl.jpg",
   },
   {
     name: "Richard Matthew Stallman",
@@ -48,7 +48,7 @@ users = [
     phone: "900000005",
     email: "stallman@gnu.com",
     password: "qweqweqwe",
-    avatar: "http://upload.wikimedia.org/wikipedia/commons/f/f7/Richard_Matthew_Stallman.jpeg"
+    avatar: "public/seeds/stallman.jpg",
   }
 ]
 
@@ -58,7 +58,7 @@ users.each do |user|
     u.about = user[:about]
     u.phone = user[:phone]
     u.password = user[:password]
-    u.avatar = open(user[:avatar])
+    u.avatar = File.new(user[:avatar])
     u.save!
   end
 end
