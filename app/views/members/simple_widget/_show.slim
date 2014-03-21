@@ -2,7 +2,7 @@ li.list-group-item.clearfix
   .clearfix
     .pull-left.m-right-sm
       img.img-circle alt="User Avatar" src="#{member.student.avatar.url}" style="width:40px;height:40px;"
-    strong.block #{member.student.name}
+    .block #{member.student.name}
     - if mode=="mygroup"
       - if member.student.id == current_user.student.id and project.deliveries.empty?
         .pull-right

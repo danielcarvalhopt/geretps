@@ -14,10 +14,10 @@
   = link_to phase_path phase
     .panel.panel-default.timeline-panel
       .panel-heading
-        strong.font-14 #{phase.name}
+        span.font-14 #{phase.name}
         
         .pull-right 
-          b Avaliação: 
+          span Avaliação: 
           
           - if phase.grades
             span.text-success #{phase.grade current_user.student.id} 

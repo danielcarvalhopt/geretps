@@ -16,6 +16,7 @@ class ProjectsController < ApplicationController
     @phases = @project.phases
     @group = @project.group_of current_user.student.id
     @deliveries = @project.deliveries_of(@group.try(:id)).take 4
+    @teachers = @project.subject.teachers
     respond_json(@project)
   end
 

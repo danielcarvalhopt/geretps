@@ -15,4 +15,6 @@
         = render "projects/show/utilities", project: @project
         = render "notifications/simple_widget", title: "Últimas notificações", notifications: @notifications
         = render "groups/simple_widget", title: "Grupo de trabalho", group: @group, project: @project
+        - if @user.student? 
+          = render "teachers/simple_widget", title: "Docentes responsáveis", teachers: @teachers, project: @project, type:"student"
         = render "deliveries/simple_widget", title: "Últimas entregas", deliveries: @deliveries, project: @project
