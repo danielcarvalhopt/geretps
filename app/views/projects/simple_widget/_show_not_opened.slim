@@ -1,0 +1,16 @@
+= link_to project
+  li.list-group-item.clearfix
+    .row-widget
+      .icon-widget
+        .activity-icon.small class="bg-default"
+          i.fa.fa-file
+      .info-widget
+        .row
+          .col-md-12
+            span #{project.name}
+          .col-md-4
+            small.text-muted
+              i.fa.fa-folder-open-o   
+                b  UC:  
+                = project.subject.name
+

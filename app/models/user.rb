@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   end
 
   def student?
-    !student.nil?
+    !self.student.nil?
   end
 
   def teacher
@@ -23,18 +23,27 @@ class User < ActiveRecord::Base
   end
 
   def teacher?
-    !Teacher.nil?
+    !self.teacher.nil?
   end
 
   def type
-    student? ? "aluno" : "docente"
+    self.student? ? "student" : "teacher"
+  end
+
+  def type_pt
+    self.student? ? "aluno" : "docente"
   end
 
   def set_default_url
-    if student?
+    if self.student?
       "/assets/avatars/student.png"
     else
       "/assets/avatars/teacher.png"
     end
+  end
+
+  def first_and_last_name
+    words = self.name.split(' ')
+    "#{words[0]} #{words[-1]}" if words.count > 1
   end
 end

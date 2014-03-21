@@ -32,7 +32,7 @@ projects = [
       name: "Ficha de avaliação Nº2",
       begin_date: Date.today + 15.days,
       public: false,
-      open: false,
+      open: true,
       grades: false,
       min_elems: 1,
       max_elems: 3,
@@ -105,6 +105,17 @@ projects = [
       max_elems: 3,
       subject_id: 2,
       statement_id: 2
+    },
+    {
+      name: "Ficha de avaliação Nº3",
+      begin_date: Date.today + 15.days,
+      public: false,
+      open: false,
+      grades: false,
+      min_elems: 1,
+      max_elems: 3,
+      subject_id: 2,
+      statement_id: 3
     }
 ]
 

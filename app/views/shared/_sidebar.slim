@@ -12,8 +12,8 @@ aside.fixed.skin-6
     .user-block.clearfix
       = image_tag user.avatar.url
       .detail
-        strong #{user.name}
-        ul.list-inline
+        strong #{user.first_and_last_name}
+        ul.list-inline style="margin-left: 0px;"
           li
             a href="#" Definições
 
@@ -30,7 +30,7 @@ aside.fixed.skin-6
           a href="#{dashboard_path}"
             span.menu-icon
               i.fa.fa-desktop.fa-lg
-            span.text Painel do #{user.type.capitalize}
+            span.text Painel do #{user.type_pt.capitalize}
             span.menu-hover
         li class="#{'active' if active=='calendar'}"
           a href="#{calendar_path}"

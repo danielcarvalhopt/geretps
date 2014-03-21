@@ -2,7 +2,7 @@
 = render "shared/sidebar", user: @user
 
 #main-container
-  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type.capitalize}",link: dashboard_path},{name:"#{@project.name}", link:"#{project_path @project}"},{name:"Fases e Entregas", link:"#{phase_path @phase}"},{name: "Pauta", link:"#{phase_grades_path @phase}"}]
+  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type_pt.capitalize}",link: dashboard_path},{name:"#{@project.name}", link:"#{project_path @project}"},{name:"Fases e Entregas", link:"#{phase_path @phase}"},{name: "Pauta", link:"#{phase_grades_path @phase}"}]
   = render "shared/dashboard/header", header: "Pauta da #{@phase.name} do #{@phase.project.name}"
 
   .padding-md

@@ -13,17 +13,38 @@
               i.fa.fa-folder-open-o   
                 b  UC:  
                 = project.subject.name
-          .col-md-4
+          .col-md-3
             small.text-muted
               i.fa.fa-clock-o  
                 b  Data fim: 
-                = date_or_undef project.end_date
-          .col-md-4
-            small.text-muted
-              i.fa.fa-check  
-                b  Avaliação: 
-                - if project.grades
-                  b.text-success #{project.grade current_user.student.id} 
-                - else
-                  b.text-warning ? 
-                | / 20.0 Valores
+                = date_or_undef project.end_date   
+          - if type=="student"   
+            .col-md-5
+              small.text-muted
+                i.fa.fa-check  
+                  b  Avaliação: 
+                  - if project.grades
+                    b.text-success #{project.grade current_user.student.id} 
+                  - else
+                    b.text-warning ? 
+                  | / 20.0 Valores
+          - else
+            .col-md-3
+              small.text-muted
+                i.fa.fa-bar-chart-o
+                  b  Média: 
+                  - if project.grades
+                    span.text-success #{project.average}
+                  - else
+                    span.text-warning ?
+                  |  / 20.0 Valores
+            .col-md-2
+              small.text-muted
+                i.fa.fa-pencil-square-o  
+                  b  Avaliações: 
+                  - if project.grades
+                    span.badge.badge-success style="padding: 3px;font-size: 8px;"
+                      i.fa.fa-check     
+                  - else
+                    span.badge.badge-warning style="padding: 3px;font-size: 8px;"
+                      i.fa.fa-warning  

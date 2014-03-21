@@ -2,7 +2,7 @@
 = render "shared/sidebar", user: @user, active:"subjects"
 
 #main-container
-  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type.capitalize}",link: dashboard_path},{name:"Gestão de unidades curriculares", link:"#"}]
+  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type_pt.capitalize}",link: dashboard_path},{name:"Gestão de unidades curriculares", link:"#"}]
   = render "shared/dashboard/header", header: "Gestão de unidades curriculares"
   
   .padding-md    

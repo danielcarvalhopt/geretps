@@ -12,9 +12,11 @@ class Project < ActiveRecord::Base
   validates :begin_date, date: true
   validates :end_date, date: {after: :begin_date}, if: :end_date
 
-  scope :active_projects, -> { where("begin_date < ? AND end_date > ?", DateTime.now, DateTime.now).sort_by{|project| project.send(:next_delivery) || DateTime.now} }
-  scope :upcoming_projects, -> { where("begin_date > ?", DateTime.now).sort_by{|project| project.send(:next_delivery) || DateTime.now} }
-  scope :latest_projects, -> { where("end_date < ?", DateTime.now).sort_by{|project| project.send(:next_delivery) || DateTime.now}.reverse }
+  scope :active_projects, -> { where("begin_date < ? AND end_date > ? AND open = ?", DateTime.now, DateTime.now, true).sort_by{|project| project.send(:next_delivery) || DateTime.now} }
+  scope :upcoming_projects, -> { where("begin_date > ? AND open = ?", DateTime.now, true).sort_by{|project| project.send(:next_delivery) || DateTime.now} }
+  scope :latest_projects, -> { where("end_date < ? AND open = ?", DateTime.now, true).sort_by{|project| project.send(:next_delivery) || DateTime.now}.reverse }
+  scope :not_opened_projects, -> { where("open = ?", false).sort_by{|project| project.send(:next_delivery) || DateTime.now}.reverse }
+  scope :opened_projects, -> { where("open = ?", true).sort_by{|project| project.send(:next_delivery) || DateTime.now}.reverse }
 
   delegate :students, to: :subject
 
@@ -80,5 +82,18 @@ class Project < ActiveRecord::Base
       end
     end
     students
+  end
+
+  def pending_grades?
+    self.completed_phases.where(grades: false).count > 0
+  end
+
+  def average
+    sum = 0
+    self.subject.students.each do |student|
+      student_grade = self.grade student.id
+      sum += student_grade if !student_grade.nil?
+    end
+    sum/self.subject.students.count
   end
 end
