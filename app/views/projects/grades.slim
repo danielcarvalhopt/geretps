@@ -3,7 +3,7 @@
 = render "shared/sidebar", user: @user
 
 #main-container
-  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type.capitalize}",link: dashboard_path},{name:"#{@project.name}", link:"#{project_path @project}"},{name: "Avaliações", link:"#"}]
+  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type_pt.capitalize}",link: dashboard_path},{name:"#{@project.name}", link:"#{project_path @project}"},{name: "Avaliações", link:"#"}]
   = render "shared/dashboard/header", header: "Avaliações do #{@project.name}"
 
   .padding-md
