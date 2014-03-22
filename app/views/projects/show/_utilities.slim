@@ -13,9 +13,16 @@
           h5 Enunciado
           .stat-icon
             i.fa.fa-file-text-o.fa-2x
-    = link_to project_groups_path project
+    - if !project.min_elems.nil?
+      = link_to project_groups_path project
+        .col-sm-6.col-md-6
+          .panel-stat3.bg-warning
+            h5 Grupos
+            .stat-icon
+              i.fa.fa-users.fa-2x
+    - else
       .col-sm-6.col-md-6
-        .panel-stat3.bg-warning
+        .panel-stat3.bg-warning style="opacity:0.2"
           h5 Grupos
           .stat-icon
             i.fa.fa-users.fa-2x

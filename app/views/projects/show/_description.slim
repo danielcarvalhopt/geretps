@@ -1,12 +1,17 @@
 .panel.panel-default.fadeInDown.animation-delay2
-  .panel-heading Informações do Projeto
+  .panel-heading 
+    | Informações do Projeto
+    - if type=="teacher"
+      .pull-right
+        .btn.btn-xs
+          i.fa.fa-cogs  Editar informações do projeto
   .panel-body.project-info
     = raw project.description.try(:html_safe)
-
-    - if project.max_elems.nil?
-      |  Os grupos devem ser constituídos por pelo menos #{project.min_elems} elementos.
-    - else
-      - if project.max_elems == project.min_elems
-        | Os grupos devem ser constituídos por #{project.min_elems} elementos.
+    - if !project.min_elems.nil?
+      - if project.max_elems.nil?
+        |  Os grupos devem ser constituídos por pelo menos #{project.min_elems} elementos.
       - else
-        |  Os grupos devem ser constituídos por #{project.min_elems} a #{project.max_elems} elementos.
+        - if project.max_elems == project.min_elems
+          | Os grupos devem ser constituídos por #{project.min_elems} elementos.
+        - else
+          |  Os grupos devem ser constituídos por #{project.min_elems} a #{project.max_elems} elementos.

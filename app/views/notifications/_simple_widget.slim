@@ -2,7 +2,8 @@
   .panel-heading 
     = title
     .pull-right 
-        .btn.btn-primary.btn-xs Todas as notificações
+        .btn.btn-xs 
+          i.fa.fa-bars  Todas as notificações
   .panel-body.no-padding
     ul#feedList.list-group.collapse.in
       - if notifications.empty?

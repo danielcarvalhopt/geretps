@@ -1,0 +1,6 @@
+- if !project.complete?
+  .alert.alert-info
+    i Projeto com informações incompletas, verifique se definiu as informações do projeto, o número minimo de elementos de um grupo e pelo menos uma fase válida.
+- elsif !project.open
+  .alert.alert-info
+    i Projeto não publicado, publique o projeto para que os alunos consigam aceder às suas informações.

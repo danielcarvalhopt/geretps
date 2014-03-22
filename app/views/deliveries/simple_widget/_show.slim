@@ -7,7 +7,10 @@ li.list-group-item.clearfix
       .pull-left.m-left-sm style="width:100%"
         p #{delivery.description}
         small.text-muted
-          - if mode != "phase"
+          - if type=="teacher"
+            i.fa.fa-users  #{delivery.group.identifier}
+            br 
+          - if mode!="phase"
             i.fa.fa-calendar  #{delivery.phase.name}
             br 
           i.fa.fa-clock-o  #{delivery.created_at}

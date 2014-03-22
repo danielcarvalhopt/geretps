@@ -8,11 +8,17 @@
   .padding-md
     .row
       .col-md-8
-        = render "projects/show/description", project: @project
-        = render "phases/timeline_widget", title: "Fases do projeto", project: @project, phases: @phases
+        = render "projects/show/description", project: @project, type: @user.type
+        = render "phases/timeline_widget", title: "Fases do projeto", project: @project, phases: @phases, type: @user.type
 
       .col-md-4
+        - if @user.teacher?
+          = render "projects/show/alerts", project: @project
         = render "projects/show/utilities", project: @project
-        = render "notifications/simple_widget", title: "Últimas notificações", notifications: @notifications
-        = render "groups/simple_widget", title: "Grupo de trabalho", group: @group, project: @project
-        = render "deliveries/simple_widget", title: "Últimas entregas", deliveries: @deliveries, project: @project
+        = render "notifications/simple_widget", title: "Últimas notificações", notifications: @notifications, type: @user.type
+        - if @user.student? 
+          = render "groups/simple_widget", title: "Grupo de trabalho", group: @group, project: @project
+        = render "teachers/simple_widget", title: "Docentes responsáveis", teachers: @teachers, project: @project, type: @user.type
+        = render "deliveries/simple_widget", title: "Últimas entregas", deliveries: @deliveries, project: @project, type: @user.type
+        - if @user.teacher?
+          = render "projects/show/teacher_utilities", project: @project, type: @user.type

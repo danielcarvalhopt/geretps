@@ -1,0 +1,13 @@
+.panel.panel-default.fadeInDown.animation-delay2
+  .panel-heading 
+    = title
+    - if type == "teacher"
+      .pull-right 
+          .btn.btn-xs 
+            i.fa.fa-cogs  Gerir docentes
+  .panel-body.no-padding
+    ul#feedList.list-group.collapse.in
+      - if teachers.blank?
+        = render "teachers/simple_widget/empty"
+      - else
+        = render "teachers/simple_widget/index", teachers: teachers, type: type, project: project

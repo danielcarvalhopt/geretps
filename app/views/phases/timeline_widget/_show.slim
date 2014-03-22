@@ -17,18 +17,22 @@
         strong.font-14 #{phase.name}
         
         .pull-right 
-          b Avaliação: 
-          
-          - if phase.grades
-            span.text-success #{phase.grade current_user.student.id} 
-          - else
-            span.text-warning ?
-          |  / #{(phase.value*20)/100} Valores
-
+          - if type=="student"
+            b Avaliação: 
+            - if phase.grades
+              span.text-success #{phase.grade current_user.student.id} 
+            - else
+              span.text-warning ?
+            |  / #{(phase.value*20)/100} Valores
       .panel-body
         p #{raw phase.description.try(:html_safe)}
         .separator.pull-right
           a.shortcut-link href="#{phase_path phase}"
             span.shortcut-icon
-              i.fa.fa-info.fa-sm
-            span.text Mais informações
+              i.fa.fa-info.fa-sm style="font-size:15px;margin-right:3px"
+            small.text-muted style="font-size:12px"  Informações
+          - if type=="teacher"
+            a.shortcut-link href="#{phase_path phase}"
+              span.shortcut-icon
+                i.fa.fa-cogs style="font-size:15px;margin-right:3px"
+              small.text-muted style="font-size:12px"  Editar
