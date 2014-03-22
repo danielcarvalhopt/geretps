@@ -40,4 +40,13 @@ class Phase < ActiveRecord::Base
       "text-primary"
     end
   end
+
+  def average
+    sum = 0
+    self.project.subject.students.each do |student|
+      student_grade = self.grade student.id
+      sum += student_grade if !student_grade.nil?
+    end
+    (sum/self.project.subject.students.count).round(2)
+  end
 end

@@ -20,6 +20,10 @@ class Project < ActiveRecord::Base
 
   delegate :students, to: :subject
 
+  def complete?
+    !self.description.blank? and self.phases.count > 0 and !self.min_elems.nil? and self.min_elems > 0
+  end
+
   def first_phase
     self.phases.first
   end

@@ -12,11 +12,11 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @notifications = @project.notifications.take 5
-    @phases = @project.phases
-    @group = @project.group_of current_user.student.id
-    @deliveries = @project.deliveries_of(@group.try(:id)).take 4
-    @teachers = @project.subject.teachers
+    if current_user.student?
+      _show_student
+    else
+      _show_teacher
+    end
     respond_json(@project)
   end
 
@@ -81,6 +81,21 @@ class ProjectsController < ApplicationController
   end
 
   private
+    def _show_teacher
+      @notifications = @project.notifications.take 5
+      @phases = @project.phases
+      @deliveries = @project.deliveries.take 4
+      @teachers = @project.subject.teachers
+    end
+
+    def _show_student
+      @notifications = @project.notifications.take 5
+      @phases = @project.phases
+      @group = @project.group_of current_user.student.id
+      @deliveries = @project.deliveries_of(@group.try(:id)).take 4
+      @teachers = @project.subject.teachers
+    end
+
     def set_user
       @user = current_user.student? ? current_user.student : current_user.teacher
     end

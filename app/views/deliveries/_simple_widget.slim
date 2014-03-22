@@ -1,14 +1,16 @@
 - mode ||= "project"
+- type ||= "student"
 .panel.panel-default.fadeInDown class="animation-delay#{mode=="phase" ? 1 : 2}"
   .panel-heading
     = title
     .pull-right 
       - if mode!="phase" and !project.phases.empty?
         = link_to phase_path project.current_or_nearest_phase
-          .btn.btn-info.btn-xs Gerir entregas        
+          .btn.btn-xs 
+            i.fa.fa-cogs  Gerir entregas        
   .panel-body.no-padding
     ul#feedList.list-group.collapse.in
       - if deliveries.empty?
         = render "deliveries/simple_widget/empty", mode: mode
       - else
-        = render "deliveries/simple_widget/index", deliveries: deliveries, mode: mode
+        = render "deliveries/simple_widget/index", deliveries: deliveries, mode: mode, type: type

@@ -12,7 +12,8 @@
     - if mode == "project"
       .pull-right 
           = link_to project_groups_path project
-            .btn.btn-info.btn-xs Gerir grupos
+            .btn.btn-xs 
+              i.fa.fa-cogs  Gerir grupos
   .panel-body.no-padding
     ul#feedList.list-group.collapse.in
       - if group.nil?
