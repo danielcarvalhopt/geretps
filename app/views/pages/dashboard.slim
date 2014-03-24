@@ -23,13 +23,3 @@
             = render "pages/dashboard/teacher_utilities"
           = render "notifications/simple_widget", title: "Últimas notificações", notifications: @notifications
           = render "academic_years/accordion_widget", academic_years: @academic_years, subjects: @subjects, student: @user
-
-- content_for :javascript do
-  = javascript_include_tag "jquery-1.10.2.min" 
-  = javascript_include_tag "bootstrap.min" 
-  = javascript_include_tag "modernizr.min" 
-  = javascript_include_tag "pace.min" 
-  = javascript_include_tag "jquery.popupoverlay.min" 
-  = javascript_include_tag "jquery.slimscroll.min" 
-  = javascript_include_tag "jquery.cookie.min" 
-  = javascript_include_tag "endless" 
