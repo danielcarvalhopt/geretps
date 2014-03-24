@@ -9,3 +9,6 @@
 //= require jquery.slimscroll.min.js
 //= require chosen.jquery.min.js
 //= require isotope.pkgd.min.js
+//= require pace.min 
+//= require jquery.cookie.min
+//= require endless
