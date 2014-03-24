@@ -1,24 +1,35 @@
-= render "shared/navbar"
-= render "shared/sidebar", user: @user
+#wrapper
+  = render "shared/navbar"
+  = render "shared/sidebar", user: @user
 
-#main-container
-  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type_pt.capitalize}",link: "#"}]
-  = render "shared/dashboard/header", header: "Painel do #{@user.type_pt.capitalize}"
-  
-  .padding-md   
-    .row
-      .col-md-12
-        = render "shared/messages" 
-    .row
-      .col-md-8 
-        - if @user.teacher?
-          = render "projects/simple_widget", title: "Projetos a aguardar publicação", projects: @projects.not_opened_projects, mode: "not_opened", type: @user.type
-        = render "projects/simple_widget", title: "Projetos a decorrer", projects: @projects.active_projects, mode: "active", type: @user.type
-        = render "projects/simple_widget", title: "Próximos projetos", projects: @projects.upcoming_projects, mode: "upcoming", type: @user.type
-        = render "projects/simple_widget", title: "Últimos projetos", projects: @projects.latest_projects, mode: "latest", type: @user.type                               
+  #main-container
+    = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type_pt.capitalize}",link: "#"}]
+    = render "shared/dashboard/header", header: "Painel do #{@user.type_pt.capitalize}"
+    
+    .padding-md   
+      .row
+        .col-md-12
+          = render "shared/messages" 
+      .row
+        .col-md-8 
+          - if @user.teacher?
+            = render "projects/simple_widget", title: "Projetos a aguardar publicação", projects: @projects.not_opened_projects, mode: "not_opened", type: @user.type
+          = render "projects/simple_widget", title: "Projetos a decorrer", projects: @projects.active_projects, mode: "active", type: @user.type
+          = render "projects/simple_widget", title: "Próximos projetos", projects: @projects.upcoming_projects, mode: "upcoming", type: @user.type
+          = render "projects/simple_widget", title: "Últimos projetos", projects: @projects.latest_projects, mode: "latest", type: @user.type                               
 
-      .col-md-4
-        - if @user.teacher?
-          = render "pages/dashboard/teacher_utilities"
-        = render "notifications/simple_widget", title: "Últimas notificações", notifications: @notifications
-        = render "academic_years/accordion_widget", academic_years: @academic_years, subjects: @subjects, student: @user
+        .col-md-4
+          - if @user.teacher?
+            = render "pages/dashboard/teacher_utilities"
+          = render "notifications/simple_widget", title: "Últimas notificações", notifications: @notifications
+          = render "academic_years/accordion_widget", academic_years: @academic_years, subjects: @subjects, student: @user
+
+- content_for :javascript do
+  = javascript_include_tag "jquery-1.10.2.min" 
+  = javascript_include_tag "bootstrap.min" 
+  = javascript_include_tag "modernizr.min" 
+  = javascript_include_tag "pace.min" 
+  = javascript_include_tag "jquery.popupoverlay.min" 
+  = javascript_include_tag "jquery.slimscroll.min" 
+  = javascript_include_tag "jquery.cookie.min" 
+  = javascript_include_tag "endless" 
