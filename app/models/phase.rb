@@ -61,4 +61,8 @@ class Phase < ActiveRecord::Base
   def groups_without_deliveries
     self.project.groups.reverse - self.groups_with_deliveries
   end
+
+  def deliveries_of group_id
+    self.deliveries.where(group_id: group_id)
+  end
 end

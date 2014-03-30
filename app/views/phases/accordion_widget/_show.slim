@@ -18,7 +18,7 @@
 .collapsed id="Phase#{mode}#{phase.id}" class="#{current_phase.id != phase.id ? "collapse" : "in"}" style="margin-top:5px"
 
   - if mode=="deliveries"
-    = render "groups/accordion_widget/index", groups: phase.project.groups, phase: phase
+    = render "groups/accordion_widget", groups: phase.groups_with_deliveries, phase: phase
   - else
     = render "phases/accordion_widget/show/utilities", phase: phase, type: type
     = render "phases/accordion_widget/show/description", phase: phase, type: type

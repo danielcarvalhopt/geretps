@@ -1,0 +1,5 @@
+- if groups.blank?
+  .margin-bottom style="margin-bottom:5px"
+    = render "groups/accordion_widget/empty"
+- else
+  = render "groups/accordion_widget/index", groups: groups, phase: phase

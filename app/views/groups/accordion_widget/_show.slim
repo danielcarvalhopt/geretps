@@ -2,4 +2,4 @@
   .panel-heading 
     = group.identifier
   .panel-body.no-padding
-      = render "deliveries/simple_widget/index", deliveries: group.deliveries, mode: "phase", type: "teacher"
+      = render "deliveries/simple_widget/index", deliveries: phase.deliveries_of(group.id), mode: "phase", type: "teacher"
