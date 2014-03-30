@@ -49,4 +49,16 @@ class Phase < ActiveRecord::Base
     end
     (sum/self.project.subject.students.count).round(2)
   end
+
+  def groups_with_deliveries
+    groups_with_deliveries = Set.new
+    self.deliveries.reverse.each do |delivery|
+      groups_with_deliveries.add(delivery.group)
+    end
+    groups_with_deliveries.to_a
+  end
+
+  def groups_without_deliveries
+    self.project.groups.reverse - self.groups_with_deliveries
+  end
 end

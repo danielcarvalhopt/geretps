@@ -12,10 +12,11 @@ class PhasesController < ApplicationController
   # GET /phases/1
   # GET /phases/1.json
   def show
-    @project = @phase.project
-    @phases = @project.phases
-    @delivery = Delivery.new
-    @group = @project.group_of current_user.student.id
+    if current_user.student?
+      _show_student
+    else
+      _show_teacher
+    end
     respond_json(@phase)
   end
 
@@ -73,6 +74,18 @@ class PhasesController < ApplicationController
   end
 
   private
+    def _show_student
+      @project = @phase.project
+      @phases = @project.phases
+      @delivery = Delivery.new
+      @group = @project.group_of current_user.student.id
+    end
+
+    def _show_teacher
+      @project = @phase.project
+      @phases = @project.phases
+    end
+
     def set_user
       @user = current_user.student? ? current_user.student : current_user.teacher
     end

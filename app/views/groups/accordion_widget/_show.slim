@@ -1,0 +1,5 @@
+.panel.panel-default.fadeInDown.animation-delay2
+  .panel-heading 
+    = group.identifier
+  .panel-body.no-padding
+      = render "deliveries/simple_widget/index", deliveries: group.deliveries, mode: "phase", type: "teacher"
