@@ -5,8 +5,22 @@
         span.shortcut-icon
           i.fa.fa-file-text
         span.text Consultar enunciado
-  -if phase.grades
+  - if phase.grades
     a.shortcut-link href="/phases/#{phase.id}/grades"
       span.shortcut-icon
         i.fa.fa-check
       span.text Consultar pauta
+  - if type == "teacher"
+    a.shortcut-link href="#"
+      span.shortcut-icon
+        i.fa.fa-cogs
+      span.text Editar informações
+    a.shortcut-link href="#"
+      span.shortcut-icon
+        i.fa.fa-bar-chart-o
+      span.text Estatísticas
+  - if !phase.deliveries.blank?
+    a.shortcut-link href="#"
+      span.shortcut-icon
+        i.fa.fa-download
+      span.text Download entregas

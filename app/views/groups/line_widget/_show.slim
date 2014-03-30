@@ -1,0 +1,5 @@
+.label.label-default style="margin:5px;display:inline-block;" 
+  span.students
+    - group.students.each do |student|
+      img.img-circle alt="User Avatar" src="#{student.avatar.url}" style="width:15px;height:15px;margin-right:5px"
+  = group.identifier 

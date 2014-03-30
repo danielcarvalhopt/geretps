@@ -1,6 +1,11 @@
 .panel.panel-default.fadeInDown.animation-delay1
   .panel-heading 
     = title
+    - if type=="teacher"
+      .pull-right
+        .btn.btn-xs
+          i.fa.fa-cogs  Gerir ficheiros auxiliares
+          
   .panel-body.no-padding
     ul#feedList.list-group.collapse.in
       - if phase_files.empty?

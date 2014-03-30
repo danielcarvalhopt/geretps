@@ -1,23 +1,31 @@
 .panel.panel-default
   .panel-heading
     .panel-title
-      a.accordion-toggle data-parent="#accordion" data-toggle="collapse" href="#Phase#{phase.id}" class="#{"collapsed" if current_phase.id != phase.id}"
+      a.accordion-toggle data-parent="#accordion" data-toggle="collapse" href="#Phase#{mode}#{phase.id}" class="#{"collapsed" if current_phase.id != phase.id}"
         i.fa.fa-calendar class="#{phase.status_color}"
         b  #{phase.name}
 
-        .pull-right 
-          b Avaliação: 
-          
-          - if phase.grades
-            span.text-success #{phase.grade current_user.student.id} 
-          - else
-            span.text-warning ?
-          |  / #{(phase.value*20)/100} Valores
+        - if type == "student"
+          .pull-right 
+            b Avaliação: 
+            
+            - if phase.grades
+              span.text-success #{phase.grade current_user.student.id} 
+            - else
+              span.text-warning ?
+            |  / #{(phase.value*20)/100} Valores
 
-.collapsed id="Phase#{phase.id}" class="#{current_phase.id != phase.id ? "collapse" : "in"}" style="margin-left:20px"
+.collapsed id="Phase#{mode}#{phase.id}" class="#{current_phase.id != phase.id ? "collapse" : "in"}" style="margin-top:5px"
 
-  = render "phases/accordion_widget/show/utilities", phase: phase
-  = render "phases/accordion_widget/show/description", phase: phase
-  = render "required_files/line_widget", required_files: phase.required_files, title: "Ficheiros obrigatórios"
-  = render "phase_files/simple_widget", phase_files: phase.phase_files, title: "Ficheiros auxiliares"
-  = render "deliveries/simple_widget", deliveries: phase.deliveries.where(group_id: group.id), title: "Entregas", project: phase.project, mode: "phase"
+  - if mode=="deliveries"
+    = render "groups/accordion_widget", groups: phase.groups_with_deliveries, phase: phase
+  - else
+    = render "phases/accordion_widget/show/utilities", phase: phase, type: type
+    = render "phases/accordion_widget/show/description", phase: phase, type: type
+    = render "required_files/line_widget", required_files: phase.required_files, title: "Ficheiros obrigatórios", type: type
+    = render "phase_files/simple_widget", phase_files: phase.phase_files, title: "Ficheiros auxiliares", type: type
+    - if type == "student"
+      = render "deliveries/simple_widget", deliveries: phase.deliveries.where(group_id: group.id), title: "Entregas", project: phase.project, mode: "phase"
+    - if type == "teacher"
+      = render "groups/line_widget", groups: phase.groups_with_deliveries, title: "Grupos com entregas válidas"
+      = render "groups/line_widget", groups: phase.groups_without_deliveries, title: "Grupos sem entregas válidas"

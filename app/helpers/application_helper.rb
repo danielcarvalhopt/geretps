@@ -16,4 +16,8 @@ module ApplicationHelper
       '{title: "Entrega ' + p.project.name + ': ' + p.name + '" , start: new Date("' + p.end_date.to_time.strftime('%Y %m %d') + '")}'
     end
   end
+
+  def shorten140(text)
+    "#{text.first(140)}..."
+  end
 end
