@@ -1,0 +1,13 @@
+li.list-group-item.clearfix
+  .row-widget
+    .icon-widget
+      .activity-icon.bg-primary.small
+        i.fa.fa-file-o
+    .info-widget style="padding-top:12px"
+      .pull-left.m-left-sm
+        span #{delivery_file.document.name}
+        br
+      small.text-muted.pull-right    
+        = link_to show_file_path delivery_file.document
+          .btn.btn-xs
+            i.fa.fa-download  Download

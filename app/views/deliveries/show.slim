@@ -1,0 +1,18 @@
+= render "shared/navbar"
+= render "shared/sidebar", user: @user
+
+#main-container
+  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type_pt.capitalize}",link: dashboard_path},{name:"#{@project.name}", link:"#{project_path @project}"},{name:"Fases e Entregas", link: phase_path(@phase)}, {name: "Entrega ##{@delivery.id}", link:"#"}]
+  = render "shared/dashboard/header", header: "Entrega ##{@delivery.id} do #{@project.name}"
+  
+  .padding-md    
+    .row
+      .col-md-6
+        = render "grades/evaluate_group", group: @delivery.group, project: @project
+        
+      .col-md-6
+        = render "deliveries/show/description", delivery: @delivery
+        = render "delivery_files/simple_widget", delivery_files: @delivery.delivery_files, title: "Ficheiros", type: @user.type
+        // = render "groups/simple_widget", title: "Grupo de trabalho", group: @delivery.group, project: @project, mode: "delivery"
+    .row
+      = render "tests/accordion_widget", tests: @delivery.phase.tests, delivery: @delivery

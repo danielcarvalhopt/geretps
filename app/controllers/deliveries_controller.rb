@@ -4,6 +4,7 @@ require 'zip/zipfilesystem'
 class DeliveriesController < ApplicationController
   before_action :set_delivery, only: [:show, :edit, :update, :destroy, :dowload_files_zip]
   before_filter :initialize_phase_documents
+  before_action :set_user
   skip_before_filter :verify_authenticity_token, :only => [:add_document]
 
   # GET /deliveries
@@ -16,6 +17,11 @@ class DeliveriesController < ApplicationController
   # GET /deliveries/1
   # GET /deliveries/1.json
   def show
+    if @user.teacher
+      _show_teacher
+    else
+      _show_student
+    end
     respond_json(@delivery)
   end
 
@@ -105,6 +111,19 @@ class DeliveriesController < ApplicationController
   end
 
   private
+    def _show_teacher
+      @phase = @delivery.phase
+      @project = @phase.project
+
+    end
+
+    def _show_student
+    end
+
+    def set_user
+      @user = current_user.student? ? current_user.student : current_user.teacher
+    end
+
     def new_delivery_mail_notification
       subject = "Relatório de Entrega - #{@delivery.phase.name} do #{@delivery.phase.project.name}"
       @delivery.group.members.each do |member|

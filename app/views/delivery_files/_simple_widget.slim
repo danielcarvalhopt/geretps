@@ -1,0 +1,9 @@
+.panel.panel-default.fadeInDown.animation-delay1
+  .panel-heading 
+    = title          
+  .panel-body.no-padding
+    ul#feedList.list-group.collapse.in
+      - if delivery_files.empty?
+        = render "delivery_files/simple_widget/empty"
+      - else
+        = render "delivery_files/simple_widget/index", delivery_files: delivery_files

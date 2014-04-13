@@ -10,3 +10,4 @@
 //= require chosen.jquery.min.js
 //= require isotope.pkgd.min.js
 //= require endless.js
+//= require highlight.pack
