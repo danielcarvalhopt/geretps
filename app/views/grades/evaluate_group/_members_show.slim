@@ -1,0 +1,12 @@
+li.list-group-item.clearfix
+  .clearfix
+    .pull-left.m-right-sm
+      img.img-circle alt="User Avatar" src="#{member.student.avatar.url}" style="width:40px;height:40px;"
+    .pull-right
+      i.fa.fa-check.text-success
+      input type="text" class="form-control input-sm"  placeholder="Nota" style="width:50px;display:inline;margin:0px 5px"
+      span Valores
+    strong.block #{member.student.name}
+    small.text-muted 
+      i.fa.fa-envelope-o  #{member.student.email}
+    textarea.form-control rows="1" style="margin-top: 20px; max-width: 100%;" placeholder="Comentário"

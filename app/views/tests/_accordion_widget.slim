@@ -1,0 +1,5 @@
+#accordion.panel-group.fadeInDown.animation-delay2
+  - if tests.empty?
+    = render "tests/accordion_widget/empty"
+  - else
+    = render "tests/accordion_widget/index", tests: tests, delivery: delivery

@@ -1,5 +1,10 @@
 .panel.panel-default.fadeInDown.animation-delay2
   .panel-heading 
     = group.identifier
+    .pull-right 
+      - if group.evaluated phase.id
+        span.label.label-success Avaliado
+      - else
+        span.label.label-warning Não avaliado
   .panel-body.no-padding
       = render "deliveries/simple_widget/index", deliveries: phase.deliveries_of(group.id), mode: "phase", type: "teacher"
