@@ -1,76 +1,6 @@
 
 $(function	()	{
 
-	// Cookie validation
-	if(jQuery.type($.cookie('skin_color')) != 'undefined')	{
-	
-		$('aside').removeClass('skin-1');
-		$('aside').removeClass('skin-2');
-		$('aside').removeClass('skin-3');
-		$('aside').removeClass('skin-4');
-		$('aside').removeClass('skin-5');
-		$('aside').removeClass('skin-6');
-		$('#top-nav').removeClass('skin-1');
-		$('#top-nav').removeClass('skin-2');
-		$('#top-nav').removeClass('skin-3');
-		$('#top-nav').removeClass('skin-4');
-		$('#top-nav').removeClass('skin-5');
-		$('#top-nav').removeClass('skin-6');
-		
-		$('aside').addClass($.cookie('skin_color'));
-		$('#top-nav').addClass($.cookie('skin_color'));
-	}
-	//Skin color
-	$('.theme-color').click(function()	{
-		//Cookies for storing theme color
-		$.cookie('skin_color', $(this).attr('id'));
-		
-		$('aside').removeClass('skin-1');
-		$('aside').removeClass('skin-2');
-		$('aside').removeClass('skin-3');
-		$('aside').removeClass('skin-4');
-		$('aside').removeClass('skin-5');
-		$('aside').removeClass('skin-6');
-		$('#top-nav').removeClass('skin-1');
-		$('#top-nav').removeClass('skin-2');
-		$('#top-nav').removeClass('skin-3');
-		$('#top-nav').removeClass('skin-4');
-		$('#top-nav').removeClass('skin-5');
-		$('#top-nav').removeClass('skin-6');
-		
-		$('aside').addClass($(this).attr('id'));
-		$('#top-nav').addClass($(this).attr('id'));
-	});
-	
-	// Delete values stored in cookies 
-	// uncomment code to activate
-	//	$.removeCookie('skin_color');
-	//
-	
-	//Preloading
-	paceOptions = {
-		ajax: false, // disabled
-		document: false, // disabled
-		eventLag: false, // disabled
-		elements: false,
-		 /*elements: {
-			selectors: ['html']
-		  }*/
-	};
-	
-	//
-	$('.login-link').click(function(e) {
-		e.preventDefault();
-		href = $(this).attr('href');
-		
-		$('.login-wrapper').addClass('fadeOutUp');
-
-		setTimeout(function() {
-			window.location = href;
-		}, 900);
-			
-		return false;	
-	});
 	
 	//scroll to top of the page
 	$("#scroll-to-top").click(function()	{
@@ -319,28 +249,4 @@ $(function	()	{
 	
 });
 
-$(window).load(function() {
-	
-	Pace.stop();
-	
-	// Fade out the overlay div
-	$('#overlay').fadeOut(800);
-	
-	$('body').removeAttr('class');
-	
-	//Enable animation
-	$('#wrapper').removeClass('preload');
-});
 
-$(window).scroll(function(){
-		
-	 var position = $(window).scrollTop();
-	
-	 //Display a scroll to top button
-	 if(position >= 200)	{
-		$('#scroll-to-top').attr('style','bottom:8px;');	
-	 }
-	 else	{
-		$('#scroll-to-top').removeAttr('style');
-	 }
-});
