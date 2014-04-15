@@ -8,7 +8,7 @@ users = [
     phone: "253604479",
     email: "jcr@di.uminho.pt",
     password: "jcrjcrjcr",
-    avatar: "http://www3.di.uminho.pt/~jcr/foto-jcr-xata2006.jpg"
+    avatar: "public/seeds/user_avatars/ramalho.jpg"
   },
   {
     name: "Daniel Carvalho",
@@ -16,7 +16,7 @@ users = [
     phone: "919985936",
     email: "mail@danielcarvalho.pt",
     password: "qweqweqwe",
-    avatar: "https://2.gravatar.com/avatar/f01674262825d50ff4092e1143097e87?d=https%3A%2F%2Fidenticons.github.com%2F392bf92b3885b2e50c71a0d181fc6723.png&r=x&s=400"
+    avatar: "public/seeds/user_avatars/danielcarvalho.jpg"
   },
   {
     name: "André Santos",
@@ -24,7 +24,7 @@ users = [
     phone: "919985938",
     email: "mail@andre-santos.pt",
     password: "qweqweqwe",
-    avatar: "https://1.gravatar.com/avatar/812e1705ff0f8bc1bcf18587bde687d5?d=https%3A%2F%2Fidenticons.github.com%2F6cc40f137a569fb8806871de809dcf63.png&r=x&s=460"
+    avatar: "public/seeds/user_avatars/andresantos.jpg"
   },
   {
     name: "Ricardo Branco",
@@ -32,7 +32,7 @@ users = [
     phone: "919985937",
     email: "28.ricardobranco@gmail.com",
     password: "qweqweqwe",
-    avatar: "https://2.gravatar.com/avatar/c66a47aa3041e7f3e828c0b66d06c832?d=https%3A%2F%2Fidenticons.github.com%2F459d7b50581426b2af2a650273f0adf8.png&r=x&s=400"
+    avatar: "public/seeds/user_avatars/ricardobranco.jpg"
   },
   {
     name: "Tim Berners-Lee",
@@ -40,7 +40,7 @@ users = [
     phone: "900000001",
     email: "berners-lee@www.com",
     password: "qweqweqwe",
-    avatar: "http://yourlifesolution.com/7/wp-content/uploads/2012/07/tim-berners-lee.jpg"
+    avatar: "public/seeds/user_avatars/timbernerslee.jpg"
   },
   {
     name: "Richard Matthew Stallman",
@@ -48,7 +48,7 @@ users = [
     phone: "900000002",
     email: "stallman@gnu.com",
     password: "qweqweqwe",
-    avatar: "http://upload.wikimedia.org/wikipedia/commons/f/f7/Richard_Matthew_Stallman.jpeg"
+    avatar: "public/seeds/user_avatars/richardstallman.jpg"
   },
   {
     name: "Ray Tomlinson",
@@ -56,7 +56,7 @@ users = [
     phone: "900000003",
     email: "tomlinson@bbn-tenexa.com",
     password: "qweqweqwe",
-    avatar: "http://www.bbn.com/resources/img/tomlinson.jpg"
+    avatar: "public/seeds/user_avatars/tomlinson.jpg"
   },
   {
     name: "Bill Gates",
@@ -64,7 +64,7 @@ users = [
     phone: "900000004",
     email: "bill-gates@microsoft.com",
     password: "qweqweqwe",
-    avatar: "http://upload.wikimedia.org/wikipedia/commons/b/bd/Dts_news_bill_gates_wikipedia.JPG"
+    avatar: "public/seeds/user_avatars/billgates.jpg"
   },
   {
     name: "Steve Jobs",
@@ -72,7 +72,7 @@ users = [
     phone: "900000005",
     email: "steve-jobs@apple.com",
     password: "qweqweqwe",
-    avatar: "http://www.biography.com/imported/images/Biography/Images/Profiles/J/Steven-Jobs-9354805-2-402.jpg"
+    avatar: "public/seeds/user_avatars/stevejobs.jpg"
   },
   {
     name: "Linus Torvalds",
@@ -80,7 +80,7 @@ users = [
     phone: "900000006",
     email: "linus@linux.com",
     password: "qweqweqwe",
-    avatar: "http://upload.wikimedia.org/wikipedia/commons/5/5c/Linus_Torvalds_(cropped).jpg"
+    avatar: "public/seeds/user_avatars/linustorvalds.jpg"
   },
   {
     name: "Vint Cerf",
@@ -88,7 +88,7 @@ users = [
     phone: "900000007",
     email: "cerf@google.com",
     password: "qweqweqwe",
-    avatar: "http://cacm.acm.org/system/assets/0000/6784/121611_CNet_Vint-Cerf.large.jpg?1341312418&1324068125"
+    avatar: "public/seeds/user_avatars/vintcerf.jpg"
   },
   {
     name: "Steve Ballmer",
@@ -96,7 +96,7 @@ users = [
     phone: "900000008",
     email: "ballmer@microsoft.com",
     password: "qweqweqwe",
-    avatar: "http://upload.wikimedia.org/wikipedia/commons/2/21/Steve_Ballmer_at_CES_2010_cropped.jpg"
+    avatar: "public/seeds/user_avatars/steveballmer.jpg"
   },
   {
     name: "Steve Wozniak",
@@ -104,15 +104,15 @@ users = [
     phone: "900000009",
     email: "wozniak@apple.com",
     password: "qweqweqwe",
-    avatar: "http://www.biography.com/imported/images/Biography/Images/Profiles/W/Stephen-Wozniak-9537334-1-402.jpg"
+    avatar: "public/seeds/user_avatars/stevewozniak.jpg"
   },
   {
-    name: "Serge Brinn",
+    name: "Sergey Brin",
     about: "A partir de um projeto de doutorado, um dos maiores fenômenos da internet surgiu: o Google. O buscador é o fio condutor da empresa que hoje conta com vários serviços online, aplicativos e até um celular.",
     phone: "900000010",
     email: "brinn@google.com",
     password: "qweqweqwe",
-    avatar: "http://i.forbesimg.com/media/lists/people/sergey-brin_416x416.jpg"
+    avatar: "public/seeds/user_avatars/sergeybrin.jpg"
   },
   {
     name: "Larry Page",
@@ -120,7 +120,7 @@ users = [
     phone: "900000011",
     email: "larry@google.com",
     password: "qweqweqwe",
-    avatar: "http://i2.cdn.turner.com/money/galleries/2008/fortune/0804/gallery.bestadvice.fortune/images/larry_page.jpg"
+    avatar: "public/seeds/user_avatars/larrypage.jpg"
   },
   {
     name: "Michael Dell",
@@ -128,7 +128,7 @@ users = [
     phone: "900000012",
     email: "dell@dell.com",
     password: "qweqweqwe",
-    avatar: "http://www.nndb.com/people/975/000029888/michael-dell.jpg"
+    avatar: "public/seeds/user_avatars/michaeldell.jpg"
   },
   {
     name: "Kazuo Hirai",
@@ -136,7 +136,7 @@ users = [
     phone: "900000013",
     email: "hirai@sony.com",
     password: "qweqweqwe",
-    avatar: "http://cdn.us.playstation.com/pscomauth/groups/public/documents/webasset/ps_management_full_kaz.jpg"
+    avatar: "public/seeds/user_avatars/kazuohirai.jpg"
   },
   {
     name: "Mark Zuckerberg",
@@ -144,7 +144,7 @@ users = [
     phone: "900000014",
     email: "zuckerberg@facebook.com",
     password: "qweqweqwe",
-    avatar: "http://www.biography.com/imported/images/Biography/Images/Profiles/Z/Mark-Zuckerberg-507402-1-402.jpg"
+    avatar: "public/seeds/user_avatars/markzuckerberg.jpg"
   }
 ]
 
