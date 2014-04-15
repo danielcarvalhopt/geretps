@@ -114,7 +114,7 @@ class DeliveriesController < ApplicationController
     def _show_teacher
       @phase = @delivery.phase
       @project = @phase.project
-
+      @grades = @delivery.grades
     end
 
     def _show_student

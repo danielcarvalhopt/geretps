@@ -6,6 +6,7 @@ Geretps::Application.routes.draw do
   get "/documents/file/:id" => "documents#show_file", as: :show_file
   post "/deliveries/add_document" => "deliveries#add_document", as: :add_document
   get "/deliveries/dowload_files_zip/:id" => "deliveries#dowload_files_zip", as: :dowload_files_zip
+  post "/grades/evaluate_group" => "grades#evaluate_group", as: :evaluate_group
 
   get "/projects/:id/grades" => "projects#grades", as: :project_grades
   get "/projects/:id/groups" => "projects#groups", as: :project_groups

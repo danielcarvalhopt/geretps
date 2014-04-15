@@ -7,8 +7,10 @@
   
   .padding-md    
     .row
+      .col-md-12
+        = render "shared/messages"
       .col-md-6
-        = render "grades/evaluate_group", group: @delivery.group, project: @project
+        = render "grades/evaluate_group", group: @delivery.group, project: @project, phase: @delivery.phase, grades: @grades, delivery: @delivery
         
       .col-md-6
         = render "deliveries/show/description", delivery: @delivery
