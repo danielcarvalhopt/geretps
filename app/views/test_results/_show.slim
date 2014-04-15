@@ -1,0 +1,4 @@
+- if test_result.blank?
+  = render "test_results/show/empty"
+- else
+  = render "test_results/show/show", test_result: test_result

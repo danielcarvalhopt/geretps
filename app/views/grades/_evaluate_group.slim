@@ -1,0 +1,10 @@
+= form_tag "/grades/evaluate_group", method: "post"
+  .panel.panel-default.fadeInDown.animation-delay1
+    .panel-heading 
+      | Avaliação
+    .panel-body.no-padding
+      ul#feedList.list-group.collapse.in
+        // = render "grades/evaluate_group/group_show", group: group
+        = render "grades/evaluate_group/members_index", members: group.members, phase: phase, grades: grades, delivery: delivery
+  input type="hidden" name="delivery_id" value="#{delivery.id}"
+  = render "grades/evaluate_group/actions"

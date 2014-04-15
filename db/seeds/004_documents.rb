@@ -61,11 +61,31 @@ documents = [
       file: "https://dl.dropboxusercontent.com/u/13351850/e_pi.pdf",
       active: true
     },
+    {
+      name: "G1_Presentation.pdf",
+      file: "https://dl.dropboxusercontent.com/u/13351850/e_pi.pdf",
+      active: true
+    },
+    {
+      name: "G1_Source.zip",
+      file: "https://dl.dropboxusercontent.com/u/13351850/e_pi.pdf",
+      active: true
+    },
+    {
+      name: "G1_Diagrams.zip",
+      file: "https://dl.dropboxusercontent.com/u/13351850/e_pi.pdf",
+      active: true
+    },
+    {
+      name: "G1_Report.pdf",
+      file: "https://dl.dropboxusercontent.com/u/13351850/e_pi.pdf",
+      active: true
+    }
 ]
 
 documents.each do |document|
   Document.where(name: document[:name]).first_or_initialize.tap do |d|
-    d.description = document[:description]
+    d.description = document[:description] if !document[:description].blank?
     d.file = open(document[:file])
     d.save!
   end

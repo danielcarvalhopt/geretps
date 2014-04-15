@@ -1,6 +1,32 @@
 class GradesController < ApplicationController
   before_action :set_grade, only: [:show, :edit, :update, :destroy]
 
+  def evaluate_group
+    delivery = Delivery.find(params[:delivery_id])
+    valid = 0
+    invalid = 0
+
+    students_params = params[:students]
+    students_params.keys.each do |student_id|
+      if !students_params[student_id]['grade'].blank?
+        Grade.where(student_id: student_id, delivery_id: delivery.id).first_or_initialize.tap do |grade|  
+          grade.value = students_params[student_id]['grade']
+          grade.comments = students_params[student_id]['comment'] if !students_params[student_id]['comment'].blank?
+        
+          grade.save ? valid+=1 : invalid+=1
+        end
+      end
+    end
+
+    if invalid>0
+      flash[:error] = "Erro ao atualizar a avaliação  de #{invalid} utilizador#{"es" if invalid>1}."
+    elsif valid>0
+      flash[:notice] = "Atualizou com sucesso a avaliação  de #{valid} utilizador#{"es" if valid>1}."
+    end
+
+    redirect_to delivery
+  end
+
   # GET /grades
   # GET /grades.json
   def index

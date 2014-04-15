@@ -1,0 +1,10 @@
+.panel.panel-default
+  .panel-heading
+    .panel-title
+      a.accordion-toggle data-parent="#accordion" data-toggle="collapse" href="#Test#{test.id}" class="#{"collapsed" if number != 0}"
+        i.fa.fa-check 
+        |  #{test.name}
+  .panel-collapse.collapsed id="Test#{test.id}" class="#{number != 0 ? "collapse" : "in"}"
+    .panel-body.no-padding
+      ul#feedList.list-group.collapse.in.no-margin
+        = render "test_results/show", test_result: test.result_of(delivery.id)

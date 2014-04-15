@@ -11,3 +11,4 @@
 //= require isotope.pkgd.min.js
 //= require pace.min 
 //= require endless
+//= require highlight.pack

@@ -12,4 +12,13 @@ class Delivery < ActiveRecord::Base
   def grade student_id
     self.grades.where(student_id: student_id).first
   end
+
+  def grade_comments student_id
+    self.grade(student_id).comments
+  end
+
+  def grade_value student_id
+    self.grade(student_id).value.to_i
+  end
+
 end

@@ -24,4 +24,13 @@ class Group < ActiveRecord::Base
       false
     end
   end
+
+  def evaluated phase_id
+    evaluated = true
+    self.students.each do |student|
+      grade = Phase.find(phase_id).grade(student.id)
+      evaluated = false if grade.nil?
+    end
+    evaluated
+  end
 end

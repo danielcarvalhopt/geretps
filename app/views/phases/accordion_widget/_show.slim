@@ -4,9 +4,8 @@
       a.accordion-toggle data-parent="#accordion" data-toggle="collapse" href="#Phase#{mode}#{phase.id}" class="#{"collapsed" if current_phase.id != phase.id}"
         i.fa.fa-calendar class="#{phase.status_color}"
         b  #{phase.name}
-
-        - if type == "student"
-          .pull-right 
+        .pull-right 
+          - if type == "student"
             b Avaliação: 
             
             - if phase.grades
@@ -14,6 +13,12 @@
             - else
               span.text-warning ?
             |  / #{(phase.value*20)/100} Valores
+          
+          - if type == "teacher" and mode!="deliveries"
+            - if phase.grades
+              span.label.label-success Pauta publicada
+            - else
+              span.label.label-warning Pauta pendente
 
 .collapsed id="Phase#{mode}#{phase.id}" class="#{current_phase.id != phase.id ? "collapse" : "in"}" style="margin-top:5px"
 

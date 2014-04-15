@@ -72,7 +72,7 @@ users = [
     phone: "900000005",
     email: "steve-jobs@apple.com",
     password: "qweqweqwe",
-    avatar: "http://www.biography.com/imported/images/Biography/Images/Profiles/J/Steven-Jobs-9354805-2-402.jpg"
+    avatar: "http://s3.amazonaws.com/crunchbase_prod_assets/assets/images/resized/0001/0974/10974v7-max-250x250.jpg"
   },
   {
     name: "Linus Torvalds",
@@ -104,7 +104,7 @@ users = [
     phone: "900000009",
     email: "wozniak@apple.com",
     password: "qweqweqwe",
-    avatar: "http://www.biography.com/imported/images/Biography/Images/Profiles/W/Stephen-Wozniak-9537334-1-402.jpg"
+    avatar: "http://solteapalavra.com.br/wp-content/uploads/2014/01/Stephen-Wozniak-9537334-1-402.jpg"
   },
   {
     name: "Serge Brinn",
@@ -144,7 +144,7 @@ users = [
     phone: "900000014",
     email: "zuckerberg@facebook.com",
     password: "qweqweqwe",
-    avatar: "http://www.biography.com/imported/images/Biography/Images/Profiles/Z/Mark-Zuckerberg-507402-1-402.jpg"
+    avatar: "https://lh6.googleusercontent.com/-Pmx4XgeqbPQ/ThnSEtM_qqI/AAAAAAAACH8/QZFZyS3Ya2c/s590-no/73273_773684942011_4_40639956_2125564_n.jpg"
   }
 ]
 
