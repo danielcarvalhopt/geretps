@@ -2,11 +2,16 @@
 	.col-md-8
 		small.text-muted #{phase.name}
 	.col-md-4
-		small.text-muted
-			i.fa.fa-check
-            	b  Avaliação:
-                - if phase.grades
-            		span.text-success #{phase.grade current_user.student.id}
-          		- else
-            		span.text-warning ?
-          		|  / #{(phase.value*20)/100} Valores
+    - if phase.grades
+      -grade = phase.grade current_user.student.id
+      -phase_grade = (phase.value*20)/100
+      -if grade < phase_grade*0.475
+        .label.label-danger #{"#{grade}/#{phase_grade} Valores "}
+      - else
+        .label.label-success #{"#{grade}/#{phase_grade} Valores "}
+    - else
+      .label.label-warning
+        i.fa.fa-spinner Aguarda avaliação
+
+
+
