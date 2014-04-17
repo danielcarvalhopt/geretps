@@ -8,7 +8,7 @@ users = [
     phone: "253604479",
     email: "jcr@di.uminho.pt",
     password: "jcrjcrjcr",
-    avatar: "https://dl.dropboxusercontent.com/s/a8045zztlxyvqcy/ramalho.jpg"
+    avatar: "public/seeds/user_avatars/ramalho.jpg"
   },
   {
     name: "Daniel Carvalho",
@@ -16,7 +16,7 @@ users = [
     phone: "919985936",
     email: "mail@danielcarvalho.pt",
     password: "qweqweqwe",
-    avatar: "https://dl.dropboxusercontent.com/s/5dz73o7mc5tuqmp/danielcarvalho.jpg"
+    avatar: "public/seeds/user_avatars/danielcarvalho.jpg"
   },
   {
     name: "André Santos",
@@ -24,7 +24,7 @@ users = [
     phone: "919985938",
     email: "mail@andre-santos.pt",
     password: "qweqweqwe",
-    avatar: "https://dl.dropboxusercontent.com/s/gp4nrfu5def1sek/andresantos.jpg"
+    avatar: "public/seeds/user_avatars/andresantos.jpg"
   },
   {
     name: "Ricardo Branco",
@@ -32,7 +32,7 @@ users = [
     phone: "919985937",
     email: "28.ricardobranco@gmail.com",
     password: "qweqweqwe",
-    avatar: "https://dl.dropboxusercontent.com/s/6zf5p6k8oyleozx/ricardobranco.jpg"
+    avatar: "public/seeds/user_avatars/ricardobranco.jpg"
   },
   {
     name: "Tim Berners-Lee",
@@ -40,7 +40,7 @@ users = [
     phone: "900000001",
     email: "berners-lee@www.com",
     password: "qweqweqwe",
-    avatar: "https://dl.dropboxusercontent.com/s/42bj0haya9qi1gr/timbernerslee.jpg"
+    avatar: "public/seeds/user_avatars/timbernerslee.jpg"
   },
   {
     name: "Richard Matthew Stallman",
@@ -48,7 +48,7 @@ users = [
     phone: "900000002",
     email: "stallman@gnu.com",
     password: "qweqweqwe",
-    avatar: "https://dl.dropboxusercontent.com/s/4dc8muxq6oj5kxn/richardstallman.jpg"
+    avatar: "public/seeds/user_avatars/richardstallman.jpg"
   },
   {
     name: "Ray Tomlinson",
@@ -56,7 +56,7 @@ users = [
     phone: "900000003",
     email: "tomlinson@bbn-tenexa.com",
     password: "qweqweqwe",
-    avatar: "https://dl.dropboxusercontent.com/s/zqh189qp1raf3sm/tomlinson.jpg"
+    avatar: "public/seeds/user_avatars/tomlinson.jpg"
   },
   {
     name: "Bill Gates",
@@ -64,7 +64,7 @@ users = [
     phone: "900000004",
     email: "bill-gates@microsoft.com",
     password: "qweqweqwe",
-    avatar: "https://dl.dropboxusercontent.com/s/fj9v9fbce5z4s9w/billgates.jpg"
+    avatar: "public/seeds/user_avatars/billgates.jpg"
   },
   {
     name: "Steve Jobs",
@@ -72,7 +72,7 @@ users = [
     phone: "900000005",
     email: "steve-jobs@apple.com",
     password: "qweqweqwe",
-    avatar: "https://dl.dropboxusercontent.com/s/x4ayjwowhlfoo4l/stevejobs.jpg"
+    avatar: "public/seeds/user_avatars/stevejobs.jpg"
   },
   {
     name: "Linus Torvalds",
@@ -80,7 +80,7 @@ users = [
     phone: "900000006",
     email: "linus@linux.com",
     password: "qweqweqwe",
-    avatar: "https://dl.dropboxusercontent.com/s/iu538502kc5harn/linustorvalds.jpg"
+    avatar: "public/seeds/user_avatars/linustorvalds.jpg"
   },
   {
     name: "Vint Cerf",
@@ -88,7 +88,7 @@ users = [
     phone: "900000007",
     email: "cerf@google.com",
     password: "qweqweqwe",
-    avatar: "https://dl.dropboxusercontent.com/s/s7wz379au3rcdd8/vintcerf.jpg"
+    avatar: "public/seeds/user_avatars/vintcerf.jpg"
   },
   {
     name: "Steve Ballmer",
@@ -96,7 +96,7 @@ users = [
     phone: "900000008",
     email: "ballmer@microsoft.com",
     password: "qweqweqwe",
-    avatar: "https://dl.dropboxusercontent.com/s/k8ey0vmqjy58p5w/steveballmer.jpg"
+    avatar: "public/seeds/user_avatars/steveballmer.jpg"
   },
   {
     name: "Steve Wozniak",
@@ -104,7 +104,7 @@ users = [
     phone: "900000009",
     email: "wozniak@apple.com",
     password: "qweqweqwe",
-    avatar: "https://dl.dropboxusercontent.com/s/5iadt50kn3dgvog/stevewozniak.jpg"
+    avatar: "public/seeds/user_avatars/stevewozniak.jpg"
   },
   {
     name: "Sergey Brin",
@@ -112,7 +112,7 @@ users = [
     phone: "900000010",
     email: "brinn@google.com",
     password: "qweqweqwe",
-    avatar: "https://dl.dropboxusercontent.com/s/qvf9edlpms6p7py/sergeybrin.jpg"
+    avatar: "public/seeds/user_avatars/sergeybrin.jpg"
   },
   {
     name: "Larry Page",
@@ -120,7 +120,7 @@ users = [
     phone: "900000011",
     email: "larry@google.com",
     password: "qweqweqwe",
-    avatar: "https://dl.dropboxusercontent.com/s/ydn16o08kl23o9m/larrypage.jpg"
+    avatar: "public/seeds/user_avatars/larrypage.jpg"
   },
   {
     name: "Michael Dell",
@@ -128,7 +128,7 @@ users = [
     phone: "900000012",
     email: "dell@dell.com",
     password: "qweqweqwe",
-    avatar: "https://dl.dropboxusercontent.com/s/fyp9suy2qiimr6r/michaeldell.jpg"
+    avatar: "public/seeds/user_avatars/michaeldell.jpg"
   },
   {
     name: "Kazuo Hirai",
@@ -136,7 +136,7 @@ users = [
     phone: "900000013",
     email: "hirai@sony.com",
     password: "qweqweqwe",
-    avatar: "https://dl.dropboxusercontent.com/s/44qvxhbhizfj7fx/kazuohirai.jpg"
+    avatar: "public/seeds/user_avatars/kazuohirai.jpg"
   },
   {
     name: "Mark Zuckerberg",
@@ -144,7 +144,7 @@ users = [
     phone: "900000014",
     email: "zuckerberg@facebook.com",
     password: "qweqweqwe",
-    avatar: "https://dl.dropboxusercontent.com/s/lzonwzr7ye3b9gq/markzuckerberg.jpg"
+    avatar: "public/seeds/user_avatars/markzuckerberg.jpg"
   }
 ]
 
