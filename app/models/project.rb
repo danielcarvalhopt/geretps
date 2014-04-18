@@ -8,8 +8,7 @@ class Project < ActiveRecord::Base
   has_many :project_files
   has_many :files, through: :project_files
 
-  validates :begin_date, :name, :subject, :statement, :min_elems, presence: true
-  validates :begin_date, date: true
+  validates :name, :subject, :begin_date, presence: true
   validates :end_date, date: {after: :begin_date}, if: :end_date
 
   scope :active_projects, -> { where("begin_date < ? AND end_date > ? AND open = ?", DateTime.now, DateTime.now, true).sort_by{|project| project.send(:next_delivery) || DateTime.now} }

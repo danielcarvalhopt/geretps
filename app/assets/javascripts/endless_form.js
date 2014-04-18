@@ -1,9 +1,9 @@
 $(function()	{
-	// // Chosen 
-	// $(".chzn-select").chosen();
+	// Chosen 
+	$(".chzn-select").chosen();
 	
-	// // Datepicker
-	// $('.datepicker').datepicker();
+	// Datepicker
+	$('.datepicker').datepicker();
 
 	// // Timepicker
 	// $('.timepicker').timepicker();
