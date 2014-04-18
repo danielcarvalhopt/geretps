@@ -16,9 +16,16 @@ class PagesController < ApplicationController
     @notifications = @user.notifications.take 3
     @academic_years = @user.academic_years.uniq
     @subjects = @user.subjects
+    if @user.teacher
+      _dashboard_teacher
+    end
   end
 
   private
+    def _dashboard_teacher
+      @project = Project.new
+    end
+
     def set_user
       if current_user
         @user = current_user.student? ? current_user.student : current_user.teacher

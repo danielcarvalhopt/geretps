@@ -1,0 +1,43 @@
+#CreateProject.modal.fade aria-hidden="true" style=("display: none;") 
+  .modal-dialog style="width: 800px"
+    .modal-content
+      .modal-header style="border: none"
+        button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+        h4 Criar novo projeto
+      .modal-body style="padding: 0"
+        .panel.panel-default
+          = form_for project, html: {id: "addProjectWizard", class: "form-horizontal no-margin form-border"} do |f| 
+            .panel-tab
+              ul.wizard-steps
+                li.active
+                  a data-toggle="tab" href="#ProjectInfo"  Informações do Projeto
+                li
+                  a data-toggle="tab" href="#GroupsInfo"  Informações dos Grupos
+            .panel-body
+              .tab-content
+                #ProjectInfo.tab-pane.fade.in.active
+                  .form-group
+                    label.control-label.col-lg-2 Nome
+                    .col-lg-8
+                      = f.text_field :name, class: "input form-control input-sm parsley-validated", placeholder: "Nome do Projeto", data:{required:"true"}, type:"text"
+                  .form-group
+                    label.control-label.col-lg-2 Descrição
+                    .col-lg-8
+                      = f.text_area :description, id: "wysihtml5-textarea", class: "input form-control input-sm parsley-validated", placeholder: "Descrição do Projeto", data:{required:"true"}, type:"text", rows:"6"
+                  .form-group
+                    label.control-label.col-lg-2 Enunciado
+                    .col-lg-8
+                      .upload-file
+                        input#upload-demo.upload-demo type="file" 
+                          label data-title=("Select file") for="upload-demo" 
+                            span data-title=("No file selected...") 
+
+            .panel-footer.clearfix
+              .pull-right
+                button#prevStep1.btn.btn-success.btn-sm.disabled disabled="" style="width:100px;" Previous
+                button#nextStep1.btn.btn-sm.btn-success type="submit" style="width:100px;margin-left: 10px"  Next
+
+= javascript_include_tag "chosen.jquery.min.js"
+= javascript_include_tag "wysihtml5-0.3.0.min.js"
+= javascript_include_tag "uncompressed/bootstrap-wysihtml5.js"
+= javascript_include_tag "endless_form.js"

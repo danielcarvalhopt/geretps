@@ -20,6 +20,6 @@
 
         .col-md-4
           - if @user.teacher?
-            = render "pages/dashboard/teacher_utilities"
+            = render "pages/dashboard/teacher_utilities", project: @project
           = render "notifications/simple_widget", title: "Últimas notificações", notifications: @notifications
           = render "academic_years/accordion_widget", academic_years: @academic_years, subjects: @subjects, student: @user
