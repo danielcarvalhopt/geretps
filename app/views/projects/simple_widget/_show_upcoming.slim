@@ -17,9 +17,9 @@
             small.text-muted
               i.fa.fa-clock-o  
                 b  Data início: 
-                = date_or_undef project.begin_date
+                = date_month_or_undef project.begin_date
           .col-md-5
             small.text-muted
               i.fa.fa-clock-o 
                 b  Primeira entrega: 
-                = date_or_undef project.next_delivery
+                = date_month_or_undef project.next_delivery

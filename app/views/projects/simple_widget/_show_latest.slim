@@ -17,7 +17,7 @@
             small.text-muted
               i.fa.fa-clock-o  
                 b  Data fim: 
-                = date_or_undef project.end_date   
+                = date_month_or_undef project.end_date   
           - if type=="student"   
             .col-md-5
               small.text-muted
@@ -43,8 +43,6 @@
                 i.fa.fa-pencil-square-o  
                   b  Avaliações: 
                   - if project.grades
-                    span.badge.badge-success style="padding: 3px;font-size: 8px;"
-                      i.fa.fa-check     
+                    i.fa.fa-check.text-success   
                   - else
-                    span.badge.badge-warning style="padding: 3px;font-size: 8px;"
-                      i.fa.fa-warning  
+                    i.fa.fa-warning.text-warning 

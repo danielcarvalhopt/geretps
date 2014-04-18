@@ -12,7 +12,7 @@
       .col-md-4
         = render "projects/show/groups", project: @project, title: "Informações"
         = render "groups/simple_widget", title: "Grupo de trabalho", mode: "mygroup", group: @group, project: @project
-        .fadeInDown.animation-delay2
+        
           = render "shared/messages"
         - if @group.nil?
           - @group = Group.new

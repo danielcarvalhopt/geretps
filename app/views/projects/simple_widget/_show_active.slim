@@ -17,7 +17,7 @@
             small.text-muted
               i.fa.fa-clock-o  
                 b  Próxima entrega: 
-                = date_or_undef project.next_delivery
+                = date_month_or_undef project.next_delivery
           - if type=="student"
             .col-md-5
               small.text-muted
@@ -31,7 +31,7 @@
               small.text-muted
                 i.fa.fa-tasks  
                   b  Progresso:
-              .progress.progress-striped style="width: 25%; height:8px; margin:0 10px 0 10px; display:inline-block;"
+              .progress.progress-striped style="width: 10%; height:8px; margin:0 10px 0 10px; display:inline-block;"
                 .progress-bar style="width: #{(project.completed_phases_nr.to_f/project.phases_nr)*100}%"
               small.text-muted Fase #{project.next_phase_nr}/#{project.phases_nr}
             .col-md-2
@@ -39,8 +39,6 @@
                 i.fa.fa-pencil-square-o  
                   b  Avaliações: 
                   - if project.pending_grades?
-                    span.badge.badge-warning style="padding: 3px;font-size: 8px;"
-                      i.fa.fa-warning   
+                    i.fa.fa-warning.text-warning
                   - else
-                    span.badge.badge-success style="padding: 3px;font-size: 8px;"
-                      i.fa.fa-check    
+                    i.fa.fa-check.text-success 

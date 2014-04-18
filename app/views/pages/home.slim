@@ -17,11 +17,11 @@
           = image_tag("slider-bg-1.jpg", class: "img-background", alt: "")
           .row
             .col-md-6.text-right
-              h2.m-top-lg.m-right-md.text-white.fadeInDownLarge.animation-delay1 
+              h2.m-top-lg.m-right-md.text-whiteLarge 
                 | Gestão de projetos a partir de 
                 br
                 | qualquer dispositivo.
-              p.text-white.fadeInUpLarge.animation-delay2.m-right-md.hidden-xs
+              p.text-white.fadeInUpLarge.m-right-md.hidden-xs
                 | O GereTps está oferece a todos os utilizadores uma excelente  
                 br
                 | experiência de utilização, a partir de qualquer dispositivo.
@@ -31,21 +31,21 @@
                 br
                 | do computador, tablet ou smartphone.
               - if user_signed_in?
-                = link_to link_to "Painel do #{@user.type}", dashboard_path, class: "btn btn-success fadeInRightLarge animation-delay3 m-bottom-lg m-right-md"
+                = link_to link_to "Painel do #{@user.type}", dashboard_path, class: "btn btn-success fadeInRightLarge m-bottom-lg m-right-md"
               - else
-                = link_to "Entre ou Registe-se", login_path, class: "btn btn-success fadeInRightLarge animation-delay3 m-bottom-lg m-right-md"
+                = link_to "Entre ou Registe-se", login_path, class: "btn btn-success fadeInRightLarge m-bottom-lg m-right-md"
             .col-md-6
-              = image_tag("dashboard-responsive.png", class: "fadeInLeftLarge animation-delay3 m-bottom-lg")
+              = image_tag("dashboard-responsive.png", class: "fadeInLeftLarge m-bottom-lg")
         .item
           = image_tag("slider-bg-2.jpg", class: "img-background", alt: "")
           .row
             .col-md-6
             .col-md-6
-              h2.m-top-lg.m-right-md.text-white.fadeInDownLarge.animation-delay1 
+              h2.m-top-lg.m-right-md.text-whiteLarge 
                 | Gestão de projetos a pensar 
                 br
                 | em todos os estudantes
-              p.text-white.fadeInUpLarge.animation-delay2.m-right-md.hidden-xs
+              p.text-white.fadeInUpLarge.m-right-md.hidden-xs
                 | Simplifique a submissão dos seus projetos,
                 br
                 | organize as suas entregas e mantenha-se atento
@@ -57,18 +57,18 @@
                 br
                 | e veja o seu trabalho reconhecido!
               - if user_signed_in?
-                = link_to link_to "Painel do #{@user.type}", dashboard_path, class: "btn btn-success fadeInRightLarge animation-delay3 m-bottom-lg m-right-md"
+                = link_to link_to "Painel do #{@user.type}", dashboard_path, class: "btn btn-success fadeInRightLarge m-bottom-lg m-right-md"
               - else
-                = link_to "Entre ou Registe-se", login_path, class: "btn btn-success fadeInRightLarge animation-delay3 m-bottom-lg m-right-md"
+                = link_to "Entre ou Registe-se", login_path, class: "btn btn-success fadeInRightLarge m-bottom-lg m-right-md"
         .item
           = image_tag("slider-bg-3.jpg", class: "img-background", alt: "")
           .row
             .col-md-6.text-right
-              h2.m-top-lg.m-right-md.text-white.fadeInDownLarge.animation-delay1 
+              h2.m-top-lg.m-right-md.text-whiteLarge 
                 | Gestão de projetos a pensar 
                 br
                 | em todos os docentes
-              p.text-white.fadeInUpLarge.animation-delay2.m-right-md.hidden-xs
+              p.text-white.fadeInUpLarge.m-right-md.hidden-xs
                 | Faça a gestão dos projetos e unidades curriculares 
                 br
                 | que leciona, assim como dos seus alunos e turnos.
@@ -78,9 +78,9 @@
                 br
                 | correção e avaliação de um projeto!
               - if user_signed_in?
-                = link_to link_to "Painel do #{@user.type}", dashboard_path, class: "btn btn-success fadeInRightLarge animation-delay3 m-bottom-lg m-right-md"
+                = link_to link_to "Painel do #{@user.type}", dashboard_path, class: "btn btn-success fadeInRightLarge m-bottom-lg m-right-md"
               - else
-                = link_to "Entre ou Registe-se", login_path, class: "btn btn-success fadeInRightLarge animation-delay3 m-bottom-lg m-right-md"
+                = link_to "Entre ou Registe-se", login_path, class: "btn btn-success fadeInRightLarge m-bottom-lg m-right-md"
       a.left.carousel-control data-slide="prev" href="#main-slider"
         span.fa.fa-chevron-left
       a.right.carousel-control data-slide="next" href="#main-slider"
@@ -114,7 +114,7 @@
       .container
         span.m-right-sm Comece já a fazer a gestão dos seus projetos!
         .inline-block.m-top-sm
-          = link_to signup_path, class: "btn btn-info m-bottom-sm fadeInRightLarge animation-delay2", style: "margin: 0 15px 0 15px"
+          = link_to signup_path, class: "btn btn-info m-bottom-sm fadeInRightLarge", style: "margin: 0 15px 0 15px"
             | Registar 
             i.fa.fa-edit    
     
@@ -136,7 +136,7 @@
                 h4 Projectos
                 small Consulte todas as informações dos seus projetos e a calendarização das próximas fases.
           .col-sm-3
-            .detail.fadeInUp.animated-element.no-animation.animation-delay2
+            .detail.fadeInUp.animated-element.no-animation
               a.hoverBorder
                 span.hoverBorderWrapper
                   = image_tag("home-s-submission.jpg")
@@ -146,7 +146,7 @@
                 h4 Entregas
                 small Submeta facilmente os seus trabalhos práticos e receba uma confirmação da sua validade.
           .col-sm-3
-            .detail.fadeInUp.animated-element.no-animation.animation-delay4
+            .detail.fadeInUp.animated-element.no-animation
               a.hoverBorder
                 span.hoverBorderWrapper
                   = image_tag("home-s-group.jpg")
@@ -156,7 +156,7 @@
                 h4 Grupos
                 small Crie os seus grupos de trabalho de forma fácil e intuitiva para que o trabalho comece da melhor forma.
           .col-sm-3
-            .detail.fadeInUp.animated-element.no-animation.animation-delay6
+            .detail.fadeInUp.animated-element.no-animation
               a.hoverBorder
                 span.hoverBorderWrapper
                   = image_tag("home-s-grades.jpg")
@@ -173,7 +173,7 @@
         .seperator
         .seperator
         hr
-        = image_tag("screenshot.jpg", class: "fadeInRightLarge no-animation animated-element m-top-md animation-delay1")
+        = image_tag("screenshot.jpg", class: "fadeInRightLarge no-animation animated-element m-top-md")
         .seperator
         .seperator
     #portfolio
@@ -194,7 +194,7 @@
                 h4 Gestão de UCs
                 small Crie turnos e projectos dentro das Unidades curriculares que lecciona
           .col-sm-3
-            .detail.fadeInUp.animated-element.no-animation.animation-delay2
+            .detail.fadeInUp.animated-element.no-animation
               a.hoverBorder 
                 span.hoverBorderWrapper
                   = image_tag("home-t-projects.jpg")
@@ -204,7 +204,7 @@
                 h4 Gestão de projectos
                 small Crie e monitorize os projectos das suas UCs e espere pelas submissões dos seus alunos
           .col-sm-3
-            .detail.fadeInUp.animated-element.no-animation.animation-delay4
+            .detail.fadeInUp.animated-element.no-animation
               a.hoverBorder 
                 span.hoverBorderWrapper
                   = image_tag("home-t-shifts.png")
@@ -214,7 +214,7 @@
                 h4 Gestão de turnos
                 small Crie turnos e faça a gestão de todos os seus alunos de forma fácil e rápida
           .col-sm-3
-            .detail.fadeInUp.animated-element.no-animation.animation-delay6
+            .detail.fadeInUp.animated-element.no-animation
               a.hoverBorder 
                 span.hoverBorderWrapper
                   = image_tag("home-t-grades.jpg")

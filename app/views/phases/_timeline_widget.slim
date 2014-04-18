@@ -1,11 +1,10 @@
-.panel.panel-default.fadeInDown.animation-delay2
+.panel.panel-default
   .panel-heading 
     = title
     - if type=="teacher"
       .pull-right
         .btn.btn-xs
           i.fa.fa-plus  Adicionar nova fase ao projeto
-
   - if phases.empty?
     = render "phases/timeline_widget/empty"        
   - else

@@ -2,7 +2,7 @@ body.login-bg
   .login-wrapper
     = link_to root_path  
       .logo-login.bounceIn
-    .login-widget.animation-delay1
+    .login-widget
       .panel.panel-default
         .panel-heading.clearfix
           .pull-left
@@ -18,19 +18,19 @@ body.login-bg
           = form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-login") do |f|
             .form-group
               = f.label :email, "Email"
-              = f.email_field :email, autofocus: true, id: "email", class: "form-control input-sm bounceIn animation-delay2"
+              = f.email_field :email, autofocus: true, id: "email", class: "form-control input-sm bounceIn"
             .form-group
               = f.label :password, "Palavra-passe"
-              = f.password_field :password, id: "password", class: "form-control input-sm bounceIn animation-delay3"
+              = f.password_field :password, id: "password", class: "form-control input-sm bounceIn"
             - if devise_mapping.rememberable?
               .form-group
                 label.label-checkbox.inline
                   = f.check_box :remember_me, class: "regular-checkbox chk-delete"
-                  span.custom-checkbox.info.bounceIn.animation-delay4
+                  span.custom-checkbox.info.bounceIn
                 | Manter sessão activa
             .seperator
             hr
             .form-group
               - if devise_mapping.recoverable? && controller_name != 'passwords'
                 = link_to "Lembrar palavra-passe?", pwreset_path, class: "pull-left"
-            = f.submit "Entrar" , class: "btn btn-success btn-sm bounceIn animation-delay4 login-link pull-right"
+            = f.submit "Entrar" , class: "btn btn-success btn-sm bounceIn login-link pull-right"
