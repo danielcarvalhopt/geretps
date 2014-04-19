@@ -33,15 +33,23 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
+    statement = params[:statement]
 
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @project }
+    if !statement.blank?
+      document = Document.new file: statement, name: statement.original_filename
+      if document.save
+        @project.statement = document
       else
-        format.html { render action: 'new' }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        flash[:error] = "Erro ao adicionar o enunciado ao projeto, o projeto foi criado sem enunciado."
       end
+    end
+
+    if @project.save
+      flash[:notice] = "Projeto criado com sucesso." if flash[:error].blank?
+      redirect_to @project
+    else
+      flash[:error] = "Erro ao criar novo projeto, verifique todos os parâmetros."
+      redirect_to dashboard_path
     end
   end
 

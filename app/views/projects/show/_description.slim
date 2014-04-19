@@ -7,11 +7,12 @@
           i.fa.fa-cogs  Editar informações do projeto
   .panel-body.project-info
     = raw project.description.try(:html_safe)
+    br
     - if !project.min_elems.nil?
       - if project.max_elems.nil?
-        |  Os grupos devem ser constituídos por pelo menos #{project.min_elems} elementos.
+        |  Os grupos devem ser constituídos por pelo menos #{project.min_elems} elemento#{"s" if project.min_elems>1}.
       - else
         - if project.max_elems == project.min_elems
-          | Os grupos devem ser constituídos por #{project.min_elems} elementos.
+          | Os grupos devem ser constituídos por #{project.min_elems} elemento#{"s" if project.min_elems>1}.
         - else
           |  Os grupos devem ser constituídos por #{project.min_elems} a #{project.max_elems} elementos.

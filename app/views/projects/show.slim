@@ -7,6 +7,10 @@
 
   .padding-md
     .row
+      .col-md-12
+        = render "shared/messages" 
+
+    .row
       .col-md-8
         = render "projects/show/description", project: @project, type: @user.type
         = render "phases/timeline_widget", title: "Fases do projeto", project: @project, phases: @phases, type: @user.type

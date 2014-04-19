@@ -77,4 +77,12 @@ $(function()	{
 
 	// 	return false;
 	// });
+
+	$('form').submit(function() {
+	    var faults = $('input').filter(function() {
+	        return $(this).data('required') && $(this).val() === "";
+	    }).css("border-color", "#a94442");
+	    if(faults.length) return false;
+	});
+
 });
