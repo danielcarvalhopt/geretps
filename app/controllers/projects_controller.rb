@@ -5,7 +5,9 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    search = params[:search]
+    search ||= ""
+    @projects = filter_projects(search)
     respond_json(@projects)
   end
 
@@ -106,6 +108,21 @@ class ProjectsController < ApplicationController
       @group = @project.group_of current_user.student.id
       @deliveries = @project.deliveries_of(@group.try(:id)).take 4
       @teachers = @project.subject.teachers
+    end
+
+    def filter_projects(search)
+      if @user.student?
+        projects_filtered = Project.joins(groups: :members).where(members: {student_id: @user.id}).order(begin_date: :desc) 
+      else
+        projects_filtered = Project.joins(subjects: :assigned_teachers).where(assigned_teachers: {teacher_id: @user.id}).order(begin_date: :desc)
+      end
+      if !projects_filtered.blank?
+        if search == ""
+        else
+          projects_filtered = Project.find_by_fuzzy_name(search) & projects_filtered
+        end
+      end
+      projects_filtered
     end
 
     def set_user

@@ -1,0 +1,16 @@
+= render "shared/navbar"
+= render "shared/sidebar", user: @user, active:"projects"
+
+#main-container
+  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type_pt.capitalize}",link: dashboard_path},{name:"Gestão de projectos", link: projects_path}]
+  = render "shared/dashboard/header", header: "Gestão de unidades projectos"
+  
+  .padding-md    
+    .row
+      .col-md-8 
+        = render "projects/index/search_input"
+        = render "projects/index/search_results", projects: @projects
+      .col-md-4
+        - unless @projects.empty?
+          = render "projects/stats", projects: @projects
+       

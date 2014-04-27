@@ -1,0 +1,5 @@
+.search-container
+  - if projects.empty?
+    = render "projects/index/search_results/empty"
+  - else 
+    = render "projects/index/search_results/index", projects: projects

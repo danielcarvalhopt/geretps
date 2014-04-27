@@ -72,20 +72,20 @@ class SubjectsController < ApplicationController
 
   private
     def filter_subjects(search)
-    subjects_filtered = []
-    Subject.all.each do |subject|
-      if subject.assigned_students.find_by(student_id: @user.id).nil?
-        subjects_filtered << subject
+      subjects_filtered = []
+      Subject.all.each do |subject|
+        if subject.assigned_students.find_by(student_id: @user.id).nil?
+          subjects_filtered << subject
+        end
       end
-    end
-    if !subjects_filtered.blank?
-      if search == ""
-        subjects_filtered = subjects_filtered.take 4
-      else
-        subjects_filtered = Subject.find_by_fuzzy_name(search) & subjects_filtered
+      if !subjects_filtered.blank?
+        if search == ""
+          subjects_filtered = subjects_filtered.take 4
+        else
+          subjects_filtered = Subject.find_by_fuzzy_name(search) & subjects_filtered
+        end
       end
-    end
-    subjects_filtered
+      subjects_filtered
     end
 
     def set_user

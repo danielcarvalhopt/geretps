@@ -1,0 +1,14 @@
+.panel.panel-default.fadeInDown.animation-delay2
+  .panel-body
+    = link_to "#{project.name}", project_path(project), class: "h4 inline-block" 
+    .pull-right style="margin-top: 10px;"
+    .text-muted #{project.subject.course.name} (#{project.subject.academic_year.academic_year}) &bull; #{project.subject.course.institution.name}
+    br
+    ul#feedList.list-group.text-left style="margin-bottom: 5px;"
+      li.list-group-item.clearfix style="border: none; padding: 0"
+        .clearfix
+          .pull-left.m-right-sm
+            img.img-circle alt="User Avatar" src="#{project.subject.responsible.avatar.url}" style="width:40px;height:40px;"
+          strong.block #{project.subject.responsible.name}
+          small.text-muted 
+            i.fa.fa-envelope-o  #{project.subject.responsible.email}
