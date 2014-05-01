@@ -63,22 +63,22 @@ documents = [
     },
     {
       name: "G1_Presentation.pdf",
-      file: "https://dl.dropboxusercontent.com/u/13351850/e_pi.pdf",
+      file: "public/seeds/documents/e_pi.pdf",
       active: true
     },
     {
       name: "G1_Source.zip",
-      file: "https://dl.dropboxusercontent.com/u/13351850/e_pi.pdf",
+      file: "public/seeds/documents/e_pi.pdf",
       active: true
     },
     {
       name: "G1_Diagrams.zip",
-      file: "https://dl.dropboxusercontent.com/u/13351850/e_pi.pdf",
+      file: "public/seeds/documents/e_pi.pdf",
       active: true
     },
     {
       name: "G1_Report.pdf",
-      file: "https://dl.dropboxusercontent.com/u/13351850/e_pi.pdf",
+      file: "public/seeds/documents/e_pi.pdf",
       active: true
     }
 ]

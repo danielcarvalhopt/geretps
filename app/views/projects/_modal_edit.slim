@@ -1,0 +1,50 @@
+#editProject.modal.fade aria-hidden="true" style="display: none;"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+        h4 Editar informações do projecto
+      .modal-body style="padding: 0"
+        .panel.panel-default
+          = form_for project, html: {multipart: true, class: "form-horizontal no-margin form-border"} do |f| 
+            .panel-body
+              .tab-content
+                .tab-pane.fade.in.active
+                  .form-group
+                    .col-lg-12
+                      = collection_select :project, :subject_id, user.subjects, :id, :name, {}, {class: "chzn-select form-control"}
+                  .form-group
+                    .col-lg-12
+                      = f.text_field :name, class: "input form-control", placeholder: "Nome do Projeto", data:{required:"true"}
+                  .form-group
+                    .col-lg-12
+                      = f.text_area :description, id: "wysihtml5-textarea", class: "input form-control", placeholder: "Descrição do Projeto", data:{required:"true"}, rows:"6"
+                  .form-group 
+                    .col-lg-6
+                      label # mínimo de elementos
+                      = f.text_field :min_elems, class: "input form-control", placeholder: "mínimo: 1", data:{required:"true"}, value: "#{project.min_elems}"
+                    .col-lg-6
+                      label # máximo de elementos
+                      = f.text_field :max_elems, class: "input form-control", placeholder: "sem limite", value: "#{project.max_elems}"
+                  .form-group
+                    .col-lg-6
+                      label Data de início
+                      = f.text_field :begin_date, class: "input form-control datepicker", placeholder: "Data de Início", data:{required:"true"}, value: "#{project.begin_date.strftime('%d/%m/%Y')}"
+                    .col-lg-6
+                      label Data de término
+                      = f.text_field :end_date, class: "input form-control datepicker", placeholder: "Data de Início", value: "#{project.end_date.strftime('%d/%m/%Y')}"
+                  .form-group
+                    .col-lg-12
+                      .upload-file
+                        input#upload-demo.upload-demo type="file" name="statement"
+                          label data-title=("Alterar enunciado") for="upload-demo" 
+                            span data-title=("#{project.statement.name}")
+            .panel-footer.clearfix
+              .pull-right
+                button.btn.btn-success type="submit" Guardar alterações
+
+= javascript_include_tag "chosen.jquery.min.js"
+= javascript_include_tag "wysihtml5-0.3.0.min.js"
+= javascript_include_tag "uncompressed/bootstrap-wysihtml5.js"
+= javascript_include_tag "bootstrap-datepicker.min.js"
+= javascript_include_tag "endless_form.js"

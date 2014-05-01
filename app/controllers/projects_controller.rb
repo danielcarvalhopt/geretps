@@ -58,6 +58,10 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
+        statement = params[:statement]
+        if !statement.blank?
+          document = @project.statement.update file: statement, name: statement.original_filename
+        end
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { head :no_content }
       else
