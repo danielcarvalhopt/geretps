@@ -1,0 +1,26 @@
+= render "shared/navbar"
+= render "shared/sidebar", user: @user, active:"subjects"
+
+#main-container
+  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type_pt.capitalize}",link: subjects_path},{name:"#{@subject.name}", link:"#"}]
+  = render "shared/dashboard/header", header: @subject.name
+
+  .padding-md
+      .row
+        .col-md-12
+          = render "shared/messages"
+      .row
+        .col-md-8
+          - if @user.teacher?
+            = render "projects/simple_widget", title: "Projetos a aguardar publicação", projects: @subject.projects.not_opened_projects, mode: "not_opened", type: @user.type
+          = render "projects/simple_widget", title: "Projetos a decorrer", projects: @subject.projects.active_projects, mode: "active", type: @user.type
+          = render "projects/simple_widget", title: "Próximos projetos", projects: @subject.projects.upcoming_projects, mode: "upcoming", type: @user.type
+          = render "projects/simple_widget", title: "Últimos projetos", projects: @subject.projects.latest_projects, mode: "latest", type: @user.type
+        .col-md-4
+          - if @user.teacher?
+            = render "pages/dashboard/teacher_utilities", project: @project, user: @user
+          = render "subjects/show/utilities", subject: @subject
+          = render "notifications/simple_widget", title: "Últimas notificações", notifications: @notifications
+          = render "subjects/show/teachers", teachers: @subject.teachers, user: @user, subject: @subject
+
+

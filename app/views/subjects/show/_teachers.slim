@@ -1,0 +1,11 @@
+.panel.panel-default
+  .panel-heading
+    | Docentes
+  .panel-body.no-padding
+    ul#feedList.list-group.collapse.in
+      - if teachers.empty?
+        = render "subjects/show/teachers/empty"
+      - else
+        = render "teachers/simple_widget/index", teachers: teachers
+      - if user.teacher && subject.isResponsible?(user)
+        = render "subjects/show/teachers/empty"

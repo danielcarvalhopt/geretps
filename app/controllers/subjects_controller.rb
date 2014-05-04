@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:index]
+  before_action :set_user, only: [:index, :show]
 
   # GET /subjects
   # GET /subjects.json
@@ -9,7 +9,9 @@ class SubjectsController < ApplicationController
     search ||= ""
     @academic_years = @user.academic_years.uniq
     @subjects = @user.subjects
-    @waiting_subjects = @user.waiting_subjects
+    if @user.student?
+      @waiting_subjects = @user.waiting_subjects
+    end
     @subjects_filtered = filter_subjects(search)
     @assigned_student = AssignedStudent.new
     respond_json(@subjects)
@@ -18,6 +20,8 @@ class SubjectsController < ApplicationController
   # GET /subjects/1
   # GET /subjects/1.json
   def show
+    @projects = @subject.projects
+    _show_teacher
     respond_json(@subject)
   end
 
@@ -71,6 +75,11 @@ class SubjectsController < ApplicationController
   end
 
   private
+    def _show_teacher
+      @project = Project.new
+      @notifications = [];
+    end
+
     def filter_subjects(search)
       subjects_filtered = []
       Subject.all.each do |subject|

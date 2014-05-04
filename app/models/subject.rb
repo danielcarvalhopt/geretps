@@ -16,4 +16,9 @@ class Subject < ActiveRecord::Base
   validates :name, :academic_year, :responsible, presence: true
 
   fuzzily_searchable :name
+
+  def isResponsible?(user)
+    self.responsible.id == user.teacher.id
+  end
+
 end
