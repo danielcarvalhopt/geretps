@@ -1,0 +1,8 @@
+= form_for subject, url: add_teachers_path(subject), method: :post do |f|
+  .form-group
+    .col-lg-12
+      = f.collection_select :teachers, freeTeachers, :id, :name, {multiple: true}, {class:"form-control chzn-select", multiple:""}
+      br
+      br
+      button.btn.btn-success type="submit" style="width:100%" Adicionar Docentes
+= javascript_include_tag "endless_form.js"

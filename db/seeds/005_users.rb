@@ -145,6 +145,13 @@ users = [
     email: "zuckerberg@facebook.com",
     password: "qweqweqwe",
     avatar: "public/seeds/user_avatars/markzuckerberg.jpg"
+  },
+  {
+    name: "Rui Mendes",
+    about: "Professor Auxiliar, Departamento de Informática, Universidade do Minho",
+    phone: "900000015",
+    email: "azuki@di.uminho.pt",
+    password: "rcmrcmrcm"
   }
 ]
 
@@ -154,7 +161,7 @@ users.each do |user|
     u.about = user[:about]
     u.phone = user[:phone]
     u.password = user[:password]
-    u.avatar = open(user[:avatar])
+    u.avatar = open(user[:avatar]) if user[:avatar]
     u.save!
   end
 end

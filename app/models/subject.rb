@@ -21,4 +21,7 @@ class Subject < ActiveRecord::Base
     self.responsible.id == user.teacher.id
   end
 
+  def freeTeachers
+    Teacher.where("id not in (?)",self.teacher_ids)
+  end
 end

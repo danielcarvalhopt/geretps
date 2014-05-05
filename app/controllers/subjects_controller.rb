@@ -1,5 +1,5 @@
 class SubjectsController < ApplicationController
-  before_action :set_subject, only: [:show, :edit, :update, :destroy]
+  before_action :set_subject, only: [:show, :edit, :update, :destroy, :add_teachers]
   before_action :set_user, only: [:index, :show]
 
   # GET /subjects
@@ -74,7 +74,38 @@ class SubjectsController < ApplicationController
     end
   end
 
+  def add_teachers
+      puts "ENTROU"
+      new_teachers_ids = params[:subject][:teachers]
+
+      if new_teachers_ids.count <= 1
+        flash[:error] = 'Nenhum docente selecionado.'
+        return redirect_to subject_path @subject
+      end
+
+
+      new_teachers_ids.each do |new_id|
+        if !new_id.blank?
+          assignedTeacher = AssignedTeacher.new teacher_id: new_id, subject_id: @subject.id
+
+          if !assignedTeacher.save!
+            flash[:error] = 'Erro ao adicionar um docente.'
+            return redirect_to subject_path @subject
+          end
+        end
+      end
+
+      respond_to do |format|
+        format.html {
+          flash[:notice] = 'Docentes adicionados com sucesso.'
+          redirect_to redirect_to subject_path @subject
+        }
+        format.json { head :no_content }
+      end
+    end
+
   private
+
     def _show_teacher
       @project = Project.new
       @notifications = [];
