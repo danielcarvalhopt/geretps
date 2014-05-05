@@ -75,7 +75,6 @@ class SubjectsController < ApplicationController
   end
 
   def add_teachers
-      puts "ENTROU"
       new_teachers_ids = params[:subject][:teachers]
 
       if new_teachers_ids.count <= 1
@@ -98,7 +97,7 @@ class SubjectsController < ApplicationController
       respond_to do |format|
         format.html {
           flash[:notice] = 'Docentes adicionados com sucesso.'
-          redirect_to redirect_to subject_path @subject
+          redirect_to subject_path @subject
         }
         format.json { head :no_content }
       end
