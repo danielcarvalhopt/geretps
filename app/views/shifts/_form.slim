@@ -1,0 +1,7 @@
+= form_for shift do |f|
+  .form-group
+    .col-lg-12
+      = f.text_field :name, class:"form-control", placeholder:"Identificador do turno"
+      = f.hidden_field :subject_id, value:"#{subject.id}"
+      br
+      button.btn.btn-success type="submit" style="width:100%" Criar Turno

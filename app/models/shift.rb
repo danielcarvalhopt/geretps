@@ -4,4 +4,5 @@ class Shift < ActiveRecord::Base
   has_many :students, through: :assigned_students
 
   validates :name, :subject, presence: true
+  validates :name, uniqueness: {scope: :subject}
 end

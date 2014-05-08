@@ -2,7 +2,7 @@
 = render "shared/sidebar", user: @user, active:"subjects"
 
 #main-container
-  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type_pt.capitalize}",link: subjects_path},{name:"#{@subject.name}", link:"#"}]
+  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Unidades Curriculares",link: subjects_path},{name:"#{@subject.name}", link:"#"}]
   = render "shared/dashboard/header", header: @subject.name
 
   .padding-md
@@ -22,5 +22,5 @@
           = render "subjects/show/utilities", subject: @subject
           = render "notifications/simple_widget", title: "Últimas notificações", notifications: @notifications
           = render "subjects/show/teachers", teachers: @subject.teachers, user: @user, subject: @subject
-          = render "subjects/show/shifts"
+          = render "subjects/show/shifts", subject: @subject, user: @user
 
