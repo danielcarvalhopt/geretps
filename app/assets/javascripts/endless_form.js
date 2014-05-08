@@ -1,20 +1,20 @@
 $(function()	{
-	// Chosen 
+	// Chosen
 	$(".chzn-select").chosen();
-	
+
 	// Datepicker
 	$('.datepicker').datepicker();
 
 	// // Timepicker
 	// $('.timepicker').timepicker();
-			
-	// // Slider		
+
+	// // Slider
 	// $('#sl1').slider();
 	// $('#sl2').slider();
 	// $('#sl3').slider();
 	// $('#sl4').slider();
 	// $('#sl5').slider();
-			
+
 	// // Tags input
 	// $('.tag-demo1').tagsInput({
 	// 	'height':'auto',
@@ -22,7 +22,7 @@ $(function()	{
 	// });
 
 	// // Masked input
-	// $(".date").mask("99/99/9999");		
+	// $(".date").mask("99/99/9999");
 	// $(".phone").mask("(999) 999-9999");
 	// $(".ssn").mask("999-99-9999");
 	// $(".eyescript").mask("~9.99 ~9.99 999");
@@ -30,16 +30,16 @@ $(function()	{
 
 	// Wysihtml5
 	$('#wysihtml5-textarea').wysihtml5({'stylesheets': false,
-    "font-styles": true, 
-    "emphasis": true, 
+    "font-styles": true,
+    "emphasis": true,
     "lists": true,
     "html": false,
-    "link": true, 
+    "link": true,
     "image": false
 });
 
 	// // Toggle border of control group
-	// $('#toggleLine').click(function()	{			
+	// $('#toggleLine').click(function()	{
 	// 	if($(this).is(':checked'))	{
 	// 		$('#formToggleLine').addClass('form-border');
 	// 	}
@@ -50,35 +50,35 @@ $(function()	{
 
 	// // Draggable Multiselect
 	// $('#btnSelect').click(function()	{
-				
-	// 	$('#selectedBox1 option:selected').appendTo('#selectedBox2');  
+
+	// 	$('#selectedBox1 option:selected').appendTo('#selectedBox2');
 	// 	return false;
 	// });
 
 	// $('#btnRemove').click(function()	{
-	// 	$('#selectedBox2 option:selected').appendTo('#selectedBox1'); 
+	// 	$('#selectedBox2 option:selected').appendTo('#selectedBox1');
 	// 	return false;
 	// });
 
 	// $('#btnSelectAll').click(function()	{
-			
-	// 	$('#selectedBox1 option').each(function() {               
- //           $(this).appendTo('#selectedBox2');                   
+
+	// 	$('#selectedBox1 option').each(function() {
+ //           $(this).appendTo('#selectedBox2');
  //        });
 
 	// 	return false;
 	// });
 
 	// $('#btnRemoveAll').click(function()	{
-			
-	// 	$('#selectedBox2 option').each(function() {                  
-	// 		$(this).appendTo('#selectedBox1');            
+
+	// 	$('#selectedBox2 option').each(function() {
+	// 		$(this).appendTo('#selectedBox1');
  //        });
 
 	// 	return false;
 	// });
 
-	$('form').submit(function() {
+$('#new_project').submit(function() {
 	    var faults = $('input').filter(function() {
 	        return $(this).data('required') && $(this).val() === "";
 	    }).css("border-color", "#a94442");

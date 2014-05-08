@@ -28,10 +28,23 @@ class ShiftsController < ApplicationController
 
     respond_to do |format|
       if @shift.save
-        format.html { redirect_to @shift, notice: 'Shift was successfully created.' }
+
+        format.html {
+          flash[:notice] = 'Turno criado com sucesso.'
+          redirect_to subject_shifts_path @shift.subject
+        }
         format.json { render action: 'show', status: :created, location: @shift }
       else
-        format.html { render action: 'new' }
+        format.html {
+          error = if @shift.name.blank?
+            'Porfavor preencha o identificador do turno.'
+          else
+            'Porfavor escolha um identificador ainda não utilizado.'
+          end
+
+          flash[:error] = error
+          redirect_to subject_shifts_path @shift.subject
+        }
         format.json { render json: @shift.errors, status: :unprocessable_entity }
       end
     end

@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
-  before_action :set_subject, only: [:show, :edit, :update, :destroy, :add_teachers]
-  before_action :set_user, only: [:index, :show]
+  before_action :set_subject, only: [:show, :edit, :update, :destroy, :add_teachers, :shifts]
+  before_action :set_user, only: [:index, :show, :shifts]
 
   # GET /subjects
   # GET /subjects.json
@@ -101,6 +101,11 @@ class SubjectsController < ApplicationController
         }
         format.json { head :no_content }
       end
+    end
+
+    def shifts
+      @shifts = @subject.shifts
+      @shift = Shift.new
     end
 
   private

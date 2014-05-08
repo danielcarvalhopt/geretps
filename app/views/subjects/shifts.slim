@@ -1,0 +1,15 @@
+= render "shared/navbar"
+= render "shared/sidebar", user: @user, active:"subjects"
+
+#main-container
+  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Unidades Curriculares",link: subjects_path},{name:"#{@subject.name}", link: subject_path(@subject)},{name: "Turnos", link: "#"}]
+  = render "shared/dashboard/header", header: @subject.name
+
+  .padding-md
+    .row
+      .col-md-12
+        = render "shared/messages"
+    .row
+      .col-md-8
+      .col-md-4
+        = render "shifts/new", shift: @shift, subject: @subject

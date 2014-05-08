@@ -1,6 +1,11 @@
 .panel.panel-default
   .panel-heading
     | Turnos
+    - if user.teacher && subject.isResponsible?(user)
+      .pull-right
+        = link_to subject_shifts_path subject
+          .btn.btn-xs
+            i.fa.fa-cogs  Gerir turnos
   .panel-body.no-padding
     ul#feedList.list-group.collapse.in
 
