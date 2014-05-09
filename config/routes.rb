@@ -10,6 +10,7 @@ Geretps::Application.routes.draw do
 
   get "/projects/:id/grades" => "projects#grades", as: :project_grades
   get "/projects/:id/groups" => "projects#groups", as: :project_groups
+  get "/projects/search" => "projects#search", as: :project_search
   get "/phases/:id/grades" => "phases#grades", as: :phase_grades
 
   post "/groups/:id/add_members" => "groups#add_members", as: :add_members

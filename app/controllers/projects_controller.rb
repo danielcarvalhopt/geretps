@@ -83,6 +83,19 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def search
+    search = params[:search]
+    @projects_filtered = Project.where(public: true).order(name: :asc) 
+    if !@projects_filtered.blank?
+      if !search or search==""
+        @projects_filtered
+      else
+        @projects_filtered = Project.find_by_fuzzy_name(search) & @projects_filtered
+      end
+    end
+    @projects_filtered
+  end
+
   def groups
       @groups = @project.groups.sort{|a,b| a.identifier <=> b.identifier}
       @group = @project.group_of current_user.student.id

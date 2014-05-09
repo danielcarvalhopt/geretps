@@ -1,0 +1,31 @@
+= render "shared/navbar"
+= render "shared/sidebar", user: @user
+#main-container
+  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Pesquisa de projectos",link: project_search_path}]
+  = render "shared/dashboard/header", header: "Pesquisa de projectos publicados"
+  
+  .padding-md    
+    .row
+      .col-md-8 
+        = form_tag projects_path, method: :get do
+          .input-group.m-bottom-md
+            = text_field_tag 'search', "", class:"form-control", placeholder:"Pesquise pelo nome do projecto a procurar.", type:"text", value: params[:search]
+            span.input-group-btn
+              button.btn.btn-danger type="submit" Procurar
+
+
+        - @projects_filtered.each do |p|
+          .search-container
+            .panel.panel-default
+              .panel-body
+                .search-header
+                  a.h4.inline-block href="projects/#{p.id}"  #{p.name}
+                  .text-muted #{p.subject.name} #{p.subject.academic_year.academic_year} &bull; #{p.subject.course.name} &bull; #{p.subject.course.institution.name}
+                p.m-top-sm #{p.description}
+                .text-right
+                .label.label-default style="margin:5px;display:inline-block;" 
+                  span.teacher
+                    img.img-circle alt="User Avatar" src="#{p.subject.responsible.avatar.url}" style="width:15px;height:15px;margin-right:5px"
+                  = p.subject.responsible.name
+
+
