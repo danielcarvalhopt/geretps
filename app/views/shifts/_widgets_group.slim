@@ -1,0 +1,8 @@
+.panel.panel-default style="margin:0px 15px 15px 15px"
+  .panel-heading Todos os turnos
+  - if shifts.empty?
+    = render "shifts/widgets_group/empty"
+- if !shifts.empty?
+  .container
+    #isotope-container
+      = render "shifts/widgets_group/index",shifts: @shifts

@@ -1,0 +1,7 @@
+.panel.panel-default
+  .panel-heading Adicionar Alunos
+  .panel-body.no-padding
+      ul#feedList.list-group.collapse.in
+        li.list-group-item.clearfix
+          = render "shifts/students/form", shifts: shifts, subject: subject
+

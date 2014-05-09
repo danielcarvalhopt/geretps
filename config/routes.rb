@@ -17,6 +17,7 @@ Geretps::Application.routes.draw do
 
   post "/groups/:id/add_members" => "groups#add_members", as: :add_members
   post "/subjects/:id/add_teachers" => "subjects#add_teachers", as: :add_teachers
+  post "/subjects/:id/shifts/add_students" => "subjects#add_students_to_shift", as: :add_students_shift
 
   devise_for :users, :controllers => {:registrations => "registrations"}
   devise_scope :user do

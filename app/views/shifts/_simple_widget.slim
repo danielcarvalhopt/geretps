@@ -1,0 +1,13 @@
+.panel.panel-default
+  .panel-heading
+    = shift.name
+  .panel-body.no-padding
+    ul#feedList.list-group.collapse.in
+      - if shift.students.empty?
+        = render "shifts/simple_widget/empty"
+      - else
+        = render "shifts/simple_widget/show"
+
+
+
+

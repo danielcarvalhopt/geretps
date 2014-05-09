@@ -1,5 +1,5 @@
 class SubjectsController < ApplicationController
-  before_action :set_subject, only: [:show, :edit, :update, :destroy, :add_teachers, :shifts]
+  before_action :set_subject, only: [:show, :edit, :update, :destroy, :add_teachers, :shifts, :add_students_to_shift]
   before_action :set_user, only: [:index, :show, :shifts]
 
   # GET /subjects
@@ -75,38 +75,77 @@ class SubjectsController < ApplicationController
   end
 
   def add_teachers
-      new_teachers_ids = params[:subject][:teachers]
+    new_teachers_ids = params[:subject][:teachers]
 
-      if new_teachers_ids.count <= 1
-        flash[:error] = 'Nenhum docente selecionado.'
-        return redirect_to subject_path @subject
-      end
+    if new_teachers_ids.count <= 1
+      flash[:error] = 'Nenhum docente selecionado.'
+      return redirect_to subject_path @subject
+    end
 
-
-      new_teachers_ids.each do |new_id|
-        if !new_id.blank?
-          assignedTeacher = AssignedTeacher.new teacher_id: new_id, subject_id: @subject.id
-
-          if !assignedTeacher.save!
-            flash[:error] = 'Erro ao adicionar um docente.'
-            return redirect_to subject_path @subject
-          end
+    new_teachers_ids.each do |new_id|
+      if !new_id.blank?
+        assignedTeacher = AssignedTeacher.new teacher_id: new_id, subject_id: @subject.id
+        if !assignedTeacher.save!
+          flash[:error] = 'Erro ao adicionar um docente.'
+          return redirect_to subject_path @subject
         end
       end
+    end
 
-      respond_to do |format|
-        format.html {
-          flash[:notice] = 'Docentes adicionados com sucesso.'
-          redirect_to subject_path @subject
-        }
-        format.json { head :no_content }
+    respond_to do |format|
+      format.html {
+        flash[:notice] = 'Docentes adicionados com sucesso.'
+        redirect_to subject_path @subject
+      }
+      format.json { head :no_content }
+    end
+  end
+
+  def shifts
+    @shifts = @subject.shifts
+    @shift = Shift.new
+  end
+
+  def add_students_to_shift
+    new_students_ids = params[:subject][:students]
+    shift_id = params[:subject][:shift_ids]
+
+    if !shift_id
+      flash[:error] = "Nenhum Turno selecionado"
+      return redirect_to subject_shifts_path @subject
+    end
+
+    if new_students_ids.count <= 1
+      flash[:error] = "Nenhum aluno selecionado"
+      return redirect_to subject_shifts_path @subject
+    end
+
+    new_students_ids.each do |new_id|
+      if !new_id.blank?
+        student = @subject.assigned_students.where(student_id: new_id).first
+        if student
+          student.shift_id = shift_id
+          if !student.save!
+            flash[:error] = "Erro ao adicionar um aluno"
+            return redirect_to subject_shifts_path @subject
+          end
+         else
+          flash[:error] = "Erro ao adicionar um aluno"
+          return redirect_to subject_shifts_path @subject
+        end
       end
     end
 
-    def shifts
-      @shifts = @subject.shifts
-      @shift = Shift.new
+    respond_to do |format|
+      format.html {
+        flash[:notice] = 'Alunos adicionados com sucesso.'
+        redirect_to subject_shifts_path @subject
+      }
+      format.json { head :no_content }
     end
+  end
+
+
 
   private
 
