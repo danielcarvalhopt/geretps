@@ -1,0 +1,17 @@
+.form-group
+  .col-lg-12
+    = form_for subject, url: add_students_shift_path(subject), method: :post do |f|
+      .form-group
+        .col-lg-12
+          = collection_select :subject, :shift_ids, shifts, :id, :name, {}, {class: "chzn-select form-control"}
+      br
+      br
+      .form-group
+        .col-lg-12
+          = f.collection_select :students, subject.freeStudents, :id, :name, {multiple: true}, {class:"form-control chzn-select", multiple:""}
+      br
+      br
+      button.btn.btn-success type="submit" style="width:100%" Adicionar Alunos
+
+= javascript_include_tag "endless_form.js"
+

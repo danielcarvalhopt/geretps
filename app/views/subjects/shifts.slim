@@ -11,5 +11,16 @@
         = render "shared/messages"
     .row
       .col-md-8
+        = render "shifts/widgets_group", shifts: @shifts
       .col-md-4
         = render "shifts/new", shift: @shift, subject: @subject
+        = render "shifts/students/new", shifts: @shifts, subject: @subject
+
+javascript:
+  var $container = $('#isotope-container');
+  $container.isotope({
+    itemSelector: '.isotope-item',
+    layoutMode: 'masonry',
+    columnWidth: '.isotope-item',
+    resizable: false
+  });

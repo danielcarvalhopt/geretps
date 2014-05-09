@@ -24,4 +24,9 @@ class Subject < ActiveRecord::Base
   def freeTeachers
     Teacher.where("id not in (?)",self.teacher_ids)
   end
+
+  def freeStudents
+    Student.where(id: self.student_ids)
+  end
+
 end
