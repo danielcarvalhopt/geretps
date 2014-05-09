@@ -8,4 +8,8 @@
             i.fa.fa-cogs  Gerir turnos
   .panel-body.no-padding
     ul#feedList.list-group.collapse.in
+     - if subject.shifts.empty?
+      = render "subjects/show/shifts/empty"
+     - else
+      = render "subjects/show/shifts/index", shifts: subject.shifts
 
