@@ -2,9 +2,10 @@
   .panel-heading 
     = title
     - if type=="teacher"
-      .pull-right
-        .btn.btn-xs
-          i.fa.fa-plus  Adicionar nova fase ao projeto
+      a href="#newPhase" role="button" data-toggle="modal"
+        .pull-right
+          .btn.btn-xs
+            i.fa.fa-plus  Adicionar nova fase ao projecto
   - if phases.empty?
     = render "phases/timeline_widget/empty"        
   - else

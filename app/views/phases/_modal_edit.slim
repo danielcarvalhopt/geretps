@@ -1,0 +1,43 @@
+#editPhase.modal.fade aria-hidden="true" style="display: none;"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+        h4 Editar fase
+      .modal-body style="padding: 0"
+        .panel.panel-default
+          = form_for @phase, html: {multipart: true, class: "form-horizontal no-margin form-border"} do |f| 
+            .panel-body
+              .tab-content
+                .tab-pane.fade.in.active
+                  .form-group
+                    .col-lg-12
+                      = f.text_field :name, class: "input form-control", placeholder: "Nome da fase", data:{required:"true"}, value: "#{@phase.name}"
+                  .form-group
+                    .col-lg-12
+                      = f.text_area :description, id: "wysihtml5-textarea", class: "input form-control", placeholder: "Descrição da fase", data:{required:"true"}, rows:"6", value: "#{@phase.description}"
+
+                  .form-group 
+                    .col-lg-4
+                      label Data de ínicio
+                      = f.text_field :begin_date, class: "input form-control datepicker", data:{required:"true"}, value: "#{@phase.begin_date.strftime('%d/%m/%Y')}" 
+                    .col-lg-4
+                      label Data de término
+                      = f.text_field :end_date, class: "input form-control datepicker", data:{required:"true"}, placeholder: "sem limite", value: "#{@phase.end_date.strftime('%d/%m/%Y')}" 
+                    .col-lg-4
+                      label Valoração da fase
+                      = f.text_field :value, class: "input form-control"
+                    .col-lg-3
+                      label.label-checkbox.inline
+                        input#phase_open name="phase[open]" type="checkbox" value="1"
+                          span.custom-checkbox
+                          | Fase aberta
+            .panel-footer.clearfix
+              .pull-right
+                button.btn.btn-success type="submit" Adicionar fase
+
+= javascript_include_tag "chosen.jquery.min.js"
+= javascript_include_tag "wysihtml5-0.3.0.min.js"
+= javascript_include_tag "uncompressed/bootstrap-wysihtml5.js"
+= javascript_include_tag "bootstrap-datepicker.min.js"
+= javascript_include_tag "endless_form.js"

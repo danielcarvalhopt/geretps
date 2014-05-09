@@ -14,3 +14,4 @@
           = render "deliveries/new", title: "Submeter nova entrega", project: @project, group: @group, delivery: @delivery
         - if @user.teacher?
           = render "phases/accordion_widget", phases: @phases, current_phase: @phase, group: @group, type: @user.type, mode: "deliveries"
+= render "modal_edit"

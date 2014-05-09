@@ -1,0 +1,43 @@
+#newPhase.modal.fade aria-hidden="true" style="display: none;"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+        h4 Adicionar nova fase
+      .modal-body style="padding: 0"
+        .panel.panel-default
+          = form_for Phase.new, html: {multipart: true, class: "form-horizontal no-margin form-border"} do |f| 
+            .panel-body
+              .tab-content
+                .tab-pane.fade.in.active
+                  .form-group
+                    .col-lg-12
+                      = f.text_field :name, class: "input form-control", placeholder: "Nome da fase", data:{required:"true"}
+                  .form-group
+                    .col-lg-12
+                      = f.text_area :description, id: "wysihtml5-textarea", class: "input form-control", placeholder: "Descrição da fase", data:{required:"true"}, rows:"6"
+                  .form-group 
+                    .col-lg-4
+                      label Data de ínicio
+                      = f.text_field :begin_date, class: "input form-control datepicker", data:{required:"true"}, value: "#{Time.now.strftime('%d/%m/%Y')}" 
+                    .col-lg-4
+                      label Data de término
+                      = f.text_field :end_date, class: "input form-control datepicker", data:{required:"true"}, placeholder: "sem limite"
+                    .col-lg-4
+                      label Valoração da fase
+                      = f.text_field :value, class: "input form-control"
+                  .form-group
+                    .col-lg-9
+                      .upload-file
+                        input#upload-demo.upload-demo type="file" name="statement"
+                          label data-title=("Definir enunciado") for="upload-demo" 
+                            span data-title=("Seleccionar ficheiro")
+                    .col-lg-3
+                      label.label-checkbox.inline
+                        input#phase_open name="phase[open]" type="checkbox" value="1"
+                          span.custom-checkbox
+                          | Fase aberta
+                  = f.hidden_field :project_id, value: project.id
+            .panel-footer.clearfix
+              .pull-right
+                button.btn.btn-success type="submit" Adicionar fase

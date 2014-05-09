@@ -11,6 +11,5 @@
         = render "projects/index/search_input"
         = render "projects/index/search_results", projects: @projects
       .col-md-4
-        - unless @projects.empty?
-          = render "projects/stats", projects: @projects
+        = render "projects/stats"
        

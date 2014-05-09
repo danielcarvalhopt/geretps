@@ -38,15 +38,30 @@ class PhasesController < ApplicationController
   # POST /phases.json
   def create
     @phase = Phase.new(phase_params)
+    @phase.project = Project.find(phase_params[:project_id])
+    phasefile = PhaseFile.new
+    statement = params[:statement]
+
+    if !statement.blank?
+      document = Document.new file: statement, name: statement.original_filename
+      if document.save
+        phasefile.document = document
+      else
+        flash[:error] = "Erro ao adicionar o enunciado."
+      end
+    end
 
     respond_to do |format|
-      if @phase.save
+      if @phase.save 
         format.html { redirect_to @phase, notice: 'Phase was successfully created.' }
         format.json { render action: 'show', status: :created, location: @phase }
       else
         format.html { render action: 'new' }
         format.json { render json: @phase.errors, status: :unprocessable_entity }
       end
+      phasefile.phase = @phase
+      phasefile.save 
+      # Tratar excepções.
     end
   end
 
