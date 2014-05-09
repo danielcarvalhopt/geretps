@@ -1,0 +1,12 @@
+li.list-group-item.clearfix
+  .clearfix
+    .pull-left.m-right-sm
+      img.img-circle alt="User Avatar" src="#{student.student.avatar.url}" style="width:40px;height:40px;"
+    strong.block #{student.student.name}
+    .pull-right
+      = form_for student do |f|
+        = f.hidden_field :shift_id, value: ""
+        button.btn.btn-xs.btn-warning type="submit" style="width:100%"
+          i.fa.fa-sign-out  Remover
+    small.text-muted
+      i.fa.fa-envelope-o  #{student.student.email}
