@@ -29,12 +29,12 @@ class AssignedStudentsController < ApplicationController
 
     respond_to do |format|
       if @assigned_student.save
-        format.html { 
-          redirect_to subjects_path, notice: 'Inscrição submetida com sucesso.' 
+        format.html {
+          redirect_to subjects_path, notice: 'Inscrição submetida com sucesso.'
         }
         format.json { render action: 'show', status: :created, location: @assigned_student }
       else
-        format.html { 
+        format.html {
           redirect_to subjects_path, flash: {error: 'Erro ao submeter inscrição.' }
         }
         format.json { render json: @assigned_student.errors, status: :unprocessable_entity }
@@ -47,7 +47,7 @@ class AssignedStudentsController < ApplicationController
   def update
     respond_to do |format|
       if @assigned_student.update(assigned_student_params)
-        format.html { redirect_to @assigned_student, notice: 'Assigned student was successfully updated.' }
+        format.html { redirect_to subject_shifts_path(@assigned_student.subject), notice: 'Aluno removido do turno com sucesso' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -63,8 +63,8 @@ class AssignedStudentsController < ApplicationController
     subject_name = @assigned_student.subject.name
     @assigned_student.destroy
     respond_to do |format|
-      format.html { 
-        
+      format.html {
+
         if accepted
           notice = "Saiu da unidade curricular de #{subject_name}."
         else
@@ -72,7 +72,7 @@ class AssignedStudentsController < ApplicationController
         end
 
         flash[:notice] = notice
-        redirect_to subjects_path 
+        redirect_to subjects_path
       }
       format.json { head :no_content }
     end

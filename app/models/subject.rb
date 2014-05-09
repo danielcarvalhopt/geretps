@@ -26,7 +26,7 @@ class Subject < ActiveRecord::Base
   end
 
   def freeStudents
-    Student.where(id: self.student_ids)
+    AssignedStudent.where(subject_id: self.id, shift_id: nil)
   end
 
 end
