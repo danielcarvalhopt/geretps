@@ -3,5 +3,10 @@ li.list-group-item.clearfix
     .pull-left.m-right-sm
       img.img-circle alt="Teacher avatar" src="#{teacher.avatar.url}" style="width:40px;height:40px;"
     strong.block #{teacher.name}
-    small.text-muted 
+    - if user.teacher? && subject.isResponsible?(user) && user.teacher != teacher
+      .pull-right
+        - assigned_teacher = subject.assigned_teachers.where(teacher_id: teacher.id).first
+        = link_to assigned_teacher, method: :delete, data: { confirm: "Tem a certeza que pretende remover este docente desta Unidadede Curricular? \n\n" }, class: "btn btn-xs btn-danger"
+              i.fa.fa-sign-out  Remover
+    small.text-muted
       i.fa.fa-envelope-o  #{teacher.email}

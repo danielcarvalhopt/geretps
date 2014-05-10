@@ -56,7 +56,7 @@ class AssignedTeachersController < ApplicationController
   def destroy
     @assigned_teacher.destroy
     respond_to do |format|
-      format.html { redirect_to assigned_teachers_url }
+      format.html { redirect_to :back, notice: "Docente removido com sucesso desta Unidade Curricular" }
       format.json { head :no_content }
     end
   end
