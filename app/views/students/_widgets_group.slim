@@ -1,19 +1,26 @@
-.col-md-8
-  .panel.panel-default style="margin:0px 15px 15px 15px"
-    .panel-heading Alunos Inscritos
-  - if subject.students.empty?
-    = render "students/widgets_group/empty", mode: "enrolled"
-  - else
-    = render "students/widgets_group/index", mode: "enrolled", students: subject.assigned_students
-
-.col-md-4
-  .panel.panel-default
-    .panel-heading Aguardando Confirmação
-    - if !subject.waiting_students.empty?
-      = render "students/widgets_group/index", mode: "waiting", students: subject.assigned_students_not_accepted
-  - if subject.waiting_students.empty?
-    .panel-body.no-padding
-      ul#feedList.list-group.collapse.in
-        = render "students/widgets_group/empty", mode: "waiting"
-
+- if user.teacher && subject.isResponsible?(user)
+  .col-md-8
+    .panel.panel-default style="margin:0px 15px 15px 15px"
+      .panel-heading Alunos Inscritos
+    - if subject.students.empty?
+      = render "students/widgets_group/empty", mode: "enrolled"
+    - else
+      = render "students/widgets_group/index", mode: "enrolled", students: subject.assigned_students, user: user, subject: subject
+  .col-md-4
+    .panel.panel-default
+      .panel-heading Aguardando Confirmação
+      - if !subject.waiting_students.empty?
+        = render "students/widgets_group/index", mode: "waiting", students: subject.assigned_students_not_accepted, user: user, subject: subject
+    - if subject.waiting_students.empty?
+      .panel-body.no-padding
+        ul#feedList.list-group.collapse.in
+          = render "students/widgets_group/empty", mode: "waiting"
+- else
+  .col-md-12
+    .panel.panel-default style="margin:0px 15px 15px 15px"
+      .panel-heading Alunos Inscritos
+    - if subject.students.empty?
+      = render "students/widgets_group/empty", mode: "enrolled"
+    - else
+      = render "students/widgets_group/index", mode: "enrolled", students: subject.assigned_students, user: user, subject: subject
 
