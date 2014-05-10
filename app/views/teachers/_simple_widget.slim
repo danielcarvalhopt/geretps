@@ -1,9 +1,9 @@
 .panel.panel-default
-  .panel-heading 
+  .panel-heading
     = title
   .panel-body.no-padding
     ul#feedList.list-group.collapse.in
       - if teachers.blank?
         = render "teachers/simple_widget/empty"
       - else
-        = render "teachers/simple_widget/index", teachers: teachers, type: type, project: project
+        = render "teachers/simple_widget/index", teachers: teachers, type: type, project: project, subject: project.subject, user: user

@@ -8,7 +8,7 @@
   .padding-md
     .row
       .col-md-12
-        = render "shared/messages" 
+        = render "shared/messages"
 
     .row
       .col-md-8
@@ -20,9 +20,9 @@
           = render "projects/show/alerts", project: @project
         = render "projects/show/utilities", project: @project
         = render "notifications/simple_widget", title: "Últimas notificações", notifications: @notifications, type: @user.type
-        - if @user.student? 
+        - if @user.student?
           = render "groups/simple_widget", title: "Grupo de trabalho", group: @group, project: @project
-        = render "teachers/simple_widget", title: "Docentes responsáveis", teachers: @teachers, project: @project, type: @user.type
+        = render "teachers/simple_widget", title: "Docentes responsáveis", teachers: @teachers, project: @project, type: @user.type, user: @user
         = render "deliveries/simple_widget", title: "Últimas entregas", deliveries: @deliveries, project: @project, type: @user.type
         - if @user.teacher?
           = render "projects/show/teacher_utilities", project: @project, type: @user.type
