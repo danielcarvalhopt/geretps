@@ -1,17 +1,19 @@
 .col-md-8
   .panel.panel-default style="margin:0px 15px 15px 15px"
     .panel-heading Alunos Inscritos
-    - if subject.students.empty?
-      = render "students/widgets_group/empty", mode: "enrolled"
-  - if !subject.students.empty?
+  - if subject.students.empty?
+    = render "students/widgets_group/empty", mode: "enrolled"
+  - else
     = render "students/widgets_group/index", mode: "enrolled", students: subject.assigned_students
 
 .col-md-4
-  .panel.panel-default style="margin:0px 15px 15px 15px"
+  .panel.panel-default
     .panel-heading Aguardando Confirmação
-    - if subject.waiting_students.empty?
-      = render "students/widgets_group/empty", mode: "waiting"
-  - if !subject.waiting_students.empty?
-    = render "students/widgets_group/index", mode: "waiting", students: subject.assigned_students_not_accepted
+    - if !subject.waiting_students.empty?
+      = render "students/widgets_group/index", mode: "waiting", students: subject.assigned_students_not_accepted
+  - if subject.waiting_students.empty?
+    .panel-body.no-padding
+      ul#feedList.list-group.collapse.in
+        = render "students/widgets_group/empty", mode: "waiting"
 
 

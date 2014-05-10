@@ -1,5 +1,5 @@
 class AssignedStudentsController < ApplicationController
-  before_action :set_assigned_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_assigned_student, only: [:show, :edit, :update, :destroy, :accept_student]
   before_action :set_user
 
   # GET /assigned_students
@@ -59,6 +59,7 @@ class AssignedStudentsController < ApplicationController
   # DELETE /assigned_students/1
   # DELETE /assigned_students/1.json
   def destroy
+    puts "ENTROU"
     accepted = @assigned_student.accepted
     subject_name = @assigned_student.subject.name
     @assigned_student.destroy
@@ -81,6 +82,24 @@ class AssignedStudentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def accept_student
+    @assigned_student.accepted = true
+    respond_to do |format|
+      format.html{
+        if @assigned_student.save!
+          notice = "#{@assigned_student.student.name} adicionado com êxito"
+        else
+          notice = "Erro ao adicionar o aluno à Unidade Curricular"
+        end
+
+        flash[:notice] = notice
+        redirect_to :back
+      }
+      format.json {head :no_content}
+    end
+  end
+
 
   private
     def set_user

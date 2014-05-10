@@ -1,0 +1,19 @@
+li.list-group-item.clearfix
+  .clearfix
+    .pull-left.m-right-sm
+      img.img-circle alt="User Avatar" src="#{student.student.avatar.url}" style="width:40px;height:40px;"
+    strong.block #{student.student.name}
+    .pull-right
+      = link_to student, method: :delete, data: { confirm: "Tem a certeza que pretende remover este aluno desta Unidadede Curricular? \n\n" }, class: "btn btn-xs btn-danger"
+            i.fa.fa-sign-out  Rejeitar
+      | &nbsp;
+      = link_to accept_student_path(student), method: :patch, class: "btn btn-xs btn-success"
+            i.fa.fa-sign-in  Aceitar
+    - if student.shift
+      small.text-muted
+        i.i.fa.fa-users #{student.shift.name}
+      br
+    small.text-muted
+      i.fa.fa-envelope-o  #{student.student.email}
+
+
