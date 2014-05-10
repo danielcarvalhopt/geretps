@@ -3,7 +3,7 @@
 
 #main-container
   = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Unidades Curriculares",link: subjects_path},{name:"#{@subject.name}", link: subject_path(@subject)},{name: "Turnos", link: "#"}]
-  = render "shared/dashboard/header", header: @subject.name
+  = render "shared/dashboard/header", header: "#{@subject.name} - Turnos"
 
   .padding-md
     .row

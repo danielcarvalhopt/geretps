@@ -1,0 +1,23 @@
+= render "shared/navbar"
+= render "shared/sidebar", user: @user, active:"subjects"
+
+#main-container
+  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Unidades Curriculares",link: subjects_path},{name:"#{@subject.name}", link: subject_path(@subject)},{name: "Alunos", link: "#"}]
+  = render "shared/dashboard/header", header: "#{@subject.name} - Alunos"
+
+  .padding-md
+    .row
+      .col-md-12
+        = render "shared/messages"
+    .row
+      = render "students/widgets_group", subject: @subject
+
+
+javascript:
+  var $container = $('#isotope-container');
+  $container.isotope({
+    itemSelector: '.isotope-item',
+    layoutMode: 'masonry',
+    columnWidth: '.isotope-item',
+    resizable: false
+  });

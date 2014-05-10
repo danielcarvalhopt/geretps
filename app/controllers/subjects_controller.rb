@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
-  before_action :set_subject, only: [:show, :edit, :update, :destroy, :add_teachers, :shifts, :add_students_to_shift]
-  before_action :set_user, only: [:index, :show, :shifts]
+  before_action :set_subject, only: [:show, :edit, :update, :destroy, :add_teachers, :shifts, :add_students_to_shift, :students]
+  before_action :set_user, only: [:index, :show, :shifts,:students]
 
   # GET /subjects
   # GET /subjects.json
@@ -122,7 +122,7 @@ class SubjectsController < ApplicationController
 
     new_students_ids.each do |new_id|
       if !new_id.blank?
-        student = @subject.assigned_students.where(student_id: new_id).first
+        student = @subject.assigned_students.where(id: new_id).first
         if student
           student.shift_id = shift_id
           if !student.save!
@@ -143,6 +143,9 @@ class SubjectsController < ApplicationController
       }
       format.json { head :no_content }
     end
+  end
+
+  def students
   end
 
 
