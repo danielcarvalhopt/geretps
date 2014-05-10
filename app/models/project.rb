@@ -20,7 +20,7 @@ class Project < ActiveRecord::Base
 
   delegate :students, to: :subject
 
-  fuzzily_searchable :name
+  #fuzzily_searchable :name
 
   def complete?
     !self.description.blank? and self.phases.count > 0 and !self.min_elems.nil? and self.min_elems > 0

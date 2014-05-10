@@ -1,0 +1,7 @@
+.panel-body.no-padding
+  ul#feedList.list-group.collapse.in
+    li.list-group-item.clearfix
+    - if mode == "enrolled"
+      | Não existem alunos inscritos nesta Unidade Curricular
+    - else
+      | Não existem alunos à espera de confirmação nesta Unidade Curricular

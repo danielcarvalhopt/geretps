@@ -1,0 +1,17 @@
+li.list-group-item.clearfix
+  .clearfix
+    .pull-left.m-right-sm
+      img.img-circle alt="User Avatar" src="#{student.student.avatar.url}" style="width:55px;height:55px;"
+    strong.block #{student.student.name}
+    .pull-right
+      = link_to student, method: :delete, data: { confirm: "Tem a certeza que pretende remover este aluno desta Unidadede Curricular? \n\n" }, class: "btn btn-xs btn-warning"
+            span.label.label-warning
+              i.fa.fa-sign-out  Remover
+    - if student.shift
+      small.text-muted
+        i.i.fa.fa-users #{student.shift.name}
+      br
+    small.text-muted
+      i.fa.fa-envelope-o  #{student.student.email}
+
+

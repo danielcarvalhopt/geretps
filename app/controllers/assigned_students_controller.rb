@@ -47,7 +47,7 @@ class AssignedStudentsController < ApplicationController
   def update
     respond_to do |format|
       if @assigned_student.update(assigned_student_params)
-        format.html { redirect_to subject_shifts_path(@assigned_student.subject), notice: 'Aluno removido do turno com sucesso' }
+        format.html { redirect_to :back, notice: 'Aluno removido do turno com sucesso' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -66,13 +66,17 @@ class AssignedStudentsController < ApplicationController
       format.html {
 
         if accepted
-          notice = "Saiu da unidade curricular de #{subject_name}."
+          if @user.teacher
+            notice = "Aluno removido com êxito"
+          else
+            notice = "Saiu da unidade curricular de #{subject_name}."
+          end
         else
           notice = "Cancelou a inscrição na unidade curricular de #{subject_name}."
         end
 
         flash[:notice] = notice
-        redirect_to subjects_path
+        redirect_to :back
       }
       format.json { head :no_content }
     end
