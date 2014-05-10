@@ -1,18 +1,20 @@
 .row
   - if type=="teacher" and project.complete?
     - if project.open
-      .col-sm-12.col-md-12
-        .panel-stat3.bg-primary
-          h5 Fechar o projeto
-          small Retire o acesso dos alunos da unidade curricular ao projeto.
-          .stat-icon
-            i.fa.fa-power-off.fa-3x
+      = link_to project_toggle_access_path(project)
+        .col-sm-12.col-md-12
+          .panel-stat3.bg-primary
+            h5 Fechar o projeto
+            small Retire o acesso dos alunos da unidade curricular ao projeto.
+            .stat-icon
+              i.fa.fa-power-off.fa-3x
     - else
-      .col-sm-12.col-md-12
-        .panel-stat3.bg-success
-          h5 Publicar o projeto
-          small Publique o projeto para que os alunos possam consultar.
-          .stat-icon
-            i.fa.fa-share.fa-3x
+      = link_to project_toggle_access_path(project)
+        .col-sm-12.col-md-12
+          .panel-stat3.bg-success
+            h5 Publicar o projeto
+            small Publique o projeto para que os alunos possam consultar.
+            .stat-icon
+              i.fa.fa-share.fa-3x
 = render "phases/modal_new", project: project
 = render "projects/modal_edit", project: project, user: @user

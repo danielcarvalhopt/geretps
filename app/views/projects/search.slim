@@ -7,7 +7,7 @@
   .padding-md    
     .row
       .col-md-8 
-        = form_tag projects_path, method: :get do
+        = form_tag project_search_path, method: :get do
           .input-group.m-bottom-md
             = text_field_tag 'search', "", class:"form-control", placeholder:"Pesquise pelo nome do projecto a procurar.", type:"text", value: params[:search]
             span.input-group-btn
@@ -19,9 +19,9 @@
             .panel.panel-default
               .panel-body
                 .search-header
-                  a.h4.inline-block href="projects/#{p.id}"  #{p.name}
+                  = link_to p.name, project_path(p.id), class: "h4 inline-block"
                   .text-muted #{p.subject.name} #{p.subject.academic_year.academic_year} &bull; #{p.subject.course.name} &bull; #{p.subject.course.institution.name}
-                p.m-top-sm #{p.description}
+                p.m-top-sm #{p.description.html_safe}
                 .text-right
                 .label.label-default style="margin:5px;display:inline-block;" 
                   span.teacher

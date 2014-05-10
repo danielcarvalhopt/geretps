@@ -107,6 +107,15 @@ class ProjectsController < ApplicationController
     @students = @project.subject.students.sort_by {|s|s.identifier}
   end
 
+  def toggle_access
+    @project = Project.find(params[:id]).toggle(:open)
+    @project.save
+    respond_to do |format|
+      format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
     def _show_teacher
       @notifications = @project.notifications.take 5
