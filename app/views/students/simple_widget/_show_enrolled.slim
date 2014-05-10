@@ -5,8 +5,7 @@ li.list-group-item.clearfix
     strong.block #{student.student.name}
     .pull-right
       = link_to student, method: :delete, data: { confirm: "Tem a certeza que pretende remover este aluno desta Unidadede Curricular? \n\n" }, class: "btn btn-xs btn-warning"
-            span.label.label-warning
-              i.fa.fa-sign-out  Remover
+            i.fa.fa-sign-out  Remover
     - if student.shift
       small.text-muted
         i.i.fa.fa-users #{student.shift.name}

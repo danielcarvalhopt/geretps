@@ -148,8 +148,6 @@ class SubjectsController < ApplicationController
   def students
   end
 
-
-
   private
 
     def _show_teacher
