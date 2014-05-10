@@ -2,7 +2,7 @@
   .col-md-6 class="isotope-item"
     .panel.panel-default
       ul#feedList.list-group.collapse.in
-        = render "students/simple_widget/show_#{mode}", student: student
+        = render "students/simple_widget/show_#{mode}", student: student, user: user, subject: subject
 - else
   = render "students/simple_widget/show_#{mode}", student: student
 
