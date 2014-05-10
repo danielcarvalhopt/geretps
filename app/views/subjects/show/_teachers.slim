@@ -6,6 +6,6 @@
       - if teachers.empty?
         = render "subjects/show/teachers/empty"
       - else
-        = render "teachers/simple_widget/index", teachers: teachers
-      - if user.teacher && subject.isResponsible?(user)
+        = render "teachers/simple_widget/index", teachers: teachers, subject: subject, user: user
+      - if user.teacher? && subject.isResponsible?(user)
         = render "subjects/show/teachers/new", subject: subject

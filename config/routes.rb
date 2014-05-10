@@ -31,6 +31,7 @@ Geretps::Application.routes.draw do
 
   resources :teachers
   resources :assigned_students
+  resources :assigned_teachers
   resources :members
   resources :students
   resources :groups
