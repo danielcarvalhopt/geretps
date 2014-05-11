@@ -3,6 +3,9 @@ class Teacher < ActiveRecord::Base
   has_many :assigned_teachers
   has_many :subjects, through: :assigned_teachers
   has_many :projects, through: :subjects
+  has_many :phases, through: :projects
+  has_many :deliveries, through: :phases
+  has_many :documents, through: :deliveries
   has_many :notifications, through: :projects, order: 'date desc'
   has_many :academic_years, through: :subjects
 

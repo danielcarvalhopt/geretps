@@ -18,6 +18,24 @@ gem 'zip-zip' # will load compatibility for old rubyzip API.
 gem 'fuzzily'
 gem "responders"
 
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+  gem 'factory_girl_rails', '4.2.1'
+  gem 'rspec_api_documentation'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
+group :test do
+  gem 'faker'
+  gem 'rack-test'
+  gem 'turn', :require => false
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'shoulda-callback-matchers', '>=0.3.0'
+  gem 'json_spec'
+end
+
 group :doc do
   gem 'sdoc', require: false
 end
@@ -29,6 +47,8 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
 end
+
+gem 'rspec_api_documentation'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -11,6 +11,8 @@ class Phase < ActiveRecord::Base
   validates :begin_date, date: true
   validates :end_date, date: {after: :begin_date}, if: :end_date
 
+  # default_scope order('phases.begin_date')
+
   def last_evaluated_delivery student_id
     self.deliveries.find{|delivery| delivery.group.have_student(student_id) && delivery.evaluated}
   end

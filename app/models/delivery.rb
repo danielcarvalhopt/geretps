@@ -9,6 +9,8 @@ class Delivery < ActiveRecord::Base
 
   validates :description, presence: true
 
+  # default_scope order('deliveries.begin_date')
+
   def grade student_id
     self.grades.where(student_id: student_id).first
   end

@@ -46,4 +46,28 @@ Geretps::Application.routes.draw do
   resources :subjects
   resources :users
   resources :shifts
+
+  namespace :api, defaults: {format: :json} do
+    scope module: :v1, constraints: ApiConstraints.new(version: 1, default: :true) do
+      devise_scope :user do
+        match '/sessions' => 'sessions#create', :via => :post
+        match '/sessions' => 'sessions#destroy', :via => :delete
+      end
+
+      get "/projects" => "projects#index"  
+      get "/projects/:id" => "projects#show"
+
+      get "/phases" => "phases#index"
+      get "/projects/:project_id/phases" => "phases#index"
+
+      get "/deliveries" => "deliveries#index"
+      get "/phases/:phase_id/deliveries" => "deliveries#index"
+
+      get "/documents" => "documents#index"
+      get "/deliveries/:delivery_id/documents" => "documents#index"
+
+      get "/documents/:id/download" => "documents#download"  
+    end
+  end
 end
+
