@@ -1,0 +1,8 @@
+.row.project-utilities
+  a href="#CreateProject" role="button" data-toggle="modal"
+    .col-md-12
+      .panel-stat3.bg-primary
+        h5 Criar nova Unidade Curricular
+        .stat-icon
+          i.fa.fa-file.fa-2x
+= render "subjects/modal_new", subject: @subject, user: user
