@@ -8,6 +8,11 @@ class Api::V1::DeliveriesController < Api::V1::BaseController
     respond_with(@deliveries)
   end
   
+  def show
+    delivery = @deliveries.find(params[:id])
+    respond_with(delivery)
+  end
+
   private
 
     def set_user
@@ -15,8 +20,12 @@ class Api::V1::DeliveriesController < Api::V1::BaseController
     end
 
     def set_deliveries
-      @deliveries = if(params[:phase_id])
-        @user.projects.find(params[:phase_id]).deliveries
+      @deliveries = if(params[:group_id] and params[:phase_id])
+        @user.phases.find(params[:phase_id]).deliveries_of(params[:group_id])
+      elsif(params[:group_id])
+        @user.groups.find(params[:group_id]).deliveries
+      elsif(params[:phase_id])
+        @user.phases.find(params[:phase_id]).deliveries
       else
         @user.deliveries
       end
