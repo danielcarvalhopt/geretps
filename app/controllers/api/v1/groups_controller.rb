@@ -7,6 +7,11 @@ class Api::V1::GroupsController < Api::V1::BaseController
   def index 
     respond_with(@groups)
   end
+
+  def show
+    group = @groups.find(params[:id])
+    respond_with(group)
+  end
   
   private
 

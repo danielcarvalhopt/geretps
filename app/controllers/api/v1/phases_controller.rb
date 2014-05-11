@@ -7,6 +7,11 @@ class Api::V1::PhasesController < Api::V1::BaseController
   def index 
     respond_with(@phases)
   end
+
+  def show
+    phase = @phases.find(params[:id])
+    respond_with(phase)
+  end
   
   private
 
