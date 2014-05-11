@@ -6,6 +6,7 @@ class Phase < ActiveRecord::Base
   has_many :documents, through: :phase_files
   has_many :tests
   has_many :deliveries, order: "updated_at desc"
+  has_many :groups, through: :deliveries
 
   validates :name, :begin_date, :project, presence: true
   validates :begin_date, date: true

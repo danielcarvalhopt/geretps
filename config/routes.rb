@@ -51,8 +51,13 @@ Geretps::Application.routes.draw do
       get "/phases" => "phases#index"
       get "/projects/:project_id/phases" => "phases#index"
 
+      get "/groups" => "groups#index"
+      get "/projects/:project_id/groups" => "groups#index"
+      get "/phases/:phase_id/groups" => "groups#index"
+
       get "/deliveries" => "deliveries#index"
       get "/phases/:phase_id/deliveries" => "deliveries#index"
+      get "/phases/:phase_id/groups/:group_id/deliveries" => "deliveries#index"
 
       get "/documents" => "documents#index"
       get "/deliveries/:delivery_id/documents" => "documents#index"

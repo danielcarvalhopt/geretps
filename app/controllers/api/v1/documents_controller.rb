@@ -21,7 +21,7 @@ class Api::V1::DocumentsController < Api::V1::BaseController
 
     def set_documents
       @documents = if(params[:delivery_id])
-        @user.projects.find(params[:delivery_id]).documents
+        @user.deliveries.find(params[:delivery_id]).documents
       else
         @user.documents
       end
