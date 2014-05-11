@@ -3,8 +3,10 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
+    :recoverable, :rememberable, :trackable, :validatable,
+    :token_authenticatable
+  before_save :ensure_authentication_token
+  
   has_attached_file :avatar, styles: { thumb: "100x100#" }, default_style: :thumb, default_url: :set_default_url
   validates :email, presence: true, email: true, uniqueness: true
 	validates :phone, phone: true, uniqueness: true

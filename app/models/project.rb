@@ -3,7 +3,7 @@ class Project < ActiveRecord::Base
   belongs_to :statement, class_name: "Document"
   has_many :groups
   has_many :notifications, order: 'date desc'
-  has_many :phases, order: 'begin_date asc'
+  has_many :phases, order: 'phases.begin_date asc'
   has_many :deliveries, through: :phases
   has_many :project_files
   has_many :files, through: :project_files
@@ -20,7 +20,7 @@ class Project < ActiveRecord::Base
 
   delegate :students, to: :subject
 
-  fuzzily_searchable :name
+  # fuzzily_searchable :name
 
   def complete?
     !self.description.blank? and self.phases.count > 0 and !self.min_elems.nil? and self.min_elems > 0
