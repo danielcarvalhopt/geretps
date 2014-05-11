@@ -13,11 +13,11 @@ li.list-group-item.clearfix
         - assigned_student = AssignedStudent.find_by(student_id: student.id, subject_id: subject.id)
         = link_to assigned_student, method: :delete, data: { confirm: "Tem a certeza que pretende sair desta unidade curricular? \n\nDeixará de poder consultar os projetos, entregas e avaliações desta unidade curricular." }
           .pull-right
-            span.label.label-warning 
+            span.label.label-warning
               i.fa.fa-sign-out  Sair
       - if mode=="pending"
         - assigned_student = AssignedStudent.find_by(student_id: student.id, subject_id: subject.id)
         = link_to assigned_student, method: :delete, data: { confirm: "Tem a certeza que pretende cancelar a sua inscrição?" }
           .pull-right
-            span.label.label-warning 
+            span.label.label-warning
               i.fa.fa-times  Cancelar
