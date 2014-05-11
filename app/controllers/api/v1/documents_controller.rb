@@ -13,6 +13,11 @@ class Api::V1::DocumentsController < Api::V1::BaseController
     send_file(document.file.path, type: document.file_content_type)
   end
 
+  def show
+    document = @documents.find(params[:id])
+    respond_with(document)
+  end
+
   private
 
     def set_user

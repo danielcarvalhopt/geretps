@@ -49,17 +49,21 @@ Geretps::Application.routes.draw do
       get "/projects/:id" => "projects#show"
 
       get "/phases" => "phases#index"
+      get "/phases/:id" => "phases#show"
       get "/projects/:project_id/phases" => "phases#index"
 
       get "/groups" => "groups#index"
+      get "/groups/:id" => "groups#show"
       get "/projects/:project_id/groups" => "groups#index"
       get "/phases/:phase_id/groups" => "groups#index"
 
       get "/deliveries" => "deliveries#index"
+      get "/deliveries/:id" => "deliveries#show"
       get "/phases/:phase_id/deliveries" => "deliveries#index"
       get "/phases/:phase_id/groups/:group_id/deliveries" => "deliveries#index"
 
       get "/documents" => "documents#index"
+      get "/documents/:id" => "documents#show"
       get "/deliveries/:delivery_id/documents" => "documents#index"
 
       get "/documents/:id/download" => "documents#download"  
