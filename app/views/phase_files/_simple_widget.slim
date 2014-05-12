@@ -3,8 +3,9 @@
     = title
     - if type=="teacher"
       .pull-right
-        .btn.btn-xs
-          i.fa.fa-cogs  Gerir ficheiros auxiliares          
+        a data-toggle="modal" href="#newPhaseFile" 
+          .btn.btn-xs
+            i.fa.fa-cogs  Gerir ficheiros auxiliares          
   .panel-body.no-padding
     ul#feedList.list-group.collapse.in
       - if phase_files.empty?

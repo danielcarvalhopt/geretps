@@ -9,8 +9,11 @@ Geretps::Application.routes.draw do
   post "/grades/evaluate_group" => "grades#evaluate_group", as: :evaluate_group
 
   get "/projects/:id/grades" => "projects#grades", as: :project_grades
+  get "/phases/:id/add_phase_file" => "phases#add_phase_file", as: :phase_add_phase_file
   get "/projects/:id/groups" => "projects#groups", as: :project_groups
   get "/projects/:id/toggle_access" => "projects#toggle_access", as: :project_toggle_access
+  get "/phase/:id/toggle_access" => "phases#toggle_access", as: :phase_toggle_access
+  get "/phase/:id/toggle_grades" => "phases#toggle_grades", as: :phase_toggle_grades
   get "/repository/" => "projects#search", as: :project_search
   get "/phases/:id/grades" => "phases#grades", as: :phase_grades
   get "/subjects/:id/shifts" => "subjects#shifts", as: :subject_shifts
@@ -40,6 +43,8 @@ Geretps::Application.routes.draw do
   resources :grades
   resources :courses
   resources :phases
+  resources :phase_files
+  resources :documents
   resources :projects
   resources :required_files
   resources :students

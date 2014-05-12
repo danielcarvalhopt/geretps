@@ -16,14 +16,13 @@
                   .form-group
                     .col-lg-12
                       = f.text_area :description, id: "wysihtml5-textarea", class: "input form-control", placeholder: "Descrição da fase", data:{required:"true"}, rows:"6", value: "#{@phase.description}"
-
                   .form-group 
                     .col-lg-4
                       label Data de ínicio
                       = f.text_field :begin_date, class: "input form-control datepicker", data:{required:"true"}, value: "#{@phase.begin_date.strftime('%d/%m/%Y')}" 
                     .col-lg-4
                       label Data de término
-                      = f.text_field :end_date, class: "input form-control datepicker", data:{required:"true"}, placeholder: "sem limite", value: "#{@phase.end_date.strftime('%d/%m/%Y')}" 
+                      = f.text_field :end_date, class: "input form-control datepicker", data:{required:"true"}, placeholder: "sem limite", value: "#{@phase.end_date.strftime('%d/%m/%Y')}"
                     .col-lg-4
                       label Valoração da fase
                       = f.text_field :value, class: "input form-control"
@@ -34,7 +33,7 @@
                           | Fase aberta
             .panel-footer.clearfix
               .pull-right
-                button.btn.btn-success type="submit" Adicionar fase
+                button.btn.btn-success type="submit" Guardar alterações
 
 = javascript_include_tag "chosen.jquery.min.js"
 = javascript_include_tag "wysihtml5-0.3.0.min.js"
