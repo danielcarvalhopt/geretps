@@ -9,30 +9,31 @@
           .col-md-12
             span #{project.name}
           .col-md-4
-            small.text-muted
-              i.fa.fa-folder-open-o   
-                b  UC:  
-                = project.subject.name
+            = link_to project.subject
+              small.text-muted
+                i.fa.fa-folder-open-o
+                  b  UC:
+                  = project.subject.name
           .col-md-3
             small.text-muted
-              i.fa.fa-clock-o  
-                b  Data fim: 
-                = date_month_or_undef project.end_date   
-          - if type=="student"   
+              i.fa.fa-clock-o
+                b  Data fim:
+                = date_month_or_undef project.end_date
+          - if type=="student"
             .col-md-5
               small.text-muted
-                i.fa.fa-check  
-                  b  Avaliação: 
+                i.fa.fa-check
+                  b  Avaliação:
                   - if project.grades
-                    b.text-success #{project.grade current_user.student.id} 
+                    b.text-success #{project.grade current_user.student.id}
                   - else
-                    b.text-warning ? 
+                    b.text-warning ?
                   | / 20.0 Valores
           - else
             .col-md-3
               small.text-muted
                 i.fa.fa-bar-chart-o
-                  b  Média: 
+                  b  Média:
                   - if project.grades
                     span.text-success #{project.average}
                   - else
@@ -40,9 +41,9 @@
                   |  / 20.0 Valores
             .col-md-2
               small.text-muted
-                i.fa.fa-pencil-square-o  
-                  b  Avaliações: 
+                i.fa.fa-pencil-square-o
+                  b  Avaliações:
                   - if project.grades
-                    i.fa.fa-check.text-success   
+                    i.fa.fa-check.text-success
                   - else
-                    i.fa.fa-warning.text-warning 
+                    i.fa.fa-warning.text-warning

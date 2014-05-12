@@ -1,0 +1,24 @@
+#CreateProject.modal.fade aria-hidden="true" style="display: none;"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+        h4 Criar nova Unidade Curricular
+      .modal-body style="padding: 0"
+        .panel.panel-default
+          = form_for subject, html: {multipart: true, class: "form-horizontal no-margin form-border"} do |f|
+            .panel-body
+              .tab-content
+                .tab-pane.fade.in.active
+                  .form-group
+                    .col-lg-12
+                      = collection_select :subject, :course_id, Course.all, :id, :name, {}, {class: "chzn-select form-control"}
+                  .form-group
+                    .col-lg-12
+                      = f.text_field :name, class: "input form-control", placeholder: "Nome da Unidade Curricular", data:{required:"true"}
+            .panel-footer.clearfix
+              .pull-right
+                button.btn.btn-success type="submit" Criar Unidade Curricular
+
+= javascript_include_tag "chosen.jquery.min.js"
+= javascript_include_tag "endless_form.js"

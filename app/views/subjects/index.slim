@@ -7,10 +7,7 @@
 
   .padding-md
     .row
-      .col-md-8
-        = render "subjects/index/search_input"
-        = render "subjects/index/search_results", subjects: @subjects_filtered, student: @user, assigned_student: @assigned_student
-      .col-md-4
-        = render "shared/messages"
-        = render "assigned_students/simple_widget", title: "Inscrições pendentes", subjects: @waiting_subjects, mode: "pending", student: @user if @user.student?
-        = render "academic_years/accordion_widget", academic_years: @academic_years, subjects: @subjects, mode: "management", student: @user
+        .col-md-12
+          = render "shared/messages"
+    .row
+      = render "subjects/index/index_#{@user.type}"

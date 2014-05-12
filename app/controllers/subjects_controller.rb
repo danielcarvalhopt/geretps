@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update, :destroy, :add_teachers, :shifts, :add_students_to_shift, :students]
-  before_action :set_user, only: [:index, :show, :shifts,:students]
+  before_action :set_user, only: [:index, :show, :shifts,:students, :create]
 
   # GET /subjects
   # GET /subjects.json
@@ -11,6 +11,8 @@ class SubjectsController < ApplicationController
     @subjects = @user.subjects
     if @user.student?
       @waiting_subjects = @user.waiting_subjects
+    else
+      @subject = Subject.new
     end
     @subjects_filtered = filter_subjects(search)
     @assigned_student = AssignedStudent.new
@@ -38,13 +40,17 @@ class SubjectsController < ApplicationController
   # POST /subjects.json
   def create
     @subject = Subject.new(subject_params)
+    @subject.responsible_id = @user.teacher.id
+    year = Time.now.year
+    academic_year = AcademicYear.where(academic_year: "#{year-1}/#{year}").first_or_create!
+    @subject.academic_year_id=academic_year.id
 
     respond_to do |format|
-      if @subject.save
-        format.html { redirect_to @subject, notice: 'Subject was successfully created.' }
+      if @subject.save!
+        format.html { redirect_to subject_path(@subject), notice: 'Unidade Curricular criada com sucesso' }
         format.json { render action: 'show', status: :created, location: @subject }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to :back, notice: 'Erro ao criar Unidade Curricular' }
         format.json { render json: @subject.errors, status: :unprocessable_entity }
       end
     end
@@ -157,10 +163,14 @@ class SubjectsController < ApplicationController
 
     def filter_subjects(search)
       subjects_filtered = []
-      Subject.all.each do |subject|
+      if @user.student?
+        Subject.all.each do |subject|
         if subject.assigned_students.find_by(student_id: @user.id).nil?
           subjects_filtered << subject
         end
+      end
+      else
+        subjects_filtered = Subject.where(responsible_id: @user.teacher.id)
       end
       if !subjects_filtered.blank?
         if search == ""
@@ -182,6 +192,6 @@ class SubjectsController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def subject_params
-      params.require(:subject).permit(:name, :academic_year_id, :course_id, :responsible_id)
+      params.require(:subject).permit(:name,:course_id)
     end
 end

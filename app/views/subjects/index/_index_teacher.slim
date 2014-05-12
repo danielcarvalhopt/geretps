@@ -1,0 +1,5 @@
+.col-md-8
+  = render "subjects/index/search_input"
+  = render "subjects/index/search_results", subjects: @subjects_filtered, student: @user, assigned_student: @assigned_student
+.col-md-4
+  = render "subjects/index/utilities", user: @user
