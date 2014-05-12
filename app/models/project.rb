@@ -1,4 +1,6 @@
 class Project < ActiveRecord::Base
+  include PublicActivity::Common
+
   belongs_to :subject
   belongs_to :statement, class_name: "Document"
   has_many :groups
