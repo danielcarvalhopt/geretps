@@ -1,0 +1,120 @@
+\subsection{Utilitário de linha de comandos}
+
+O principal objetivo do sistema é facilitar ao máximo a gestão de alunos, trabalhos práticos e avaliações por parte do utilizador. \\
+
+Para facilitar a realização de algumas tarefas e melhorar o desempenho dos utilizadores avançados do sistema, foi desenvolvido um utilitário de linha de comandos que permite realizar várias ações importantes do sistema de forma mais rápida e eficiente.
+
+Segue-se o menu de ajuda do utilitário onde estão descritas as funcionalidades implementadas na versão atual:
+
+\begin{verbatim}
+USAGE: geretps <command> [<args>]
+
+Commands:
+  init                                Create an empty geretps folder or 
+                                        reinitialize an existing one.
+  login -E <email> -P <password>      Get authentication token and store 
+                                        authentication data.
+  list <entity>                       List all objects of type entity 
+                                        belonging to the user.
+  show <entity> <id>                  Show the object of type entity with 
+                                        the specified identifier.
+  download <entity>                   Download all objects of type entity 
+                                        belonging to the user.
+  help                                Show this help message and quit.
+
+Description:
+  ...
+
+Examples:
+  geretps list projects
+  geretps show project 1
+
+See 'geretps <command> help' for more information on a specific command.
+\end{verbatim}
+
+Seguem-se alguns exemplos de utilização:
+
+\begin{verbatim}
+> geretps list projects
+
+#3    Ficha de avaliação Nº2
+#8    Ficha de avaliação Nº1
+#9    Ficha de avaliação Nº3
+#2    myAcademia - Gestor de Currículos Académicos
+#1    Projecto Integrado - GereTPs
+#7    Projecto ASP.NET
+#6    Projecto C + JAVA - Transitários LEI
+#5    Projecto C - Arranjo peças retangulares
+#4    Projeto HASKELL - Parser JOIN
+\end{verbatim}
+
+\begin{verbatim}
+> geretps show project 1
+
+IDENTIFIER:         1
+NAME:               Projecto Integrado - GereTPs
+DESCRIPTION:        O que se pretende neste projeto...
+BEGIN DATE:         2013-10-13T00:00:00.000Z
+END DATE:           2014-07-14T00:00:00.000Z
+MIN ELEMS:          2
+MAX ELEMS:          4
+\end{verbatim}
+
+Um dos comandos mais importantes, desenvolvido na versão atual do utilitário, é o comando \verb%download%.\\
+
+Este comando permite fazer download das entidades especificadas, no caso das entregas, o utilizador pode assim sincronizar o seu diretório atual com todas as entregas efetuadas em todos os projetos a que pertence, e assim não necessita de aceder ao sistema e fazer download manualmente das entregas. Essa tarefa fica assim muito simplificada com a utilização do utilitário desenvolvido.\\
+
+Segue-se um exemplo da estrutura de diretorias criada pelo comando.
+
+\begin{verbatim}
+   Projecto_C_-_Arranjo_pecas_retangulares
+      INFO.xml
+   Projecto_Integrado_-_GereTPs
+      Fase_1
+         Grupo_1
+            DELIVERY#1-2014-05-12T02:23:57_274Z
+               G1_Diagrams.zip
+               G1_Presentation.pdf
+               G1_Report.pdf
+               G1_Source.zip
+               INFO.xml
+            INFO.xml
+         Grupo_2
+            DELIVERY#3-2014-05-12T02:23:57_285Z
+               INFO.xml
+            INFO.xml
+         Grupo_3
+            DELIVERY#4-2014-05-12T02:23:57_360Z
+               INFO.xml
+            INFO.xml
+         Grupo_4
+            DELIVERY#5-2014-05-12T02:23:57_364Z
+               INFO.xml
+            INFO.xml
+         Grupo_5
+            DELIVERY#6-2014-05-12T02:23:57_369Z
+               INFO.xml
+            INFO.xml
+         Grupo_6
+            DELIVERY#7-2014-05-12T02:23:57_373Z
+               INFO.xml
+            INFO.xml
+         INFO.xml
+      Fase_2
+         INFO.xml
+      Fase_3
+         INFO.xml
+      Fase_4
+         INFO.xml
+      INFO.xml
+   Projeto_HASKELL_-_Parser_JOIN
+      Fase_1
+         Grupo_1
+            DELIVERY#2-2014-05-12T02:23:57_281Z
+               INFO.xml
+            INFO.xml
+         INFO.xml
+      INFO.xml
+\end{verbatim}
+
+De referir que o referido comando, em todas as diretorias criadas, cria um ficheiro \verb%INFO.xml% com todas as informações relativas ao contexto atual.

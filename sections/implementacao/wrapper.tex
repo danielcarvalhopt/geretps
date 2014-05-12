@@ -1,0 +1,30 @@
+\subsection{Interface PERL para a API do sistema}
+
+Para facilitar a utilização da API do sistema, foi desenvolvida uma interface em PERL que permite comunicar com o sistema de uma forma mais simples.
+
+Pretende-se assim facilitar o desenvolvimento de ferramentas que comuniquem com o sistema.\\
+
+A referida interface foi desenvolvida recorrendo a vários módulos PERL, que são descritos de seguida:
+
+\begin{itemize}
+  \item \verb%Net::GereTPs% \\ Módulo responsável por reencaminhar o acesso para a versão correta da API.
+  \item \verb%NET::GereTPs::V1% \\ Módulo responsável por reencaminhar os pedidos para os módulos respetivos, e armazenar as informações de autenticação.
+  \item \verb%NET::GereTPs::V1::Session% \\ Módulo responsável pelos pedidos de autenticação.
+  \item \verb%NET::GereTPs::V1::Projects% \\ Módulo responsável pelos pedidos ao controlador de projetos do sistema.
+  \item \verb%NET::GereTPs::V1::Phases% \\ Módulo responsável pelos pedidos ao controlador de fases do sistema.
+  \item \verb%NET::GereTPs::V1::Deliveries% \\ Módulo responsável pelos pedidos ao controlador de entregas do sistema.
+  \item \verb%NET::GereTPs::V1::Documents% \\ Módulo responsável pelos pedidos ao controlador de documentos do sistema.
+  \item \verb%NET::GereTPs::V1::Groups% \\ Módulo responsável pelos pedidos ao controlador de grupos do sistema.
+\end{itemize}
+
+De seguida pode consultar-se um exemplo de utilização da interface desenvolvida:
+
+\begin{verbatim}
+use Net::GereTPs;
+
+my $geretps = Net::GereTPs->new({email => $params{email}, password => $params{password}});
+my $auth_token = $geretps->session->get_auth_token();
+my $projects = $geretps->projects->all();
+my $group_info = $geretps->groups->get_xml($group_id);
+my $groups = $geretps->groups("phases",$phase_id)->all();
+\end{verbatim}

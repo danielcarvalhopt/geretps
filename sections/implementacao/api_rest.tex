@@ -1,0 +1,37 @@
+\subsection{GereTPS REST API}
+
+Com o objetivo de garantir que o sistema seja facilmente integrável com outras ferramentas e sistemas, foi desenvolvida uma \textit{API} que segue todos os princípios \textit{REST}.\\
+
+Nesta fase do projeto a API está a responder aos métodos \textit{show}, que dado um determinado \textit{id} responde com todas as informações desse objeto, e \textit{index} que lista informações de todos os objetos do tipo requerido.\\
+
+No acesso a informação privada, o utilizador necessita de indicar o seu email e o \textit{token} de autenticação que pode ser obtido ao criar uma sessão.
+
+Na implementação da API, foram tidos todos os cuidados para que o utilizador apenas aceda a informação que lhe seja relativa. \\
+
+Até ao momento a API responde aos seguintes pedidos:
+
+\begin{itemize}
+  \item POST \verb%/sessions% \\ Devolve as informações de autenticação para o utilizador.
+  \item GET \verb%/projects% \\ Devolve todas os projetos em que o utilizador está envolvido.
+  \item GET \verb%/projects/:id% \\ Devolve todas as informações do projeto indicado.
+  \item GET \verb%/phases% \\ Devolve todas as fases em que o utilizador está envolvido.
+  \item GET \verb%/phases/:id% \\ Devolve todas as informações da fase indicada.
+  \item GET \verb%/projects/:project_id/phases% \\ Devolve todas as fases do projeto indicado em que o utilizador está envolvido
+  \item GET \verb%/groups% \\ Devolve todos os grupos dos projetos em que o utilizador está envolvido.
+  \item GET \verb%/groups/:id% \\ Devolve todas as informações do grupo indicado.
+  \item GET \verb%/projects/:project_id/groups% \\ Devolve todos os grupos do projeto indicado em que o utilizador está envolvido.
+  \item GET \verb%/phases/:phase_id/groups% \\ Devolve todos os grupos da fase indicada em que o utilizador está envolvido.
+
+  \item GET \verb%/deliveries% \\ Devolve todas as entregas dos projetos em que o utilizador está envolvido.
+  \item GET \verb%/deliveries/:id% \\ Devolve todas as informações da entrega indicada.
+  \item GET \verb%/phases/:phase_id/deliveries% \\ Devolve todas as entregas da fase indicada em que o utilizador está envolvido.
+  \item GET \verb%/phases/:phase_id/groups/:group_id/deliveries% \\ Devolve todas as entregas da fase indicada, efetuadas pelo grupo com o \textit{id} especificado.
+
+  \item GET \verb%/documents% \\ Devolve todos os documentos das entregas em que o utilizador está envolvido.
+  \item GET \verb%/documents/:id% \\ Devolve todas as informações do documento indicado.
+  \item GET \verb%/deliveries/:delivery_id/documents% \\ Devolve todos os documentos da entrega indicada em que o utilizador está envolvido.
+
+  \item GET \verb%/documents/:id/download% \\ Devolve o documento especificado.
+\end{itemize}
+
+A \textit{API} por omissão responde em formato \textit{JSON}, no entanto se o pedido for efetuado com a extensão \textit{XML}, os pedidos são devolvidos nesse mesmo formato.
