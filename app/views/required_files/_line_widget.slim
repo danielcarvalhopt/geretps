@@ -3,8 +3,9 @@
     = title
     - if type=="teacher"
       .pull-right
-        .btn.btn-xs
-          i.fa.fa-cogs  Gerir ficheiros obrigatórios
+        a data-toggle="modal" href="#newRequiredFile"
+          .btn.btn-xs
+            i.fa.fa-cogs  Adicionar ficheiros obrigatórios
 
   .panel-body.no-padding
     ul#feedList.list-group.collapse.in

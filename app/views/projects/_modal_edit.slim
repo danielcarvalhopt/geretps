@@ -29,10 +29,10 @@
                   .form-group
                     .col-lg-6
                       label Data de início
-                      = f.text_field :begin_date, class: "input form-control datepicker", placeholder: "Data de Início", data:{required:"true"}, value: "#{project.begin_date.strftime('%d/%m/%Y')}"
+                      = f.text_field :begin_date, class: "input form-control datepicker", data:{required:"true"}, value: "#{project.begin_date.strftime('%d/%m/%Y') if project.begin_date}"
                     .col-lg-6
                       label Data de término
-                      = f.text_field :end_date, class: "input form-control datepicker", placeholder: "Data de Início", value: "#{project.end_date.strftime('%d/%m/%Y')}"
+                      = f.text_field :end_date, class: "input form-control datepicker", value: "#{project.end_date.strftime('%d/%m/%Y') if project.end_date}"
                   .form-group
                     .col-lg-12
                       .upload-file

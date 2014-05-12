@@ -6,7 +6,7 @@
         h4 Adicionar nova fase
       .modal-body style="padding: 0"
         .panel.panel-default
-          = form_for Phase.new, html: {multipart: true, class: "form-horizontal no-margin form-border"} do |f| 
+          = form_for @phase, html: {multipart: true, class: "form-horizontal no-margin form-border"} do |f| 
             .panel-body
               .tab-content
                 .tab-pane.fade.in.active

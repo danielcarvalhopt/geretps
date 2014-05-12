@@ -122,6 +122,7 @@ class ProjectsController < ApplicationController
       @phases = @project.phases
       @deliveries = @project.deliveries.take 4
       @teachers = @project.subject.teachers
+      @phase = Phase.new
     end
 
     def _show_student

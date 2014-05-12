@@ -40,7 +40,14 @@ class PhasesController < ApplicationController
     @phase = Phase.new(phase_params)
     @phase.project = Project.find(phase_params[:project_id])
     phasefile = PhaseFile.new
-    statement = params[:statement]
+    statement = phase_params[:statement]
+
+    if phase_params[:end_date]
+      if @phase.project.end_date == nil or @phase.project.end_date < phase_params[:end_date]
+        @phase.project.end_date = phase_params[:end_date]
+        @phase.project.save
+      end
+    end
 
     if !statement.blank?
       document = Document.new file: statement, name: statement.original_filename
@@ -53,15 +60,16 @@ class PhasesController < ApplicationController
 
     respond_to do |format|
       if @phase.save 
-        format.html { redirect_to @phase, notice: 'Phase was successfully created.' }
+        format.html { redirect_to @phase, notice: 'Fase criada com sucesso!' }
         format.json { render action: 'show', status: :created, location: @phase }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to @phase.project, alert: 'ATENÇÃO! Não foi possível criar a fase com sucesso. Por favor, tente <a data-toggle="modal" href="#newPhase">criar novamente a fase.</a>'.html_safe }
         format.json { render json: @phase.errors, status: :unprocessable_entity }
       end
-      phasefile.phase = @phase
-      phasefile.save 
-      # Tratar excepções.
+      if !statement.blank?
+        phasefile.phase = @phase
+        phasefile.save 
+      end
     end
   end
 
@@ -73,7 +81,7 @@ class PhasesController < ApplicationController
         format.html { redirect_to @phase, notice: 'Phase was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { redirect_to @phase, alert: 'ATENÇÃO! Não foi possível alterar a fase com sucesso. Por favor, tente <a data-toggle="modal" href="#editPhase">alterar novamente a fase.</a>'.html_safe }
         format.json { render json: @phase.errors, status: :unprocessable_entity }
       end
     end
@@ -85,6 +93,24 @@ class PhasesController < ApplicationController
     @phase.destroy
     respond_to do |format|
       format.html { redirect_to phases_url }
+      format.json { head :no_content }
+    end
+  end
+
+  def toggle_access
+    @phase = Phase.find(params[:id]).toggle(:open)
+    @phase.save
+    respond_to do |format|
+      format.html { redirect_to @phase, notice: 'Fase alterada com sucesso!' }
+      format.json { head :no_content }
+    end
+  end
+
+  def toggle_grades
+    @phase = Phase.find(params[:id]).toggle(:grades)
+    @phase.save
+    respond_to do |format|
+      format.html { redirect_to @phase, notice: 'Fase alterada com sucesso!' }
       format.json { head :no_content }
     end
   end

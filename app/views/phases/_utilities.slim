@@ -1,0 +1,18 @@
+.row
+  - if @phase.project.open == true
+    - if @phase.open
+      = link_to phase_toggle_access_path(@phase)
+        .col-sm-12.col-md-12
+          .panel-stat3.bg-primary
+            h5 Tornar fase privada
+            small Retire o acesso dos alunos da unidade curricular à fase.
+            .stat-icon
+              i.fa.fa-power-off.fa-3x
+    - else
+      = link_to phase_toggle_access_path(@phase)
+        .col-sm-12.col-md-12
+          .panel-stat3.bg-success
+            h5 Publicar fase
+            small Publique a fase para que os alunos possam consultar.
+            .stat-icon
+              i.fa.fa-share.fa-3x

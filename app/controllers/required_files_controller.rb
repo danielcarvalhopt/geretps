@@ -25,10 +25,12 @@ class RequiredFilesController < ApplicationController
   # POST /required_files.json
   def create
     @required_file = RequiredFile.new(required_file_params)
+    phase = Phase.find(required_file_params[:phase_id])
+    @required_file.phase = phase
 
     respond_to do |format|
       if @required_file.save
-        format.html { redirect_to @required_file, notice: 'Required file was successfully created.' }
+        format.html { redirect_to phase, notice: 'Required file was successfully created.' }
         format.json { render action: 'show', status: :created, location: @required_file }
       else
         format.html { render action: 'new' }

@@ -8,10 +8,14 @@
   .padding-md    
     .row
       .col-md-8
+        = render "shared/messages"
         = render "phases/accordion_widget", phases: @phases, current_phase: @phase, group: @group, type: @user.type
       .col-md-4
         - if @user.student?
           = render "deliveries/new", title: "Submeter nova entrega", project: @project, group: @group, delivery: @delivery
         - if @user.teacher?
+          = render "phases/utilities"
           = render "phases/accordion_widget", phases: @phases, current_phase: @phase, group: @group, type: @user.type, mode: "deliveries"
-= render "modal_edit"
+= render "phase_files/modal_new", project: @project
+= render "required_files/modal_new"
+= render "phases/modal_edit"

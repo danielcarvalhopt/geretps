@@ -1,0 +1,22 @@
+#newRequiredFile.modal.fade aria-hidden="true" style="display: none;"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+        h4 Adicionar ficheiro obrigatório
+      .modal-body style="padding: 0"
+        .panel.panel-default
+          = form_for RequiredFile.new, html: {multipart: true, class: "form-horizontal no-margin form-border"} do |f| 
+            .panel-body
+              .tab-content
+                .tab-pane.fade.in.active
+                  .form-group
+                    .col-lg-12
+                      = f.text_field :name, class: "input form-control", placeholder: "Nome do ficheiro", data:{required:"true"}, value:""
+                  .form-group
+                    .col-lg-12
+                      = f.text_area :description, id: "wysihtml5-textarea", class: "input form-control", placeholder: "Descrição do ficheiro", data:{required:"true"}, rows:"6",value:""
+                  = f.hidden_field :phase_id, value: @phase.id
+            .panel-footer.clearfix
+              .pull-right
+                button.btn.btn-success type="submit" Adicionar
