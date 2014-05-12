@@ -1,4 +1,4 @@
-.timeline-item
+.timeline-item vocab="http://schema.org/" typeof="Action"
   .timeline-info
     - if phase.completed?
       .timeline-icon.bg-success
@@ -9,12 +9,13 @@
     - else
       .timeline-icon.bg-primary
         i.fa.fa-calendar-o  
-    .time #{short_date_or_undef phase.begin_date}
+    .time property="startTime" type="DateTime" 
+      span #{short_date_or_undef phase.begin_date}
     
   = link_to phase_path phase
     .panel.panel-default.timeline-panel
       .panel-heading
-        strong.font-14 #{phase.name}
+        strong.font-14 property="name" #{phase.name}
         
         .pull-right 
           - if type=="student"
@@ -25,7 +26,7 @@
               span.text-warning ?
             |  / #{(phase.value*20)/100} Valores
       .panel-body
-        p #{raw phase.description.try(:html_safe)}
+        span property="description" #{raw phase.description.try(:html_safe)}
         .separator.pull-right
           a.shortcut-link href="#{phase_path phase}"
             span.shortcut-icon

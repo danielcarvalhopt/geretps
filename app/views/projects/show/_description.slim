@@ -6,7 +6,7 @@
         .pull-right
           .btn.btn-xs
             i.fa.fa-cogs  Editar informações do projeto
-  .panel-body.project-info
+  .panel-body.project-info property="description"
     = raw project.description.try(:html_safe)
     br
     - if !project.min_elems.nil?

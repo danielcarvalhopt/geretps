@@ -11,7 +11,6 @@ class Project < ActiveRecord::Base
   validates :name, :subject, :begin_date, presence: true
   validates :end_date, date: {after: :begin_date}, if: :end_date
 
-
   scope :active_projects, -> { where("begin_date < ? AND end_date > ? AND open = ?", DateTime.now, DateTime.now, true).sort_by{|project| project.send(:next_delivery) || DateTime.now} }
   scope :upcoming_projects, -> { where("begin_date > ? AND open = ?", DateTime.now, true).sort_by{|project| project.send(:next_delivery) || DateTime.now} }
   scope :latest_projects, -> { where("end_date < ? AND open = ?", DateTime.now, true).sort_by{|project| project.send(:next_delivery) || DateTime.now}.reverse }
@@ -20,7 +19,7 @@ class Project < ActiveRecord::Base
 
   delegate :students, to: :subject
 
-  # fuzzily_searchable :name
+  fuzzily_searchable :name
 
   def complete?
     !self.description.blank? and self.phases.count > 0 and !self.min_elems.nil? and self.min_elems > 0

@@ -10,7 +10,7 @@
       .col-md-12
         = render "shared/messages"
 
-    .row
+    .row vocab="http://schema.org/" typeof="CreativeWork"
       .col-md-8
         = render "projects/show/description", project: @project, type: @user.type
         = render "phases/timeline_widget", title: "Fases do projeto", project: @project, phases: @phases, type: @user.type

@@ -4,4 +4,4 @@
       strong.font-14
         | Início do Projeto
       br
-      = date_or_undef project.begin_date
+      span property="datePublished" #{date_or_undef project.begin_date}
