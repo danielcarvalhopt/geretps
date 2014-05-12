@@ -67,15 +67,15 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1.json
   def update
     if (project_params[:name]=="") or (project_params[:begin_date]=="") or (project_params[:end_date]=="") or (project_params[:min_elems]=="")
-       return redirect_to @project, alert: 'ATENÇÃO! O nome, número mínimo de elementos, a data de ínicio e de término são obrigatórios para a definição de um projecto. Por favor, tente <a data-toggle="modal" href="#editProject">alterar novamente o projecto.</a>'.html_safe
+       return redirect_to @project, alert: 'ERRO: O nome, número mínimo de elementos, a data de ínicio e de término são obrigatórios para a definição de um projecto. Por favor, tente <a data-toggle="modal" href="#editProject">alterar novamente o projecto.</a>'.html_safe
     end
     respond_to do |format|
       if @project.update(project_params)
         statement = params[:statement]
         if !statement.blank?
-          document = @project.statement.update file: statement, name: statement.original_filename
+          @project.statement.update file: statement, name: statement.original_filename
         end
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.html { redirect_to @project, notice: 'Project atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
