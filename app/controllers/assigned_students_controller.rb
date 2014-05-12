@@ -1,5 +1,5 @@
 class AssignedStudentsController < ApplicationController
-  before_action :set_assigned_student, only: [:show, :edit, :update, :destroy, :accept_student]
+  before_action :set_assigned_student, only: [:show, :edit, :update, :destroy, :accept_student, :remove_student_shift]
   before_action :set_user
 
   # GET /assigned_students
@@ -59,7 +59,6 @@ class AssignedStudentsController < ApplicationController
   # DELETE /assigned_students/1
   # DELETE /assigned_students/1.json
   def destroy
-    puts "ENTROU"
     accepted = @assigned_student.accepted
     subject_name = @assigned_student.subject.name
     @assigned_student.destroy
@@ -97,6 +96,19 @@ class AssignedStudentsController < ApplicationController
         redirect_to :back
       }
       format.json {head :no_content}
+    end
+  end
+
+  def remove_student_shift
+    @assigned_student.shift = nil
+    respond_to do |format|
+      if @assigned_student.save!
+        format.html { redirect_to :back, notice: 'Aluno removido do turno com sucesso' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to :back, notice: 'Erro ao remover aluno do turno' }
+        format.json { render json: @assigned_student.errors, status: :unprocessable_entity }
+      end
     end
   end
 
