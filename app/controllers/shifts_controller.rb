@@ -30,6 +30,7 @@ class ShiftsController < ApplicationController
       if @shift.save
 
         format.html {
+          @shift.create_activity :create, owner: @shift.subject.responsible.user
           flash[:notice] = 'Turno criado com sucesso.'
           redirect_to subject_shifts_path @shift.subject
         }

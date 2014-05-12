@@ -1,4 +1,6 @@
 class Subject < ActiveRecord::Base
+  include PublicActivity::Common
+
   belongs_to :course
   belongs_to :responsible, class_name: "Teacher"
   belongs_to :academic_year
