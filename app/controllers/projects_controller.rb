@@ -51,6 +51,7 @@ class ProjectsController < ApplicationController
     end
 
     if @project.save
+      @project.create_activity :create, owner: @user.teacher
       flash[:notice] = "Projeto criado com sucesso." if flash[:error].blank?
       redirect_to @project
     else
@@ -89,7 +90,7 @@ class ProjectsController < ApplicationController
 
   def search
     search = params[:search]
-    @projects_filtered = Project.where(public: true).order(name: :asc) 
+    @projects_filtered = Project.where(public: true).order(name: :asc)
     if !@projects_filtered.blank?
       if !search or search==""
         @projects_filtered
@@ -139,7 +140,7 @@ class ProjectsController < ApplicationController
 
     def filter_projects(search)
       if @user.student?
-        projects_filtered = Project.joins(groups: :members).where(members: {student_id: @user.id}).order(begin_date: :desc) 
+        projects_filtered = Project.joins(groups: :members).where(members: {student_id: @user.id}).order(begin_date: :desc)
       else
         projects_filtered = Project.joins(subjects: :assigned_teachers).where(assigned_teachers: {teacher_id: @user.id}).order(begin_date: :desc)
       end

@@ -1,0 +1,13 @@
+li.list-group-item.clearfix
+    .row-widget
+      .icon-widget
+        span.pull-left
+          img.img-circle src="#{activity.owner.avatar.url}" alt="User avatar"
+      .info-widget
+        .pull-left.m-left-sm
+          span #{"#{activity.owner.name} adicionou"}
+          = link_to " #{activity.trackable.name} ", activity.trackable
+          | em
+          = link_to " #{activity.trackable.subject.name}", activity.trackable.subject
+          br
+          i.fa.fa-clock-o  #{I18n.l activity.created_at.to_time}
