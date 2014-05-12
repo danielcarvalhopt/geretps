@@ -1,26 +1,28 @@
-= link_to delivery
-  li.list-group-item.clearfix
-    .row-widget
-      .icon-widget
-        .activity-icon.bg-success.small
-          i.fa.fa-archive
-      .info-widget
-        .pull-left.m-left-sm style="width:100%"
-          - if mode=="phase" and type=="teacher"
-            small #{shorten140 delivery.description}
-            br
-          - else
-            p #{delivery.description}
-          small.text-muted
-            - if mode!="phase"
-              - if type=="teacher" 
-                i.fa.fa-users  #{delivery.group.identifier}
+div vocab="http://schema.org/" typeof="CreativeWork"
+  = link_to delivery, property:"url"
+    li.list-group-item.clearfix 
+      .row-widget
+        .icon-widget
+          .activity-icon.bg-success.small
+            i.fa.fa-archive
+        .info-widget
+          .pull-left.m-left-sm style="width:100%"
+            - if mode=="phase" and type=="teacher"
+              small #{shorten140 delivery.description}
+              br
+            - else
+              p property="description" #{delivery.description}
+            small.text-muted
+              - if mode!="phase"
+                - if type=="teacher" 
+                  i.fa.fa-users property="creator" type="Organization" 
+                    span property="name" #{delivery.group.identifier}
+                  br 
+                i.fa.fa-calendar  #{delivery.phase.name}
                 br 
-              i.fa.fa-calendar  #{delivery.phase.name}
-              br 
-            i.fa.fa-clock-o  #{delivery.created_at}
-            .pull-right    
-              = link_to dowload_files_zip_path delivery
-                .btn.btn-xs
-                  i.fa.fa-download  
-                    small  Download ZIP
+              i.fa.fa-clock-o property="dateCreated"  #{delivery.created_at}
+              .pull-right    
+                = link_to dowload_files_zip_path delivery
+                  .btn.btn-xs
+                    i.fa.fa-download  
+                      small  Download ZIP

@@ -15,17 +15,25 @@
 
 
         - @projects_filtered.each do |p|
-          .search-container
+          .search-container vocab="http://schema.org/" typeof="CreativeWork"
             .panel.panel-default
               .panel-body
                 .search-header
-                  = link_to p.name, project_path(p.id), class: "h4 inline-block"
-                  .text-muted #{p.subject.name} #{p.subject.academic_year.academic_year} &bull; #{p.subject.course.name} &bull; #{p.subject.course.institution.name}
-                p.m-top-sm #{p.description.html_safe}
+                  = link_to project_path(p.id), class: "h4 inline-block", property:"url"
+                    span property="name" #{p.name}
+                  .text-muted 
+                    span #{p.subject.name} 
+                    span #{p.subject.academic_year.academic_year} 
+                    span &bull; 
+                    span #{p.subject.course.name} 
+                    span &bull; 
+                    span property="sourceOrganization" typeof="Organization" 
+                      span property="name" #{p.subject.course.institution.name}
+                p.m-top-sm property="description" #{p.description.html_safe}
                 .text-right
                 .label.label-default style="margin:5px;display:inline-block;" 
-                  span.teacher
-                    img.img-circle alt="User Avatar" src="#{p.subject.responsible.avatar.url}" style="width:15px;height:15px;margin-right:5px"
-                  = p.subject.responsible.name
+                  span.teacher property="creator" typeof="Person"
+                    img.img-circle alt="#{p.subject.responsible.name} Photo" property="image" src="#{p.subject.responsible.avatar.url}" style="width:15px;height:15px;margin-right:5px"
+                    span property="name" #{p.subject.responsible.name}
 
 
