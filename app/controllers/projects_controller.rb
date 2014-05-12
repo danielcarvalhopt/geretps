@@ -38,6 +38,9 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
+    if (project_params[:name]=="") or (project_params[:begin_date]=="") or (project_params[:end_date]=="") or (project_params[:min_elems]=="")
+       return redirect_to dashboard_path, alert: 'ATENÇÃO! O nome, número mínimo de elementos, a data de ínicio e de término são obrigatórios para a criação de um novo projecto. Por favor, tente <a data-toggle="modal" href="#newProject">criar novamente o projecto.</a>'.html_safe
+    end
     @project = Project.new(project_params)
     statement = params[:statement]
 
@@ -63,6 +66,9 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
+    if (project_params[:name]=="") or (project_params[:begin_date]=="") or (project_params[:end_date]=="") or (project_params[:min_elems]=="")
+       return redirect_to @project, alert: 'ATENÇÃO! O nome, número mínimo de elementos, a data de ínicio e de término são obrigatórios para a definição de um projecto. Por favor, tente <a data-toggle="modal" href="#editProject">alterar novamente o projecto.</a>'.html_safe
+    end
     respond_to do |format|
       if @project.update(project_params)
         statement = params[:statement]
@@ -142,12 +148,12 @@ class ProjectsController < ApplicationController
       if @user.student?
         projects_filtered = Project.joins(groups: :members).where(members: {student_id: @user.id}).order(begin_date: :desc)
       else
-        projects_filtered = Project.joins(subjects: :assigned_teachers).where(assigned_teachers: {teacher_id: @user.id}).order(begin_date: :desc)
+        projects_filtered = Project.joins(subject: :assigned_teachers).where(assigned_teachers: {teacher_id: @user.id}).order(begin_date: :desc)
       end
       if !projects_filtered.blank?
         if search == ""
         else
-          projects_filtered = Project.find_by_fuzzy_name(search) & projects_filtered
+          projects_filtered = projects_filtered.find_by_fuzzy_name(search) & projects_filtered
         end
       end
       projects_filtered

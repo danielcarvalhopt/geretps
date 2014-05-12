@@ -34,11 +34,11 @@
                       label Data de término
                       = f.text_field :end_date, class: "input form-control datepicker", value: "#{project.end_date.strftime('%d/%m/%Y') if project.end_date}"
                   .form-group
-                    .col-lg-12
+                    .col-lg-9
                       .upload-file
-                        input#upload-demo.upload-demo type="file" name="statement"
-                          label data-title=("Alterar enunciado") for="upload-demo" 
-                            span data-title=("#{project.statement.name}")
+                        input#upload-demo type="file" name="statement"
+                          label data-title=("Definir enunciado") for="upload-demo" 
+                            span data-title=("Seleccionar ficheiro")
             .panel-footer.clearfix
               .pull-right
                 button.btn.btn-success type="submit" Guardar alterações
