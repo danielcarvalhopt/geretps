@@ -16,11 +16,25 @@ class ProjectsController < ApplicationController
   def show
     if current_user.student?
       _show_student
-      @notifications = PublicActivity::Activity.paginate(page: params[:page], per_page: 10).order("created_at desc").where(trackable_id: @project.group_of(current_user.student.id), trackable_type: "Group")
-      @phases = @project.phases
-      @group = @project.group_of current_user.student.id
-      @deliveries = @project.deliveries_of(@group.try(:id)).take 4
+      @notifications = []
+      notifications = PublicActivity::Activity.order("created_at desc")
+      deliveries = notifications.where(key: "delivery.create")
+
+      @notifications << deliveries.where(owner_id: @user.group_ids).all
+
+      @notifications.flatten!
+      @notifications.sort_by!(&:created_at)
+      @notifications.reverse!
     else
+      @notifications = []
+      notifications = PublicActivity::Activity.order("created_at desc")
+      deliveries = notifications.where(key: "delivery.create")
+
+      @notifications << deliveries.where(owner_id: @user.group_ids).all
+
+      @notifications.flatten!
+      @notifications.sort_by!(&:created_at)
+      @notifications.reverse!
       _show_teacher
     end
     respond_json(@project)
@@ -129,7 +143,6 @@ class ProjectsController < ApplicationController
 
   private
     def _show_teacher
-      @notifications = @project.notifications.take 5
       @phases = @project.phases
       @deliveries = @project.deliveries.take 4
       @teachers = @project.subject.teachers
@@ -137,7 +150,6 @@ class ProjectsController < ApplicationController
     end
 
     def _show_student
-      @notifications = @project.notifications.take 5
       @phases = @project.phases
       @group = @project.group_of current_user.student.id
       @deliveries = @project.deliveries_of(@group.try(:id)).take 4

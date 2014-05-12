@@ -18,11 +18,11 @@ class Delivery < ActiveRecord::Base
   end
 
   def grade_comments student_id
-    self.grade(student_id).comments
+    self.grade(student_id).try(:comments)
   end
 
   def grade_value student_id
-    self.grade(student_id).value.to_i
+    self.grade(student_id).try(:value).try(:to_i)
   end
 
 end

@@ -12,7 +12,7 @@
       span.text Consultar pauta
   - else
     - if type == "teacher"
-      = link_to phase_toggle_grades_path(phase)
+      = link_to phase_toggle_grades_path(phase), class:"shortcut-link"
         span.shortcut-icon
           i.fa.fa-share
         span.text Publicar pauta
