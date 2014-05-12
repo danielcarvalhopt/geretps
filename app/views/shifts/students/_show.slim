@@ -4,9 +4,7 @@ li.list-group-item.clearfix
       img.img-circle alt="User Avatar" src="#{student.student.avatar.url}" style="width:40px;height:40px;"
     strong.block #{student.student.name}
     .pull-right
-      = form_for student do |f|
-        = f.hidden_field :shift_id, value: ""
-        button.btn.btn-xs.btn-warning type="submit" style="width:100%"
-          i.fa.fa-sign-out  Remover
+      = link_to remove_student_shift_path(student), method: :patch, class: "btn btn-xs btn-warning"
+        i.fa.fa-sign-out  Remover
     small.text-muted
       i.fa.fa-envelope-o  #{student.student.email}
