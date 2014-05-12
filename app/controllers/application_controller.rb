@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   respond_to :html, :json
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :require_login, unless: :devise_controller?, except: :home
-  before_filter :require_login, unless: :devise_controller?, except: :search
 
   def after_sign_out_path_for(resource_or_scope)
     login_path
