@@ -37,8 +37,12 @@ class PhasesController < ApplicationController
   # POST /phases
   # POST /phases.json
   def create
+    
     @phase = Phase.new(phase_params)
     @phase.project = Project.find(phase_params[:project_id])
+    if (phase_params[:name]=="") or (phase_params[:begin_date]=="") or (phase_params[:end_date]=="")
+       return redirect_to @phase.project, alert: 'ATENÇÃO! O nome, data de ínicio e de término são obrigatórios para a criação de uma nova fase. Por favor, tente <a data-toggle="modal" href="#newPhase">criar novamente a fase.</a>'.html_safe
+    end
     phasefile = PhaseFile.new
     statement = phase_params[:statement]
 
@@ -76,6 +80,9 @@ class PhasesController < ApplicationController
   # PATCH/PUT /phases/1
   # PATCH/PUT /phases/1.json
   def update
+    if (phase_params[:name]=="") or (phase_params[:begin_date]=="") or (phase_params[:end_date]=="")
+       return redirect_to @phase, alert: 'ATENÇÃO! O nome, data de ínicio e de término são obrigatórios para a definição de uma fase. Por favor, tente <a data-toggle="modal" href="#editPhase">voltar a editar.</a>'.html_safe
+    end
     respond_to do |format|
       if @phase.update(phase_params)
         format.html { redirect_to @phase, notice: 'Phase was successfully updated.' }

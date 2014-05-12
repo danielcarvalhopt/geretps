@@ -26,3 +26,5 @@
         = render "deliveries/simple_widget", title: "Últimas entregas", deliveries: @deliveries, project: @project, type: @user.type
         - if @user.teacher?
           = render "projects/show/teacher_utilities", project: @project, type: @user.type
+          = render "phases/modal_new", project: @project
+          = render "projects/modal_edit", project: @project, user: @user

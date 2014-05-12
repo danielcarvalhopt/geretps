@@ -11,10 +11,11 @@
         i.fa.fa-check
       span.text Consultar pauta
   - else
-    = link_to phase_toggle_grades_path(phase)
-      span.shortcut-icon
-        i.fa.fa-share
-      span.text Publicar pauta
+    - if type == "teacher"
+      = link_to phase_toggle_grades_path(phase)
+        span.shortcut-icon
+          i.fa.fa-share
+        span.text Publicar pauta
   - if type == "teacher"
     a.shortcut-link data-toggle="modal" href="#editPhase"
       span.shortcut-icon
