@@ -23,7 +23,12 @@ class SubjectsController < ApplicationController
   # GET /subjects/1.json
   def show
     @projects = @subject.projects
-    _show_teacher
+    @notifications = []
+    if @user.teacher?
+      _show_teacher
+    else
+      _show_student
+    end
     respond_json(@subject)
   end
 
@@ -158,7 +163,37 @@ class SubjectsController < ApplicationController
 
     def _show_teacher
       @project = Project.new
-      @notifications = [];
+      notifications = PublicActivity::Activity.order("created_at desc")
+      projects = notifications.where(key: "project.create")
+      deliveries = notifications.where(key: "delivery.create")
+
+      @notifications << projects.where(owner_id: @project.id).all
+
+      @notifications << projects.where(owner_id: @user.id).all
+      deliveries.each do |delivery_notification|
+        @notifications << delivery_notification if @project.group_ids.include?(delivery_notification.owner_id)
+      end
+
+
+      @notifications.flatten!
+      @notifications.sort_by!(&:created_at)
+      @notifications.reverse!
+    end
+
+    def _show_student
+      notifications = PublicActivity::Activity.order("created_at desc")
+      projects = notifications.where(key: "project.create")
+      deliveries = notifications.where(key: "delivery.create")
+
+      @notifications << projects.where(owner_id: @project.id).all
+
+      @notifications << deliveries.where(owner_id: @project.group_of(@user.id)).all
+
+      @notifications.flatten!
+      @notifications.sort_by!(&:created_at)
+      @notifications.reverse!
+
+
     end
 
     def filter_subjects(search)
