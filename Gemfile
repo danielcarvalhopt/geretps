@@ -47,11 +47,6 @@ end
 gem 'date_validator'
 gem 'email_validator'
 
-group :development do
-  gem "better_errors"
-  gem "binding_of_caller"
-end
-
 gem 'rspec_api_documentation'
 
 # Use ActiveModel has_secure_password
