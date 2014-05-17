@@ -47,7 +47,6 @@ end
 gem 'date_validator'
 gem 'email_validator'
 
-gem 'rspec_api_documentation'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
