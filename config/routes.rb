@@ -8,6 +8,8 @@ Geretps::Application.routes.draw do
   get "/deliveries/dowload_files_zip/:id" => "deliveries#dowload_files_zip", as: :dowload_files_zip
   post "/grades/evaluate_group" => "grades#evaluate_group", as: :evaluate_group
 
+  get "/oai" , to: "oai#index", as: :oai
+
   get "/projects/:id/grades" => "projects#grades", as: :project_grades
   get "/phases/:id/add_phase_file" => "phases#add_phase_file", as: :phase_add_phase_file
   get "/projects/:id/groups" => "projects#groups", as: :project_groups
@@ -32,6 +34,8 @@ Geretps::Application.routes.draw do
     get "/signup" => "devise/registrations#new", as: :signup
     get "/pwreset" => "devise/passwords#new", as: :pwreset
   end
+
+
 
   resources :teachers
   resources :assigned_students
@@ -60,7 +64,7 @@ Geretps::Application.routes.draw do
         match '/sessions' => 'sessions#destroy', :via => :delete
       end
 
-      get "/projects" => "projects#index"  
+      get "/projects" => "projects#index"
       get "/projects/:id" => "projects#show"
 
       get "/phases" => "phases#index"
@@ -81,7 +85,7 @@ Geretps::Application.routes.draw do
       get "/documents/:id" => "documents#show"
       get "/deliveries/:delivery_id/documents" => "documents#index"
 
-      get "/documents/:id/download" => "documents#download"  
+      get "/documents/:id/download" => "documents#download"
     end
   end
 end
