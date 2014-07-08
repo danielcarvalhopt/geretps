@@ -1,6 +1,6 @@
 class GradesController < ApplicationController
   before_action :set_user, only: [:show]
-  before_action :set_grade, only: [:show, :edit, :update, :destroy]
+  before_action :set_grade, only: [:edit, :update, :destroy]
 
   def evaluate_group
     delivery = Delivery.find(params[:delivery_id])
