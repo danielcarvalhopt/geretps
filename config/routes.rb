@@ -84,6 +84,10 @@ Geretps::Application.routes.draw do
       get "/phases/:phase_id/groups" => "groups#index"
 
       get "/deliveries" => "deliveries#index"
+
+      get "/deliveries/grades/:id" => "deliveries#grades"
+      post "/delivery/eval" => "deliveries#grades"
+
       get "/deliveries/:id" => "deliveries#show"
       get "/phases/:phase_id/deliveries" => "deliveries#index"
       get "/phases/:phase_id/groups/:group_id/deliveries" => "deliveries#index"
