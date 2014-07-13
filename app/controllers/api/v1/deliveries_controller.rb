@@ -4,10 +4,15 @@ class Api::V1::DeliveriesController < Api::V1::BaseController
   before_action :set_user
   before_action :set_deliveries
 
-  def index 
+  def index
     respond_with(@deliveries)
   end
-  
+
+  def grades
+    delivery = @deliveries.find(params[:id])
+    respond_with(delivery.grades)
+  end
+
   def show
     delivery = @deliveries.find(params[:id])
     respond_with(delivery)
