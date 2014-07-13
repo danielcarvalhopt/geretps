@@ -1,0 +1,32 @@
+\subsection{Open Archives Initiative Protocol for Metadata Harvesting} % (fold)
+\label{sub:open_archives_initiative_protocol_for_metadata_harvesting}
+
+Uma das funcionalidades do \emph{GereTPs} é a exportação de dados recorrendo ao protocolo OAI-PMH. Para tal implementou-se um \emph{Servidor de Dados (Data Provider)}.
+
+Os pedidos ao servidor são feitos via http através de parâmetros \emph{GET} e a resposta para cada pedido é dada sob a forma de \emph{XML}.
+
+Os pedidos suportados pelo servidor e respetivos argumentos são:
+
+\begin{description}
+	\item[GetRecord] Informação detalhada sobre um \emph{Record}. No caso do \emph{GereTPs} cada \emph{Record} corresponde a uma entrega de um projeto. Os argumentos são:
+	\begin{itemize}
+		\item identifier
+		\item metadataPrefix
+	\end{itemize}
+
+	\item[Identify] Informação sobre o repositório
+
+	\item[ListRecords] Lista de Records que podem ser filtrados por categoria e/ou por data. Os argumentos são:
+	\begin{itemize}
+	  	\item from
+	  	\item until
+	  	\item resumptionToken
+	  	\item metadataPrefix
+	\end{itemize}
+
+	\item[ListIdentifiers] Tal como o \emph{ListRecords} retorna uma lista de de Records, mas
+
+	\item[ListSet] Lista de categorias. No caso do \emph{GereTPs} as categorias são as Instituições, Cursos e Disciplinas, sendo um Curso uma subcategoria de Instituição e Disciplina uma subcategoria de Curso
+\end{description}
+
+% subsection open_archives_initiative_protocol_for_metadata_harvesting (end)
