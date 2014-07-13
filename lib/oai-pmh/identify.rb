@@ -42,7 +42,7 @@ module OaiPmh
     end
 
     def addRepositoryName(xml)
-      xml.repositoryName "MyAcademy"
+      xml.repositoryName "GereTPs"
     end
 
     def addBaseUrl(xml)
@@ -58,7 +58,7 @@ module OaiPmh
     end
 
     def addEarliestDatestamp(xml)
-      xml.earliestDatestamp Publication.all.sort_by{|p|p.date}.first.date.utc.iso8601
+      xml.earliestDatestamp Delivery.all.sort_by{|p|p.created_at}.first.date.utc.iso8601
     end
 
     def addDeleteRecords(xml)
