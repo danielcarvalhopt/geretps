@@ -12,6 +12,61 @@
       i.loading-icon.fa.fa-refresh.fa-spin.fa-lg
 .clearfix
 .col-sm-12
-  #donutChart style=("height: 250px") /
+  .panel.panel-default
+    .panel-body
+      #donutChart style=("height: 250px") /
+    -@plot.each do |key, value|
+      .panel.panel-default
+        .panel-heading
+          h4.panel-title
+            a.accordion-toggle  
+              | #{key}
+              span.badge.badge-success.pull-right #{value}
+.col-sm-12.col-md-12
+  .panel.bg-danger
+    .panel-body
+      h4 Projectos publicos
+      .progress.progress-striped.active style=("height:8px; margin:5px 0 0 0;") 
+        .progress-bar.progress-bar-danger style=("width: #{((Project.all.where(public: true).count).to_f / Project.all.count)*100}%")
+          span.sr-only 
+      strong.pull-left.m-top-xs #{Project.all.where(public: true).count} projectos publicados
+      strong.pull-right.m-top-xs #{Project.all.count} projectos
+
+.col-sm-6.col-md-6
+  .panel-stat3.bg-primary
+    h2.m-top-none
+      span#serverloadCount> #{Student.all.count}
+    h5 professores registados
+    .stat-icon
+      i.fa.fa-hdd-o.fa-3x
+    .refresh-button
+      i.fa.fa-refresh
+    .loading-overlay
+      i.loading-icon.fa.fa-refresh.fa-spin.fa-lg
+.col-sm-6.col-md-6
+  .panel-stat3.bg-warning
+    h2.m-top-none
+      span#serverloadCount> #{Teacher.all.count}
+    h5 alunos registados
+    .stat-icon
+      i.fa.fa-hdd-o.fa-3x
+    .refresh-button
+      i.fa.fa-refresh
+    .loading-overlay
+      i.loading-icon.fa.fa-refresh.fa-spin.fa-lg
 
 
+
+
+script src="assets/rapheal.min.js"
+script src="assets/morris.min.js"
+
+
+javascript:
+  var donutChart = Morris.Donut({
+  element: 'donutChart',
+  data: [
+  #{raw(raw(@string).gsub('"', '').gsub('\\', '"'))}
+  ],
+  colors: ['#ffc545','#9ad268' ,'#fe402b']
+  });
