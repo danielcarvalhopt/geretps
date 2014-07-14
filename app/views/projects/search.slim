@@ -35,5 +35,76 @@
                   span.teacher property="creator" typeof="Person"
                     img.img-circle alt="#{p.subject.responsible.name} Photo" property="image" src="#{p.subject.responsible.avatar.url}" style="width:15px;height:15px;margin-right:5px"
                     span property="name" #{p.subject.responsible.name}
+      .col-sm-4
+        .col-sm-12
+          .panel-stat3.bg-success
+            h2#visitorCount.m-top-none Resultado: #{@projects.count} projectos
+            h5 Total de projectos na plataforma: #{Project.all.count}
+            i.fa.fa-arrow-circle-o-up.fa-lg
+            span.m-left-xs Relação de pesquisa: #{((@projects.count.to_f / Project.all.count)*100).round } %
+            .stat-icon
+              i.fa.fa-bar-chart-o.fa-3x
+            .refresh-button
+              i.fa.fa-refresh
+            .loading-overlay
+              i.loading-icon.fa.fa-refresh.fa-spin.fa-lg
+        .clearfix
+        .col-sm-12
+          .panel.panel-default
+            .panel-body
+              #donutChart style=("height: 250px") /
+            -@plot.each do |key, value|
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a.accordion-toggle  
+                      | #{key}
+                      span.badge.badge-success.pull-right #{value}
+        .col-sm-12.col-md-12
+          .panel.bg-danger
+            .panel-body
+              h4 Projectos publicos
+              .progress.progress-striped.active style=("height:8px; margin:5px 0 0 0;") 
+                .progress-bar.progress-bar-danger style=("width: #{((Project.all.where(public: true).count).to_f / Project.all.count)*100}%")
+                  span.sr-only 
+              strong.pull-left.m-top-xs #{Project.all.where(public: true).count} projectos publicados
+              strong.pull-right.m-top-xs #{Project.all.count} projectos
+
+        .col-sm-6.col-md-6
+          .panel-stat3.bg-primary
+            h2.m-top-none
+              span#serverloadCount> #{Student.all.count}
+            h5 professores registados
+            .stat-icon
+              i.fa.fa-user-md.fa-3x
+            .refresh-button
+              i.fa.fa-refresh
+            .loading-overlay
+              i.loading-icon.fa.fa-refresh.fa-spin.fa-lg
+        .col-sm-6.col-md-6
+          .panel-stat3.bg-warning
+            h2.m-top-none
+              span#serverloadCount> #{Teacher.all.count}
+            h5 alunos registados
+            .stat-icon
+              i.fa.fa-user.fa-3x
+            .refresh-button
+              i.fa.fa-refresh
+            .loading-overlay
+              i.loading-icon.fa.fa-refresh.fa-spin.fa-lg
 
 
+
+
+      script src="assets/rapheal.min.js"
+      script src="assets/morris.min.js"
+
+
+      javascript:
+        var donutChart = Morris.Donut({
+        element: 'donutChart',
+        data: [
+        #{raw(raw(@string).gsub('"', '').gsub('\\', '"'))}
+        ],
+        colors: ['#ffc545','#9ad268' ,'#fe402b']
+        });

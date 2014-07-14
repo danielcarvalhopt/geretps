@@ -127,6 +127,7 @@ class ProjectsController < ApplicationController
   end
 
   def search
+    @projects = Project.where(public: true)
     search = params[:search]
     @projects_filtered = Project.where(public: true).order(name: :asc)
     if !@projects_filtered.blank?
@@ -135,6 +136,18 @@ class ProjectsController < ApplicationController
       else
         @projects_filtered = Project.find_by_fuzzy_name(search) & @projects_filtered
       end
+    end
+    @plot = Hash.new
+    Project.all.each do |p| 
+      if @plot [p.subject.course.institution.name] == nil
+        @plot [p.subject.course.institution.name] = 0
+      end
+      @plot [p.subject.course.institution.name] += 1 
+      puts @plot.inspect
+    end
+    @string = ""
+    @plot.each do |key, value|
+      @string += '{label:\"'+key+'\", value:'+value.to_i.to_s+'},'
     end
 
   end
