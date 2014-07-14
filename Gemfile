@@ -21,6 +21,7 @@ gem 'public_activity'
 gem "will_paginate", "~> 3.0.5"
 gem "squeel"
 gem 'bootstrap-will_paginate'
+gem 'axlsx'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'

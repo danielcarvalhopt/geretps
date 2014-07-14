@@ -26,6 +26,9 @@ Geretps::Application.routes.draw do
   post "/subjects/:id/shifts/add_students" => "subjects#add_students_to_shift", as: :add_students_shift
   patch "/assigned_students/:id/accept_student" => "assigned_students#accept_student", as: :accept_student
   patch "/assigned_students/:id/remove_student_shift" => "assigned_students#remove_student_shift", as: :remove_student_shift
+  get "/projects/:id/export_grades" => "projects#export_final_grades", as: :export_project_grades
+  get "/projects/:id/export_grades_pdf" => "projects#export_final_grades_pdf", as: :export_project_grades_pdf
+  get "/phases/:id/export_grades" => "phases#export_phase_grades", as: :export_phase_grades
 
   devise_for :users, :controllers => {:registrations => "registrations"}
   devise_scope :user do

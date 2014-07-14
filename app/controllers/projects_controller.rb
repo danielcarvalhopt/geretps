@@ -1,7 +1,9 @@
-class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :groups, :grades]
-  before_action :set_user
+require "export/xls.rb"
+require "export/xsl.rb"
 
+class ProjectsController < ApplicationController
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :groups, :grades, :export_final_grades, :export_final_grades_pdf]
+  before_action :set_user
   # GET /projects
   # GET /projects.json
   def index
@@ -142,6 +144,20 @@ class ProjectsController < ApplicationController
       format.html { redirect_to @project, notice: 'Project was successfully updated.' }
       format.json { head :no_content }
     end
+  end
+
+  def export_final_grades
+    export = Export::XLS.new @project
+    export.final_grades
+    loc = Rails.root.join('public/export',"final_grades_#{@project.id}.xlsx")
+    send_file(loc, :filename => "final_grades_#{@project.id}.xlsx", :type => "application/xlsx")
+  end
+
+  def export_final_grades_pdf
+    export = Export::XSL.new @project
+    export.xml
+    loc = Rails.root.join('public/export',"final_grades_#{@project.id}.pdf")
+    send_file(loc, :filename => "final_grades_#{@project.id}.pdf", :type => "application/pdf")
   end
 
   private

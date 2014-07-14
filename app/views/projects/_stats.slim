@@ -1,5 +1,17 @@
-.panel.panel-default
-  .panel-heading Estatísticas
-  .panel-body
-    
+.col-sm-12
+  .panel-stat3.bg-success
+    h2#visitorCount.m-top-none Resultado: #{@projects.count} projectos
+    h5 Total de projectos na plataforma: #{Project.all.count}
+    i.fa.fa-arrow-circle-o-up.fa-lg
+    span.m-left-xs Relação de pesquisa: #{((@projects.count.to_f / Project.all.count)*100).round } %
+    .stat-icon
+      i.fa.fa-bar-chart-o.fa-3x
+    .refresh-button
+      i.fa.fa-refresh
+    .loading-overlay
+      i.loading-icon.fa.fa-refresh.fa-spin.fa-lg
+.clearfix
+.col-sm-12
+  #donutChart style=("height: 250px") /
+
 
