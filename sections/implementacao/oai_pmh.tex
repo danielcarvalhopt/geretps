@@ -24,9 +24,59 @@ Os pedidos suportados pelo servidor e respetivos argumentos são:
 	  	\item metadataPrefix
 	\end{itemize}
 
-	\item[ListIdentifiers] Tal como o \emph{ListRecords} retorna uma lista de de Records, mas
+	\item[ListIdentifiers] É uma abreviação do \emph{ListRecords}, em que disponibiliza um \emph{header} para cada \emph{Record}. Os argumentos são:
+	\begin{itemize}
+	  	\item from
+	  	\item until
+	  	\item resumptionToken
+	  	\item metadataPrefix
+	\end{itemize}
+
+	\item[ListMetadataFormats] Lista todos os formatos de representação de um \emph{Record}
 
 	\item[ListSet] Lista de categorias. No caso do \emph{GereTPs} as categorias são as Instituições, Cursos e Disciplinas, sendo um Curso uma subcategoria de Instituição e Disciplina uma subcategoria de Curso
 \end{description}
 
+Nos verbos em que é retornado uma lista de elementos (\emph{ListSet, ListRecords, ListIdentifiers}), a resposta obtida é paginada, isto é sempre que um utilizador faz um pedido é retornado uma lista com o máximo de 100 elementos. Caso haja mais resultados, é retornado no \emph{XML} um \emph{resumptionToken}, que quando usado num pedido retorna os resto dos elementos, respeitando a regra dos 100 elementos por resposta.
+
+\begin{verbatim}
+	//PEDIDO
+	localhost:3000/oai?verb=ListSets
+
+	//Resposta
+	<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+	<responseDate>2014-07-14T12:10:02Z</responseDate>
+	<request value="ListSets">http://localhost:3000/oai</request>
+	<ListSets>
+	<set>
+	<setSpec>Universidade%20do%20Porto</setSpec>
+	<setName>Universidade do Porto</setName>
+	</set>
+	<set>
+	<setSpec>Universidade%20de%20Coimbra</setSpec>
+	<setName>Universidade de Coimbra</setName>
+	</set>
+	<set>
+	<setSpec>Universidade%20T%C3%A9cnica%20de%20Lisboa</setSpec>
+	<setName>Universidade Técnica de Lisboa</setName>
+	</set>
+	<set>
+	<setSpec>Universidade%20de%20Lisboa</setSpec>
+	<setName>Universidade de Lisboa</setName>
+	</set>
+	<set>
+	<setSpec>Universidade%20do%20Minho</setSpec>
+	<setName>Universidade do Minho</setName>
+	</set>
+	<set>
+	<setSpec>
+	Universidade%20do%20Minho:Mestrado%20em%20Engenharia%20Inform%C3%A1tica
+	</setSpec>
+	...
+	<setName>Instituto Superior de Paços de Brandão</setName>
+	</set>
+	<resumptionToken completeListSize="121" cursor="0">74d04e736360b180118b35db88461416</resumptionToken>
+	</ListSets>
+	</OAI-PMH>
+\end{verbatim}
 % subsection open_archives_initiative_protocol_for_metadata_harvesting (end)

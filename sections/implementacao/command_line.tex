@@ -7,19 +7,15 @@ Para facilitar a realização de algumas tarefas e melhorar o desempenho dos uti
 Segue-se o menu de ajuda do utilitário onde estão descritas as funcionalidades implementadas na versão atual:
 
 \begin{verbatim}
-USAGE: geretps <command> [<args>]
+SAGE: geretps <command> [<args>]
 
 Commands:
-  init                                Create an empty geretps folder or 
-                                        reinitialize an existing one.
-  login -E <email> -P <password>      Get authentication token and store 
-                                        authentication data.
-  list <entity>                       List all objects of type entity 
-                                        belonging to the user.
-  show <entity> <id>                  Show the object of type entity with 
-                                        the specified identifier.
-  download <entity>                   Download all objects of type entity 
-                                        belonging to the user.
+  init                                Create an empty geretps folder or reinitialize an existing one.
+  login -E <email> -P <password>      Get authentication token and store authentication data.
+  list <entity>                       List all objects of type entity belonging to the user.
+  show <entity> <id>                  Show the object of type entity with the specified identifier.
+  download <entity>                   Download all objects of type entity belonging to the user.
+  evaluate <entity>                   Evaluate a project's delivery of a student or group.
   help                                Show this help message and quit.
 
 Description:
@@ -118,3 +114,14 @@ Segue-se um exemplo da estrutura de diretorias criada pelo comando.
 \end{verbatim}
 
 De referir que o referido comando, em todas as diretorias criadas, cria um ficheiro \verb%INFO.xml% com todas as informações relativas ao contexto atual.
+
+Quando dentro de uma entrega, o utilizador pode usar o comando \verb%evaluate%.\\
+
+Este comando permite avaliar individualmente ou coletivamente uma entrega.
+
+\begin{verbatim}
+   > geretps evaluate group 100 "Comentário sobre a entrega"
+\end{verbatim}
+
+Por último também é possivel fazer download das das pautas em formato xlsx e pdf para as fases e para um projecto, recorrendo para tal ao comando \verb%download grades%
+
