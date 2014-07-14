@@ -22,7 +22,7 @@ class Phase < ActiveRecord::Base
     last_evaluated_delivery = last_evaluated_delivery(student_id)
     if !last_evaluated_delivery.nil?
       grade = (last_evaluated_delivery.grade(student_id).value * self.value)/100
-      (grade * 20) / 100
+      ((grade * 20) / 100).round(1)
     end
   end
 

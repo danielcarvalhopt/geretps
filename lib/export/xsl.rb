@@ -17,9 +17,9 @@ module Export
               xml.identifier s.identifier
               xml.name s.name
               @project.phases.each do |ph|
-                xml.phase ph.grade(s.id)
+                xml.phase ph.grade(s.id)||0.0
               end
-              xml.project_grade @project.grade(s.id)
+              xml.project_grade @project.grade(s.id)||0.0
             }
           end
         }
