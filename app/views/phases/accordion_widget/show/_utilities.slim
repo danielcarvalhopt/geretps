@@ -30,3 +30,8 @@
       span.shortcut-icon
         i.fa.fa-download
       span.text Download entregas
+  - if !phase.completed? && type = "teacher"
+    = link_to phase_tests_path, class:"shortcut-link"
+      span.shortcut-icon
+        i.fa.fa-dashboard
+      span.text Testes

@@ -1,0 +1,14 @@
+li.list-group-item.clearfix
+  .row-widget
+    .icon-widget
+      .activity-icon.small
+        i.fa.fa-dashboard
+    .info-widget
+      .pull-left.m-left-sm
+        span #{test.name}
+      = link_to test, method: :delete, data: { confirm: "Tem a certeza que pretende remover o teste?" }
+        .pull-right
+          span.label.label-danger
+            i.fa.fa-times  Eliminar
+
+
