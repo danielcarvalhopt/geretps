@@ -74,6 +74,11 @@ Geretps::Application.routes.draw do
       get "/projects" => "projects#index"
       get "/projects/:id" => "projects#show"
 
+      get "/projects/:id/export_grades" => "projects#export_final_grades", as: :project_grades
+      get "/projects/:id/export_grades_pdf" => "projects#export_final_grades_pdf", as: :project_grades_pdf
+      get "/phases/:id/export_grades" => "phases#export_phase_grades", as: :phase_grades
+
+
       get "/phases" => "phases#index"
       get "/phases/:id" => "phases#show"
       get "/projects/:project_id/phases" => "phases#index"

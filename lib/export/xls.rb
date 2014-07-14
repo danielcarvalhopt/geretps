@@ -48,7 +48,7 @@ module Export
           line = []
           line << s.identifier
           line << s.name
-          line << ((phase.grade s.id)||0)*10
+          line << ((phase.grade s.id)||0.0)*10
           line << phase.grade(s.id)
           sheet.add_row line
         end

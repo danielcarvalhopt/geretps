@@ -57,10 +57,10 @@ class Project < ActiveRecord::Base
   end
 
   def grade student_id
-    grade = 0
+    grade = 0.0
     self.phases.each do |phase|
       if phase.grade(student_id) != nil
-        grade +=  phase.grade student_id 
+        grade +=  phase.grade student_id
       end
     end
     grade
