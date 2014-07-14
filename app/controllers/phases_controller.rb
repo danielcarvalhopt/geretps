@@ -1,5 +1,6 @@
+require "export/xls.rb"
 class PhasesController < ApplicationController
-  before_action :set_phase, only: [:show, :edit, :update, :destroy, :grades]
+  before_action :set_phase, only: [:show, :edit, :update, :destroy, :grades, :export_phase_grades]
   before_action :set_user
 
   # GET /phases
@@ -120,6 +121,13 @@ class PhasesController < ApplicationController
       format.html { redirect_to @phase, notice: 'Fase alterada com sucesso!' }
       format.json { head :no_content }
     end
+  end
+
+  def export_phase_grades
+    export = Export::XLS.new @phase.project
+    export.phase_grades @phase
+    loc = Rails.root.join('public/export',"phase_#{@phase.project.id}_grades_#{@phase.project.id}.xlsx")
+    send_file(loc, :filename => "phase_#{@phase.project.id}_grades_#{@phase.project.id}.xlsx", :type => "application/xlsx")
   end
 
   private

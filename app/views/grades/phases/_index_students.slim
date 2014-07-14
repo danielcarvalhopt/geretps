@@ -1,3 +1,6 @@
+=link_to export_phase_grades_path, class:"btn btn-default pull-right", style:"margin: 5px"
+  i.fa.fa-exchange
+  |  Exportar XLS
 - students.each do |student|
 	tr
 	= render "grades/phases/show_student", student: student, project: project, group: (project.group_of student.id)
