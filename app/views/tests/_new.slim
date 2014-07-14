@@ -1,0 +1,10 @@
+.panel.panel-default
+  .panel-heading
+    | Adicionar Teste
+  .panel-body.no-padding
+    ul#feedList.list-group.collapse.in
+      li.list-group-item.clearfix
+        - if phase.completed?
+          | De momento não é possível adicionar um novo teste.
+        - else
+          = render "tests/form", test: test, phase: phase

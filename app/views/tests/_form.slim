@@ -1,0 +1,39 @@
+script src="#{ asset_path 'dropzone.min.js' }"
+
+.form-group
+  .col-lg-12
+    form.dropzone.dz-clickable#input_file action="#{add_input_path}" style="min-height: 100px;"
+      .dz-default.dz-message style="padding: 50px 20px 10px 20px"
+        i.fa.fa-cloud-upload.fa-2x
+        span style="font-size:17px;"  Carregar Input
+.form-group
+  .col-lg-12
+    form.dropzone.dz-clickable#output_file action="#{add_output_path}" style="min-height: 100px; margin-top: 20px;"
+      .dz-default.dz-message style="padding: 50px 20px 10px 20px"
+        i.fa.fa-cloud-upload.fa-2x
+        span style="font-size:17px;"  Carregar Output
+= form_for test do |f|
+  .form-group
+    .col-lg-12
+      = f.hidden_field :phase_id, value:"#{phase.id}"
+      br
+      = f.text_field :name, class: "input form-control", placeholder: "Nome do Teste", data:{required:"true"}, value:""
+      br
+      = f.text_field :executable, class: "input form-control", placeholder: "Nome do Executável", data:{required:"true"}, value:""
+      br
+      button.btn.btn-success type="submit" style="width:100%" Submeter novo Teste
+
+
+
+javascript:
+  Dropzone.options.inputFile = {
+    paramName: "input",
+    maxFilesize: 100,
+    uploadMultiple: false
+  };
+  Dropzone.options.outputFile = {
+    paramName: "output",
+    maxFilesize: 100,
+    uploadMultiple: false
+  };
+

@@ -14,7 +14,7 @@ class OaiController < ApplicationController
     case options["verb"]
     when "ListSets"
       response = OaiPmh::ListSet.new(request: request.base_url, resumptionToken: options["resumptionToken"])
-    when "Indentify"
+    when "Identify"
       response = OaiPmh::Identify.new(request.base_url)
     when "ListMetadataFormats"
       response = OaiPmh::ListMetadataFormats.new("#{request.base_url}/oai")

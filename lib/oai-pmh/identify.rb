@@ -58,7 +58,7 @@ module OaiPmh
     end
 
     def addEarliestDatestamp(xml)
-      xml.earliestDatestamp Delivery.all.sort_by{|p|p.created_at}.first.date.utc.iso8601
+      xml.earliestDatestamp Delivery.all.sort_by{|p|p.created_at}.first.created_at.utc.iso8601
     end
 
     def addDeleteRecords(xml)

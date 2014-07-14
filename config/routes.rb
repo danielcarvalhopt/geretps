@@ -21,6 +21,10 @@ Geretps::Application.routes.draw do
   get "/subjects/:id/shifts" => "subjects#shifts", as: :subject_shifts
   get "/subjects/:id/students" => "subjects#students", as: :subject_students
   get "/grades" => "grades#show", as: :student_grades
+  get "/phases/:id/tests" => "phases#tests", as: :phase_tests
+
+  post "/tests/add_input" => "tests#add_input", as: :add_input
+  post "/tests/add_output" => "tests#add_output", as: :add_output
 
   post "/groups/:id/add_members" => "groups#add_members", as: :add_members
   post "/subjects/:id/add_teachers" => "subjects#add_teachers", as: :add_teachers
@@ -70,6 +74,11 @@ Geretps::Application.routes.draw do
       get "/projects" => "projects#index"
       get "/projects/:id" => "projects#show"
 
+      get "/projects/:id/export_grades" => "projects#export_final_grades", as: :project_grades
+      get "/projects/:id/export_grades_pdf" => "projects#export_final_grades_pdf", as: :project_grades_pdf
+      get "/phases/:id/export_grades" => "phases#export_phase_grades", as: :phase_grades
+
+
       get "/phases" => "phases#index"
       get "/phases/:id" => "phases#show"
       get "/projects/:project_id/phases" => "phases#index"
@@ -80,6 +89,11 @@ Geretps::Application.routes.draw do
       get "/phases/:phase_id/groups" => "groups#index"
 
       get "/deliveries" => "deliveries#index"
+
+      get "/deliveries/grades/:id" => "deliveries#grades"
+      post "/deliveries/:id/eval_group" => "deliveries#eval_group"
+      post "/deliveries/:id/eval_student" => "deliveries#eval_student"
+
       get "/deliveries/:id" => "deliveries#show"
       get "/phases/:phase_id/deliveries" => "deliveries#index"
       get "/phases/:phase_id/groups/:group_id/deliveries" => "deliveries#index"

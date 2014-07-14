@@ -46,8 +46,18 @@ class DeliveriesController < ApplicationController
         new_delivery_notification
         new_delivery_mail_notification
         @delivery.create_activity :create, owner: @delivery.group
+        @delivery.group.students.each do|s|
+          grade = Grade.new(delivery_id: @delivery.id, student_id: s.id)
+          grade.save
+        end
         format.html { redirect_to @phase, notice: 'Entrega submetida com sucesso.' }
         format.json { render action: 'show', status: :created, location: @delivery }
+
+        @delivery.phase.tests.each do |test|
+          diff = test.run(@delivery)
+          tr = TestResult.new(test_id: test.id, diff: diff, delivery_id: @delivery.id)
+          tr.save
+        end
       else
 
         error = if @@new_phase_documents == 0
@@ -112,60 +122,60 @@ class DeliveriesController < ApplicationController
   end
 
   private
-    def _show_teacher
-      @phase = @delivery.phase
-      @project = @phase.project
-      @grades = @delivery.grades
+  def _show_teacher
+    @phase = @delivery.phase
+    @project = @phase.project
+    @grades = @delivery.grades
+  end
+
+  def _show_student
+  end
+
+  def set_user
+    @user = current_user.student? ? current_user.student : current_user.teacher
+  end
+
+  def new_delivery_mail_notification
+    subject = "Relatório de Entrega - #{@delivery.phase.name} do #{@delivery.phase.project.name}"
+    @delivery.group.members.each do |member|
+      mail = member.student.email
+      DeliveryMailer.new_record_notification(mail,subject,@delivery).deliver
     end
 
-    def _show_student
-    end
+  end
 
-    def set_user
-      @user = current_user.student? ? current_user.student : current_user.teacher
-    end
+  def new_delivery_notification
+    Notification.create title: "Nova entrega para o #{@delivery.phase.project.name}", body: "Foi efetuada uma nova entrega para a #{@delivery.phase.name} do #{@delivery.phase.project.name}.", date: DateTime.now, project_id: @delivery.phase.project.id
+  end
 
-    def new_delivery_mail_notification
-      subject = "Relatório de Entrega - #{@delivery.phase.name} do #{@delivery.phase.project.name}"
-      @delivery.group.members.each do |member|
-        mail = member.student.email
-        DeliveryMailer.new_record_notification(mail,subject,@delivery).deliver
-      end
-
+  def check_required_files
+    required_files = @phase.required_files
+    required_files.each do |required_file|
+      return false if @@new_phase_documents.find{|document| document.name == required_file.name}.nil?
     end
+    true
+  end
 
-    def new_delivery_notification
-      Notification.create title: "Nova entrega para o #{@delivery.phase.project.name}", body: "Foi efetuada uma nova entrega para a #{@delivery.phase.name} do #{@delivery.phase.project.name}.", date: DateTime.now, project_id: @delivery.phase.project.id
-    end
+  def initialize_phase_documents
+    @@new_phase_documents ||= []
+  end
 
-    def check_required_files
-      required_files = @phase.required_files
-      required_files.each do |required_file|
-        return false if @@new_phase_documents.find{|document| document.name == required_file.name}.nil?
-      end
-      true
+  def add_delivery_files
+    @@new_phase_documents.each do |document|
+      document.active = true
+      document.save!
+      DeliveryFile.create delivery_id: @delivery.id, document_id: document.id
     end
+    @@new_phase_documents = []
+  end
 
-    def initialize_phase_documents
-      @@new_phase_documents ||= []
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_delivery
+    @delivery = Delivery.find(params[:id])
+  end
 
-    def add_delivery_files
-      @@new_phase_documents.each do |document|
-        document.active = true
-        document.save!
-        DeliveryFile.create delivery_id: @delivery.id, document_id: document.id
-      end
-      @@new_phase_documents = []
-    end
-
-    # Use callbacks to share common setup or constraints between actions.
-    def set_delivery
-      @delivery = Delivery.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def delivery_params
-      params.require(:delivery).permit(:description, :public, :evaluated, :phase_id, :group_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def delivery_params
+    params.require(:delivery).permit(:description, :public, :evaluated, :phase_id, :group_id)
+  end
 end
