@@ -182,12 +182,12 @@ class SubjectsController < ApplicationController
 
     def _show_student
       notifications = PublicActivity::Activity.order("created_at desc")
-      projects = notifications.where(key: "project.create")
+      # subjects = notifications.where(key: "project.create")
       deliveries = notifications.where(key: "delivery.create")
 
-      @notifications << projects.where(owner_id: @project.id).all
+      # @notifications << subject.where(owner_id: @subject.id).all
 
-      @notifications << deliveries.where(owner_id: @project.group_of(@user.id)).all
+      # @notifications << deliveries.where(owner_id: @project.group_of(@user.id)).all
 
       @notifications.flatten!
       @notifications.sort_by!(&:created_at)

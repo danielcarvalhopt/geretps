@@ -43,7 +43,6 @@ class PagesController < ApplicationController
 
       @notifications.flatten!
       @notifications.sort_by!(&:created_at)
-      @notifications.unique!
       @notifications.reverse!
     end
     def _dashboard_teacher

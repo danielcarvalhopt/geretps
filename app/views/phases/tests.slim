@@ -1,0 +1,17 @@
+= render "shared/navbar"
+= render "shared/sidebar", user: @user
+
+#main-container
+  = render "shared/dashboard/breadcrumb", user: @user, sections: [{name:"Painel do #{@user.type_pt.capitalize}",link: dashboard_path},{name:"#{@project.name}", link:"#{project_path @project}"},{name:"Fases e Entregas", link:"#{phase_path @phase}"},{name: "Testes", link:"#"}]
+  = render "shared/dashboard/header", header: "Testes"
+
+  .padding-md
+    .row
+      .col-md-12
+        = render "shared/messages"
+    .row
+      .col-md-8
+        = render "tests/phases/index", tests: @phase.tests
+      .col-md-4
+        = render "tests/new", phase: @phase, test: @test
+
