@@ -1,6 +1,7 @@
 require "export/xls.rb"
 class PhasesController < ApplicationController
-  before_action :set_phase, only: [:show, :edit, :update, :destroy, :grades, :export_phase_grades]
+  before_action :set_phase, only: [:show, :edit, :update, :destroy, :grades, :export_phase_grades, :tests]
+  before_action :set_phase, only: [:show, :edit, :update, :destroy, :grades]
   before_action :set_user
 
   # GET /phases
@@ -35,10 +36,17 @@ class PhasesController < ApplicationController
     @students = @project.students
   end
 
+
+  def tests
+    @project = @phase.project
+    @students = @project.students
+    @test = Test.new
+  end
+
   # POST /phases
   # POST /phases.json
   def create
-    
+
     @phase = Phase.new(phase_params)
     @phase.project = Project.find(phase_params[:project_id])
     if (phase_params[:name]=="") or (phase_params[:begin_date]=="") or (phase_params[:end_date]=="") or (phase_params[:value]=="")
@@ -64,7 +72,7 @@ class PhasesController < ApplicationController
     end
 
     respond_to do |format|
-      if @phase.save 
+      if @phase.save
         format.html { redirect_to @phase, notice: 'Fase criada com sucesso!' }
         format.json { render action: 'show', status: :created, location: @phase }
       else
@@ -73,7 +81,7 @@ class PhasesController < ApplicationController
       end
       if !statement.blank?
         phasefile.phase = @phase
-        phasefile.save 
+        phasefile.save
       end
     end
   end

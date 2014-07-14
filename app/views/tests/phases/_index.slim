@@ -1,0 +1,9 @@
+.panel.panel-default
+  .panel-heading Testes
+  .panel-body.no-padding
+    ul#feedList.list-group
+      - if tests.empty?
+        = render "tests/phases/empty"
+      - else
+        - tests.each do |test|
+          = render "tests/phases/show", test: test
